@@ -42,17 +42,27 @@ namespace Shared.Messaging
                     _channel.ExchangeDeclare(exchange: BrokerName, type: ExchangeType.Topic);
                     break;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    if (i == retries - 1) throw;
-                    System.Threading.Thread.Sleep(3000);
+                    if (i == retries - 1)
+                    {
+                        Console.WriteLine($"[RabbitMQEventBus] WARNING: Could not connect to RabbitMQ broker on host '{_hostName}'. The application will run in offline messaging mode without broker integration. Error: {ex.Message}");
+                    }
+                    else
+                    {
+                        System.Threading.Thread.Sleep(3000);
+                    }
                 }
             }
         }
 
         public Task PublishAsync<TEvent>(TEvent @event) where TEvent : class
         {
-            if (_channel == null) throw new InvalidOperationException("RabbitMQ channel is not initialized.");
+            if (_channel == null)
+            {
+                Console.WriteLine($"[RabbitMQEventBus] INFO: Skipping event publication for '{typeof(TEvent).Name}' because RabbitMQ broker is offline.");
+                return Task.CompletedTask;
+            }
 
             var eventName = @event.GetType().Name;
             var json = JsonSerializer.Serialize(@event);
@@ -71,7 +81,11 @@ namespace Shared.Messaging
             where TEvent : class
             where THandler : IEventHandler<TEvent>
         {
-            if (_channel == null) throw new InvalidOperationException("RabbitMQ channel is not initialized.");
+            if (_channel == null)
+            {
+                Console.WriteLine($"[RabbitMQEventBus] INFO: Skipping event subscription for '{typeof(TEvent).Name}' with handler '{typeof(THandler).Name}' because RabbitMQ broker is offline.");
+                return;
+            }
 
             var eventName = typeof(TEvent).Name;
             var queueName = $"{eventName}_{typeof(THandler).Name}_queue";
