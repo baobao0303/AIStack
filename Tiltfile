@@ -6,8 +6,7 @@
 local_resource(
     'identity-service',
     cmd='dotnet watch run --project backend/services/Identity/Identity.Api/Identity.Api.csproj',
-    deps=['backend/services/Identity'],
-    port=[5118, 7136]
+    deps=['backend/services/Identity']
 )
 
 # 2. ECommerce Api Service (Catalog & Stripe checkout)
@@ -15,6 +14,5 @@ local_resource(
 local_resource(
     'ecommerce-service',
     cmd='dotnet watch run --project backend/services/ECommerce/ECommerce.Api/ECommerce.Api.csproj',
-    deps=['backend/services/ECommerce'],
-    port=[5169, 7062]
+    deps=['backend/services/ECommerce']
 )
