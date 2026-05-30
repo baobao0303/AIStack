@@ -77,6 +77,24 @@ services:
     depends_on:
       - identity-service
       - ecommerce-service
+  notification-service:
+    image: notification-service:latest
+    container_name: notification-service
+    build:
+      context: .
+      dockerfile: ./backend/services/Notification/Dockerfile
+    restart: always
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=crm_shared;Username=postgres;Password=supersecretpassword
+      - MessageBus__Host=rabbitmq
+      - Smtp__Host=smtp.gmail.com
+      - Smtp__Port=587
+      - Smtp__UseSsl=false
+      - Smtp__Username=${SMTP_USER}
+      - Smtp__Password=${SMTP_PASSWORD}
+    depends_on:
+      - postgres
+      - rabbitmq
 
   rabbitmq:
     image: rabbitmq:3-management-alpine

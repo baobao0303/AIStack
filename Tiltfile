@@ -25,6 +25,12 @@ if node_env == 'production':
         dockerfile='./backend/api-gateway/Dockerfile'
     )
     
+    docker_build(
+        'notification-service',
+        '.',
+        dockerfile='./backend/services/Notification/Dockerfile'
+    )
+    
     docker_compose('docker-compose.yml')
 else:
     # --- 2. Native Local Host Orchestration (Development Mode) ---
@@ -52,5 +58,14 @@ else:
         cmd='dotnet build backend/api-gateway/api-gateway.csproj',
         serve_cmd='dotnet run --project backend/api-gateway/api-gateway.csproj --no-build',
         deps=['backend/api-gateway'],
+        ignore=['**/bin/**', '**/obj/**', '**/logs/**']
+    )
+    
+    # 4. Notification Service (.NET background mail worker)
+    local_resource(
+        'notification-service',
+        cmd='dotnet build backend/services/Notification/Notification.sln',
+        serve_cmd='dotnet run --project backend/services/Notification/Notification.Service/Notification.Service.csproj --no-build',
+        deps=['backend/services/Notification'],
         ignore=['**/bin/**', '**/obj/**', '**/logs/**']
     )

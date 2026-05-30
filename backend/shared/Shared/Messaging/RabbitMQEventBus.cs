@@ -74,7 +74,7 @@ namespace Shared.Messaging
             if (_channel == null) throw new InvalidOperationException("RabbitMQ channel is not initialized.");
 
             var eventName = typeof(TEvent).Name;
-            var queueName = $"{eventName}_queue";
+            var queueName = $"{eventName}_{typeof(THandler).Name}_queue";
 
             _channel.QueueDeclare(queue: queueName, durable: true, exclusive: false, autoDelete: false, arguments: null);
             _channel.QueueBind(queue: queueName, exchange: BrokerName, routingKey: eventName);
