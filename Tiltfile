@@ -1,18 +1,41 @@
 # Tiltfile for local development of CRM Portal & E-commerce Microservices
-# Orchestrates microservices inside containerized Docker environments with Tilt & Docker Compose.
+# Dynamically switches orchestration based on the NODE_ENV environment variable:
+# - NODE_ENV == 'production': Runs containerized inside Docker Compose.
+# - Other (default): Runs natively on the host machine for ultra-fast local feedback loops.
 
-# 1. Register Docker Builds
-docker_build(
-    'identity-service',
-    './backend/services/Identity',
-    dockerfile='./backend/services/Identity/Identity.Api/Dockerfile'
-)
+node_env = os.getenv('NODE_ENV', 'development')
 
-docker_build(
-    'ecommerce-service',
-    './backend/services/ECommerce',
-    dockerfile='./backend/services/ECommerce/ECommerce.Api/Dockerfile'
-)
-
-# 2. Load and Orchestrate Docker Compose Services
-docker_compose('docker-compose.yml')
+if node_env == 'production':
+    # --- 1. Containerized Docker Orchestration (Production Mode) ---
+    docker_build(
+        'identity-service',
+        './backend/services/Identity',
+        dockerfile='./backend/services/Identity/Identity.Api/Dockerfile'
+    )
+    
+    docker_build(
+        'ecommerce-service',
+        './backend/services/ECommerce',
+        dockerfile='./backend/services/ECommerce/ECommerce.Api/Dockerfile'
+    )
+    
+    docker_compose('docker-compose.yml')
+else:
+    # --- 2. Native Local Host Orchestration (Development Mode) ---
+    # 1. Identity Api Service (Xác thực & RBAC)
+    local_resource(
+        'identity-service',
+        cmd='dotnet build backend/services/Identity/Identity.sln',
+        serve_cmd='dotnet run --project backend/services/Identity/Identity.Api/Identity.Api.csproj --no-build',
+        deps=['backend/services/Identity'],
+        ignore=['**/bin/**', '**/obj/**', '**/logs/**']
+    )
+    
+    # 2. ECommerce Api Service (Catalog & Stripe checkout)
+    local_resource(
+        'ecommerce-service',
+        cmd='dotnet build backend/services/ECommerce/ECommerce.sln',
+        serve_cmd='dotnet run --project backend/services/ECommerce/ECommerce.Api/ECommerce.Api.csproj --no-build',
+        deps=['backend/services/ECommerce'],
+        ignore=['**/bin/**', '**/obj/**', '**/logs/**']
+    )
