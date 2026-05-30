@@ -4,13 +4,13 @@
 # 1. Register Docker Builds
 docker_build(
     'identity-service',
-    context='./backend/services/Identity',
+    './backend/services/Identity',
     dockerfile='./backend/services/Identity/Identity.Api/Dockerfile'
 )
 
 docker_build(
     'ecommerce-service',
-    context='./backend/services/ECommerce',
+    './backend/services/ECommerce',
     dockerfile='./backend/services/ECommerce/ECommerce.Api/Dockerfile'
 )
 
