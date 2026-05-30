@@ -32,8 +32,8 @@ Tài liệu này lưu trữ lộ trình phát triển và tiến độ thực th
 - [x] Scaffold thành công giải pháp **Clean Architecture** `.NET 6` (Domain, Application, Infrastructure, Api, Tests) và liên kết tệp `Identity.sln`.
 - [x] Cấu hình chính xác tất cả các Project References giữa các tầng.
 - [x] Biên dịch và thử nghiệm giải pháp thành công với **0 lỗi và 0 cảnh báo**.
-- [/] **[ĐANG LÀM]** Tạo thư mục thiết kế `docs/stories/US-001/` và chuẩn bị viết các thực thể `Tenant`, `User`, `Role` trong `Identity.Domain`.
-- [ ] Xây dựng Database Context (Entity Framework Core) kết nối PostgreSQL và viết Database Migrations.
+- [x] **[ĐÃ HOÀN THÀNH]** Triển khai thành công US-001: Xây dựng các thực thể Tenant, User, Role, UserRole trong Identity.Domain, viết MediatR command handler và bộ 14 unit tests (100% Passed).
+- [ ] Xây dựng Database Context (Entity Framework Core) kết nối PostgreSQL và viết Database Migrations cho US-001.
 - [ ] Triển khai các API Endpoints phục vụ việc đăng ký tài khoản và doanh nghiệp.
 - [ ] Viết bộ kiểm thử tự động xUnit để chứng minh chất lượng (Validation Proof).
 
