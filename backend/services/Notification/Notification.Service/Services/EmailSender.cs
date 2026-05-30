@@ -37,9 +37,10 @@ namespace Notification.Service.Services
             var username = _configuration["Smtp:Username"] ?? "baobao0303@gmail.com";
             var password = _configuration["Smtp:Password"]; // Loaded securely from gitignored secrets
 
-            if (string.IsNullOrWhiteSpace(password))
+            if (string.IsNullOrWhiteSpace(password) || password == "YOUR_SMTP_PASSWORD")
             {
-                throw new InvalidOperationException("SMTP Configuration error: Password is empty or not set.");
+                _logger.LogWarning("[EmailSender] WARNING: SMTP password is not configured (or is using the placeholder 'YOUR_SMTP_PASSWORD'). Running in local development offline mail mode. No real emails will be sent.");
+                return;
             }
 
             // Create SMTP Message using MimeKit
