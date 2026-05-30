@@ -76,6 +76,7 @@ namespace Identity.Infrastructure.Persistence
                 entity.HasKey(rt => rt.Id);
                 entity.Property(rt => rt.TokenHash).IsRequired().HasMaxLength(255);
                 entity.Property(rt => rt.JwtId).IsRequired().HasMaxLength(100);
+                entity.Property(rt => rt.AbsoluteExpiresAt).IsRequired();
                 entity.HasIndex(rt => rt.TokenHash).IsUnique();
             });
         }

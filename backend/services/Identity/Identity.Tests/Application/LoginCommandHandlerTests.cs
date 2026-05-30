@@ -106,6 +106,7 @@ namespace Identity.Tests.Application
             var parsedRefreshToken = jwtHandler.ReadJwtToken(result.RefreshToken);
             Assert.Equal(userId.ToString(), parsedRefreshToken.Subject);
             Assert.NotNull(parsedRefreshToken.Id); // jti exists
+            Assert.NotNull(parsedRefreshToken.Payload["absolute_exp"]);
 
             // Verify Refresh Token Hash is securely stored in database
             var expectedHash = ComputeSha256Hash(result.RefreshToken);
@@ -113,6 +114,7 @@ namespace Identity.Tests.Application
             Assert.NotNull(dbToken);
             Assert.Equal(userId, dbToken!.UserId);
             Assert.False(dbToken.IsRevoked);
+            Assert.True(dbToken.AbsoluteExpiresAt > DateTimeOffset.UtcNow.AddDays(29));
         }
 
         [Fact]
@@ -133,7 +135,8 @@ namespace Identity.Tests.Application
 
             // Generate first token
             var jti = Guid.NewGuid().ToString();
-            var rawRefreshToken = _tokenService.GenerateRefreshToken(user, jti);
+            var absoluteExpiry = DateTimeOffset.UtcNow.AddDays(30);
+            var rawRefreshToken = _tokenService.GenerateRefreshToken(user, jti, absoluteExpiry);
             var hash = ComputeSha256Hash(rawRefreshToken);
 
             var dbToken = new RefreshToken(
@@ -142,7 +145,8 @@ namespace Identity.Tests.Application
                 hash,
                 jti,
                 DateTimeOffset.UtcNow,
-                DateTimeOffset.UtcNow.AddDays(7)
+                DateTimeOffset.UtcNow.AddDays(7),
+                absoluteExpiry
             );
             await context.RefreshTokens.AddAsync(dbToken);
             await context.SaveChangesAsync();
@@ -170,6 +174,7 @@ namespace Identity.Tests.Application
             Assert.NotNull(newDbToken);
             Assert.Equal(userId, newDbToken!.UserId);
             Assert.False(newDbToken.IsRevoked);
+            Assert.Equal(absoluteExpiry.ToUnixTimeSeconds(), newDbToken.AbsoluteExpiresAt.ToUnixTimeSeconds());
         }
 
         [Fact]
@@ -182,7 +187,8 @@ namespace Identity.Tests.Application
             await context.Users.AddAsync(user);
 
             var jti = Guid.NewGuid().ToString();
-            var rawRefreshToken = _tokenService.GenerateRefreshToken(user, jti);
+            var absoluteExpiry = DateTimeOffset.UtcNow.AddDays(30);
+            var rawRefreshToken = _tokenService.GenerateRefreshToken(user, jti, absoluteExpiry);
             var hash = ComputeSha256Hash(rawRefreshToken);
 
             var dbToken = new RefreshToken(
@@ -191,7 +197,8 @@ namespace Identity.Tests.Application
                 hash,
                 jti,
                 DateTimeOffset.UtcNow,
-                DateTimeOffset.UtcNow.AddDays(7)
+                DateTimeOffset.UtcNow.AddDays(7),
+                absoluteExpiry
             );
             dbToken.Revoke(DateTimeOffset.UtcNow); // Revoke it
             await context.RefreshTokens.AddAsync(dbToken);
@@ -205,6 +212,90 @@ namespace Identity.Tests.Application
         }
 
         [Fact]
+        public async Task RefreshToken_When_Absolute_Expiration_Reached_Should_Throw_UnauthorizedAccessException()
+        {
+            // Arrange
+            using var context = CreateDbContext();
+            var userId = Guid.NewGuid();
+            var user = new User(userId, Guid.NewGuid(), "owner@test.com", "hash", "John", "Doe");
+            await context.Users.AddAsync(user);
+
+            var jti = Guid.NewGuid().ToString();
+            // Set absoluteExpiry in the past
+            var absoluteExpiry = DateTimeOffset.UtcNow.AddMinutes(-5);
+            var rawRefreshToken = _tokenService.GenerateRefreshToken(user, jti, absoluteExpiry);
+            var hash = ComputeSha256Hash(rawRefreshToken);
+
+            var dbToken = new RefreshToken(
+                Guid.NewGuid(),
+                userId,
+                hash,
+                jti,
+                DateTimeOffset.UtcNow.AddDays(-10),
+                DateTimeOffset.UtcNow.AddDays(-3), // sliding also expired
+                absoluteExpiry
+            );
+            await context.RefreshTokens.AddAsync(dbToken);
+            await context.SaveChangesAsync();
+
+            var handler = new RefreshTokenCommandHandler(context, _tokenService, _configuration);
+            var command = new RefreshTokenCommand { RefreshToken = rawRefreshToken };
+
+            // Act & Assert
+            await Assert.ThrowsAsync<UnauthorizedAccessException>(() => handler.Handle(command, CancellationToken.None));
+        }
+
+        [Fact]
+        public async Task RefreshToken_When_Sliding_Expiration_Approaching_Absolute_Limit_Should_Be_Capped()
+        {
+            // Arrange
+            using var context = CreateDbContext();
+            
+            var tenantId = Guid.NewGuid();
+            var userId = Guid.NewGuid();
+            var user = new User(userId, tenantId, "owner@test.com", "hash", "John", "Doe");
+            await context.Users.AddAsync(user);
+
+            var role = new Role(RoleIds.SuperAdmin, "SuperAdmin");
+            var userRole = new UserRole(userId, RoleIds.SuperAdmin);
+            await context.Roles.AddAsync(role);
+            await context.UserRoles.AddAsync(userRole);
+
+            // Absolute expiry is only 2 days away (less than sliding 7 days)
+            var jti = Guid.NewGuid().ToString();
+            var absoluteExpiry = DateTimeOffset.UtcNow.AddDays(2);
+            var rawRefreshToken = _tokenService.GenerateRefreshToken(user, jti, absoluteExpiry);
+            var hash = ComputeSha256Hash(rawRefreshToken);
+
+            var dbToken = new RefreshToken(
+                Guid.NewGuid(),
+                userId,
+                hash,
+                jti,
+                DateTimeOffset.UtcNow,
+                DateTimeOffset.UtcNow.AddDays(1),
+                absoluteExpiry
+            );
+            await context.RefreshTokens.AddAsync(dbToken);
+            await context.SaveChangesAsync();
+
+            var handler = new RefreshTokenCommandHandler(context, _tokenService, _configuration);
+            var command = new RefreshTokenCommand { RefreshToken = rawRefreshToken };
+
+            // Act
+            var result = await handler.Handle(command, CancellationToken.None);
+
+            // Assert
+            Assert.NotNull(result);
+
+            // Verify new token in database is capped exactly at absoluteExpiry
+            var newHash = ComputeSha256Hash(result.RefreshToken);
+            var newDbToken = await context.RefreshTokens.FirstOrDefaultAsync(rt => rt.TokenHash == newHash);
+            Assert.NotNull(newDbToken);
+            Assert.Equal(absoluteExpiry.ToUnixTimeSeconds(), newDbToken!.ExpiresAt.ToUnixTimeSeconds());
+        }
+
+        [Fact]
         public async Task Logout_With_Valid_Token_Should_Revoke_Token()
         {
             // Arrange
@@ -214,7 +305,8 @@ namespace Identity.Tests.Application
             await context.Users.AddAsync(user);
 
             var jti = Guid.NewGuid().ToString();
-            var rawRefreshToken = _tokenService.GenerateRefreshToken(user, jti);
+            var absoluteExpiry = DateTimeOffset.UtcNow.AddDays(30);
+            var rawRefreshToken = _tokenService.GenerateRefreshToken(user, jti, absoluteExpiry);
             var hash = ComputeSha256Hash(rawRefreshToken);
 
             var dbToken = new RefreshToken(
@@ -223,7 +315,8 @@ namespace Identity.Tests.Application
                 hash,
                 jti,
                 DateTimeOffset.UtcNow,
-                DateTimeOffset.UtcNow.AddDays(7)
+                DateTimeOffset.UtcNow.AddDays(7),
+                absoluteExpiry
             );
             await context.RefreshTokens.AddAsync(dbToken);
             await context.SaveChangesAsync();
@@ -308,9 +401,10 @@ namespace Identity.Tests.Application
             var userId = Guid.NewGuid();
             var user = new User(userId, Guid.NewGuid(), "owner@test.com", "hash", "John", "Doe");
             var jti = Guid.NewGuid().ToString();
+            var absoluteExpiry = DateTimeOffset.UtcNow.AddDays(30);
 
             // Act
-            var refreshToken = _tokenService.GenerateRefreshToken(user, jti);
+            var refreshToken = _tokenService.GenerateRefreshToken(user, jti, absoluteExpiry);
 
             // Assert
             Assert.NotEmpty(refreshToken);
@@ -319,6 +413,7 @@ namespace Identity.Tests.Application
             
             Assert.Equal(userId.ToString(), jwtToken.Subject);
             Assert.Equal(jti, jwtToken.Payload["jti"]?.ToString());
+            Assert.Equal(absoluteExpiry.ToUnixTimeSeconds().ToString(), jwtToken.Payload["absolute_exp"]?.ToString());
             Assert.True(jwtToken.ValidTo > DateTime.UtcNow);
             Assert.True(jwtToken.ValidFrom <= DateTime.UtcNow.AddSeconds(5));
         }

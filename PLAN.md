@@ -7,7 +7,7 @@ Tài liệu này lưu trữ lộ trình phát triển và tiến độ thực th
 ## 📊 Trạng thái Tiến độ Dự án (Project Progress)
 
 ```text
-[████████████░░░░░░░░░░░░░░░░░░] 40% Hoàn thành (Hoàn thành US-001 & US-002 backend cores)
+[█████████████░░░░░░░░░░░░░░░░░] 45% Hoàn thành (Hoàn thành US-001, US-002, và Giai đoạn 2.1 Hybrid Expiration)
 ```
 
 - **Quyết định thiết kế (ADRs)**: 5/5 tài liệu kỹ thuật đã hoàn thành.
@@ -27,7 +27,7 @@ Tài liệu này lưu trữ lộ trình phát triển và tiến độ thực th
 - [x] Hoàn thiện 3 Quyết định Kiến trúc (ADRs): Sơ đồ Microservices ([ADR 0006](file:///Users/bao312/Desktop/Test/docs/decisions/0006-crm-microservice-architecture.md)), Sơ đồ database PostgreSQL ([ADR 0007](file:///Users/bao312/Desktop/Test/docs/decisions/0007-crm-database-schema-and-tenancy.md)), Mô hình RBAC & Security ([ADR 0008](file:///Users/bao312/Desktop/Test/docs/decisions/0008-crm-security-and-auth.md)).
 - [x] Viết script tự động kiểm tra tính hợp lệ của tài liệu [validate-crm-docs.sh](file:///Users/bao312/Desktop/Test/scripts/validate-crm-docs.sh).
 
-### 🟡 Giai đoạn 2: Phát triển Lõi Backend (ĐÃ HOÀN THÀNH)
+### 🟡 Giai đoạn 2: Phát triển Lõi Backend & Xác thực (ĐÃ HOÀN THÀNH)
 - [x] Khởi tạo folder dự án cô lập `backend/services/Identity` để tránh ảnh hưởng đến thư mục gốc.
 - [x] Scaffold thành công giải pháp **Clean Architecture** `.NET 6` (Domain, Application, Infrastructure, Api, Tests) và liên kết tệp `Identity.sln`.
 - [x] Cấu hình chính xác tất cả các Project References giữa các tầng.
@@ -36,7 +36,8 @@ Tài liệu này lưu trữ lộ trình phát triển và tiến độ thực th
 - [x] **[ĐÃ HOÀN THÀNH]** Xây dựng Database Context (Entity Framework Core) kết nối PostgreSQL và viết Database Migrations cho US-001.
 - [x] **[ĐÃ HOÀN THÀNH]** Triển khai các API Endpoints phục vụ việc đăng ký tài khoản và doanh nghiệp.
 - [x] **[ĐÃ HOÀN THÀNH]** Viết bộ kiểm thử tự động xUnit để chứng minh chất lượng (Validation Proof).
-- [x] **[ĐÃ HOÀN THÀNH]** Triển khai US-002: Xây dựng secure login endpoint `POST /api/v1/auth/login`, JWT access token emission, và Redis-backed session tracking. Viết bộ 5 unit/integration tests (100% Passed).
+- [x] **[ĐÃ HOÀN THÀNH]** Triển khai US-002: Xây dựng secure login endpoint `POST /api/auth/login`, JWT access token emission, và database-backed session tracking.
+- [x] **[ĐÃ HOÀN THÀNH]** Triển khai Giai đoạn 2.1: Tích hợp Hybrid Token Expiration Strategy (15 phút Access, 7 ngày Sliding capped by 30 ngày Absolute maximum lifetime) sử dụng JWT Refresh Token và băm bảo mật SHA-256 lưu ở PostgreSQL. Viết bộ 23 unit/integration tests (100% Passed).
 
 ### ⚪ Giai đoạn 3: Phát triển E-commerce Core & Stripe (CHƯA BẮT ĐẦU)
 - [ ] Khởi tạo dự án `E-commerce Service` (.NET 6).

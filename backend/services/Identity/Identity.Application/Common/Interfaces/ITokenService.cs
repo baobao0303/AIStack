@@ -5,6 +5,6 @@ namespace Identity.Application.Common.Interfaces
     public interface ITokenService
     {
         string GenerateAccessToken(User user, string[] roles);
-        string GenerateRefreshToken(User user, string jti);
+        string GenerateRefreshToken(User user, string jti, DateTimeOffset absoluteExpiry);
     }
 }

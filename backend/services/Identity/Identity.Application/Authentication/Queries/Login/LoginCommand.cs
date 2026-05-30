@@ -70,19 +70,28 @@ namespace Identity.Application.Authentication.Queries.Login
 
             // 4. Generate Access and Refresh Tokens
             var jti = Guid.NewGuid().ToString();
+            var absoluteExpiry = DateTimeOffset.UtcNow.AddDays(30);
             var accessToken = _tokenService.GenerateAccessToken(user, roles);
-            var refreshToken = _tokenService.GenerateRefreshToken(user, jti);
+            var refreshToken = _tokenService.GenerateRefreshToken(user, jti, absoluteExpiry);
 
             // 5. Store Hashed Refresh Token in PostgreSQL database
             var tokenHash = ComputeSha256Hash(refreshToken);
             
+            // Sliding expiration is 7 days
+            var expiresAt = DateTimeOffset.UtcNow.AddDays(7);
+            if (expiresAt > absoluteExpiry)
+            {
+                expiresAt = absoluteExpiry;
+            }
+
             var dbToken = new RefreshToken(
                 Guid.NewGuid(),
                 user.Id,
                 tokenHash,
                 jti,
                 DateTimeOffset.UtcNow,
-                DateTimeOffset.UtcNow.AddDays(7)
+                expiresAt,
+                absoluteExpiry
             );
 
             await _context.RefreshTokens.AddAsync(dbToken, cancellationToken);

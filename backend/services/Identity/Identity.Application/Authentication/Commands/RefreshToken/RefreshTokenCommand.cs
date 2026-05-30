@@ -55,6 +55,7 @@ namespace Identity.Application.Authentication.Commands.RefreshToken
             // 1. Parse and Validate JWT Refresh Token Cryptographically
             string userIdString;
             string jti;
+            string? absoluteExpClaim = null;
 
             try
             {
@@ -81,6 +82,7 @@ namespace Identity.Application.Authentication.Commands.RefreshToken
                                ?? principal.FindFirst(JwtRegisteredClaimNames.Sub)?.Value!;
                 
                 jti = principal.FindFirst(JwtRegisteredClaimNames.Jti)?.Value!;
+                absoluteExpClaim = principal.FindFirst("absolute_exp")?.Value;
 
                 if (string.IsNullOrEmpty(userIdString) || string.IsNullOrEmpty(jti))
                 {
@@ -93,6 +95,19 @@ namespace Identity.Application.Authentication.Commands.RefreshToken
             }
 
             var userId = Guid.Parse(userIdString);
+
+            // Extract absolute_exp claim and parse it
+            if (string.IsNullOrEmpty(absoluteExpClaim))
+            {
+                throw new UnauthorizedAccessException("Refresh token is missing absolute expiration claim.");
+            }
+            var absoluteExpiry = DateTimeOffset.FromUnixTimeSeconds(long.Parse(absoluteExpClaim));
+
+            // Force re-login when Absolute Expiration is reached
+            if (absoluteExpiry < DateTimeOffset.UtcNow)
+            {
+                throw new UnauthorizedAccessException("Session has expired permanently (absolute expiration reached). Please login again.");
+            }
 
             // 2. Hash raw Refresh Token and query database
             var incomingHash = ComputeSha256Hash(request.RefreshToken);
@@ -122,17 +137,26 @@ namespace Identity.Application.Authentication.Commands.RefreshToken
             // 5. Generate New Tokens
             var newJti = Guid.NewGuid().ToString();
             var newAccessToken = _tokenService.GenerateAccessToken(user, roles);
-            var newRefreshToken = _tokenService.GenerateRefreshToken(user, newJti);
+            var newRefreshToken = _tokenService.GenerateRefreshToken(user, newJti, absoluteExpiry);
 
             // 6. Save new hashed Refresh Token in database
             var newHash = ComputeSha256Hash(newRefreshToken);
+            
+            // Sliding expiration is 7 days capped at absolute maximum limit
+            var newSlidingExpiry = DateTimeOffset.UtcNow.AddDays(7);
+            if (newSlidingExpiry > absoluteExpiry)
+            {
+                newSlidingExpiry = absoluteExpiry;
+            }
+
             var newDbToken = new Identity.Domain.Entities.RefreshToken(
                 Guid.NewGuid(),
                 user.Id,
                 newHash,
                 newJti,
                 DateTimeOffset.UtcNow,
-                DateTimeOffset.UtcNow.AddDays(7)
+                newSlidingExpiry,
+                absoluteExpiry
             );
 
             await _context.RefreshTokens.AddAsync(newDbToken, cancellationToken);

@@ -52,7 +52,7 @@ namespace Identity.Infrastructure.Security
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-        public string GenerateRefreshToken(User user, string jti)
+        public string GenerateRefreshToken(User user, string jti, DateTimeOffset absoluteExpiry)
         {
             var secretKey = _configuration["Jwt:Secret"] ?? "ThisIsASuperSecretKeyForSigningJWTTokens1234567890!";
             var issuer = _configuration["Jwt:Issuer"] ?? "Identity.Api";
@@ -64,14 +64,22 @@ namespace Identity.Infrastructure.Security
             var claims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
-                new Claim(JwtRegisteredClaimNames.Jti, jti)
+                new Claim(JwtRegisteredClaimNames.Jti, jti),
+                new Claim("absolute_exp", absoluteExpiry.ToUnixTimeSeconds().ToString())
             };
+
+            // Sliding expiration is 7 days from now, but capped by absolute maximum lifetime
+            var slidingExpiry = DateTime.UtcNow.AddDays(7);
+            if (slidingExpiry > absoluteExpiry.UtcDateTime)
+            {
+                slidingExpiry = absoluteExpiry.UtcDateTime;
+            }
 
             var token = new JwtSecurityToken(
                 issuer: issuer,
                 audience: audience,
                 claims: claims,
-                expires: DateTime.UtcNow.AddDays(7),
+                expires: slidingExpiry,
                 signingCredentials: creds
             );
 

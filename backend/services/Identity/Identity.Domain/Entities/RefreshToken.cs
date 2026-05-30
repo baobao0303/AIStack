@@ -10,6 +10,7 @@ namespace Identity.Domain.Entities
         public string JwtId { get; private set; }
         public DateTimeOffset CreatedAt { get; private set; }
         public DateTimeOffset ExpiresAt { get; private set; }
+        public DateTimeOffset AbsoluteExpiresAt { get; private set; }
         public bool IsRevoked { get; private set; }
         public DateTimeOffset? RevokedAt { get; private set; }
 
@@ -19,7 +20,7 @@ namespace Identity.Domain.Entities
             JwtId = null!;
         } // Required for EF Core
 
-        public RefreshToken(Guid id, Guid userId, string tokenHash, string jwtId, DateTimeOffset createdAt, DateTimeOffset expiresAt)
+        public RefreshToken(Guid id, Guid userId, string tokenHash, string jwtId, DateTimeOffset createdAt, DateTimeOffset expiresAt, DateTimeOffset absoluteExpiresAt)
         {
             if (string.IsNullOrWhiteSpace(tokenHash))
                 throw new ArgumentException("Token hash cannot be empty.", nameof(tokenHash));
@@ -32,6 +33,7 @@ namespace Identity.Domain.Entities
             JwtId = jwtId;
             CreatedAt = createdAt;
             ExpiresAt = expiresAt;
+            AbsoluteExpiresAt = absoluteExpiresAt;
             IsRevoked = false;
         }
 
