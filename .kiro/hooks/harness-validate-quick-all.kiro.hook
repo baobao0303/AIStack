@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "Harness Validate Quick (full)",
+  "description": "Manually run the full Harness validate-quick ladder (docs + .NET build/test + frontend) on demand.",
+  "version": "1",
+  "when": {
+    "type": "userTriggered"
+  },
+  "then": {
+    "type": "runCommand",
+    "command": "bash scripts/validate-quick.sh"
+  }
+}

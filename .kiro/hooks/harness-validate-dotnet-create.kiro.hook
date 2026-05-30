@@ -1,0 +1,18 @@
+{
+  "enabled": true,
+  "name": "Harness Continuous .NET Validation (create)",
+  "description": "When a new C# source or project file is created (e.g. by a running Antigravity agent), build and test all .NET solutions via the shared validate-quick script.",
+  "version": "1",
+  "when": {
+    "type": "fileCreated",
+    "patterns": [
+      "**/*.cs",
+      "**/*.csproj",
+      "**/*.sln"
+    ]
+  },
+  "then": {
+    "type": "runCommand",
+    "command": "bash scripts/validate-quick.sh dotnet"
+  }
+}
