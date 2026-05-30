@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "r+jv8qJgUJx+JyeQ8/S84DGOSjOeA6kPYj5fW6fh9orX9DUjRtt2RfIyONpdueChOoCIEwuSkpq4iY7mGhBHZw==",
+  "dgSpecHash": "5llrsWzv3/UZkThhjOdV+rHeAaLwTXRpGw/uRNuqOB8KcX7NdU2ihnnSLWJK8MqtKuIIMLTHl0mcria7SexY1g==",
   "success": true,
   "projectFilePath": "/Users/bao312/Desktop/Test/backend/services/Identity/Identity.Application/Identity.Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/bao312/.nuget/packages/fluentvalidation/11.0.0/fluentvalidation.11.0.0.nupkg.sha512",
+    "/Users/bao312/.nuget/packages/mediatr/10.0.1/mediatr.10.0.1.nupkg.sha512",
+    "/Users/bao312/.nuget/packages/mediatr.contracts/1.0.1/mediatr.contracts.1.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
