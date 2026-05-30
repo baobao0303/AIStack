@@ -126,7 +126,7 @@ namespace Identity.Application.Authentication.Commands.RefreshToken
 
             // 6. Save new hashed Refresh Token in database
             var newHash = ComputeSha256Hash(newRefreshToken);
-            var newDbToken = new RefreshToken(
+            var newDbToken = new Identity.Domain.Entities.RefreshToken(
                 Guid.NewGuid(),
                 user.Id,
                 newHash,
