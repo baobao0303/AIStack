@@ -1,10 +1,10 @@
 using System;
+using Shared.Domain;
 
 namespace ECommerce.Domain.Entities
 {
-    public class Product
+    public class Product : BaseEntity
     {
-        public Guid Id { get; private set; }
         public string Name { get; private set; }
         public string Description { get; private set; }
         public decimal Price { get; private set; }
@@ -19,7 +19,7 @@ namespace ECommerce.Domain.Entities
             Category = null!;
         } // Required for EF Core
 
-        public Product(Guid id, string name, string description, decimal price, string category, int inventoryStock, string? imageUrl = null)
+        public Product(Guid id, string name, string description, decimal price, string category, int inventoryStock, string? imageUrl = null) : base(id)
         {
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentException("Product name cannot be empty.", nameof(name));
@@ -28,7 +28,6 @@ namespace ECommerce.Domain.Entities
             if (inventoryStock < 0)
                 throw new ArgumentException("Product inventory stock cannot be negative.", nameof(inventoryStock));
 
-            Id = id;
             Name = name.Trim();
             Description = description.Trim();
             Price = price;
