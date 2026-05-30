@@ -31,12 +31,14 @@ services:
       - ASPNETCORE_URLS=http://+:80;https://+:443
       - ConnectionStrings__DefaultConnection=Host=postgres;Database=crm_shared;Username=postgres;Password=supersecretpassword
       - ConnectionStrings__RedisConnection=redis:6379
+      - MessageBus__Host=rabbitmq
     ports:
       - "5118:80"
       - "7136:443"
     depends_on:
       - postgres
       - redis
+      - rabbitmq
 
   ecommerce-service:
     image: ecommerce-service:latest
@@ -49,11 +51,13 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80;https://+:443
       - ConnectionStrings__ECommerceConnection=Host=postgres;Database=crm_shared;Username=postgres;Password=supersecretpassword
+      - MessageBus__Host=rabbitmq
     ports:
       - "5169:80"
       - "7062:443"
     depends_on:
       - postgres
+      - rabbitmq
 
   api-gateway:
     image: api-gateway:latest
@@ -73,6 +77,14 @@ services:
     depends_on:
       - identity-service
       - ecommerce-service
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: crm-rabbitmq
+    restart: always
+    ports:
+      - "5672:5672"
+      - "15672:15672"
 
 volumes:
   postgres_data:

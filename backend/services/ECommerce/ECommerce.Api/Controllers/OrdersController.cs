@@ -8,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using ECommerce.Application.Orders.Commands.CreateOrder;
 using ECommerce.Application.Orders.Commands.CompleteOrder;
 using ECommerce.Application.Common.Interfaces;
+using Shared.Messaging;
+using Shared.Messaging.Events;
 
 namespace ECommerce.Api.Controllers
 {
@@ -17,11 +19,13 @@ namespace ECommerce.Api.Controllers
     {
         private readonly IConfiguration _configuration;
         private readonly IStripePaymentService _stripePaymentService;
+        private readonly IEventBus _eventBus;
 
-        public OrdersController(IConfiguration configuration, IStripePaymentService stripePaymentService)
+        public OrdersController(IConfiguration configuration, IStripePaymentService stripePaymentService, IEventBus eventBus)
         {
             _configuration = configuration;
             _stripePaymentService = stripePaymentService;
+            _eventBus = eventBus;
         }
 
         [HttpPost]
@@ -76,16 +80,13 @@ namespace ECommerce.Api.Controllers
                     return BadRequest(new { error = "Invalid signature or unhandled event type." });
                 }
 
-                // 4. Complete order payment mapping
-                var command = new CompleteOrderCommand { StripeSessionId = stripeSessionId };
-                var success = await Mediator.Send(command);
+                // 4. Publish ChargeSucceededEvent to RabbitMQ Event Bus
+                await _eventBus.PublishAsync(new ChargeSucceededEvent 
+                { 
+                    StripeSessionId = stripeSessionId 
+                });
 
-                if (success)
-                {
-                    return Ok(new { received = true, status = "Order completed successfully." });
-                }
-
-                return Ok(new { received = true, status = "Webhook received but order was not pending or not found." });
+                return Ok(new { received = true, status = "Payment webhook received and event published to RabbitMQ." });
             }
             catch (Exception ex)
             {
