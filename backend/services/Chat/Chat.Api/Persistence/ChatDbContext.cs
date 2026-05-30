@@ -51,6 +51,8 @@ namespace Chat.Api.Persistence
                 entity.HasKey(cs => cs.Id);
                 entity.Property(cs => cs.CustomerEmail).IsRequired().HasMaxLength(255);
                 entity.Property(cs => cs.Status).IsRequired().HasMaxLength(50);
+                entity.Property(cs => cs.Summary).HasMaxLength(2000);
+                entity.Property(cs => cs.BuyerScore);
 
                 entity.HasOne<Employee>()
                     .WithMany()

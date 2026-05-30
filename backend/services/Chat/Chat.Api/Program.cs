@@ -38,6 +38,7 @@ builder.Services.AddSignalR().AddStackExchangeRedis(redisConnectionString, optio
 // 4. Register chat business logic services
 builder.Services.AddScoped<IChatRoutingService, ChatRoutingService>();
 builder.Services.AddHostedService<ShiftMonitoringBackgroundService>();
+builder.Services.AddHttpClient<IGeminiAiService, GeminiAiService>();
 
 var app = builder.Build();
 

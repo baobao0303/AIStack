@@ -52,6 +52,8 @@ namespace Chat.Api.Entities
         public string CustomerEmail { get; set; } = null!;
         public Guid? AssignedEmployeeId { get; set; }
         public string Status { get; set; } = ChatSessionStatuses.Active;
+        public string? Summary { get; set; }
+        public int? BuyerScore { get; set; }
         public DateTimeOffset CreatedAt { get; set; } = DateTimeOffset.UtcNow;
         public DateTimeOffset? ClosedAt { get; set; }
     }

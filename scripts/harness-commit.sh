@@ -45,8 +45,8 @@ fi
 # Identity for agent-authored commits. Override per-agent via env vars so the
 # same script can attribute Antigravity, Claude, or other agents correctly.
 # Defaults to Claude-Opus-4.8 when nothing else is configured.
-AGENT_NAME="${HARNESS_AGENT_NAME:-Claude-Opus-4.8}"
-AGENT_EMAIL="${HARNESS_AGENT_EMAIL:-claude-opus-4.8@agent.local}"
+AGENT_NAME="${HARNESS_AGENT_NAME:-claude}"
+AGENT_EMAIL="${HARNESS_AGENT_EMAIL:-claude@users.noreply.github.com}"
 
 TS="$(date '+%Y-%m-%d %H:%M:%S')"
 # Surface the agent name in the subject line itself (not just git author) and
@@ -55,12 +55,8 @@ MSG="${AGENT_NAME} (${STAGE}): ${EXTRA} [${TS}]"
 
 # Use the agent fallback identity only if no git identity is configured,
 # without persisting it to git config.
-if git config user.email >/dev/null 2>&1 || git config user.name >/dev/null 2>&1; then
+GIT_AUTHOR_NAME="$AGENT_NAME" GIT_AUTHOR_EMAIL="$AGENT_EMAIL" \
+GIT_COMMITTER_NAME="$AGENT_NAME" GIT_COMMITTER_EMAIL="$AGENT_EMAIL" \
   git commit -m "$MSG" >/dev/null
-else
-  GIT_AUTHOR_NAME="$AGENT_NAME" GIT_AUTHOR_EMAIL="$AGENT_EMAIL" \
-  GIT_COMMITTER_NAME="$AGENT_NAME" GIT_COMMITTER_EMAIL="$AGENT_EMAIL" \
-    git commit -m "$MSG" >/dev/null
-fi
 
 echo "harness-commit: committed stage '${STAGE}' -> ${MSG} (as ${AGENT_NAME})"
