@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "Harness Trace Recorder",
+  "description": "When the agent stops, record a durable execution trace per the Harness Done Definition.",
+  "version": "1",
+  "when": {
+    "type": "agentStop"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "The task is only done per the Harness Done Definition once a trace is recorded. Record what just happened by running: ./scripts/harness trace --summary \"<what was done>\" --outcome \"<success|blocked|partial>\" --changed \"<comma,separated,files>\" [--friction \"<what was hard>\"]. This CLI is shared with Antigravity and other agents. If you discovered harness friction, also run ./scripts/harness backlog add --title \"<short name>\" --pain \"<what was hard>\". Do not record a trace if no real work was performed."
+  }
+}

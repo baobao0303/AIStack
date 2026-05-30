@@ -1,0 +1,15 @@
+/Users/bao312/Desktop/Test/backend/services/Identity/Identity.Application/bin/Debug/net6.0/Identity.Application.deps.json
+/Users/bao312/Desktop/Test/backend/services/Identity/Identity.Application/bin/Debug/net6.0/Identity.Application.dll
+/Users/bao312/Desktop/Test/backend/services/Identity/Identity.Application/bin/Debug/net6.0/Identity.Application.pdb
+/Users/bao312/Desktop/Test/backend/services/Identity/Identity.Application/bin/Debug/net6.0/Identity.Domain.dll
+/Users/bao312/Desktop/Test/backend/services/Identity/Identity.Application/bin/Debug/net6.0/Identity.Domain.pdb
+/Users/bao312/Desktop/Test/backend/services/Identity/Identity.Application/obj/Debug/net6.0/Identity.Application.csproj.AssemblyReference.cache
+/Users/bao312/Desktop/Test/backend/services/Identity/Identity.Application/obj/Debug/net6.0/Identity.Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/bao312/Desktop/Test/backend/services/Identity/Identity.Application/obj/Debug/net6.0/Identity.Application.AssemblyInfoInputs.cache
+/Users/bao312/Desktop/Test/backend/services/Identity/Identity.Application/obj/Debug/net6.0/Identity.Application.AssemblyInfo.cs
+/Users/bao312/Desktop/Test/backend/services/Identity/Identity.Application/obj/Debug/net6.0/Identity.Application.csproj.CoreCompileInputs.cache
+/Users/bao312/Desktop/Test/backend/services/Identity/Identity.Application/obj/Debug/net6.0/Identity.Application.csproj.CopyComplete
+/Users/bao312/Desktop/Test/backend/services/Identity/Identity.Application/obj/Debug/net6.0/Identity.Application.dll
+/Users/bao312/Desktop/Test/backend/services/Identity/Identity.Application/obj/Debug/net6.0/refint/Identity.Application.dll
+/Users/bao312/Desktop/Test/backend/services/Identity/Identity.Application/obj/Debug/net6.0/Identity.Application.pdb
+/Users/bao312/Desktop/Test/backend/services/Identity/Identity.Application/obj/Debug/net6.0/ref/Identity.Application.dll

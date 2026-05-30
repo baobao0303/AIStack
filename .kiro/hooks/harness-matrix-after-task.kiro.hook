@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "Harness Matrix After Task",
+  "description": "After a spec task completes, print the harness test matrix (story validation status).",
+  "version": "1",
+  "when": {
+    "type": "postTaskExecution"
+  },
+  "then": {
+    "type": "runCommand",
+    "command": "./scripts/harness query matrix"
+  }
+}

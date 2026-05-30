@@ -1,0 +1,107 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0": {
+      "Identity.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Identity.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Identity.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Identity.Application.dll": {}
+        }
+      },
+      "Identity.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Identity.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Identity.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Identity.Application/1.0.0": {
+      "type": "project",
+      "path": "../Identity.Application/Identity.Application.csproj",
+      "msbuildProject": "../Identity.Application/Identity.Application.csproj"
+    },
+    "Identity.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Identity.Domain/Identity.Domain.csproj",
+      "msbuildProject": "../Identity.Domain/Identity.Domain.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0": [
+      "Identity.Application >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "/Users/bao312/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/Users/bao312/Desktop/Test/backend/services/Identity/Identity.Infrastructure/Identity.Infrastructure.csproj",
+      "projectName": "Identity.Infrastructure",
+      "projectPath": "/Users/bao312/Desktop/Test/backend/services/Identity/Identity.Infrastructure/Identity.Infrastructure.csproj",
+      "packagesPath": "/Users/bao312/.nuget/packages/",
+      "outputPath": "/Users/bao312/Desktop/Test/backend/services/Identity/Identity.Infrastructure/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/Users/bao312/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "projectReferences": {
+            "/Users/bao312/Desktop/Test/backend/services/Identity/Identity.Application/Identity.Application.csproj": {
+              "projectPath": "/Users/bao312/Desktop/Test/backend/services/Identity/Identity.Application/Identity.Application.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0": {
+        "targetAlias": "net6.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.428/RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

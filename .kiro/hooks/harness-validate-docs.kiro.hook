@@ -1,0 +1,16 @@
+{
+  "enabled": true,
+  "name": "Harness CRM Docs Validator",
+  "description": "When any docs markdown file is saved, run the portable CRM docs validation script.",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "docs/**/*.md"
+    ]
+  },
+  "then": {
+    "type": "runCommand",
+    "command": "bash scripts/validate-crm-docs.sh"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "Harness Status Report",
+  "description": "Manually trigger a harness project overview (stats, matrix, and friction).",
+  "version": "1",
+  "when": {
+    "type": "userTriggered"
+  },
+  "then": {
+    "type": "runCommand",
+    "command": "./scripts/harness query stats && ./scripts/harness query matrix && ./scripts/harness query friction"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "Harness Intake Classifier",
+  "description": "On every prompt, classify the request per docs/FEATURE_INTAKE.md and record it with the harness CLI before any code change.",
+  "version": "1",
+  "when": {
+    "type": "promptSubmit"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Before doing any work, follow the Harness task loop. Read docs/FEATURE_INTAKE.md and classify this request: pick an input type (new spec, spec slice, change request, new initiative, maintenance request, harness improvement), run the risk checklist, and choose a lane (tiny, normal, high-risk). Then record it by running: ./scripts/harness intake --type \"<type>\" --summary \"<short summary>\" --lane \"<lane>\". This command is tool-agnostic and also used by Antigravity. State the resulting Lane, Reason, Docs, and Validation before proceeding."
+  }
+}
