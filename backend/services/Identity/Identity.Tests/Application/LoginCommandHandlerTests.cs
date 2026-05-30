@@ -2,78 +2,29 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Configuration;
 using Xunit;
 using Identity.Domain.Entities;
 using Identity.Domain.Constants;
 using Identity.Application.Authentication.Queries.Login;
+using Identity.Application.Authentication.Commands.RefreshToken;
+using Identity.Application.Authentication.Commands.Logout;
+using Identity.Application.Authentication.Queries.GetMe;
 using Identity.Application.Common.Interfaces;
 using Identity.Infrastructure.Persistence;
 using Identity.Infrastructure.Security;
 
 namespace Identity.Tests.Application
 {
-    public class FakeDistributedCache : IDistributedCache
+    public class FakePasswordHasher : IPasswordHasher
     {
-        private readonly Dictionary<string, byte[]> _cache = new();
-
-        public byte[] Get(string key)
-        {
-            _cache.TryGetValue(key, out var value);
-            return value!;
-        }
-
-        public Task<byte[]> GetAsync(string key, CancellationToken token = default)
-        {
-            return Task.FromResult(Get(key));
-        }
-
-        public void Set(string key, byte[] value, DistributedCacheEntryOptions options)
-        {
-            _cache[key] = value;
-        }
-
-        public Task SetAsync(string key, byte[] value, DistributedCacheEntryOptions options, CancellationToken token = default)
-        {
-            Set(key, value, options);
-            return Task.CompletedTask;
-        }
-
-        public void Refresh(string key)
-        {
-        }
-
-        public Task RefreshAsync(string key, CancellationToken token = default)
-        {
-            return Task.CompletedTask;
-        }
-
-        public void Remove(string key)
-        {
-            _cache.Remove(key);
-        }
-
-        public Task RemoveAsync(string key, CancellationToken token = default)
-        {
-            Remove(key);
-            return Task.CompletedTask;
-        }
-
-        public bool KeyExists(string key)
-        {
-            return _cache.ContainsKey(key);
-        }
-
-        public string GetString(string key)
-        {
-            var val = Get(key);
-            return val != null ? Encoding.UTF8.GetString(val) : null!;
-        }
+        public string HashPassword(string password) => password + "_hashed";
+        public bool VerifyPassword(string password, string hashedPassword) => hashedPassword == password + "_hashed";
     }
 
     public class LoginCommandHandlerTests
@@ -81,7 +32,6 @@ namespace Identity.Tests.Application
         private readonly DbContextOptions<IdentityDbContext> _dbContextOptions;
         private readonly FakePasswordHasher _passwordHasher;
         private readonly ITokenService _tokenService;
-        private readonly FakeDistributedCache _cache;
         private readonly IConfiguration _configuration;
 
         public LoginCommandHandlerTests()
@@ -91,7 +41,7 @@ namespace Identity.Tests.Application
                 .Options;
 
             _passwordHasher = new FakePasswordHasher();
-            
+
             var inMemorySettings = new Dictionary<string, string>
             {
                 {"Jwt:Secret", "ThisIsASuperSecretKeyForSigningJWTTokens1234567890!"},
@@ -104,35 +54,43 @@ namespace Identity.Tests.Application
                 .Build();
 
             _tokenService = new TokenService(_configuration);
-            _cache = new FakeDistributedCache();
         }
 
         private IdentityDbContext CreateDbContext() => new IdentityDbContext(_dbContextOptions);
 
+        private static string ComputeSha256Hash(string rawData)
+        {
+            using var sha256Hash = SHA256.Create();
+            byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
+            var builder = new StringBuilder();
+            for (int i = 0; i < bytes.Length; i++)
+            {
+                builder.Append(bytes[i].ToString("x2"));
+            }
+            return builder.ToString();
+        }
+
         [Fact]
-        public async Task Login_With_Valid_Credentials_Should_Succeed_And_Cache_Session()
+        public async Task Login_With_Valid_Credentials_Should_Succeed_And_Save_Hashed_Token_In_Postgres()
         {
             // Arrange
             using var context = CreateDbContext();
             
-            // 1. Seed Tenant
             var tenantId = Guid.NewGuid();
             var tenant = new Tenant(tenantId, "Test Tenant", "test");
             await context.Tenants.AddAsync(tenant);
 
-            // 2. Seed User
             var userId = Guid.NewGuid();
             var user = new User(userId, tenantId, "owner@test.com", "SecureP@ssword123!_hashed", "John", "Doe");
             await context.Users.AddAsync(user);
 
-            // 3. Seed Role and UserRole
             var role = new Role(RoleIds.SuperAdmin, "SuperAdmin");
             var userRole = new UserRole(userId, RoleIds.SuperAdmin);
             await context.Roles.AddAsync(role);
             await context.UserRoles.AddAsync(userRole);
             await context.SaveChangesAsync();
 
-            var handler = new LoginCommandHandler(context, _passwordHasher, _tokenService, _cache);
+            var handler = new LoginCommandHandler(context, _passwordHasher, _tokenService);
             var command = new LoginCommand
             {
                 Email = "owner@test.com",
@@ -149,55 +107,170 @@ namespace Identity.Tests.Application
             Assert.NotEmpty(result.AccessToken);
             Assert.NotEmpty(result.RefreshToken);
 
-            // Verify JWT Token Claims
-            var handlerToken = new JwtSecurityTokenHandler();
-            var jwtToken = handlerToken.ReadJwtToken(result.AccessToken);
-            Assert.Equal(userId.ToString(), jwtToken.Subject);
-            Assert.Equal("owner@test.com", jwtToken.Payload["email"]);
-            Assert.Equal(tenantId.ToString(), jwtToken.Payload["tenant_id"]);
+            // Verify signed Refresh Token structure
+            var jwtHandler = new JwtSecurityTokenHandler();
+            var parsedRefreshToken = jwtHandler.ReadJwtToken(result.RefreshToken);
+            Assert.Equal(userId.ToString(), parsedRefreshToken.Subject);
+            Assert.NotNull(parsedRefreshToken.Id); // jti exists
 
-            // Verify Redis Session Cache
-            var cacheKey = $"sessions:{userId}:{result.RefreshToken}";
-            Assert.True(_cache.KeyExists(cacheKey));
-            Assert.Equal(tenantId.ToString(), _cache.GetString(cacheKey));
+            // Verify Refresh Token Hash is securely stored in database
+            var expectedHash = ComputeSha256Hash(result.RefreshToken);
+            var dbToken = await context.RefreshTokens.FirstOrDefaultAsync(rt => rt.TokenHash == expectedHash);
+            Assert.NotNull(dbToken);
+            Assert.Equal(userId, dbToken!.UserId);
+            Assert.False(dbToken.IsRevoked);
         }
 
         [Fact]
-        public async Task Login_With_Wrong_Password_Should_Throw_UnauthorizedAccessException()
+        public async Task RefreshToken_With_Valid_Token_Should_Succeed_Rotate_And_Revoke_Old_Token()
+        {
+            // Arrange
+            using var context = CreateDbContext();
+            
+            var tenantId = Guid.NewGuid();
+            var userId = Guid.NewGuid();
+            var user = new User(userId, tenantId, "owner@test.com", "hash", "John", "Doe");
+            await context.Users.AddAsync(user);
+
+            var role = new Role(RoleIds.SuperAdmin, "SuperAdmin");
+            var userRole = new UserRole(userId, RoleIds.SuperAdmin);
+            await context.Roles.AddAsync(role);
+            await context.UserRoles.AddAsync(userRole);
+
+            // Generate first token
+            var jti = Guid.NewGuid().ToString();
+            var rawRefreshToken = _tokenService.GenerateRefreshToken(user, jti);
+            var hash = ComputeSha256Hash(rawRefreshToken);
+
+            var dbToken = new RefreshToken(
+                Guid.NewGuid(),
+                userId,
+                hash,
+                jti,
+                DateTimeOffset.UtcNow,
+                DateTimeOffset.UtcNow.AddDays(7)
+            );
+            await context.RefreshTokens.AddAsync(dbToken);
+            await context.SaveChangesAsync();
+
+            var handler = new RefreshTokenCommandHandler(context, _tokenService, _configuration);
+            var command = new RefreshTokenCommand { RefreshToken = rawRefreshToken };
+
+            // Act
+            var result = await handler.Handle(command, CancellationToken.None);
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.NotEmpty(result.AccessToken);
+            Assert.NotEmpty(result.RefreshToken);
+
+            // Verify old token is revoked
+            var oldDbToken = await context.RefreshTokens.FirstOrDefaultAsync(rt => rt.TokenHash == hash);
+            Assert.NotNull(oldDbToken);
+            Assert.True(oldDbToken!.IsRevoked);
+            Assert.NotNull(oldDbToken.RevokedAt);
+
+            // Verify new token is created and hashed
+            var newHash = ComputeSha256Hash(result.RefreshToken);
+            var newDbToken = await context.RefreshTokens.FirstOrDefaultAsync(rt => rt.TokenHash == newHash);
+            Assert.NotNull(newDbToken);
+            Assert.Equal(userId, newDbToken!.UserId);
+            Assert.False(newDbToken.IsRevoked);
+        }
+
+        [Fact]
+        public async Task RefreshToken_With_Revoked_Token_Should_Throw_UnauthorizedAccessException()
+        {
+            // Arrange
+            using var context = CreateDbContext();
+            var userId = Guid.NewGuid();
+            var user = new User(userId, Guid.NewGuid(), "owner@test.com", "hash", "John", "Doe");
+            await context.Users.AddAsync(user);
+
+            var jti = Guid.NewGuid().ToString();
+            var rawRefreshToken = _tokenService.GenerateRefreshToken(user, jti);
+            var hash = ComputeSha256Hash(rawRefreshToken);
+
+            var dbToken = new RefreshToken(
+                Guid.NewGuid(),
+                userId,
+                hash,
+                jti,
+                DateTimeOffset.UtcNow,
+                DateTimeOffset.UtcNow.AddDays(7)
+            );
+            dbToken.Revoke(DateTimeOffset.UtcNow); // Revoke it
+            await context.RefreshTokens.AddAsync(dbToken);
+            await context.SaveChangesAsync();
+
+            var handler = new RefreshTokenCommandHandler(context, _tokenService, _configuration);
+            var command = new RefreshTokenCommand { RefreshToken = rawRefreshToken };
+
+            // Act & Assert
+            await Assert.ThrowsAsync<UnauthorizedAccessException>(() => handler.Handle(command, CancellationToken.None));
+        }
+
+        [Fact]
+        public async Task Logout_With_Valid_Token_Should_Revoke_Token()
+        {
+            // Arrange
+            using var context = CreateDbContext();
+            var userId = Guid.NewGuid();
+            var user = new User(userId, Guid.NewGuid(), "owner@test.com", "hash", "John", "Doe");
+            await context.Users.AddAsync(user);
+
+            var jti = Guid.NewGuid().ToString();
+            var rawRefreshToken = _tokenService.GenerateRefreshToken(user, jti);
+            var hash = ComputeSha256Hash(rawRefreshToken);
+
+            var dbToken = new RefreshToken(
+                Guid.NewGuid(),
+                userId,
+                hash,
+                jti,
+                DateTimeOffset.UtcNow,
+                DateTimeOffset.UtcNow.AddDays(7)
+            );
+            await context.RefreshTokens.AddAsync(dbToken);
+            await context.SaveChangesAsync();
+
+            var handler = new LogoutCommandHandler(context);
+            var command = new LogoutCommand { RefreshToken = rawRefreshToken };
+
+            // Act
+            var result = await handler.Handle(command, CancellationToken.None);
+
+            // Assert
+            Assert.True(result);
+            var updatedDbToken = await context.RefreshTokens.FirstOrDefaultAsync(rt => rt.TokenHash == hash);
+            Assert.NotNull(updatedDbToken);
+            Assert.True(updatedDbToken!.IsRevoked);
+        }
+
+        [Fact]
+        public async Task GetMe_With_Valid_User_Should_Return_User_Details()
         {
             // Arrange
             using var context = CreateDbContext();
             var tenantId = Guid.NewGuid();
-            var user = new User(Guid.NewGuid(), tenantId, "owner@test.com", "SecureP@ssword123!_hashed", "John", "Doe");
+            var userId = Guid.NewGuid();
+            var user = new User(userId, tenantId, "owner@test.com", "hash", "John", "Doe");
             await context.Users.AddAsync(user);
             await context.SaveChangesAsync();
 
-            var handler = new LoginCommandHandler(context, _passwordHasher, _tokenService, _cache);
-            var command = new LoginCommand
-            {
-                Email = "owner@test.com",
-                Password = "WrongPassword!"
-            };
+            var handler = new GetMeQueryHandler(context);
+            var query = new GetMeQuery { UserId = userId };
 
-            // Act & Assert
-            await Assert.ThrowsAsync<UnauthorizedAccessException>(() => handler.Handle(command, CancellationToken.None));
-        }
+            // Act
+            var result = await handler.Handle(query, CancellationToken.None);
 
-        [Fact]
-        public async Task Login_With_Unregistered_Email_Should_Throw_UnauthorizedAccessException()
-        {
-            // Arrange
-            using var context = CreateDbContext();
-
-            var handler = new LoginCommandHandler(context, _passwordHasher, _tokenService, _cache);
-            var command = new LoginCommand
-            {
-                Email = "nonexistent@test.com",
-                Password = "SecureP@ssword123!"
-            };
-
-            // Act & Assert
-            await Assert.ThrowsAsync<UnauthorizedAccessException>(() => handler.Handle(command, CancellationToken.None));
+            // Assert
+            Assert.NotNull(result);
+            Assert.Equal(userId, result.Id);
+            Assert.Equal("owner@test.com", result.Email);
+            Assert.Equal("John", result.FirstName);
+            Assert.Equal("Doe", result.LastName);
+            Assert.Equal(tenantId, result.TenantId);
         }
 
         [Fact]
@@ -214,14 +287,13 @@ namespace Identity.Tests.Application
 
             // Assert
             Assert.NotEmpty(accessToken);
-            var handlerToken = new JwtSecurityTokenHandler();
-            var jwtToken = handlerToken.ReadJwtToken(accessToken);
+            var jwtHandler = new JwtSecurityTokenHandler();
+            var jwtToken = jwtHandler.ReadJwtToken(accessToken);
             
             Assert.Equal(userId.ToString(), jwtToken.Subject);
             Assert.Equal("owner@test.com", jwtToken.Payload["email"]);
             Assert.Equal(tenantId.ToString(), jwtToken.Payload["tenant_id"]);
 
-            // Extract Roles from token claims
             var roleClaims = new List<string>();
             foreach (var claim in jwtToken.Claims)
             {
@@ -236,14 +308,25 @@ namespace Identity.Tests.Application
         }
 
         [Fact]
-        public void TokenService_GenerateRefreshToken_Should_Be_Valid_UUID()
+        public void TokenService_GenerateRefreshToken_Should_Be_Valid_Signed_JWT()
         {
+            // Arrange
+            var userId = Guid.NewGuid();
+            var user = new User(userId, Guid.NewGuid(), "owner@test.com", "hash", "John", "Doe");
+            var jti = Guid.NewGuid().ToString();
+
             // Act
-            var refreshToken = _tokenService.GenerateRefreshToken();
+            var refreshToken = _tokenService.GenerateRefreshToken(user, jti);
 
             // Assert
             Assert.NotEmpty(refreshToken);
-            Assert.True(Guid.TryParse(refreshToken, out _));
+            var jwtHandler = new JwtSecurityTokenHandler();
+            var jwtToken = jwtHandler.ReadJwtToken(refreshToken);
+            
+            Assert.Equal(userId.ToString(), jwtToken.Subject);
+            Assert.Equal(jti, jwtToken.Payload["jti"]);
+            Assert.NotNull(jwtToken.Payload["exp"]);
+            Assert.NotNull(jwtToken.Payload["iat"]);
         }
     }
 }

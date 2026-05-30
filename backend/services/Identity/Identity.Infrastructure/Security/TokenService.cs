@@ -52,10 +52,30 @@ namespace Identity.Infrastructure.Security
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-        public string GenerateRefreshToken()
+        public string GenerateRefreshToken(User user, string jti)
         {
-            // Rotated refresh token is a cryptographically secure opaque UUID
-            return Guid.NewGuid().ToString();
+            var secretKey = _configuration["Jwt:Secret"] ?? "ThisIsASuperSecretKeyForSigningJWTTokens1234567890!";
+            var issuer = _configuration["Jwt:Issuer"] ?? "Identity.Api";
+            var audience = _configuration["Jwt:Audience"] ?? "CRMPortal";
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+            var claims = new List<Claim>
+            {
+                new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
+                new Claim(JwtRegisteredClaimNames.Jti, jti)
+            };
+
+            var token = new JwtSecurityToken(
+                issuer: issuer,
+                audience: audience,
+                claims: claims,
+                expires: DateTime.UtcNow.AddDays(7),
+                signingCredentials: creds
+            );
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
 }

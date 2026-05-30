@@ -1,11 +1,13 @@
 using System;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Caching.Distributed;
 using Identity.Application.Common.Interfaces;
+using Identity.Domain.Entities;
 
 namespace Identity.Application.Authentication.Queries.Login
 {
@@ -29,18 +31,15 @@ namespace Identity.Application.Authentication.Queries.Login
         private readonly IIdentityDbContext _context;
         private readonly IPasswordHasher _passwordHasher;
         private readonly ITokenService _tokenService;
-        private readonly IDistributedCache _cache;
 
         public LoginCommandHandler(
             IIdentityDbContext context, 
             IPasswordHasher passwordHasher, 
-            ITokenService tokenService,
-            IDistributedCache cache)
+            ITokenService tokenService)
         {
             _context = context;
             _passwordHasher = passwordHasher;
             _tokenService = tokenService;
-            _cache = cache;
         }
 
         public async Task<LoginCommandResponse> Handle(LoginCommand request, CancellationToken cancellationToken)
@@ -70,18 +69,24 @@ namespace Identity.Application.Authentication.Queries.Login
                                select r.Name).ToArrayAsync(cancellationToken);
 
             // 4. Generate Access and Refresh Tokens
+            var jti = Guid.NewGuid().ToString();
             var accessToken = _tokenService.GenerateAccessToken(user, roles);
-            var refreshToken = _tokenService.GenerateRefreshToken();
+            var refreshToken = _tokenService.GenerateRefreshToken(user, jti);
 
-            // 5. Cache the Refresh Token inside Redis (using Distributed Cache with 7 days sliding TTL)
-            var cacheOptions = new DistributedCacheEntryOptions
-            {
-                AbsoluteExpirationRelativeToNow = TimeSpan.FromDays(7)
-            };
+            // 5. Store Hashed Refresh Token in PostgreSQL database
+            var tokenHash = ComputeSha256Hash(refreshToken);
             
-            // Redis Key: sessions:{userId}:{refreshToken}
-            var cacheKey = $"sessions:{user.Id}:{refreshToken}";
-            await _cache.SetStringAsync(cacheKey, user.TenantId.ToString(), cacheOptions, cancellationToken);
+            var dbToken = new RefreshToken(
+                Guid.NewGuid(),
+                user.Id,
+                tokenHash,
+                jti,
+                DateTimeOffset.UtcNow,
+                DateTimeOffset.UtcNow.AddDays(7)
+            );
+
+            await _context.RefreshTokens.AddAsync(dbToken, cancellationToken);
+            await _context.SaveChangesAsync(cancellationToken);
 
             return new LoginCommandResponse
             {
@@ -90,6 +95,18 @@ namespace Identity.Application.Authentication.Queries.Login
                 UserId = user.Id,
                 Email = user.Email
             };
+        }
+
+        private static string ComputeSha256Hash(string rawData)
+        {
+            using var sha256Hash = SHA256.Create();
+            byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
+            var builder = new StringBuilder();
+            for (int i = 0; i < bytes.Length; i++)
+            {
+                builder.Append(bytes[i].ToString("x2"));
+            }
+            return builder.ToString();
         }
     }
 }

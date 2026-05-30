@@ -13,6 +13,7 @@ namespace Identity.Infrastructure.Persistence
         public DbSet<User> Users => Set<User>();
         public DbSet<Role> Roles => Set<Role>();
         public DbSet<UserRole> UserRoles => Set<UserRole>();
+        public DbSet<RefreshToken> RefreshTokens => Set<RefreshToken>();
 
         public IdentityDbContext(DbContextOptions<IdentityDbContext> options) : base(options)
         {
@@ -66,6 +67,16 @@ namespace Identity.Infrastructure.Persistence
             {
                 entity.ToTable("user_roles");
                 entity.HasKey(ur => new { ur.UserId, ur.RoleId });
+            });
+
+            // 5. RefreshToken Configuration
+            modelBuilder.Entity<RefreshToken>(entity =>
+            {
+                entity.ToTable("refresh_tokens");
+                entity.HasKey(rt => rt.Id);
+                entity.Property(rt => rt.TokenHash).IsRequired().HasMaxLength(255);
+                entity.Property(rt => rt.JwtId).IsRequired().HasMaxLength(100);
+                entity.HasIndex(rt => rt.TokenHash).IsUnique();
             });
         }
 
