@@ -9,3 +9,21 @@ dist/
 
 # Downloaded Harness CLI binary for installed project instances.
 scripts/bin/harness-cli
+
+# .NET build output — never commit compiled artifacts.
+[Bb]in/
+[Oo]bj/
+*.dll
+*.pdb
+*.user
+
+# Node / Next.js frontend build output.
+node_modules/
+.next/
+out/
+.vercel/
+
+# Environment files.
+.env
+.env.local
+.env.*.local
