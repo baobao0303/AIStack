@@ -55,5 +55,24 @@ services:
     depends_on:
       - postgres
 
+  api-gateway:
+    image: api-gateway:latest
+    container_name: api-gateway
+    build:
+      context: ./backend/api-gateway
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80;https://+:443
+      - ReverseProxy__Clusters__identity-cluster__Destinations__destination1__Address=http://identity-service:80
+      - ReverseProxy__Clusters__ecommerce-cluster__Destinations__destination1__Address=http://ecommerce-service:80
+    ports:
+      - "5119:80"
+      - "7013:443"
+    depends_on:
+      - identity-service
+      - ecommerce-service
+
 volumes:
   postgres_data:

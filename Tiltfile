@@ -19,6 +19,12 @@ if node_env == 'production':
         dockerfile='./backend/services/ECommerce/ECommerce.Api/Dockerfile'
     )
     
+    docker_build(
+        'api-gateway',
+        './backend/api-gateway',
+        dockerfile='./backend/api-gateway/Dockerfile'
+    )
+    
     docker_compose('docker-compose.yml')
 else:
     # --- 2. Native Local Host Orchestration (Development Mode) ---
@@ -37,5 +43,14 @@ else:
         cmd='dotnet build backend/services/ECommerce/ECommerce.sln',
         serve_cmd='dotnet run --project backend/services/ECommerce/ECommerce.Api/ECommerce.Api.csproj --no-build',
         deps=['backend/services/ECommerce'],
+        ignore=['**/bin/**', '**/obj/**', '**/logs/**']
+    )
+    
+    # 3. API Gateway Service (Yarp reverse proxy)
+    local_resource(
+        'api-gateway',
+        cmd='dotnet build backend/api-gateway/api-gateway.csproj',
+        serve_cmd='dotnet run --project backend/api-gateway/api-gateway.csproj --no-build',
+        deps=['backend/api-gateway'],
         ignore=['**/bin/**', '**/obj/**', '**/logs/**']
     )
