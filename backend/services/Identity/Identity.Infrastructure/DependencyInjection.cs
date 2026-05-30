@@ -23,6 +23,15 @@ namespace Identity.Infrastructure
 
             // Register security utilities
             services.AddSingleton<IPasswordHasher, PasswordHasher>();
+            services.AddSingleton<ITokenService, TokenService>();
+
+            // Register Redis distributed cache session store
+            var redisConnectionString = configuration.GetConnectionString("RedisConnection") ?? "localhost:6379";
+            services.AddStackExchangeRedisCache(options =>
+            {
+                options.Configuration = redisConnectionString;
+                options.InstanceName = "crm_";
+            });
 
             return services;
         }

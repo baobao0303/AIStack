@@ -1,0 +1,10 @@
+using Identity.Domain.Entities;
+
+namespace Identity.Application.Common.Interfaces
+{
+    public interface ITokenService
+    {
+        string GenerateAccessToken(User user, string[] roles);
+        string GenerateRefreshToken(User user, string jti, DateTimeOffset absoluteExpiry);
+    }
+}
