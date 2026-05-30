@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.Api", "Identity.Ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.Tests", "Identity.Tests\Identity.Tests.csproj", "{D1069171-DE45-43D9-9E1F-8EF84563397E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "..\Shared\Shared.csproj", "{2ABA9383-D78F-475F-A080-DDB9CB6ED186}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "..\..\shared\Shared\Shared.csproj", "{C23ECF23-FF80-4F1C-B917-F01C3EF71B2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,9 +44,9 @@ Global
 		{D1069171-DE45-43D9-9E1F-8EF84563397E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1069171-DE45-43D9-9E1F-8EF84563397E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1069171-DE45-43D9-9E1F-8EF84563397E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2ABA9383-D78F-475F-A080-DDB9CB6ED186}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2ABA9383-D78F-475F-A080-DDB9CB6ED186}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2ABA9383-D78F-475F-A080-DDB9CB6ED186}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2ABA9383-D78F-475F-A080-DDB9CB6ED186}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C23ECF23-FF80-4F1C-B917-F01C3EF71B2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C23ECF23-FF80-4F1C-B917-F01C3EF71B2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C23ECF23-FF80-4F1C-B917-F01C3EF71B2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C23ECF23-FF80-4F1C-B917-F01C3EF71B2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
