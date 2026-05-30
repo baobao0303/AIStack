@@ -79,9 +79,431 @@ Hãy giúp tôi:
 2. Thiết kế database schema chi tiết cho cả 2 mảng (E-commerce và CRM).
 3. Thiết kế Microservices và API Gateway (YARP).
 4. Thiết kế Clean Architecture cho .NET 8.
-5. Thiết kế cấu trúc Next.js frontend.
+5. Thiết kế Next.js frontend.
 6. Thiết kế CI/CD pipeline.
 7. Thiết kế Docker và Tilt cho môi trường local.
 8. Viết User Stories tập trung vào nghiệp vụ bán hàng handmade, hệ thống chat hỗ trợ và quản lý nhân sự.
 9. Viết Functional & Non-Functional Requirements.
 10. Xây dựng Roadmap triển khai từ MVP đến Production.
+
+---
+
+# Frontend Architecture Specification
+
+## Frontend Overview
+
+Hệ thống frontend được tổ chức theo mô hình Nx Monorepo nhằm quản lý tập trung nhiều ứng dụng trong cùng một workspace.
+
+Workspace bao gồm:
+
+```text
+apps/
+├── storefront-web      (Next.js 15 SSR)
+├── admin-portal        (Angular 20)
+├── support-portal      (Angular 20)
+└── crm-portal          (Angular 20)
+
+libs/
+├── shared-ui
+├── shared-types
+├── shared-utils
+├── shared-auth
+├── shared-api
+├── shared-layout
+└── shared-config
+```
+
+---
+
+# Technology Stack
+
+## Public Website (E-commerce)
+
+### Framework
+* Next.js 15
+* React 19
+* TypeScript
+* App Router
+* Server Components
+* Server Actions
+
+### Styling
+* Tailwind CSS
+* SCSS Modules
+
+Example:
+```text
+ProductCard.tsx
+ProductCard.module.scss
+```
+
+### UI Components
+* ShadCN/UI
+* Radix UI
+
+### State Management
+* TanStack Query
+* Zustand
+
+### Validation
+* React Hook Form
+* Zod
+
+### Authentication
+* JWT
+* Refresh Token
+
+### Deployment
+* Vercel
+
+---
+
+# Admin Portal
+
+## Framework
+Angular 20+
+
+### Architecture
+* Standalone Components
+* Signals
+* Feature-based Structure
+* Lazy Loading
+
+### Styling
+* SCSS
+* Tailwind CSS
+
+Example:
+```text
+dashboard.component.ts
+dashboard.component.html
+dashboard.component.scss
+```
+
+### State Management
+* NgRx Signal Store
+
+### Forms
+* Reactive Forms
+* Angular Validators
+
+### Charts
+* ECharts
+* ngx-echarts
+
+### Realtime
+* SignalR
+
+---
+
+# Nx Workspace Structure
+
+```text
+apps/
+│
+├── storefront-web
+│
+├── crm-portal
+│
+├── support-portal
+│
+└── admin-portal
+
+libs/
+│
+├── ui
+│   ├── buttons
+│   ├── forms
+│   ├── dialogs
+│   ├── tables
+│   └── charts
+│
+├── auth
+│
+├── api
+│
+├── shared
+│
+├── constants
+│
+├── types
+│
+└── utils
+```
+
+---
+
+# Storefront Features
+
+## Public Pages
+
+### Home
+* Hero Banner
+* Handmade Collection
+* Featured Products
+* Best Sellers
+* New Arrivals
+
+### Product Listing
+* Search
+* Category Filter
+* Price Filter
+* Pagination
+* Sort
+
+### Product Detail
+* Gallery
+* Description
+* Inventory
+* Reviews
+* Related Products
+
+### Shopping Cart
+* Add Item
+* Remove Item
+* Quantity Update
+
+### Checkout
+* Shipping Address
+* Stripe Payment
+* Order Confirmation
+
+### Order History
+* Orders
+* Tracking
+* Invoices
+
+### Customer Profile
+* Profile Information
+* Address Book
+* Purchase History
+
+---
+
+# CRM Portal Features
+
+## Dashboard
+
+### KPI Cards
+* Revenue
+* Orders
+* Active Customers
+* Support Tickets
+
+### Analytics
+* Revenue Chart
+* Customer Growth
+* Product Performance
+
+---
+
+## Customer Management
+
+### Customer List
+* Search
+* Filters
+* Export
+
+### Customer Profile
+* Personal Information
+* Orders
+* Chat History
+* Notes
+* Activities Timeline
+
+---
+
+## Chat Support
+
+### Inbox
+* Active Conversations
+* Waiting Customers
+* Assigned Agents
+
+### Chat Window
+* Realtime Messages
+* File Upload
+* Internal Notes
+* AI Suggested Replies
+
+### AI Features
+* Suggested Response
+* Conversation Summary
+* Sentiment Analysis
+
+---
+
+## Human Resource Management
+
+### Employee Management
+* Employees
+* Roles
+* Permissions
+
+### Shift Management
+* Shift Assignment
+* Shift Calendar
+* Availability
+
+### Performance
+* Response Time
+* Customer Satisfaction
+* Closed Conversations
+
+---
+
+# Authentication
+
+## Login Flow
+
+Access Token
+```json
+{
+  "exp": "15m",
+  "iat": "timestamp"
+}
+```
+
+Refresh Token
+```json
+{
+  "exp": "7d",
+  "iat": "timestamp"
+}
+```
+
+### Security
+* RBAC
+* Refresh Token Rotation
+* Sliding Expiration
+* Absolute Expiration
+* Secure HTTP Only Cookies
+
+---
+
+# API Communication
+
+All applications communicate through API Gateway.
+
+```text
+Next.js
+        \
+         \
+Angular ----> YARP Gateway
+         /
+        /
+
+Microservices
+```
+
+---
+
+# Responsive Design
+
+Breakpoints
+```text
+Mobile    0 - 767px
+Tablet    768 - 1023px
+Desktop   1024+
+```
+
+Requirements:
+* Mobile First
+* Responsive Tables
+* Responsive Dashboard
+* Responsive Chat
+
+---
+
+# Design System
+
+Theme
+```text
+Primary
+Secondary
+Success
+Warning
+Danger
+Info
+```
+
+Typography
+```text
+Heading
+Sub Heading
+Body
+Caption
+```
+
+Spacing
+```text
+4
+8
+12
+16
+24
+32
+48
+64
+```
+
+---
+
+# Testing
+
+## Next.js
+* Jest
+* React Testing Library
+* Playwright
+
+## Angular
+* Jasmine
+* Karma
+* Cypress
+
+---
+
+# Performance Targets
+
+Storefront
+* Lighthouse > 90
+* FCP < 1.5s
+* LCP < 2.5s
+
+Admin Portal
+* Initial Load < 3s
+* Lazy Loaded Features
+* Route Preloading
+
+---
+
+# Deployment
+
+## Storefront
+* Vercel
+* SSR
+* Edge Cache
+
+## Angular Portals
+* Docker
+* Nginx
+* Kubernetes Ready
+
+## CI/CD
+
+GitHub Actions
+```text
+PR
+ ↓
+Lint
+ ↓
+Test
+ ↓
+Build
+ ↓
+Docker Build
+ ↓
+Deploy
+```
+
+All frontend applications must follow Nx Monorepo standards and share common libraries whenever possible.
