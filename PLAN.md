@@ -7,13 +7,13 @@ Tài liệu này lưu trữ lộ trình phát triển và tiến độ thực th
 ## 📊 Trạng thái Tiến độ Dự án (Project Progress)
 
 ```text
-[█████████████░░░░░░░░░░░░░░░░░] 45% Hoàn thành (Hoàn thành US-001, US-002, và Giai đoạn 2.1 Hybrid Expiration)
+[████████████████████░░░░░░░░░░] 65% Hoàn thành (Hoàn thành Giai đoạn 1, 2 và Giai đoạn 3 E-commerce Core & Stripe)
 ```
 
 - **Quyết định thiết kế (ADRs)**: 5/5 tài liệu kỹ thuật đã hoàn thành.
-- **Backlog & Stories**: 8 câu chuyện người dùng đã được định nghĩa và đăng ký vào Harness DB.
+- **Backlog & Stories**: 9 câu chuyện người dùng đã được định nghĩa và đăng ký vào Harness DB.
 - **Môi trường & SDK**: Đã ghi nhận tương thích chéo sang **.NET 6 SDK** (Backlog #1) phù hợp với máy local.
-- **Hành động hiện tại (Current Focus)**: Chuẩn bị chuyển sang Giai đoạn 3: Phát triển E-commerce Core & Stripe.
+- **Hành động hiện tại (Current Focus)**: Chuẩn bị chuyển sang Giai đoạn 4: Hệ thống Chat SignalR & CRM Portal HR.
 
 ---
 
@@ -40,10 +40,11 @@ Tài liệu này lưu trữ lộ trình phát triển và tiến độ thực th
 - [x] **[ĐÃ HOÀN THÀNH]** Triển khai Giai đoạn 2.1: Tích hợp Hybrid Token Expiration Strategy (15 phút Access, 7 ngày Sliding capped by 30 ngày Absolute maximum lifetime) sử dụng JWT Refresh Token và băm bảo mật SHA-256 lưu ở PostgreSQL. Viết bộ 23 unit/integration tests (100% Passed).
 - [x] **[ĐÃ HOÀN THÀNH]** Cấu hình điều phối phát triển container hóa qua **Tilt & Docker Compose** (mỗi dịch vụ một Dockerfile) khởi động đồng thời toàn bộ microservices (`Identity`, `ECommerce`, Postgres, Redis) cô lập hoàn toàn.
 
-### ⚪ Giai đoạn 3: Phát triển E-commerce Core & Stripe (CHƯA BẮT ĐẦU)
-- [ ] Khởi tạo dự án `E-commerce Service` (.NET 6).
-- [ ] Xây dựng catalog sản phẩm đồ len handmade.
-- [ ] Tích hợp Stripe Checkout và RabbitMQ webhook consumers.
+### 🟢 Giai đoạn 3: Phát triển E-commerce Core & Stripe (ĐÃ HOÀN THÀNH)
+- [x] Khởi tạo dự án `E-commerce Service` (.NET 6).
+- [x] Xây dựng catalog sản phẩm đồ len handmade (seeding danh mục wool và handmade).
+- [x] Tích hợp Stripe Checkout và RabbitMQ webhook consumers (bắt ChargeSucceededEvent và cập nhật trạng thái đơn hàng).
+- [x] **[ĐÃ HOÀN THÀNH]** Triển khai US-009: Xây dựng Worker Notification Service (.NET 6) kết nối RabbitMQ, dùng MailKit gửi hóa đơn HTML xác nhận đơn hàng cực kỳ đẹp mắt và bảo mật thông tin an toàn.
 
 ### ⚪ Giai đoạn 4: Hệ thống Chat SignalR & CRM Portal HR (CHƯA BẮT ĐẦU)
 - [ ] Khởi tạo `CRM Chat Service` (.NET 6) và SignalR Hub.

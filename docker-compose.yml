@@ -71,12 +71,52 @@ services:
       - ASPNETCORE_URLS=http://+:80;https://+:443
       - ReverseProxy__Clusters__identity-cluster__Destinations__destination1__Address=http://identity-service:80
       - ReverseProxy__Clusters__ecommerce-cluster__Destinations__destination1__Address=http://ecommerce-service:80
+      - ReverseProxy__Clusters__crmchat-cluster__Destinations__destination1__Address=http://crmchat-service:80
     ports:
       - "5119:80"
       - "7013:443"
     depends_on:
       - identity-service
       - ecommerce-service
+      - crmchat-service
+
+  crmchat-service:
+    image: crmchat-service:latest
+    container_name: crmchat-service
+    build:
+      context: .
+      dockerfile: ./backend/services/Chat/Dockerfile
+    restart: always
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=crm_shared;Username=postgres;Password=supersecretpassword
+      - ConnectionStrings__RedisConnection=redis:6379
+      - MessageBus__Host=rabbitmq
+    ports:
+      - "5125:80"
+      - "7068:443"
+    depends_on:
+      - postgres
+      - redis
+      - rabbitmq
+
+  notification-service:
+    image: notification-service:latest
+    container_name: notification-service
+    build:
+      context: .
+      dockerfile: ./backend/services/Notification/Dockerfile
+    restart: always
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=crm_shared;Username=postgres;Password=supersecretpassword
+      - MessageBus__Host=rabbitmq
+      - Smtp__Host=smtp.gmail.com
+      - Smtp__Port=587
+      - Smtp__UseSsl=false
+      - Smtp__Username=${SMTP_USER}
+      - Smtp__Password=${SMTP_PASSWORD}
+    depends_on:
+      - postgres
+      - rabbitmq
 
   rabbitmq:
     image: rabbitmq:3-management-alpine
