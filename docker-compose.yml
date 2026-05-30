@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: crm-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: supersecretpassword
+      POSTGRES_DB: crm_shared
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    container_name: crm-redis
+    restart: always
+    ports:
+      - "6379:6379"
+
+  identity-service:
+    image: identity-service:latest
+    container_name: identity-service
+    build:
+      context: ./backend/services/Identity
+      dockerfile: Identity.Api/Dockerfile
+    restart: always
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80;https://+:443
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=crm_shared;Username=postgres;Password=supersecretpassword
+      - ConnectionStrings__RedisConnection=redis:6379
+    ports:
+      - "5118:80"
+      - "7136:443"
+    depends_on:
+      - postgres
+      - redis
+
+  ecommerce-service:
+    image: ecommerce-service:latest
+    container_name: ecommerce-service
+    build:
+      context: ./backend/services/ECommerce
+      dockerfile: ECommerce.Api/Dockerfile
+    restart: always
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80;https://+:443
+      - ConnectionStrings__ECommerceConnection=Host=postgres;Database=crm_shared;Username=postgres;Password=supersecretpassword
+    ports:
+      - "5169:80"
+      - "7062:443"
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
