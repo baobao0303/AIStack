@@ -102,8 +102,7 @@ namespace Chat.Api.Persistence
             }
             catch (Exception ex)
             {
-                logger.LogError(ex, "[DbInitializer] An error occurred while seeding default PostgreSQL database details.");
-                throw;
+                logger.LogWarning(ex, "[DbInitializer] Could not connect to database to ensure tables are created and seeded. The database server might be offline or starting up. The service will continue running, but database operations may fail until the database is available.");
             }
         }
     }
