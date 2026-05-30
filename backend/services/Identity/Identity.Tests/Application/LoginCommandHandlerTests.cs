@@ -21,12 +21,6 @@ using Identity.Infrastructure.Security;
 
 namespace Identity.Tests.Application
 {
-    public class FakePasswordHasher : IPasswordHasher
-    {
-        public string HashPassword(string password) => password + "_hashed";
-        public bool VerifyPassword(string password, string hashedPassword) => hashedPassword == password + "_hashed";
-    }
-
     public class LoginCommandHandlerTests
     {
         private readonly DbContextOptions<IdentityDbContext> _dbContextOptions;
@@ -324,9 +318,9 @@ namespace Identity.Tests.Application
             var jwtToken = jwtHandler.ReadJwtToken(refreshToken);
             
             Assert.Equal(userId.ToString(), jwtToken.Subject);
-            Assert.Equal(jti, jwtToken.Payload["jti"]);
-            Assert.NotNull(jwtToken.Payload["exp"]);
-            Assert.NotNull(jwtToken.Payload["iat"]);
+            Assert.Equal(jti, jwtToken.Payload["jti"]?.ToString());
+            Assert.True(jwtToken.ValidTo > DateTime.UtcNow);
+            Assert.True(jwtToken.ValidFrom <= DateTime.UtcNow.AddSeconds(5));
         }
     }
 }
