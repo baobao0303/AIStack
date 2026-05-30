@@ -38,6 +38,7 @@ Tài liệu này lưu trữ lộ trình phát triển và tiến độ thực th
 - [x] **[ĐÃ HOÀN THÀNH]** Viết bộ kiểm thử tự động xUnit để chứng minh chất lượng (Validation Proof).
 - [x] **[ĐÃ HOÀN THÀNH]** Triển khai US-002: Xây dựng secure login endpoint `POST /api/auth/login`, JWT access token emission, và database-backed session tracking.
 - [x] **[ĐÃ HOÀN THÀNH]** Triển khai Giai đoạn 2.1: Tích hợp Hybrid Token Expiration Strategy (15 phút Access, 7 ngày Sliding capped by 30 ngày Absolute maximum lifetime) sử dụng JWT Refresh Token và băm bảo mật SHA-256 lưu ở PostgreSQL. Viết bộ 23 unit/integration tests (100% Passed).
+- [x] **[ĐÃ HOÀN THÀNH]** Cấu hình công cụ điều phối phát triển đa dịch vụ cục bộ **Tilt** (Tiltfile) hỗ trợ khởi động nhanh toàn bộ microservices (`Identity` và `ECommerce`) với cơ chế Hot Reload (dotnet watch) sub-second.
 
 ### ⚪ Giai đoạn 3: Phát triển E-commerce Core & Stripe (CHƯA BẮT ĐẦU)
 - [ ] Khởi tạo dự án `E-commerce Service` (.NET 6).
