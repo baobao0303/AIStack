@@ -1,13 +1,13 @@
 {
   "enabled": true,
   "name": "Harness Matrix After Task",
-  "description": "After a spec task completes, print the harness test matrix (story validation status).",
+  "description": "After a spec task completes, print the harness test matrix and commit the stage to git.",
   "version": "1",
   "when": {
     "type": "postTaskExecution"
   },
   "then": {
     "type": "runCommand",
-    "command": "./scripts/harness query matrix"
+    "command": "./scripts/harness query matrix && bash scripts/harness-commit.sh task \"spec task completed\""
   }
 }

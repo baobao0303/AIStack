@@ -1,7 +1,7 @@
 {
   "enabled": true,
   "name": "Harness CRM Docs Validator",
-  "description": "When any docs markdown file is saved, run the portable CRM docs validation script.",
+  "description": "When any docs markdown file is saved, run the portable CRM docs validation script, then commit the docs stage to git.",
   "version": "1",
   "when": {
     "type": "fileEdited",
@@ -11,6 +11,6 @@
   },
   "then": {
     "type": "runCommand",
-    "command": "bash scripts/validate-crm-docs.sh"
+    "command": "bash scripts/validate-crm-docs.sh && bash scripts/harness-commit.sh docs \"docs updated\""
   }
 }

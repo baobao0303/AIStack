@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "Harness Git Checkpoint",
+  "description": "Manually commit the current work as a checkpoint stage to git.",
+  "version": "1",
+  "when": {
+    "type": "userTriggered"
+  },
+  "then": {
+    "type": "runCommand",
+    "command": "bash scripts/harness-commit.sh checkpoint \"manual checkpoint\""
+  }
+}
