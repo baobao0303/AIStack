@@ -42,14 +42,16 @@ if git diff --cached --quiet; then
   exit 0
 fi
 
-TS="$(date '+%Y-%m-%d %H:%M:%S')"
-MSG="harness(${STAGE}): ${EXTRA} [${TS}]"
-
 # Identity for agent-authored commits. Override per-agent via env vars so the
 # same script can attribute Antigravity, Claude, or other agents correctly.
 # Defaults to Claude-Opus-4.8 when nothing else is configured.
 AGENT_NAME="${HARNESS_AGENT_NAME:-Claude-Opus-4.8}"
 AGENT_EMAIL="${HARNESS_AGENT_EMAIL:-claude-opus-4.8@agent.local}"
+
+TS="$(date '+%Y-%m-%d %H:%M:%S')"
+# Surface the agent name in the subject line itself (not just git author) and
+# keep the harness stage so the loop stays parseable.
+MSG="${AGENT_NAME} (${STAGE}): ${EXTRA} [${TS}]"
 
 # Use the agent fallback identity only if no git identity is configured,
 # without persisting it to git config.

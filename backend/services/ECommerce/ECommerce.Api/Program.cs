@@ -10,6 +10,15 @@ builder.Services.AddControllers();
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 
+// Register RabbitMQ Messaging Services
+builder.Services.AddSingleton<Shared.Messaging.IEventBus>(sp => 
+{
+    var rabbitHost = builder.Configuration["MessageBus:Host"] ?? "localhost";
+    return new Shared.Messaging.RabbitMQEventBus(sp, rabbitHost);
+});
+builder.Services.AddScoped<ECommerce.Infrastructure.Messaging.ChargeSucceededConsumer>();
+builder.Services.AddHostedService<ECommerce.Api.BackgroundServices.RabbitMQConsumerBackgroundService>();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
