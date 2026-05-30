@@ -1,0 +1,48 @@
+{
+  "name": "tiem-nha-zit-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nx serve",
+    "build": "nx build",
+    "test": "nx test",
+    "lint": "nx lint",
+    "graph": "nx graph"
+  },
+  "dependencies": {
+    "@angular/animations": "^19.0.0",
+    "@angular/common": "^19.0.0",
+    "@angular/compiler": "^19.0.0",
+    "@angular/core": "^19.0.0",
+    "@angular/forms": "^19.0.0",
+    "@angular/platform-browser": "^19.0.0",
+    "@angular/platform-browser-dynamic": "^19.0.0",
+    "@angular/router": "^19.0.0",
+    "@ngrx/signals": "^19.0.0",
+    "next": "^15.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "rxjs": "^7.8.0",
+    "tslib": "^2.6.0",
+    "zone.js": "~0.15.0",
+    "zustand": "^5.0.0",
+    "zod": "^3.23.0",
+    "lucide-react": "^0.450.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^19.0.0",
+    "@angular/compiler-cli": "^19.0.0",
+    "@nx/angular": "^20.0.0",
+    "@nx/next": "^20.0.0",
+    "@nx/react": "^20.0.0",
+    "@nx/workspace": "^20.0.0",
+    "@types/node": "^20.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "nx": "^20.0.0",
+    "typescript": "~5.5.0",
+    "postcss": "^8.4.0",
+    "tailwindcss": "^3.4.0",
+    "sass": "^1.77.0"
+  }
+}
