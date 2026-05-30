@@ -33,9 +33,9 @@ Tài liệu này lưu trữ lộ trình phát triển và tiến độ thực th
 - [x] Cấu hình chính xác tất cả các Project References giữa các tầng.
 - [x] Biên dịch và thử nghiệm giải pháp thành công với **0 lỗi và 0 cảnh báo**.
 - [x] **[ĐÃ HOÀN THÀNH]** Triển khai thành công US-001: Xây dựng các thực thể Tenant, User, Role, UserRole trong Identity.Domain, viết MediatR command handler và bộ 14 unit tests (100% Passed).
-- [ ] Xây dựng Database Context (Entity Framework Core) kết nối PostgreSQL và viết Database Migrations cho US-001.
-- [ ] Triển khai các API Endpoints phục vụ việc đăng ký tài khoản và doanh nghiệp.
-- [ ] Viết bộ kiểm thử tự động xUnit để chứng minh chất lượng (Validation Proof).
+- [x] **[ĐÃ HOÀN THÀNH]** Xây dựng Database Context (Entity Framework Core) kết nối PostgreSQL và viết Database Migrations cho US-001.
+- [x] **[ĐÃ HOÀN THÀNH]** Triển khai các API Endpoints phục vụ việc đăng ký tài khoản và doanh nghiệp.
+- [x] **[ĐÃ HOÀN THÀNH]** Viết bộ kiểm thử tự động xUnit để chứng minh chất lượng (Validation Proof).
 
 ### ⚪ Giai đoạn 3: Phát triển E-commerce Core & Stripe (CHƯA BẮT ĐẦU)
 - [ ] Khởi tạo dự án `E-commerce Service` (.NET 6).
