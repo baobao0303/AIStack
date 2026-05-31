@@ -34,3 +34,4 @@ export { default as CheckoutView } from './lib/ui/views/CheckoutView';
 export { default as DetailView } from './lib/ui/views/DetailView';
 export { default as TrackingView } from './lib/ui/views/TrackingView';
 export { default as LoginView } from './lib/ui/views/LoginView';
+export { default as AboutView } from './lib/ui/views/AboutView';

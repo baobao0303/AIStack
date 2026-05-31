@@ -28,8 +28,8 @@ export default function HomeView({
       region: 'Hà Nội',
       highlight: 'Bespoke Fitting & Hoàn Thiện',
       desc: 'Nơi tập trung các nhà thiết kế bespoke, thực hiện thiết kế chi tiết dáng người, đo đạc chỉ số cơ thể và hoàn thiện các chi tiết thêu đính thủ công tinh xảo trên áo trước khi đóng gói gửi khách.',
-      x: '26.8%',
-      y: '15.0%',
+      cx: 214,
+      cy: 120,
       icon: 'architecture'
     },
     {
@@ -38,8 +38,8 @@ export default function HomeView({
       region: 'Sa Pa, Lào Cai',
       highlight: 'Sợi Alpaca & Đan Tay',
       desc: 'Quy tụ hơn 30 nghệ nhân dân tộc H\'Mông với kỹ nghệ đan kim kép truyền thống siêu việt. Chuyên trách các sản phẩm áo khoác len Merino dầy dặn và khăn choàng bespoke.',
-      x: '18.8%',
-      y: '8.1%',
+      cx: 150,
+      cy: 65,
       icon: 'yard'
     },
     {
@@ -48,8 +48,8 @@ export default function HomeView({
       region: 'Đà Nẵng',
       highlight: 'Móc Hoạ Tiết Bespoke',
       desc: 'Nổi tiếng với các hoạ tiết hoa văn đan nổi dân tộc. Nơi các nghệ nhân đan móc từng đoá hoa hồng, cúc gỗ dừa và hoạ tiết vintage tỉ mỉ cho bộ sưu tập len cao cấp.',
-      x: '40.6%',
-      y: '48.0%',
+      cx: 325,
+      cy: 384,
       icon: 'local_florist'
     },
     {
@@ -58,8 +58,8 @@ export default function HomeView({
       region: 'Đà Lạt, Lâm Đồng',
       highlight: 'Nhuộm Tự Nhiên & Thú Bông',
       desc: 'Trang trại cung cấp các sợi len organic dệt thô tự nhiên. Đặc biệt phụ trách kỹ thuật nhuộm màu từ lá cây, vỏ quả tự nhiên và tạo hình thú bông organic cho bé yêu.',
-      x: '41.0%',
-      y: '71.5%',
+      cx: 328,
+      cy: 572,
       icon: 'yard'
     },
     {
@@ -68,8 +68,8 @@ export default function HomeView({
       region: 'TP. Hồ Chí Minh',
       highlight: 'Bespoke Fitting & Ship Hỏa Tốc',
       desc: 'Trực tiếp hỗ trợ đo dáng, tư vấn chất liệu len phù hợp thời tiết phương Nam và điều phối giao hàng hoả tốc các tác phẩm len bespoked cho khách hàng khu vực phía Nam.',
-      x: '34.5%',
-      y: '76.2%',
+      cx: 276,
+      cy: 610,
       icon: 'local_shipping'
     }
   ];
@@ -449,21 +449,35 @@ export default function HomeView({
                     <circle cx="630" cy="690" r="3" fill="#4a654f" />
                     <text x="642" y="694" fontSize="12" fill="#4a654f" fontFamily="var(--font-be-vietnam-pro), sans-serif" fontWeight="bold">Trường Sa</text>
                   </g>
-                </svg>
 
-                {/* Pulsing Interactive Location Markers */}
-                {artisanRegions.map((reg) => (
-                  <div
-                    key={reg.id}
-                    className={`${styles.mapPin} ${activeRegion.id === reg.id ? styles.activePin : ''}`}
-                    style={{ left: reg.x, top: reg.y }}
-                    onClick={() => setActiveRegion(reg)}
-                    title={reg.name}
-                  >
-                    <div className={styles.pinDot}></div>
-                    <div className={styles.pinPulse}></div>
-                  </div>
-                ))}
+                  {/* Interactive Artisan Location Markers (rendered in SVG space so they stay glued to provinces at any size) */}
+                  {artisanRegions.map((reg) => {
+                    const isActive = activeRegion.id === reg.id;
+                    return (
+                      <g
+                        key={reg.id}
+                        className={styles.mapPinSvg}
+                        transform={`translate(${reg.cx}, ${reg.cy})`}
+                        onClick={() => setActiveRegion(reg)}
+                        role="button"
+                        tabIndex={0}
+                        aria-label={reg.name}
+                      >
+                        <title>{reg.name}</title>
+                        {/* Pulsing halo */}
+                        <circle className={styles.pinPulseSvg} r="10" fill="none" stroke="#4a654f" strokeWidth="1.5" />
+                        {/* Dot */}
+                        <circle
+                          className={styles.pinDotSvg}
+                          r={isActive ? 8 : 6}
+                          fill={isActive ? '#ffffff' : '#4a654f'}
+                          stroke={isActive ? '#4a654f' : '#ffffff'}
+                          strokeWidth={isActive ? 3.5 : 2}
+                        />
+                      </g>
+                    );
+                  })}
+                </svg>
               </div>
             </div>
 

@@ -114,6 +114,13 @@ export default function Navbar({
           >
             Sản Phẩm
           </button>
+          <button
+            className={`${styles.navItem} ${activeView === 'about' ? styles.active : ''}`}
+            onClick={() => { setActiveView('about'); setIsCartOpen(false); }}
+            onMouseEnter={() => router.prefetch('/about')}
+          >
+            Giới Thiệu
+          </button>
         </div>
 
         <div className={styles.navIcons}>

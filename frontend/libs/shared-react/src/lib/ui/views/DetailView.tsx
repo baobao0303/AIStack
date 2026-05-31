@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Product, PRODUCTS } from '@tiem-nha-zit/shared';
 import { useAppStore } from '../../store/app.store';
@@ -42,6 +42,15 @@ export default function DetailView({
   setActiveView
 }: DetailViewProps) {
   const router = useRouter();
+  const [selectedType, setSelectedType] = useState('');
+
+  useEffect(() => {
+    if (selectedProduct?.types && selectedProduct.types.length > 0) {
+      setSelectedType(selectedProduct.types[0]);
+    } else {
+      setSelectedType('');
+    }
+  }, [selectedProduct]);
   const setSelectedProduct = useAppStore((state) => state.setSelectedProduct);
   const [quantity, setQuantity] = useState(1);
   const [isFavorite, setIsFavorite] = useState(false);
@@ -109,29 +118,44 @@ export default function DetailView({
               className={styles.detailRealImage}
             />
           </div>
-          {/* Visual Gallery Thumbnails matching Stitch refined design */}
+          {/* Visual Gallery Thumbnails matching dynamic image structures */}
           <div className={styles.detailThumbnails}>
-            <button 
-              className={`${styles.thumbImgButton} ${detailMainImage === selectedProduct.imageUrl ? styles.thumbActive : ''}`}
-              onClick={() => setDetailMainImage(selectedProduct.imageUrl)}
-              title="Góc chính"
-            >
-              <img src={selectedProduct.imageUrl} alt="Góc chụp chính" />
-            </button>
-            <button 
-              className={`${styles.thumbImgButton} ${detailMainImage === 'https://lh3.googleusercontent.com/aida/ADBb0ugGS8xiSKzBXsjv8f1Ndlh_xEwfvoLw4w-Jkz6jpej5o8qs2KX3QclLsivoMQ3mSg2UHI4Exh8_IkKypIdzDstLCP8Expv5nV73exEJ86YzUJcMijfIvK69Z0l5zGnK0GNACMt6puf5FtAxLz3NounFNAIglefpQIoyMa6W9u-XZzDM1q9fAAwZm_lHxUVAv3liK_uJ9vk6B3F1A7APZvVfLYmqMpmMGoDW2zXj0oVelqv11MLtXPcUQTwI' ? styles.thumbActive : ''}`}
-              onClick={() => setDetailMainImage('https://lh3.googleusercontent.com/aida/ADBb0ugGS8xiSKzBXsjv8f1Ndlh_xEwfvoLw4w-Jkz6jpej5o8qs2KX3QclLsivoMQ3mSg2UHI4Exh8_IkKypIdzDstLCP8Expv5nV73exEJ86YzUJcMijfIvK69Z0l5zGnK0GNACMt6puf5FtAxLz3NounFNAIglefpQIoyMa6W9u-XZzDM1q9fAAwZm_lHxUVAv3liK_uJ9vk6B3F1A7APZvVfLYmqMpmMGoDW2zXj0oVelqv11MLtXPcUQTwI')}
-              title="Cận cảnh sợi len"
-            >
-              <img src="https://lh3.googleusercontent.com/aida/ADBb0ugGS8xiSKzBXsjv8f1Ndlh_xEwfvoLw4w-Jkz6jpej5o8qs2KX3QclLsivoMQ3mSg2UHI4Exh8_IkKypIdzDstLCP8Expv5nV73exEJ86YzUJcMijfIvK69Z0l5zGnK0GNACMt6puf5FtAxLz3NounFNAIglefpQIoyMa6W9u-XZzDM1q9fAAwZm_lHxUVAv3liK_uJ9vk6B3F1A7APZvVfLYmqMpmMGoDW2zXj0oVelqv11MLtXPcUQTwI" alt="Cận cảnh sợi len" />
-            </button>
-            <button 
-              className={`${styles.thumbImgButton} ${detailMainImage === 'https://lh3.googleusercontent.com/aida-public/AB6AXuAS-VgCNe0c0ipLm_ydBUdPVufGIU1fYPO0CzURgYC_iQ0Np1JriASAlJzZ6eU7VM3uf3yrhDZw5aLmtMJ6T9huT1WhbFbkn5rtDLNZkI5jMHKzT4jh6Ng51VY9ba74nDfewTAfTL2r4gXDFTthe0-H6YZqYThGEIHsHJTD--BSlolpLNBJhv9XOyE_ZpGczyyeOl3QnfQNycoKtEZAeQDeikPxFrXGUjKDeuE7T0Gu1nUmuJYoAsM0cKsf-JUGabrqlGoohSy4BlB8' ? styles.thumbActive : ''}`}
-              onClick={() => setDetailMainImage('https://lh3.googleusercontent.com/aida-public/AB6AXuAS-VgCNe0c0ipLm_ydBUdPVufGIU1fYPO0CzURgYC_iQ0Np1JriASAlJzZ6eU7VM3uf3yrhDZw5aLmtMJ6T9huT1WhbFbkn5rtDLNZkI5jMHKzT4jh6Ng51VY9ba74nDfewTAfTL2r4gXDFTthe0-H6YZqYThGEIHsHJTD--BSlolpLNBJhv9XOyE_ZpGczyyeOl3QnfQNycoKtEZAeQDeikPxFrXGUjKDeuE7T0Gu1nUmuJYoAsM0cKsf-JUGabrqlGoohSy4BlB8')}
-              title="Góc nghệ nhân"
-            >
-              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAS-VgCNe0c0ipLm_ydBUdPVufGIU1fYPO0CzURgYC_iQ0Np1JriASAlJzZ6eU7VM3uf3yrhDZw5aLmtMJ6T9huT1WhbFbkn5rtDLNZkI5jMHKzT4jh6Ng51VY9ba74nDfewTAfTL2r4gXDFTthe0-H6YZqYThGEIHsHJTD--BSlolpLNBJhv9XOyE_ZpGczyyeOl3QnfQNycoKtEZAeQDeikPxFrXGUjKDeuE7T0Gu1nUmuJYoAsM0cKsf-JUGabrqlGoohSy4BlB8" alt="Góc nghệ nhân" />
-            </button>
+            {selectedProduct.images && selectedProduct.images.length > 0 ? (
+              selectedProduct.images.map((imgUrl, index) => (
+                <button 
+                  key={index}
+                  className={`${styles.thumbImgButton} ${detailMainImage === imgUrl ? styles.thumbActive : ''}`}
+                  onClick={() => setDetailMainImage(imgUrl)}
+                  title={`Góc chụp ${index + 1}`}
+                >
+                  <img src={imgUrl} alt={`Góc chụp ${index + 1}`} />
+                </button>
+              ))
+            ) : (
+              <>
+                <button 
+                  className={`${styles.thumbImgButton} ${detailMainImage === selectedProduct.imageUrl ? styles.thumbActive : ''}`}
+                  onClick={() => setDetailMainImage(selectedProduct.imageUrl)}
+                  title="Góc chính"
+                >
+                  <img src={selectedProduct.imageUrl} alt="Góc chụp chính" />
+                </button>
+                <button 
+                  className={`${styles.thumbImgButton} ${detailMainImage === 'https://lh3.googleusercontent.com/aida/ADBb0ugGS8xiSKzBXsjv8f1Ndlh_xEwfvoLw4w-Jkz6jpej5o8qs2KX3QclLsivoMQ3mSg2UHI4Exh8_IkKypIdzDstLCP8Expv5nV73exEJ86YzUJcMijfIvK69Z0l5zGnK0GNACMt6puf5FtAxLz3NounFNAIglefpQIoyMa6W9u-XZzDM1q9fAAwZm_lHxUVAv3liK_uJ9vk6B3F1A7APZvVfLYmqMpmMGoDW2zXj0oVelqv11MLtXPcUQTwI' ? styles.thumbActive : ''}`}
+                  onClick={() => setDetailMainImage('https://lh3.googleusercontent.com/aida/ADBb0ugGS8xiSKzBXsjv8f1Ndlh_xEwfvoLw4w-Jkz6jpej5o8qs2KX3QclLsivoMQ3mSg2UHI4Exh8_IkKypIdzDstLCP8Expv5nV73exEJ86YzUJcMijfIvK69Z0l5zGnK0GNACMt6puf5FtAxLz3NounFNAIglefpQIoyMa6W9u-XZzDM1q9fAAwZm_lHxUVAv3liK_uJ9vk6B3F1A7APZvVfLYmqMpmMGoDW2zXj0oVelqv11MLtXPcUQTwI')}
+                  title="Cận cảnh sợi len"
+                >
+                  <img src="https://lh3.googleusercontent.com/aida/ADBb0ugGS8xiSKzBXsjv8f1Ndlh_xEwfvoLw4w-Jkz6jpej5o8qs2KX3QclLsivoMQ3mSg2UHI4Exh8_IkKypIdzDstLCP8Expv5nV73exEJ86YzUJcMijfIvK69Z0l5zGnK0GNACMt6puf5FtAxLz3NounFNAIglefpQIoyMa6W9u-XZzDM1q9fAAwZm_lHxUVAv3liK_uJ9vk6B3F1A7APZvVfLYmqMpmMGoDW2zXj0oVelqv11MLtXPcUQTwI" alt="Cận cảnh sợi len" />
+                </button>
+                <button 
+                  className={`${styles.thumbImgButton} ${detailMainImage === 'https://lh3.googleusercontent.com/aida-public/AB6AXuAS-VgCNe0c0ipLm_ydBUdPVufGIU1fYPO0CzURgYC_iQ0Np1JriASAlJzZ6eU7VM3uf3yrhDZw5aLmtMJ6T9huT1WhbFbkn5rtDLNZkI5jMHKzT4jh6Ng51VY9ba74nDfewTAfTL2r4gXDFTthe0-H6YZqYThGEIHsHJTD--BSlolpLNBJhv9XOyE_ZpGczyyeOl3QnfQNycoKtEZAeQDeikPxFrXGUjKDeuE7T0Gu1nUmuJYoAsM0cKsf-JUGabrqlGoohSy4BlB8' ? styles.thumbActive : ''}`}
+                  onClick={() => setDetailMainImage('https://lh3.googleusercontent.com/aida-public/AB6AXuAS-VgCNe0c0ipLm_ydBUdPVufGIU1fYPO0CzURgYC_iQ0Np1JriASAlJzZ6eU7VM3uf3yrhDZw5aLmtMJ6T9huT1WhbFbkn5rtDLNZkI5jMHKzT4jh6Ng51VY9ba74nDfewTAfTL2r4gXDFTthe0-H6YZqYThGEIHsHJTD--BSlolpLNBJhv9XOyE_ZpGczyyeOl3QnfQNycoKtEZAeQDeikPxFrXGUjKDeuE7T0Gu1nUmuJYoAsM0cKsf-JUGabrqlGoohSy4BlB8')}
+                  title="Góc nghệ nhân"
+                >
+                  <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAS-VgCNe0c0ipLm_ydBUdPVufGIU1fYPO0CzURgYC_iQ0Np1JriASAlJzZ6eU7VM3uf3yrhDZw5aLmtMJ6T9huT1WhbFbkn5rtDLNZkI5jMHKzT4jh6Ng51VY9ba74nDfewTAfTL2r4gXDFTthe0-H6YZqYThGEIHsHJTD--BSlolpLNBJhv9XOyE_ZpGczyyeOl3QnfQNycoKtEZAeQDeikPxFrXGUjKDeuE7T0Gu1nUmuJYoAsM0cKsf-JUGabrqlGoohSy4BlB8" alt="Góc nghệ nhân" />
+                </button>
+              </>
+            )}
             <div className={styles.videoPlaceholder} onClick={() => alert('Đang tải video giới thiệu quy trình đan tay...')}>
               <span className="material-symbols-outlined">videocam</span>
             </div>
@@ -188,21 +212,44 @@ export default function DetailView({
 
             {/* Color swatches */}
             <div className="flex flex-col gap-3">
-              <label className="text-[10px] font-bold text-[#6b5c4c] uppercase tracking-wider block select-none">MÀU SẮC TỰ NHIÊN</label>
-              <div className="flex gap-3.5 select-none">
-                {[
-                  { name: 'Sage Green', hex: '#8DAA91' },
-                  { name: 'Cream', hex: '#FAF9F6' },
-                  { name: 'Soft Rose', hex: '#ECBAC1' },
-                  { name: 'Oatmeal', hex: '#D7C3B0' },
-                ].map((color) => {
+              <label className="text-[10px] font-bold text-[#6b5c4c] uppercase tracking-wider block select-none">
+                {(() => {
+                  switch (selectedProduct.id) {
+                    case 'prod-9':
+                      return 'PHÂN LOẠI SẢN PHẨM';
+                    case 'prod-15':
+                      return 'NHÂN VẬT CHỌN LỰA';
+                    case 'prod-18':
+                      return 'CHỌN THÚ MINI CUTE';
+                    case 'prod-19':
+                      return 'CHỌN ĐẾ HOA MÀU';
+                    default:
+                      return selectedProduct.colors && selectedProduct.colors.length > 0 ? 'MÀU SẮC CHỌN LỰA' : 'MÀU SẮC TỰ NHIÊN';
+                  }
+                })()}
+              </label>
+              <div className="flex flex-wrap gap-3.5 select-none">
+                {(selectedProduct.colors && selectedProduct.colors.length > 0
+                  ? selectedProduct.colors
+                  : [
+                      { name: 'Sage Green', hex: '#8DAA91' },
+                      { name: 'Cream', hex: '#FAF9F6' },
+                      { name: 'Soft Rose', hex: '#ECBAC1' },
+                      { name: 'Oatmeal', hex: '#D7C3B0' },
+                    ]
+                ).map((color) => {
                   const isActive = customColor === color.name;
                   return (
                     <button
                       key={color.name}
                       type="button"
                       title={color.name}
-                      onClick={() => setCustomColor(color.name)}
+                      onClick={() => {
+                        setCustomColor(color.name);
+                        if (color.imageUrl) {
+                          setDetailMainImage(color.imageUrl);
+                        }
+                      }}
                       className={`w-[38px] h-[38px] rounded-full transition-all duration-300 relative cursor-pointer outline-none ${
                         isActive 
                           ? 'ring-2 ring-sage ring-offset-2 scale-110 shadow-md' 
@@ -213,7 +260,36 @@ export default function DetailView({
                   );
                 })}
               </div>
+              <div className="text-[10px] font-semibold text-charcoal/60 uppercase tracking-wider select-none mt-1">
+                Phân loại: <span className="text-sage font-bold font-sans">{customColor}</span>
+              </div>
             </div>
+
+            {/* Dynamic Product Types selector if available */}
+            {selectedProduct.types && selectedProduct.types.length > 0 && (
+              <div className="flex flex-col gap-2 select-none mb-1">
+                <label className="text-[10px] font-bold text-gold uppercase tracking-wider block">PHÂN LOẠI LOẠI</label>
+                <div className="flex gap-2.5">
+                  {selectedProduct.types.map((type) => {
+                    const isSelected = selectedType === type;
+                    return (
+                      <button
+                        key={type}
+                        type="button"
+                        onClick={() => setSelectedType(type)}
+                        className={`flex-1 py-2.5 rounded-xl text-[10px] font-bold transition-all duration-300 cursor-pointer border box-border ${
+                          isSelected
+                            ? 'bg-sage text-white border-sage shadow-md'
+                            : 'bg-white border-customBorder/60 text-charcoal/70 hover:border-sage hover:text-sage hover:bg-sage/5'
+                        }`}
+                      >
+                        {type}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
 
             {/* Quick Size Presets */}
             {(selectedProduct.category === 'Thời Trang' || selectedProduct.category === 'Mũ Len') && (
@@ -332,7 +408,19 @@ export default function DetailView({
               <button
                 type="button"
                 className="w-full bg-sage text-white hover:bg-sage/90 py-4 rounded-xl font-sans font-bold text-sm cursor-pointer transition-all duration-300 shadow-[0_4px_12px_rgba(74,101,79,0.15)] hover:shadow-[0_8px_20px_rgba(74,101,79,0.3)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] border-none flex items-center justify-center gap-2.5 box-border"
-                onClick={() => handleAddToCartCustom(quantity)}
+                onClick={() => {
+                  if (selectedType) {
+                    const prefix = `Loại: ${selectedType}`;
+                    const currentNotes = customNotes.trim();
+                    const nextNotes = currentNotes.startsWith('Loại:')
+                      ? `${prefix}${currentNotes.indexOf('\n') !== -1 ? currentNotes.indexOf('\n') : ''}`
+                      : currentNotes
+                        ? `${prefix}\n${currentNotes}`
+                        : prefix;
+                    setCustomNotes(nextNotes);
+                  }
+                  handleAddToCartCustom(quantity);
+                }}
               >
                 <span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>shopping_bag</span>
                 Xác Nhận & Đặt Đan Ngay

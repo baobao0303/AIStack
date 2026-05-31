@@ -167,10 +167,11 @@ export const useAppStore = create<AppStore>((set, get) => ({
 
   setSelectedProduct: (prod) => {
     const isFashion = prod.category === 'Thời Trang' || prod.category === 'Mũ Len';
+    const defaultColor = prod.colors && prod.colors.length > 0 ? prod.colors[0].name : 'Sage Green';
     set({
       selectedProduct: prod,
       detailMainImage: prod.imageUrl,
-      customColor: 'Sage Green',
+      customColor: defaultColor,
       chestWidth: isFashion ? '85' : 'N/A',
       sleeveLength: isFashion ? '58' : 'N/A',
       height: isFashion ? '165' : 'N/A',
@@ -190,11 +191,12 @@ export const useAppStore = create<AppStore>((set, get) => ({
       e.stopPropagation();
     }
     const isFashion = prod.category === 'Thời Trang' || prod.category === 'Mũ Len';
+    const defaultColor = prod.colors && prod.colors.length > 0 ? prod.colors[0].name : 'Sage Green';
     const newItem: CartItem = {
       id: createId('cart'),
       product: prod,
       quantity: 1,
-      customColor: 'Sage Green',
+      customColor: defaultColor,
       chestWidth: isFashion ? '85' : 'N/A',
       sleeveLength: isFashion ? '58' : 'N/A',
       height: isFashion ? '165' : 'N/A',

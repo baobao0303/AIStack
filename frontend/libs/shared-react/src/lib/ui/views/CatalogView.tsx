@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Product } from '@tiem-nha-zit/shared';
+import { useScrollReveal } from '../../hooks';
 import styles from '../styles/page.module.scss';
 
 interface CatalogViewProps {
@@ -36,11 +37,13 @@ export default function CatalogView({
   onClearFilters
 }: CatalogViewProps) {
   const [currentPage, setCurrentPage] = React.useState(1);
-  const ITEMS_PER_PAGE = 4;
+  const ITEMS_PER_PAGE = 12;
 
   React.useEffect(() => {
     setCurrentPage(1);
   }, [searchQuery, selectedWoolTypes, selectedColors, maxPrice]);
+
+  useScrollReveal(styles.isVisible, [currentPage, filteredProducts]);
 
   const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -70,7 +73,7 @@ export default function CatalogView({
         <div className="flex flex-col">
           <h3 className="text-[11px] font-bold text-sage uppercase tracking-[0.18em] block mb-4 border-b border-sage/10 pb-2 select-none">Chất Liệu Len</h3>
           <div className="flex flex-col gap-3">
-            {['Merino Wool', 'Alpaca Wool', 'Organic Cotton'].map((type) => (
+            {['Merino Wool', 'Alpaca Wool', 'Organic Cotton', 'Milk Cotton', 'Chenille Velvet'].map((type) => (
               <label key={type} className="group flex items-center gap-3 text-xs text-charcoal/70 cursor-pointer select-none font-medium transition-colors hover:text-sage">
                 <input 
                   type="checkbox" 
@@ -87,7 +90,7 @@ export default function CatalogView({
                     <span className="w-1.5 h-1.5 rounded-full bg-white"></span>
                   )}
                 </span>
-                <span>{type}</span>
+                <span>{type === 'Chenille Velvet' ? 'Chenille Velvet (Nhung gấu)' : type}</span>
               </label>
             ))}
           </div>
@@ -97,9 +100,27 @@ export default function CatalogView({
         <div className="flex flex-col">
           <h3 className="text-[11px] font-bold text-sage uppercase tracking-[0.18em] block mb-4 border-b border-sage/10 pb-2 select-none">Màu Nhuộm Organic</h3>
           <div className="flex flex-wrap gap-2.5">
-            {['Cream', 'Sage', 'Oatmeal', 'Lavender'].map((color) => {
-              const colorBgClass = color === 'Cream' ? 'bg-[#F5F5DC]' : color === 'Sage' ? 'bg-[#8DAA91]' : color === 'Oatmeal' ? 'bg-[#D9C5B2]' : 'bg-[#E1D2FF]';
+            {['Cream', 'Sage', 'Oatmeal', 'Lavender', 'Red', 'Pink', 'Blue', 'Black'].map((color) => {
+              const colorBgClass = 
+                color === 'Cream' ? 'bg-[#FAF9F6]' : 
+                color === 'Sage' ? 'bg-[#8DAA91]' : 
+                color === 'Oatmeal' ? 'bg-[#D9C5B2]' : 
+                color === 'Lavender' ? 'bg-[#E1D2FF]' :
+                color === 'Red' ? 'bg-[#E05A47]' :
+                color === 'Pink' ? 'bg-[#ECBAC1]' :
+                color === 'Blue' ? 'bg-[#84A9C0]' : 'bg-[#1A1C1A]';
               const isActive = selectedColors.includes(color);
+              
+              // Define nice titles/tooltips for the colors
+              const vietnameseColorName = 
+                color === 'Cream' ? 'Trắng kem / Cream' : 
+                color === 'Sage' ? 'Xanh lá / Sage' : 
+                color === 'Oatmeal' ? 'Be Oatmeal' : 
+                color === 'Lavender' ? 'Tím Lavender' :
+                color === 'Red' ? 'Đỏ / Red' :
+                color === 'Pink' ? 'Hồng / Pink' :
+                color === 'Blue' ? 'Xanh dương / Blue' : 'Đen / Black';
+
               return (
                 <button 
                   key={color}
@@ -109,7 +130,7 @@ export default function CatalogView({
                       ? 'ring-2 ring-sage ring-offset-2 scale-110 shadow-md' 
                       : 'border border-customBorder/50 hover:scale-110 hover:shadow-sm'
                   }`}
-                  title={color}
+                  title={vietnameseColorName}
                 />
               );
             })}
@@ -123,13 +144,13 @@ export default function CatalogView({
           </h3>
           <input 
             type="range" 
-            min="300000" 
+            min="20000" 
             max="2000000" 
-            step="50000"
+            step="10000"
             value={maxPrice}
             onChange={(e) => setMaxPrice(Number(e.target.value))}
             style={{
-              background: `linear-gradient(to right, #8DAA91 0%, #8DAA91 ${((maxPrice - 300000) / (2000000 - 300000)) * 100}%, rgba(141, 170, 145, 0.1) ${((maxPrice - 300000) / (2000000 - 300000)) * 100}%, rgba(141, 170, 145, 0.1) 100%)`
+              background: `linear-gradient(to right, #8DAA91 0%, #8DAA91 ${((maxPrice - 20000) / (2000000 - 20000)) * 100}%, rgba(141, 170, 145, 0.1) ${((maxPrice - 20000) / (2000000 - 20000)) * 100}%, rgba(141, 170, 145, 0.1) 100%)`
             }}
             className="w-full h-1 rounded-lg appearance-none cursor-pointer accent-sage focus:outline-none"
           />
@@ -206,7 +227,11 @@ export default function CatalogView({
             {totalPages > 1 && (
               <div className="flex items-center justify-center gap-2 mt-8 select-none font-sans">
                 <button 
-                  onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                  onClick={() => {
+                    const nextPage = Math.max(currentPage - 1, 1);
+                    setCurrentPage(nextPage);
+                    if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
                   disabled={currentPage === 1}
                   className={`w-9 h-9 rounded-xl flex items-center justify-center border transition-all duration-300 ${
                     currentPage === 1 
@@ -223,7 +248,10 @@ export default function CatalogView({
                   return (
                     <button
                       key={pageNum}
-                      onClick={() => setCurrentPage(pageNum)}
+                      onClick={() => {
+                        setCurrentPage(pageNum);
+                        if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }}
                       className={`w-9 h-9 rounded-xl flex items-center justify-center font-semibold text-xs border transition-all duration-300 cursor-pointer ${
                         isActive
                           ? 'bg-sage border-sage text-white shadow-[0_4px_12px_rgba(74,101,79,0.25)] hover:bg-sage/90 scale-105'
@@ -236,7 +264,11 @@ export default function CatalogView({
                 })}
 
                 <button 
-                  onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                  onClick={() => {
+                    const nextPage = Math.min(currentPage + 1, totalPages);
+                    setCurrentPage(nextPage);
+                    if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
                   disabled={currentPage === totalPages}
                   className={`w-9 h-9 rounded-xl flex items-center justify-center border transition-all duration-300 ${
                     currentPage === totalPages 
