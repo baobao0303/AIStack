@@ -48,8 +48,16 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "tsconfig.base.json",
-        "hash": "15235928896169849589"
+        "file": ".nxignore",
+        "hash": "16904018250184961811"
+      },
+      {
+        "file": ".angular/cache/19.2.26/crm-portal/.tsbuildinfo",
+        "hash": "15539182441921982922"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "5407418692668764289"
       },
       {
         "file": ".angular/cache/19.2.26/crm-portal/angular-compiler.db-lock",
@@ -60,44 +68,36 @@
         "hash": "9392488300530054959"
       },
       {
+        "file": "package-lock.json",
+        "hash": "3684368496026388459"
+      },
+      {
         "file": "eslint.config.mjs",
         "hash": "3462096019013144053"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "5407418692668764289"
-      },
-      {
-        "file": ".prettierrc",
-        "hash": "16267754514737964994"
-      },
-      {
-        "file": ".angular/cache/19.2.26/crm-portal/.tsbuildinfo",
-        "hash": "15539182441921982922"
       },
       {
         "file": "README.md",
         "hash": "11199411773125993063"
       },
       {
-        "file": "package.json",
-        "hash": "13382240879115596663"
+        "file": ".angular/cache/19.2.26/crm-portal/vite/deps_temp_5d3e5975/package.json",
+        "hash": "8630294688235076505"
       },
       {
-        "file": ".nxignore",
-        "hash": "16904018250184961811"
+        "file": "package.json",
+        "hash": "13382240879115596663"
       },
       {
         "file": ".angular/cache/19.2.26/crm-portal/angular-compiler.db",
         "hash": "12755592501493365853"
       },
       {
-        "file": "package-lock.json",
-        "hash": "3684368496026388459"
+        "file": "tsconfig.base.json",
+        "hash": "15235928896169849589"
       },
       {
-        "file": ".angular/cache/19.2.26/crm-portal/vite/deps_temp_5d3e5975/package.json",
-        "hash": "8630294688235076505"
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
       }
     ],
     "projectFileMap": {
@@ -416,7 +416,7 @@
         },
         {
           "file": "libs/shared-react/src/lib/ui/styles/page.module.scss",
-          "hash": "17986501704025074500"
+          "hash": "16463805439760996013"
         },
         {
           "file": "libs/shared-react/src/lib/ui/views/CatalogView.tsx",
@@ -445,7 +445,7 @@
         },
         {
           "file": "libs/shared-react/src/lib/ui/views/HomeView.tsx",
-          "hash": "16831927267472788094",
+          "hash": "9269332871063843374",
           "deps": [
             "npm:react",
             "npm:next",

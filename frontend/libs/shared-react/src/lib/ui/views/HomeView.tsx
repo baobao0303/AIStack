@@ -475,8 +475,16 @@ export default function HomeView({
               </div>
 
               {/* Glassmorphic Artisan Detail Card */}
-              <div className={`${styles.artisanCard} ${styles.animateFadeIn}`} key={activeRegion.id}>
-                <span className={styles.cardRegion}>{activeRegion.region}</span>
+              <div className={`${styles.artisanCard} ${styles.artisanCardActive}`} key={activeRegion.id}>
+                <div className={styles.cardDecorCircle}></div>
+                <div className={styles.cardHeaderRow}>
+                  <span className={styles.cardRegion}>{activeRegion.region}</span>
+                  <span className={styles.cardVerifiedBadge}>
+                    <span className="material-symbols-outlined">verified</span>
+                    <span>Đại diện vùng</span>
+                  </span>
+                </div>
+                
                 <h3>{activeRegion.name}</h3>
 
                 <div className={styles.cardHighlight}>
@@ -485,6 +493,23 @@ export default function HomeView({
                 </div>
 
                 <p>{activeRegion.desc}</p>
+
+                <div className={styles.cardDivider}></div>
+
+                <div className={styles.cardMetaGrid}>
+                  <div className={styles.metaItem}>
+                    <span className="material-symbols-outlined">yard</span>
+                    <span>Sợi len Organic tuyển chọn</span>
+                  </div>
+                  <div className={styles.metaItem}>
+                    <span className="material-symbols-outlined">handshake</span>
+                    <span>Hỗ trợ sinh kế nghệ nhân</span>
+                  </div>
+                  <div className={styles.metaItem}>
+                    <span className="material-symbols-outlined">local_shipping</span>
+                    <span>Đan tay & Giao hoả tốc</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

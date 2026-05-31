@@ -4624,60 +4624,166 @@ $color-border: #c2c8c0; // Outline variant
 }
 
 .artisanCard {
-  background-color: $color-white;
-  border: 1.5px solid rgba($color-beige, 0.25);
-  border-radius: 24px;
-  padding: 32px;
-  box-shadow: 0 16px 40px rgba($color-charcoal, 0.03);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  background-color: rgba($color-white, 0.82);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba($color-sage, 0.16);
+  border-radius: 28px;
+  padding: 36px;
+  box-shadow: 
+    0 30px 60px rgba($color-sage, 0.05),
+    inset 0 1px 0 rgba($color-white, 0.9),
+    0 4px 20px rgba($color-charcoal, 0.01);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
 
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+      0 40px 80px rgba($color-sage, 0.08),
+      inset 0 1px 0 rgba($color-white, 1),
+      0 8px 30px rgba($color-charcoal, 0.02);
+    border-color: rgba($color-sage, 0.22);
+  }
+
   h3 {
     font-family: var(--font-playfair-display), serif;
-    font-size: 22px;
+    font-size: 26px;
+    line-height: 1.35;
     font-weight: 700;
-    color: $color-sage;
-    margin: 0 0 4px 0;
+    color: $color-charcoal;
+    margin: 0 0 16px 0;
+    letter-spacing: -0.01em;
+  }
+
+  .cardHeaderRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+    gap: 12px;
   }
 
   .cardRegion {
     font-family: var(--font-be-vietnam-pro), sans-serif;
     font-size: 11px;
-    font-weight: 700;
+    font-weight: 800;
     color: $color-gold;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 16px;
-    display: block;
+    letter-spacing: 0.12em;
+    padding: 6px 12px;
+    background-color: rgba($color-gold, 0.09);
+    border: 0.5px solid rgba($color-gold, 0.15);
+    border-radius: 8px;
+    line-height: 1;
+    display: inline-block;
+  }
+
+  .cardVerifiedBadge {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-family: var(--font-be-vietnam-pro), sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: $color-sage;
+    background-color: rgba($color-sage, 0.07);
+    padding: 6px 12px;
+    border: 0.5px solid rgba($color-sage, 0.15);
+    border-radius: 8px;
+    line-height: 1;
+
+    span:first-child {
+      font-size: 14px;
+      color: $color-sage;
+    }
   }
 
   .cardHighlight {
     font-family: var(--font-be-vietnam-pro), sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    color: $color-charcoal;
-    background-color: rgba($color-sage, 0.05);
-    border: 1px solid rgba($color-sage, 0.1);
-    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    color: $color-sage;
+    background: linear-gradient(135deg, rgba($color-sage, 0.08) 0%, rgba($color-sage, 0.03) 100%);
+    border: 1.5px solid rgba($color-sage, 0.16);
+    padding: 8px 18px;
     border-radius: 99px;
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 12px rgba($color-sage, 0.03);
 
     span {
-      font-size: 16px;
-      color: $color-gold;
+      font-size: 18px;
+      color: $color-sage;
     }
   }
 
   p {
     font-family: var(--font-be-vietnam-pro), sans-serif;
-    font-size: 14px;
-    color: rgba($color-charcoal, 0.65);
-    line-height: 1.6;
+    font-size: 14.5px;
+    color: rgba($color-charcoal, 0.7);
+    line-height: 1.7;
     margin: 0;
+  }
+
+  .cardDivider {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(to right, rgba($color-border, 0.05) 0%, rgba($color-border, 0.5) 20%, rgba($color-border, 0.5) 80%, rgba($color-border, 0.05) 100%);
+    margin: 28px 0 24px 0;
+  }
+
+  .cardMetaGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .metaItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-be-vietnam-pro), sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba($color-charcoal, 0.85);
+
+    span:first-child {
+      font-size: 18px;
+      color: $color-sage;
+    }
+  }
+
+  .cardDecorCircle {
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba($color-sage, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+.artisanCardActive {
+  animation: cardEntry 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cardEntry {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
