@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
 import { PRODUCTS, Product } from '@tiem-nha-zit/shared';
 
 @Component({
-  imports: [NxWelcomeComponent, RouterModule],
+  imports: [RouterModule],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -17,3 +16,4 @@ export class AppComponent implements OnInit {
     console.log(`[CRM] Successfully loaded ${this.products.length} shared products from @tiem-nha-zit/shared!`);
   }
 }
+
