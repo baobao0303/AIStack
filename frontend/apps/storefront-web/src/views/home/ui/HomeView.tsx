@@ -220,12 +220,15 @@ export default function HomeView({
       {/* BEST SELLERS */}
       <section className={`${styles.bestSellersSection} ${styles.revealOnScroll} reveal-on-scroll`}>
         <div className={styles.containerMax}>
-          <div className={styles.sectionHeader}>
-            <div className={styles.headerTitleBlock}>
-              <h2>Sản Phẩm Nổi Bật</h2>
-              <div className={styles.headerTitleLine}></div>
+          <div className={styles.bestSellersHeader}>
+            <span className={styles.bestSellersTagline}>Bộ Sưu Tập Đặc Biệt</span>
+            <h2>Sản Phẩm Nổi Bật</h2>
+            <p className={styles.bestSellersSub}>Các tác phẩm len cao cấp được đan tay tỉ mỉ bởi nghệ nhân Tiệm Nhà Zịt</p>
+            <div className={styles.headerSeparator}>
+              <span className={styles.separatorLine}></span>
+              <span className="material-symbols-outlined">local_florist</span>
+              <span className={styles.separatorLine}></span>
             </div>
-            <button className={`${styles.btnViewAll} ${styles.hoverScaleBtn}`} onClick={() => setActiveView('catalog')}>Xem tất cả sản phẩm</button>
           </div>
 
           <div className={styles.productsGrid}>
@@ -247,8 +250,8 @@ export default function HomeView({
                     <div className={styles.cardBottom}>
                       <span className={styles.cardPrice}>{prod.price.toLocaleString('vi-VN')}đ</span>
                       <button 
-                        className={`${styles.cardCartButton} ${styles.hoverRotateIcon}`}
-                        onClick={(e) => handleAddToCartDefault(prod, e)}
+                        className={styles.cardCartButton}
+                        onClick={(e) => { e.stopPropagation(); handleAddToCartDefault(prod, e); }}
                         title="Thêm vào giỏ hàng"
                       >
                         <span className="material-symbols-outlined">add_shopping_cart</span>
@@ -258,6 +261,13 @@ export default function HomeView({
                 </div>
               );
             })}
+          </div>
+
+          <div className={styles.bestSellersFooter}>
+            <button className={styles.btnViewAllProducts} onClick={() => setActiveView('catalog')}>
+              <span>Xem Tất Cả Sản Phẩm</span>
+              <span className="material-symbols-outlined">arrow_right_alt</span>
+            </button>
           </div>
         </div>
       </section>
