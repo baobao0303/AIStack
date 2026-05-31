@@ -59,16 +59,24 @@ export default function Navbar({
         </div>
 
         <div className={styles.navIcons}>
-          <div className={styles.searchBox}>
+          <div className={styles.navSearchBox}>
             <span className="material-symbols-outlined">search</span>
             <input
               type="text"
-              className={styles.searchInput}
               placeholder="Bạn muốn mua gì..."
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              onFocus={() => { setActiveView('catalog'); setIsCartOpen(false); }}
-              aria-label="Tìm kiếm sản phẩm"
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+                if (activeView !== 'catalog') {
+                  setActiveView('catalog');
+                }
+              }}
+              onClick={() => {
+                if (activeView !== 'catalog') {
+                  setActiveView('catalog');
+                }
+              }}
+              className={styles.navSearchInput}
             />
           </div>
 
@@ -81,8 +89,36 @@ export default function Navbar({
             }}
             aria-label="Giỏ hàng"
           >
-            <span className="material-symbols-outlined">shopping_bag</span>
-            {cartCount > 0 && <span className={styles.cartBadge}>{cartCount}</span>}
+            <span style={{ position: 'relative', display: 'inline-flex' }}>
+              <span className="material-symbols-outlined">shopping_bag</span>
+              {cartCount > 0 && (
+                <span
+                  style={{
+                    position: 'absolute',
+                    top: '-8px',
+                    right: '-8px',
+                    minWidth: '20px',
+                    height: '20px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    backgroundColor: '#4a654f',
+                    color: '#ffffff',
+                    fontSize: '11px',
+                    fontWeight: 700,
+                    fontFamily: "'Be Vietnam Pro', sans-serif",
+                    padding: '0 4px',
+                    borderRadius: '99px',
+                    lineHeight: 1,
+                    border: '1.5px solid #faf9f6',
+                    boxSizing: 'border-box',
+                    pointerEvents: 'none',
+                  }}
+                >
+                  {cartCount}
+                </span>
+              )}
+            </span>
           </button>
 
           <button className={`${styles.iconBtn} ${styles.hoverScaleIcon}`} aria-label="Tài khoản" onClick={() => setActiveView('tracking')}>

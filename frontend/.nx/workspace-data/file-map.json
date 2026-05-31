@@ -57,8 +57,16 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "package.json",
-        "hash": "8328800953823045492"
+        "file": "package-lock.json",
+        "hash": "3684368496026388459"
+      },
+      {
+        "file": ".nxignore",
+        "hash": "16904018250184961811"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "5407418692668764289"
       },
       {
         "file": "README.md",
@@ -67,6 +75,10 @@
       {
         "file": "tsconfig.base.json",
         "hash": "3578037404204155601"
+      },
+      {
+        "file": "package.json",
+        "hash": "8328800953823045492"
       },
       {
         "file": "nx.json",
@@ -79,18 +91,6 @@
       {
         "file": "eslint.config.mjs",
         "hash": "3462096019013144053"
-      },
-      {
-        "file": "package-lock.json",
-        "hash": "3684368496026388459"
-      },
-      {
-        "file": ".nxignore",
-        "hash": "16904018250184961811"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "5407418692668764289"
       }
     ],
     "projectFileMap": {
@@ -279,7 +279,7 @@
         },
         {
           "file": "apps/storefront-web/src/app/layout.tsx",
-          "hash": "9829716422944234846"
+          "hash": "13360916791916277653"
         },
         {
           "file": "apps/storefront-web/src/app/page.tsx",
@@ -410,7 +410,7 @@
         },
         {
           "file": "apps/storefront-web/src/shared/styles/page.module.scss",
-          "hash": "11020446518847450505"
+          "hash": "8744252533913359872"
         },
         {
           "file": "apps/storefront-web/src/shared/ui/ShaderBackground.tsx",
@@ -442,7 +442,7 @@
         },
         {
           "file": "apps/storefront-web/src/views/home/ui/HomeView.tsx",
-          "hash": "10084102521853045810",
+          "hash": "7014452732435789466",
           "deps": [
             "npm:react"
           ]
@@ -470,7 +470,7 @@
         },
         {
           "file": "apps/storefront-web/src/widgets/navbar/ui/Navbar.tsx",
-          "hash": "6152114939284957925",
+          "hash": "7420650046089952534",
           "deps": [
             "npm:react"
           ]

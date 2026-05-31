@@ -122,20 +122,22 @@ $color-border: #c2c8c0; // Outline variant
   gap: 16px;
 }
 
-.searchBox {
+.navSearchBox {
   display: flex;
   align-items: center;
   gap: 8px;
   background-color: rgba($color-charcoal, 0.05);
   border: 1px solid transparent;
   border-radius: 99px;
-  padding: 8px 16px;
+  padding: 6px 14px;
   width: 220px;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   span {
     font-size: 20px;
     color: rgba($color-charcoal, 0.45);
+    transition: color 0.3s ease;
+    user-select: none;
   }
 
   &:focus-within {
@@ -148,20 +150,21 @@ $color-border: #c2c8c0; // Outline variant
     }
   }
 
-  @media (max-width: 768px) {
-    width: 160px;
+  @media (max-width: 900px) {
+    display: none;
   }
 }
 
-.searchInput {
+.navSearchInput {
   flex: 1;
   min-width: 0;
   background: none;
   border: none;
   outline: none;
   font-family: 'Be Vietnam Pro', sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   color: $color-charcoal;
+  padding: 0;
 
   &::placeholder {
     color: rgba($color-charcoal, 0.45);
@@ -195,21 +198,21 @@ $color-border: #c2c8c0; // Outline variant
 
 .cartBadge {
   position: absolute;
-  top: -4px;
-  right: -4px;
-  min-width: 18px;
-  height: 18px;
+  top: -6px;
+  right: -14px;
+  min-width: 20px;
+  height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: $color-sage;
   color: $color-white;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   padding: 0 4px;
   border-radius: 99px;
   line-height: 1;
-  border: 2px solid $color-ivory;
+  border: 1.5px solid $color-ivory;
   box-sizing: border-box;
   pointer-events: none;
 }

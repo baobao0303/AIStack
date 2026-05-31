@@ -31,7 +31,7 @@ export default function HomeView({
 
   const slides = [
     {
-      image: "https://lh3.googleusercontent.com/aida/ADBb0ugGS8xiSKzBXsjv8f1Ndlh_xEwfvoLw4w-Jkz6jpej5o8qs2KX3QclLsivoMQ3mSg2UHI4Exh8_IkKypIdzDstLCP8Expv5nV73exEJ86YzUJcMijfIvK69Z0l5zGnK0GNACMt6puf5FtAxLz3NounFNAIglefpQIoyMa6W9u-XZzDM1q9fAAwZm_lHxUVAv3liK_uJ9vk6B3F1A7APZvVfLYmqMpmMGoDW2zXj0oVelqv11MLtXPcUQTwI",
+      image: "https://lh3.googleusercontent.com/aida/ADBb0uhVFoGEYpMQ4ApsytjsctntvFwVW4pWh4s3RwmAkj2nixSjrnQVoB-zrJ1Ev7qEWihr5aJ6r4ooWWRiA3X4Wa4Gu5TEKD8X98XenUtSMQh9VTJviYKHYOoFItDI349VWGISmeVH5Qy5JFFaWsg9AYsDB_DSy89CERvWOKqcfcunAEw707Na5JIvQ2QyiErApQzb8PW4zKbGLVAsLv_PV0vRQ5I4h-CImO74Rz19--UpuVxt8dTPdvLDTTc",
       title: "Sản Phẩm Từ Tâm - Đan Dệt Yêu Thương",
       description: "Khám phá bộ sưu tập len Merino cao cấp, được đan tay tỉ mỉ bởi những nghệ nhân tại Tiệm Nhà Zịt.",
       actionType: "catalog",
