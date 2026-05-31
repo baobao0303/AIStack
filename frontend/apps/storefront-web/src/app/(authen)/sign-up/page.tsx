@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import styles from '../../../shared/styles/page.module.scss';
 import ShaderBackground from '../../../shared/ui/ShaderBackground';
@@ -14,6 +14,15 @@ export default function SignUpPage() {
   const [agreeTerms, setAgreeTerms] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+
+  useEffect(() => {
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+    };
+  }, []);
 
   const handleRegisterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,23 +54,35 @@ export default function SignUpPage() {
       <ShaderBackground />
 
       <div className={styles.authSplitCard}>
-        {/* LEFT COLUMN: AMBIENT VISUAL BANNER */}
+        {/* LEFT COLUMN: AMBIENT VISUAL BANNER WITH QUOTE */}
         <div className={styles.authSplitVisual}>
           <img 
-            src="https://lh3.googleusercontent.com/aida/ADBb0uhvpx8zRyIkiRxiqR5TYKu0lVSNibzq_zBeQve0TTm-3dGQykEsnaiMfNG28NfXDihyTrMyl6A2rbAVvVNpQYYub2wts4h-7flmo59K_0jpzXdRFc3nPKLRS7QHxhbpTpd4IHhseUNkyV9C3eQLjjehIQH_5tBzOo7mizGcWa-NN3GGSSPH9y1g0i1TK33ziyq9WBZ5UBC3ykeVjMxhk_rPmyfdfacFbtu-YmQKdTXA0E45BVE3QdM4v1f7"
+            src="https://lh3.googleusercontent.com/aida/ADBb0ujF9EIkF5XOFy216NOg8aknzCdm9ueX3Jyuk-ITk6aFQPVlAN_EU6vUUhkgarLmQe7R3C-xkwozhAookNyvYAQyZX67D3rN7f3HIcEXA58aDlf3ZFe9LjxO5256k6tuxJ2uG2O8DZJBd6uHISR4G4stSq-Hil1q-xI7XxSQx6M_jMG91kaSkDLpOJPbqB4N2w5JSU1bgNbqRsl0D1fqOPGSW9zaCBPvG9e0EVpajr99p8Bx5Pdt6s2gW424"
             alt="Knitting yarn artisan detailing"
-            className={styles.authVisualImg}
+            className={`${styles.authVisualImg} ${styles.authAnimateImg}`}
           />
           <div className={styles.authVisualOverlay}></div>
           <div className={styles.authVisualText}>
-            <h3>Gói trọn tình yêu</h3>
-            <p>Mỗi mũi dan là một câu chuyện, mỗi sản phẩm là một tâm tình từ đôi bàn tay nghệ nhân.</p>
+            <div className={styles.authAnimateHeader} style={{ marginBottom: '16px', opacity: 0.8 }}>
+              <span className="material-symbols-outlined" style={{ fontSize: '36px', color: '#ffffff' }}>format_quote</span>
+            </div>
+            <h3 className={styles.authAnimateHeader} style={{ fontSize: '24px', lineHeight: 1.4, fontWeight: 700 }}>Gói trọn tình yêu.</h3>
+            <p className={styles.authAnimateField1} style={{ marginTop: '12px', fontSize: '13px', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.85)', fontStyle: 'italic', fontWeight: 300 }}>
+              — Mỗi mũi đan là một câu chuyện, mỗi sản phẩm là một tâm tình từ đôi bàn tay nghệ nhân.
+            </p>
           </div>
         </div>
 
-        {/* RIGHT COLUMN: DETAILED SIGN-UP FORM */}
+        {/* RIGHT COLUMN: BRANDED SIGN-UP FORM */}
         <div className={styles.authSplitForm}>
-          <div className={styles.authSplitHeader}>
+          {/* Brand Logo & Header */}
+          <div className={`${styles.authSplitHeader} ${styles.authAnimateHeader}`}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+              <div style={{ width: '40px', height: '40px', borderRadius: '8px', backgroundColor: '#4a654f', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <span className="material-symbols-outlined" style={{ color: '#ffffff', fontSize: '20px' }}>pets</span>
+              </div>
+              <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: '24px', fontWeight: 700, color: '#4a654f', letterSpacing: '-0.02em', margin: 0 }}>Tiệm Nhà Zịt</h1>
+            </div>
             <h2>Tạo tài khoản mới</h2>
             <p>Tham gia cộng đồng yêu len thủ công ngay hôm nay.</p>
           </div>
@@ -79,102 +100,115 @@ export default function SignUpPage() {
               <div className={styles.authFormFields}>
                 
                 {/* FULL NAME FIELD */}
-                <div>
-                  <label className={styles.authSplitLabel} htmlFor="fullName">Họ và tên</label>
-                  <input
-                    type="text"
-                    id="fullName"
-                    placeholder="Nguyễn Văn A"
-                    className={styles.authSplitInput}
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                  />
+                <div className={styles.authAnimateField1}>
+                  <label className={styles.authSplitLabel} htmlFor="fullName">HỌ VÀ TÊN</label>
+                  <div className={styles.loginInputWrapper}>
+                    <span className="material-symbols-outlined">person</span>
+                    <input
+                      type="text"
+                      id="fullName"
+                      placeholder="Nguyễn Văn A"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required
+                      style={{ borderRadius: '8px', backgroundColor: '#faf9f6', paddingLeft: '48px' }}
+                    />
+                  </div>
                 </div>
 
                 {/* EMAIL FIELD */}
-                <div>
-                  <label className={styles.authSplitLabel} htmlFor="email">Email</label>
-                  <input
-                    type="email"
-                    id="email"
-                    placeholder="email@example.com"
-                    className={styles.authSplitInput}
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
+                <div className={styles.authAnimateField2}>
+                  <label className={styles.authSplitLabel} htmlFor="email">EMAIL</label>
+                  <div className={styles.loginInputWrapper}>
+                    <span className="material-symbols-outlined">mail</span>
+                    <input
+                      type="email"
+                      id="email"
+                      placeholder="email@example.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      style={{ borderRadius: '8px', backgroundColor: '#faf9f6', paddingLeft: '48px' }}
+                    />
+                  </div>
                 </div>
 
                 {/* PASSWORD & CONFIRM PASSWORD COLUMN */}
-                <div className={styles.authPasswordRow}>
+                <div className={`${styles.authPasswordRow} ${styles.authAnimateField3}`}>
                   <div>
-                    <label className={styles.authSplitLabel} htmlFor="password">Mật khẩu</label>
-                    <input
-                      type="password"
-                      id="password"
-                      placeholder="••••••••"
-                      className={styles.authSplitInput}
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      required
-                    />
+                    <label className={styles.authSplitLabel} htmlFor="password">MẬT KHẨU</label>
+                    <div className={styles.loginInputWrapper}>
+                      <span className="material-symbols-outlined">lock</span>
+                      <input
+                        type="password"
+                        id="password"
+                        placeholder="••••••••"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                        style={{ borderRadius: '8px', backgroundColor: '#faf9f6', paddingLeft: '48px' }}
+                      />
+                    </div>
                   </div>
                   <div>
-                    <label className={styles.authSplitLabel} htmlFor="confirmPass">Xác nhận</label>
-                    <input
-                      type="password"
-                      id="confirmPass"
-                      placeholder="••••••••"
-                      className={styles.authSplitInput}
-                      value={confirmPassword}
-                      onChange={(e) => setConfirmPassword(e.target.value)}
-                      required
-                    />
+                    <label className={styles.authSplitLabel} htmlFor="confirmPass">XÁC NHẬN</label>
+                    <div className={styles.loginInputWrapper}>
+                      <span className="material-symbols-outlined">lock</span>
+                      <input
+                        type="password"
+                        id="confirmPass"
+                        placeholder="••••••••"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        required
+                        style={{ borderRadius: '8px', backgroundColor: '#faf9f6', paddingLeft: '48px' }}
+                      />
+                    </div>
                   </div>
                 </div>
 
               </div>
 
-              {/* AGREEMENT CHECKBOX */}
-              <div className={styles.loginFormActions} style={{ margin: '8px 0 0 0' }}>
-                <label className={styles.loginRememberCheckbox}>
-                  <input
-                    type="checkbox"
-                    checked={agreeTerms}
-                    onChange={(e) => setAgreeTerms(e.target.checked)}
-                  />
-                  <span className={styles.loginCheckboxSpan}></span>
-                  <span style={{ fontSize: '12px', color: 'rgba(26, 28, 26, 0.7)' }}>
-                    Tôi đồng ý với <strong>Điều khoản</strong> và <strong>Chính sách bảo mật</strong>.
-                  </span>
-                </label>
-              </div>
+              {/* AGREEMENT CHECKBOX & REGISTER SUBMIT */}
+              <div className={styles.authAnimateField4} style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '16px' }}>
+                <div className={styles.loginFormActions} style={{ margin: 0 }}>
+                  <label className={styles.loginRememberCheckbox}>
+                    <input
+                      type="checkbox"
+                      checked={agreeTerms}
+                      onChange={(e) => setAgreeTerms(e.target.checked)}
+                    />
+                    <span className={styles.loginCheckboxSpan}></span>
+                    <span style={{ fontSize: '12px', color: 'rgba(26, 28, 26, 0.7)' }}>
+                      Tôi đồng ý với <strong>Điều khoản</strong> và <strong>Chính sách bảo mật</strong>.
+                    </span>
+                  </label>
+                </div>
 
-              {/* REGISTER SUBMIT BUTTON */}
-              <button 
-                type="submit" 
-                className={styles.authSubmitBtn} 
-                disabled={isLoading}
-                style={{ marginTop: '8px' }}
-              >
-                {isLoading ? (
-                  <div className={styles.loginSpinner}></div>
-                ) : (
-                  <>
-                    <span>Đăng ký ngay</span>
-                    <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>arrow_right_alt</span>
-                  </>
-                )}
-              </button>
+                <button 
+                  type="submit" 
+                  className={styles.authSubmitBtn} 
+                  disabled={isLoading}
+                  style={{ marginTop: '8px' }}
+                >
+                  {isLoading ? (
+                    <div className={styles.loginSpinner}></div>
+                  ) : (
+                    <>
+                      <span>Đăng ký ngay</span>
+                      <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>arrow_right_alt</span>
+                    </>
+                  )}
+                </button>
+              </div>
             </form>
           )}
 
-          {/* SOCIAL DIVER & REGISTER */}
-          <div className={styles.loginSocialGroup}>
+          {/* SOCIAL INTEGRATIONS */}
+          <div className={`${styles.loginSocialGroup} ${styles.authAnimateField5}`}>
             <div className={styles.loginDivider}>
               <div className={styles.line}></div>
-              <span>HOẶC</span>
+              <span>HOẶC TIẾP TỤC VỚI</span>
               <div className={styles.line}></div>
             </div>
 
@@ -182,7 +216,7 @@ export default function SignUpPage() {
               <button
                 type="button"
                 className={styles.loginSocialBtn}
-                onClick={() => alert('Liên kết tài khoản Google...')}
+                onClick={() => alert('Liên kết Google...')}
                 style={{ borderRadius: '8px', padding: '12px', gap: '8px' }}
               >
                 <svg style={{ width: '18px', height: '18px', flexShrink: 0 }} viewBox="0 0 24 24">
@@ -196,7 +230,7 @@ export default function SignUpPage() {
               <button
                 type="button"
                 className={styles.loginSocialBtn}
-                onClick={() => alert('Liên kết tài khoản Facebook...')}
+                onClick={() => alert('Liên kết Facebook...')}
                 style={{ borderRadius: '8px', padding: '12px', gap: '8px' }}
               >
                 <svg style={{ width: '18px', height: '18px', flexShrink: 0 }} fill="#1877F2" viewBox="0 0 24 24">
@@ -207,8 +241,8 @@ export default function SignUpPage() {
             </div>
           </div>
 
-          {/* ROUTE REDIRECT BACK */}
-          <div className={styles.loginFooter} style={{ marginTop: '8px' }}>
+          {/* REDIRECT FOOTER */}
+          <div className={`${styles.loginFooter} ${styles.authAnimateField5}`} style={{ marginTop: '8px' }}>
             <span>Đã có tài khoản? </span>
             <button 
               type="button" 

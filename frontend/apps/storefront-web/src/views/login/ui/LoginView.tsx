@@ -38,17 +38,17 @@ export default function LoginView({ styles, setActiveView }: LoginViewProps) {
       {/* LEFT COLUMN: AMBIENT VISUAL BANNER WITH QUOTE */}
       <div className={styles.authSplitVisual}>
         <img 
-          src="https://lh3.googleusercontent.com/aida/ADBb0ujF9EIkF5XOFy216NOg8aknzCdm9ueX3Jyuk-ITk6aFQPVlAN_EU6vUUhkgarLmQe7R3C-xkwozhAookNyvYAQyZX67D3rN7f3HIcEXA58aDlf3ZFe9LjxO5256k6tuxJ2uG2O8DZJBd6uHISR4G4stSq-Hil1q-xI7XxSQx6M_jMG91kaSkDLpOJPbqB4N2w5JSU1bgNbqRsl0D1fqOPGSW9zaCBPvG9e0EVpajr99p8Bx5Pdt6s2gW424"
+          src="https://lh3.googleusercontent.com/aida/ADBb0uhvpx8zRyIkiRxiqR5TYKu0lVSNibzq_zBeQve0TTm-3dGQykEsnaiMfNG28NfXDihyTrMyl6A2rbAVvVNpQYYub2wts4h-7flmo59K_0jpzXdRFc3nPKLRS7QHxhbpTpd4IHhseUNkyV9C3eQLjjehIQH_5tBzOo7mizGcWa-NN3GGSSPH9y1g0i1TK33ziyq9WBZ5UBC3ykeVjMxhk_rPmyfdfacFbtu-YmQKdTXA0E45BVE3QdM4v1f7"
           alt="Artisan knitting needle and organic yarns detail"
-          className={styles.authVisualImg}
+          className={`${styles.authVisualImg} ${styles.authAnimateImg}`}
         />
         <div className={styles.authVisualOverlay}></div>
         <div className={styles.authVisualText}>
-          <div style={{ marginBottom: '16px', opacity: 0.8 }}>
+          <div className={styles.authAnimateHeader} style={{ marginBottom: '16px', opacity: 0.8 }}>
             <span className="material-symbols-outlined" style={{ fontSize: '36px', color: '#ffffff' }}>format_quote</span>
           </div>
-          <h3 style={{ fontSize: '24px', lineHeight: 1.4, fontWeight: 700 }}>Gửi gắm yêu thương trong từng đường kim mũi chỉ.</h3>
-          <p style={{ marginTop: '12px', fontSize: '13px', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.85)', fontStyle: 'italic', fontWeight: 300 }}>
+          <h3 className={styles.authAnimateHeader} style={{ fontSize: '24px', lineHeight: 1.4, fontWeight: 700 }}>Gửi gắm yêu thương trong từng đường kim mũi chỉ.</h3>
+          <p className={styles.authAnimateField1} style={{ marginTop: '12px', fontSize: '13px', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.85)', fontStyle: 'italic', fontWeight: 300 }}>
             — Mỗi sản phẩm thủ công tại Tiệm Nhà Zịt không chỉ là vật dụng, mà còn là một câu chuyện về sự tỉ mỉ và tâm huyết của người nghệ nhân.
           </p>
         </div>
@@ -57,7 +57,7 @@ export default function LoginView({ styles, setActiveView }: LoginViewProps) {
       {/* RIGHT COLUMN: BRANDED SIGN-IN FORM */}
       <div className={styles.authSplitForm}>
         {/* Brand Logo & Header */}
-        <div className={styles.authSplitHeader}>
+        <div className={`${styles.authSplitHeader} ${styles.authAnimateHeader}`}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
             <div style={{ width: '40px', height: '40px', borderRadius: '8px', backgroundColor: '#4a654f', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <span className="material-symbols-outlined" style={{ color: '#ffffff', fontSize: '20px' }}>pets</span>
@@ -81,7 +81,7 @@ export default function LoginView({ styles, setActiveView }: LoginViewProps) {
             <div className={styles.authFormFields}>
               
               {/* EMAIL FIELD */}
-              <div>
+              <div className={styles.authAnimateField1}>
                 <label className={styles.authSplitLabel} htmlFor="email">EMAIL</label>
                 <div className={styles.loginInputWrapper}>
                   <span className="material-symbols-outlined">mail</span>
@@ -98,13 +98,13 @@ export default function LoginView({ styles, setActiveView }: LoginViewProps) {
               </div>
 
               {/* PASSWORD FIELD WITH FORGOT OPTION */}
-              <div>
+              <div className={styles.authAnimateField2}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                   <label className={styles.authSplitLabel} htmlFor="password" style={{ marginBottom: 0 }}>MẬT KHẨU</label>
                   <button
                     type="button"
                     className={styles.loginForgotBtn}
-                    onClick={() => alert('Chức năng phục hồi mật khẩu đang được phát triển!')}
+                    onClick={() => router.push('/forgot-password')}
                     style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.05em' }}
                   >
                     Quên mật khẩu?
@@ -136,7 +136,7 @@ export default function LoginView({ styles, setActiveView }: LoginViewProps) {
             </div>
 
             {/* REMEMBER ME CHECKBOX */}
-            <div className={styles.loginFormActions} style={{ margin: '8px 0 0 0' }}>
+            <div className={`${styles.loginFormActions} ${styles.authAnimateField3}`} style={{ margin: '8px 0 0 0' }}>
               <label className={styles.loginRememberCheckbox}>
                 <input
                   type="checkbox"
@@ -153,21 +153,24 @@ export default function LoginView({ styles, setActiveView }: LoginViewProps) {
             {/* LOGIN BUTTON */}
             <button 
               type="submit" 
-              className={styles.authSubmitBtn} 
+              className={`${styles.authSubmitBtn} ${styles.authAnimateField4}`} 
               disabled={isLoading}
               style={{ marginTop: '8px' }}
             >
               {isLoading ? (
                 <div className={styles.loginSpinner}></div>
               ) : (
-                <span>Đăng nhập</span>
+                <>
+                  <span>Đăng nhập</span>
+                  <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>arrow_right_alt</span>
+                </>
               )}
             </button>
           </form>
         )}
 
         {/* SOCIAL INTEGRATIONS */}
-        <div className={styles.loginSocialGroup}>
+        <div className={`${styles.loginSocialGroup} ${styles.authAnimateField5}`}>
           <div className={styles.loginDivider}>
             <div className={styles.line}></div>
             <span>HOẶC TIẾP TỤC VỚI</span>
@@ -204,7 +207,7 @@ export default function LoginView({ styles, setActiveView }: LoginViewProps) {
         </div>
 
         {/* REDIRECT FOOTER */}
-        <div className={styles.loginFooter} style={{ marginTop: '8px' }}>
+        <div className={`${styles.loginFooter} ${styles.authAnimateField5}`} style={{ marginTop: '8px' }}>
           <span>Bạn chưa có tài khoản? </span>
           <button 
             type="button" 

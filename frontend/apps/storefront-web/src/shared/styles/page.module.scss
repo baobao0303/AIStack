@@ -3951,7 +3951,7 @@ $color-border: #c2c8c0; // Outline variant
 // ==================== PREMIUM DUAL-COLUMN AUTH SPLIT VIEW ====================
 .authSplitCard {
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   min-height: 100vh;
   background-color: $color-white;
@@ -4159,4 +4159,135 @@ $color-border: #c2c8c0; // Outline variant
     opacity: 0.7;
     cursor: not-allowed;
   }
+
+  span.material-symbols-outlined {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &:hover {
+    span.material-symbols-outlined {
+      transform: translateX(4px);
+    }
+  }
+}
+
+// Staggered Entrance Animations & Keyframes
+@keyframes authFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes authSlowZoom {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.authAnimateImg {
+  animation: authSlowZoom 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.authAnimateHeader {
+  opacity: 0;
+  animation: authFadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.authAnimateField1 {
+  opacity: 0;
+  animation: authFadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.12s forwards;
+}
+
+.authAnimateField2 {
+  opacity: 0;
+  animation: authFadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.22s forwards;
+}
+
+.authAnimateField3 {
+  opacity: 0;
+  animation: authFadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.32s forwards;
+}
+
+.authAnimateField4 {
+  opacity: 0;
+  animation: authFadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.42s forwards;
+}
+
+.authAnimateField5 {
+  opacity: 0;
+  animation: authFadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.52s forwards;
+}
+
+// Glassmorphism Card Style for transactional/auth cards
+.glassCard {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(244, 223, 203, 0.45);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 20px 50px rgba(74, 101, 79, 0.08);
+  transition: transform 0.1s ease-out, box-shadow 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+
+  &:hover {
+    box-shadow: 0 30px 60px rgba(74, 101, 79, 0.15);
+  }
+}
+
+// Parallax Outer Container supporting 3D perspective
+.parallaxWrapper {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  perspective: 1000px;
+  background-color: $color-ivory;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+// Corner Ambient Glow Circles
+.ambientGlowLeft {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 320px;
+  height: 320px;
+  background-color: rgba($color-beige, 0.22);
+  border-radius: 9999px;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 1;
+  transform: translate(-25%, 25%);
+}
+
+.ambientGlowRight {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 320px;
+  height: 320px;
+  background-color: rgba($color-sage, 0.12);
+  border-radius: 9999px;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 1;
+  transform: translate(25%, -25%);
 }
