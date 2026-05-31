@@ -33,6 +33,17 @@ namespace ECommerce.Infrastructure
             // Register Stripe C# API integration payment client
             services.AddSingleton<IStripePaymentService, StripePaymentService>();
 
+            // Register Caching & Storage services
+            services.AddSingleton<IRedisCacheService, Caching.RedisCacheService>();
+            services.AddSingleton<IStorageService, Storage.S3StorageService>();
+
+            // Register Outbox Service
+            services.AddScoped<IOutboxService, Persistence.OutboxService>();
+
+            // Register Background hosted workers
+            services.AddHostedService<BackgroundServices.OutboxPublisherWorker>();
+            services.AddHostedService<BackgroundServices.InventoryReleaseWorker>();
+
             return services;
         }
     }

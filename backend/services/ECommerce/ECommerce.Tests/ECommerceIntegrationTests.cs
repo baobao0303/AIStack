@@ -12,6 +12,7 @@ using ECommerce.Application.Orders.Commands.CreateOrder;
 using ECommerce.Application.Orders.Commands.CompleteOrder;
 using ECommerce.Infrastructure.Persistence;
 using ECommerce.Infrastructure.Payments;
+using ECommerce.Application.Common.Interfaces;
 
 namespace ECommerce.Tests
 {
@@ -180,6 +181,76 @@ namespace ECommerce.Tests
             Assert.NotNull(updatedOrder);
             Assert.Equal(OrderStatus.Paid, updatedOrder!.Status);
             Assert.Equal(stripeSessionId, updatedOrder.StripeSessionId);
+        }
+
+        [Fact]
+        public async Task ReserveInventoryCommand_With_Valid_Quantity_Should_Book_Stock_And_Stage_Outbox_And_Hold()
+        {
+            // Arrange
+            using var context = CreateDbContext();
+            await SeedCatalogAsync(context);
+
+            var mockOutbox = new MockOutboxService();
+            var handler = new Application.Inventory.Commands.ReserveInventory.ReserveInventoryCommandHandler(context, mockOutbox);
+            var productId = Guid.Parse("11111111-1111-1111-1111-111111111111");
+
+            var command = new Application.Inventory.Commands.ReserveInventory.ReserveInventoryCommand
+            {
+                ProductId = productId,
+                Quantity = 5
+            };
+
+            // Act
+            var result = await handler.Handle(command, CancellationToken.None);
+
+            // Assert
+            Assert.True(result);
+
+            var product = await context.Products.FindAsync(productId);
+            Assert.NotNull(product);
+            Assert.Equal(5, product!.ReservedStock);
+            Assert.Equal(95, product.AvailableStock);
+
+            // Verify a hold record is registered in db
+            var hold = await context.StockHolds.FirstOrDefaultAsync(sh => sh.ProductId == productId);
+            Assert.NotNull(hold);
+            Assert.Equal(5, hold!.Quantity);
+            Assert.Equal(StockHoldStatus.Pending, hold.Status);
+
+            // Verify outbox staged events count
+            Assert.Single(mockOutbox.StagedEvents);
+        }
+
+        [Fact]
+        public async Task ReserveInventoryCommand_With_Insufficient_Stock_Should_Throw_InvalidOperationException()
+        {
+            // Arrange
+            using var context = CreateDbContext();
+            await SeedCatalogAsync(context);
+
+            var mockOutbox = new MockOutboxService();
+            var handler = new Application.Inventory.Commands.ReserveInventory.ReserveInventoryCommandHandler(context, mockOutbox);
+            var productId = Guid.Parse("11111111-1111-1111-1111-111111111111");
+
+            var command = new Application.Inventory.Commands.ReserveInventory.ReserveInventoryCommand
+            {
+                ProductId = productId,
+                Quantity = 105 // exceeds 100 in stock!
+            };
+
+            // Act & Assert
+            await Assert.ThrowsAsync<InvalidOperationException>(() => handler.Handle(command, CancellationToken.None));
+        }
+
+        private class MockOutboxService : IOutboxService
+        {
+            public List<object> StagedEvents { get; } = new();
+
+            public Task StageEventAsync<T>(T domainEvent, CancellationToken cancellationToken) where T : class
+            {
+                StagedEvents.Add(domainEvent);
+                return Task.CompletedTask;
+            }
         }
     }
 }
