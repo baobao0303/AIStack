@@ -57,40 +57,40 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": ".prettierrc",
-        "hash": "16267754514737964994"
+        "file": "package.json",
+        "hash": "8328800953823045492"
       },
       {
         "file": ".nxignore",
         "hash": "16904018250184961811"
       },
       {
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
+      },
+      {
         "file": "eslint.config.mjs",
         "hash": "3462096019013144053"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "3578037404204155601"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "5407418692668764289"
-      },
-      {
-        "file": "package.json",
-        "hash": "8328800953823045492"
       },
       {
         "file": "README.md",
         "hash": "11199411773125993063"
       },
       {
+        "file": "nx.json",
+        "hash": "9392488300530054959"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "5407418692668764289"
+      },
+      {
         "file": "package-lock.json",
         "hash": "3684368496026388459"
       },
       {
-        "file": "nx.json",
-        "hash": "9392488300530054959"
+        "file": "tsconfig.base.json",
+        "hash": "3578037404204155601"
       }
     ],
     "projectFileMap": {
@@ -239,6 +239,10 @@
           "hash": "2742566327615098680"
         },
         {
+          "file": "apps/storefront-web/agent.md",
+          "hash": "12279632178763364401"
+        },
+        {
           "file": "apps/storefront-web/index.d.ts",
           "hash": "5498222895072842432"
         },
@@ -271,7 +275,7 @@
         },
         {
           "file": "apps/storefront-web/src/app/global.css",
-          "hash": "4323902441721715750"
+          "hash": "12506830226503380545"
         },
         {
           "file": "apps/storefront-web/src/app/layout.tsx",
@@ -406,7 +410,7 @@
         },
         {
           "file": "apps/storefront-web/src/shared/styles/page.module.scss",
-          "hash": "399821003298298591"
+          "hash": "12468648511058455742"
         },
         {
           "file": "apps/storefront-web/src/shared/ui/ShaderBackground.tsx",

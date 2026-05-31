@@ -135,15 +135,23 @@ $color-border: #c2c8c0; // Outline variant
 
 .cartBadge {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -4px;
+  right: -4px;
+  min-width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: $color-sage;
   color: $color-white;
   font-size: 10px;
   font-weight: 700;
-  padding: 2px 6px;
+  padding: 0 4px;
   border-radius: 99px;
   line-height: 1;
+  border: 2px solid $color-ivory;
+  box-sizing: border-box;
+  pointer-events: none;
 }
 
 // MAIN PAGE BODY
