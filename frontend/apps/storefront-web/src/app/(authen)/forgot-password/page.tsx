@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import styles from '../../../shared/styles/page.module.scss';
-import ShaderBackground from '../../../shared/ui/ShaderBackground';
 
 export default function ForgotPasswordPage() {
   const router = useRouter();
@@ -78,21 +77,30 @@ export default function ForgotPasswordPage() {
       <div className={styles.ambientGlowLeft}></div>
       <div className={styles.ambientGlowRight}></div>
 
+      {/* Top Navigation Branding (Strict Stitch Specification) */}
+      <header style={{ position: 'fixed', top: 0, left: 0, width: '100%', display: 'flex', justifyContent: 'center', paddingTop: '32px', zIndex: 50 }}>
+        <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: '24px', fontWeight: 700, color: '#4a654f', letterSpacing: '-0.02em', margin: 0 }}>Tiệm Nhà Zịt</h1>
+      </header>
+
       {/* Centered Glassmorphic Form Container */}
-      <div className="w-full max-w-[440px]" style={{ zIndex: 10 }}>
+      <div className="w-full max-w-[440px] mt-12" style={{ zIndex: 10 }}>
         <div 
           className={`${styles.glassCard} ${styles.authAnimateHeader}`} 
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
-          style={{ ...tiltStyle }}
+          style={{ 
+            ...tiltStyle, 
+            background: 'rgba(255, 255, 255, 0.65)',
+            border: '1px solid rgba(244, 223, 203, 0.5)'
+          }}
         >
           {success ? (
             <div className={styles.loginSuccessBlock} style={{ animation: 'none', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <div className={styles.successIconOuter} style={{ backgroundColor: 'rgba(74, 101, 79, 0.1)', marginBottom: '16px', width: '64px', height: '64px', borderRadius: '99px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <div className={styles.successIconOuter} style={{ backgroundColor: 'rgba(74, 101, 79, 0.15)', marginBottom: '16px', width: '64px', height: '64px', borderRadius: '99px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <span className="material-symbols-outlined" style={{ color: '#4a654f', fontSize: '32px' }}>mail</span>
               </div>
               <h4 style={{ fontFamily: "'Playfair Display', serif", fontSize: '20px', fontWeight: 600, color: '#1a1c1a', margin: '0 0 8px 0', textAlign: 'center' }}>Đã Gửi Hướng Dẫn!</h4>
-              <p style={{ maxWidth: '320px', fontSize: '13px', color: 'rgba(26, 28, 26, 0.6)', lineHeight: 1.6, marginTop: '8px', textAlign: 'center' }}>
+              <p style={{ maxWidth: '320px', fontSize: '13px', color: '#424842', lineHeight: 1.6, marginTop: '8px', textAlign: 'center' }}>
                 Vui lòng kiểm tra hòm thư <strong>{email}</strong> để hoàn tất khôi phục mật khẩu tài khoản của bạn.
               </p>
               <button 
@@ -107,22 +115,14 @@ export default function ForgotPasswordPage() {
           ) : (
             <form className={styles.loginForm} onSubmit={handleForgotSubmit} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               
-              {/* Lock Icon */}
-              <div style={{ width: '64px', height: '64px', borderRadius: '99px', backgroundColor: 'rgba(74, 101, 79, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
+              {/* Lock Icon Section (Stitch Style) */}
+              <div style={{ width: '64px', height: '64px', borderRadius: '99px', backgroundColor: 'rgba(141, 170, 145, 0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
                 <span className="material-symbols-outlined" style={{ fontSize: '32px', color: '#4a654f' }}>lock</span>
-              </div>
-
-              {/* Brand Branding Header */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px', justifyContent: 'center' }}>
-                <div style={{ width: '32px', height: '32px', borderRadius: '6px', backgroundColor: '#4a654f', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <span className="material-symbols-outlined" style={{ color: '#ffffff', fontSize: '16px' }}>pets</span>
-                </div>
-                <span style={{ fontFamily: "'Playfair Display', serif", fontSize: '20px', fontWeight: 700, color: '#4a654f', letterSpacing: '-0.02em', margin: 0 }}>Tiệm Nhà Zịt</span>
               </div>
               
               <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: '28px', fontWeight: 600, color: '#1a1c1a', margin: '0 0 8px 0', textAlign: 'center' }}>Khôi phục mật khẩu</h2>
               
-              <p style={{ fontSize: '13px', lineHeight: 1.6, color: 'rgba(26, 28, 26, 0.6)', textAlign: 'center', margin: '0 0 24px 0', padding: '0 8px' }}>
+              <p style={{ fontSize: '13px', lineHeight: 1.6, color: '#424842', textAlign: 'center', margin: '0 0 24px 0', padding: '0 8px' }}>
                 Đừng lo lắng, hãy nhập email bạn đã đăng ký. Chúng tôi sẽ gửi một liên kết để bạn đặt lại mật khẩu mới.
               </p>
 
@@ -130,7 +130,7 @@ export default function ForgotPasswordPage() {
                 
                 {/* EMAIL FIELD */}
                 <div className={styles.authAnimateField1} style={{ width: '100%' }}>
-                  <label className={styles.authSplitLabel} htmlFor="email" style={{ textAlign: 'left', display: 'block' }}>EMAIL ĐĂNG KÝ</label>
+                  <label className={styles.authSplitLabel} htmlFor="email" style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.08em', color: '#1a1c1a', marginBottom: '8px', display: 'block', textAlign: 'left' }}>EMAIL ĐĂNG KÝ</label>
                   <div className={styles.loginInputWrapper}>
                     <span className="material-symbols-outlined">mail</span>
                     <input
@@ -169,7 +169,7 @@ export default function ForgotPasswordPage() {
                 <button 
                   type="button" 
                   onClick={() => router.push('/sign-in')}
-                  style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: '600', color: 'rgba(26, 28, 26, 0.65)', background: 'none', border: 'none', cursor: 'pointer', transition: 'color 0.2s ease' }}
+                  style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: '600', color: '#6b5c4c', background: 'none', border: 'none', cursor: 'pointer', transition: 'color 0.2s ease' }}
                 >
                   <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>arrow_back</span>
                   <span>Quay lại đăng nhập</span>
@@ -179,6 +179,13 @@ export default function ForgotPasswordPage() {
             </form>
           )}
         </div>
+
+        {/* Centralized Brand Footer */}
+        <footer style={{ marginTop: '24px', textAlign: 'center' }}>
+          <p style={{ fontSize: '12px', color: '#737972', margin: 0 }}>
+            © 2024 Tiệm Nhà Zịt CRM - Handcrafted with Love
+          </p>
+        </footer>
       </div>
     </div>
   );

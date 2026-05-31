@@ -9,7 +9,7 @@ import { useAppStore } from '../../core/stores/app.store';
 
 export default function TrackingRoute() {
   const router = useRouter();
-  const { activeOrder } = useAppStore();
+  const activeOrder = useAppStore((state) => state.activeOrder);
 
   return (
     <StorefrontShell activeView="tracking">

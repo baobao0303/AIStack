@@ -2,6 +2,7 @@
 
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useShallow } from 'zustand/react/shallow';
 import styles from '../../../shared/styles/page.module.scss';
 import ShaderBackground from '../../../shared/ui/ShaderBackground';
 import Navbar from '../../navbar/ui/Navbar';
@@ -28,10 +29,22 @@ export default function StorefrontShell({ children, activeView }: StorefrontShel
     setSearchQuery,
     removeFromCart,
     activeOrder,
-    setActiveOrder,
-  } = useAppStore();
+  } = useAppStore(
+    useShallow((state) => ({
+      isCartOpen: state.isCartOpen,
+      setIsCartOpen: state.setIsCartOpen,
+      cart: state.cart,
+      searchQuery: state.searchQuery,
+      setSearchQuery: state.setSearchQuery,
+      removeFromCart: state.removeFromCart,
+      activeOrder: state.activeOrder,
+    }))
+  );
 
-  const cartTotal = cart.reduce((total, item) => total + item.product.price * item.quantity, 0);
+  const cartTotal = React.useMemo(
+    () => cart.reduce((total, item) => total + item.product.price * item.quantity, 0),
+    [cart]
+  );
 
   // Sync order tracking statuses in the background when active view is tracking
   useEffect(() => {

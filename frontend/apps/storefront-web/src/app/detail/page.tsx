@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { useRouter } from 'next/navigation';
+import { useShallow } from 'zustand/react/shallow';
 import styles from '../../shared/styles/page.module.scss';
 import DetailView from '../../views/detail/ui/DetailView';
 import StorefrontShell from '../../widgets/layout/ui/StorefrontShell';
@@ -25,7 +26,24 @@ export default function DetailRoute() {
     customNotes,
     setCustomNotes,
     addToCartCustom
-  } = useAppStore();
+  } = useAppStore(
+    useShallow((state) => ({
+      selectedProduct: state.selectedProduct,
+      detailMainImage: state.detailMainImage,
+      setDetailMainImage: state.setDetailMainImage,
+      customColor: state.customColor,
+      setCustomColor: state.setCustomColor,
+      chestWidth: state.chestWidth,
+      setChestWidth: state.setChestWidth,
+      sleeveLength: state.sleeveLength,
+      setSleeveLength: state.setSleeveLength,
+      height: state.height,
+      setHeight: state.setHeight,
+      customNotes: state.customNotes,
+      setCustomNotes: state.setCustomNotes,
+      addToCartCustom: state.addToCartCustom,
+    }))
+  );
 
   return (
     <StorefrontShell activeView="detail">

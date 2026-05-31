@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { useRouter } from 'next/navigation';
+import { useShallow } from 'zustand/react/shallow';
 import styles from '../../shared/styles/page.module.scss';
 import CheckoutView from '../../views/checkout/ui/CheckoutView';
 import StorefrontShell from '../../widgets/layout/ui/StorefrontShell';
@@ -19,9 +20,23 @@ export default function CheckoutRoute() {
     setStripeCard,
     removeFromCart,
     submitCheckout
-  } = useAppStore();
+  } = useAppStore(
+    useShallow((state) => ({
+      cart: state.cart,
+      shippingForm: state.shippingForm,
+      stripeCard: state.stripeCard,
+      checkoutLoading: state.checkoutLoading,
+      setShippingForm: state.setShippingForm,
+      setStripeCard: state.setStripeCard,
+      removeFromCart: state.removeFromCart,
+      submitCheckout: state.submitCheckout,
+    }))
+  );
 
-  const cartTotal = cart.reduce((total, item) => total + item.product.price * item.quantity, 0);
+  const cartTotal = React.useMemo(
+    () => cart.reduce((total, item) => total + item.product.price * item.quantity, 0),
+    [cart]
+  );
 
   // Conform perfectly to CheckoutView's React.Dispatch signatures
   const handleShippingFormChange = (

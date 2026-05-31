@@ -13550,12 +13550,12 @@
       },
       {
         "source": "storefront-web",
-        "target": "npm:axios",
+        "target": "npm:zustand",
         "type": "static"
       },
       {
         "source": "storefront-web",
-        "target": "npm:zustand",
+        "target": "npm:axios",
         "type": "static"
       }
     ],
@@ -30440,5 +30440,5 @@
   },
   "version": "6.0",
   "errors": [],
-  "computedAt": 1780210095455
+  "computedAt": 1780210522769
 }
