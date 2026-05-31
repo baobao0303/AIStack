@@ -67,14 +67,16 @@ export default function Navbar({
   const searchRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
+    function handleClickOutside(event: MouseEvent | TouchEvent) {
       if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
         setIsSearchOpen(false);
       }
     }
     document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
     };
   }, []);
 
@@ -138,6 +140,8 @@ export default function Navbar({
                   top: 'calc(100% + 12px)',
                   right: 0,
                   width: '520px',
+                  maxWidth: 'calc(100vw - 32px)',
+                  boxSizing: 'border-box',
                   backgroundColor: '#ffffff',
                   borderRadius: '16px',
                   boxShadow: '0 10px 40px rgba(26, 28, 26, 0.08)',
@@ -160,6 +164,12 @@ export default function Navbar({
                   {woolPromotions.map((promo, idx) => (
                     <div 
                       key={idx}
+                      onClick={() => {
+                        const searchTerms = ['Merino', 'Alpaca', 'thú bông', 'Set len', 'len', 'len'];
+                        setSearchQuery(searchTerms[idx]);
+                        setActiveView('catalog');
+                        setIsSearchOpen(false);
+                      }}
                       style={{
                         display: 'flex',
                         gap: '12px',
