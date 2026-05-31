@@ -2422,7 +2422,7 @@ $color-border: #c2c8c0; // Outline variant
 .cartFloatingModal {
   position: absolute;
   top: 80px;
-  right: 64px;
+  right: 140px;
   width: 350px;
   background-color: $color-white;
   border: 1px solid $color-border;
@@ -2432,6 +2432,10 @@ $color-border: #c2c8c0; // Outline variant
   overflow: hidden;
   animation: popIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   font-family: 'Be Vietnam Pro', sans-serif;
+
+  @media (min-width: 1200px) {
+    right: calc((100% - 1200px) / 2 + 140px);
+  }
 
   @media (max-width: 768px) {
     right: 16px;

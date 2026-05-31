@@ -61,6 +61,10 @@
         "hash": "9392488300530054959"
       },
       {
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
+      },
+      {
         "file": ".prettierignore",
         "hash": "5407418692668764289"
       },
@@ -69,24 +73,20 @@
         "hash": "3684368496026388459"
       },
       {
-        "file": ".nxignore",
-        "hash": "16904018250184961811"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "3578037404204155601"
+        "file": "package.json",
+        "hash": "8892926569953399355"
       },
       {
         "file": "README.md",
         "hash": "11199411773125993063"
       },
       {
-        "file": ".prettierrc",
-        "hash": "16267754514737964994"
+        "file": ".nxignore",
+        "hash": "16904018250184961811"
       },
       {
-        "file": "package.json",
-        "hash": "8892926569953399355"
+        "file": "tsconfig.base.json",
+        "hash": "3578037404204155601"
       },
       {
         "file": "eslint.config.mjs",
@@ -410,7 +410,7 @@
         },
         {
           "file": "apps/storefront-web/src/shared/styles/page.module.scss",
-          "hash": "13351713021486984426"
+          "hash": "16258865537678196772"
         },
         {
           "file": "apps/storefront-web/src/shared/ui/ShaderBackground.tsx",
