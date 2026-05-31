@@ -48,28 +48,24 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": ".nxignore",
-        "hash": "16904018250184961811"
+        "file": ".angular/cache/19.2.26/crm-portal/angular-compiler.db-lock",
+        "hash": "9603166783630660697"
       },
       {
-        "file": ".angular/cache/19.2.26/crm-portal/.tsbuildinfo",
-        "hash": "15539182441921982922"
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
       },
       {
         "file": ".prettierignore",
         "hash": "5407418692668764289"
       },
       {
-        "file": ".angular/cache/19.2.26/crm-portal/angular-compiler.db-lock",
-        "hash": "9603166783630660697"
+        "file": ".angular/cache/19.2.26/crm-portal/.tsbuildinfo",
+        "hash": "15539182441921982922"
       },
       {
         "file": "nx.json",
         "hash": "9392488300530054959"
-      },
-      {
-        "file": "package-lock.json",
-        "hash": "3684368496026388459"
       },
       {
         "file": "eslint.config.mjs",
@@ -80,24 +76,28 @@
         "hash": "11199411773125993063"
       },
       {
-        "file": ".angular/cache/19.2.26/crm-portal/vite/deps_temp_5d3e5975/package.json",
-        "hash": "8630294688235076505"
+        "file": "package-lock.json",
+        "hash": "3684368496026388459"
       },
       {
-        "file": "package.json",
-        "hash": "13382240879115596663"
+        "file": ".nxignore",
+        "hash": "16904018250184961811"
+      },
+      {
+        "file": ".angular/cache/19.2.26/crm-portal/vite/deps_temp_5d3e5975/package.json",
+        "hash": "8630294688235076505"
       },
       {
         "file": ".angular/cache/19.2.26/crm-portal/angular-compiler.db",
         "hash": "12755592501493365853"
       },
       {
-        "file": "tsconfig.base.json",
-        "hash": "15235928896169849589"
+        "file": "package.json",
+        "hash": "13382240879115596663"
       },
       {
-        "file": ".prettierrc",
-        "hash": "16267754514737964994"
+        "file": "tsconfig.base.json",
+        "hash": "15235928896169849589"
       }
     ],
     "projectFileMap": {
@@ -416,7 +416,7 @@
         },
         {
           "file": "libs/shared-react/src/lib/ui/styles/page.module.scss",
-          "hash": "16463805439760996013"
+          "hash": "15177292969319375226"
         },
         {
           "file": "libs/shared-react/src/lib/ui/views/CatalogView.tsx",
