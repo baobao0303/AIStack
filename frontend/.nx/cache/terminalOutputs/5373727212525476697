@@ -1,0 +1,25 @@
+[2m> [22mnext dev
+
+   [1m[38;2;173;127;168m▲ Next.js 15.2.9[39m[22m
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.88.130:3000
+
+ [32m[1m✓[22m[39m Starting...
+ [32m[1m✓[22m[39m Ready in 3.5s
+ [37m[1m○[22m[39m Compiling / ...
+ [32m[1m✓[22m[39m Compiled / in 5s (1061 modules)
+ GET / [32m200[39m in 5418ms
+ [37m[1m○[22m[39m Compiling /_not-found ...
+ [32m[1m✓[22m[39m Compiled /_not-found in 4.6s (1029 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json [33m404[39m in 4810ms
+ GET / [32m200[39m in 33ms
+ [32m[1m✓[22m[39m Compiled in 1203ms (1029 modules)
+ GET / [32m200[39m in 114ms
+ GET / [32m200[39m in 244ms
+ [37m[1m○[22m[39m Compiling /_error ...
+ [32m[1m✓[22m[39m Compiled /_error in 2.7s (1344 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json [33m404[39m in 4861ms
+ [32m[1m✓[22m[39m Compiled in 1042ms (1311 modules)
+ [32m[1m✓[22m[39m Compiled in 1158ms (1311 modules)
+ [32m[1m✓[22m[39m Compiled in 294ms (1311 modules)
+^C[?25h

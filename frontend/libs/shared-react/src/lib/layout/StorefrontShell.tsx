@@ -111,18 +111,10 @@ export default function StorefrontShell({ children, activeView }: StorefrontShel
             router.push('/product');
           }
         }}
+        cart={cart}
+        cartTotal={cartTotal}
+        removeFromCart={removeFromCart}
       />
-
-      {/* 💳 FLOATING CART DRAWER PANEL */}
-      {isCartOpen && (
-        <CartFloatingModal
-          cart={cart}
-          cartTotal={cartTotal}
-          removeFromCart={removeFromCart}
-          setIsCartOpen={setIsCartOpen}
-          setActiveView={handleActiveViewChange}
-        />
-      )}
 
       {/* RENDER VIEW CHILDREN */}
       <main>

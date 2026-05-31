@@ -48,56 +48,56 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "eslint.config.mjs",
-        "hash": "3462096019013144053"
-      },
-      {
-        "file": ".prettierrc",
-        "hash": "16267754514737964994"
-      },
-      {
-        "file": ".angular/cache/19.2.26/crm-portal/vite/deps_temp_5d3e5975/package.json",
-        "hash": "8630294688235076505"
-      },
-      {
-        "file": "nx.json",
-        "hash": "9392488300530054959"
+        "file": "tsconfig.base.json",
+        "hash": "15235928896169849589"
       },
       {
         "file": ".angular/cache/19.2.26/crm-portal/angular-compiler.db-lock",
         "hash": "9603166783630660697"
       },
       {
-        "file": "package.json",
-        "hash": "13382240879115596663"
+        "file": "nx.json",
+        "hash": "9392488300530054959"
       },
       {
-        "file": ".angular/cache/19.2.26/crm-portal/.tsbuildinfo",
-        "hash": "15539182441921982922"
-      },
-      {
-        "file": ".angular/cache/19.2.26/crm-portal/angular-compiler.db",
-        "hash": "12755592501493365853"
+        "file": "eslint.config.mjs",
+        "hash": "3462096019013144053"
       },
       {
         "file": ".prettierignore",
         "hash": "5407418692668764289"
       },
       {
-        "file": ".nxignore",
-        "hash": "16904018250184961811"
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
       },
       {
-        "file": "tsconfig.base.json",
-        "hash": "15235928896169849589"
+        "file": ".angular/cache/19.2.26/crm-portal/.tsbuildinfo",
+        "hash": "15539182441921982922"
       },
       {
         "file": "README.md",
         "hash": "11199411773125993063"
       },
       {
+        "file": "package.json",
+        "hash": "13382240879115596663"
+      },
+      {
+        "file": ".nxignore",
+        "hash": "16904018250184961811"
+      },
+      {
+        "file": ".angular/cache/19.2.26/crm-portal/angular-compiler.db",
+        "hash": "12755592501493365853"
+      },
+      {
         "file": "package-lock.json",
         "hash": "3684368496026388459"
+      },
+      {
+        "file": ".angular/cache/19.2.26/crm-portal/vite/deps_temp_5d3e5975/package.json",
+        "hash": "8630294688235076505"
       }
     ],
     "projectFileMap": {
@@ -372,7 +372,7 @@
         },
         {
           "file": "libs/shared-react/src/lib/layout/StorefrontShell.tsx",
-          "hash": "8932942083389677587",
+          "hash": "16927806515483442458",
           "deps": [
             "npm:react",
             "npm:next",
@@ -416,7 +416,7 @@
         },
         {
           "file": "libs/shared-react/src/lib/ui/styles/page.module.scss",
-          "hash": "17102182032347104710"
+          "hash": "17986501704025074500"
         },
         {
           "file": "libs/shared-react/src/lib/ui/views/CatalogView.tsx",
@@ -445,7 +445,7 @@
         },
         {
           "file": "libs/shared-react/src/lib/ui/views/HomeView.tsx",
-          "hash": "17848185349481116564",
+          "hash": "16831927267472788094",
           "deps": [
             "npm:react",
             "npm:next",
@@ -487,7 +487,7 @@
         },
         {
           "file": "libs/shared-react/src/lib/ui/widgets/Navbar.tsx",
-          "hash": "2244354035095064296",
+          "hash": "16581403028927254137",
           "deps": [
             "npm:react",
             "npm:next",

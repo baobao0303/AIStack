@@ -3049,11 +3049,10 @@ $color-border: #c2c8c0; // Outline variant
   border-radius: 99px;
 }
 
-// 💳 FLOATING CART MODAL (TOP-RIGHT CORNER DROP PANEL)
 .cartFloatingModal {
   position: absolute;
-  top: 60px;
-  right: 64px;
+  top: 52px;
+  right: 0;
   width: 350px;
   background-color: $color-white;
   border: 1px solid $color-border;
@@ -3064,12 +3063,8 @@ $color-border: #c2c8c0; // Outline variant
   animation: popIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   font-family: var(--font-be-vietnam-pro), sans-serif;
 
-  @media (min-width: 1200px) {
-    right: calc((100% - 1200px) / 2 + 64px);
-  }
-
-  @media (max-width: 768px) {
-    right: 16px;
+  @media (max-width: 480px) {
+    right: -16px;
     width: 320px;
   }
 }

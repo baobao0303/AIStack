@@ -2,8 +2,9 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { ViewType } from '@tiem-nha-zit/shared';
+import { ViewType, CartItem } from '@tiem-nha-zit/shared';
 import styles from '../styles/page.module.scss';
+import CartFloatingModal from './CartFloatingModal';
 
 interface NavbarProps {
   activeView: ViewType;
@@ -13,6 +14,9 @@ interface NavbarProps {
   cartCount: number;
   searchQuery: string;
   setSearchQuery: (query: string) => void;
+  cart: CartItem[];
+  cartTotal: number;
+  removeFromCart: (itemId: string) => void;
 }
 
 const woolPromotions = [
@@ -62,6 +66,9 @@ export default function Navbar({
   cartCount,
   searchQuery,
   setSearchQuery,
+  cart,
+  cartTotal,
+  removeFromCart,
 }: NavbarProps) {
   const router = useRouter();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -84,8 +91,8 @@ export default function Navbar({
   return (
     <nav className={styles.navbar}>
       <div className={styles.navContainer}>
-        <div 
-          className={styles.logoGroup} 
+        <div
+          className={styles.logoGroup}
           onClick={() => { setActiveView('home'); setIsCartOpen(false); }}
           onMouseEnter={() => router.prefetch('/')}
         >
@@ -112,9 +119,9 @@ export default function Navbar({
         <div className={styles.navIcons}>
           <div className={`${styles.navSearchBox} relative`} ref={searchRef}>
             <span className="material-symbols-outlined">search</span>
-            <input 
-              type="text" 
-              placeholder="Bạn muốn mua gì..." 
+            <input
+              type="text"
+              placeholder="Bạn muốn mua gì..."
               value={searchQuery}
               onChange={(e) => {
                 const value = e.target.value;
@@ -134,7 +141,7 @@ export default function Navbar({
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                   {woolPromotions.map((promo, idx) => (
-                    <div 
+                    <div
                       key={idx}
                       onClick={() => {
                         const searchTerms = ['Merino', 'Alpaca', 'thú bông', 'Set len', 'len', 'len'];
@@ -165,28 +172,40 @@ export default function Navbar({
             )}
           </div>
 
-          <button
-            id="cart-trigger"
-            className={`${styles.iconBtn} ${isCartOpen ? styles.activeIcon : ''} ${styles.hoverScaleIcon}`}
-            onClick={(e) => {
-              e.stopPropagation();
-              setIsCartOpen(!isCartOpen);
-            }}
-            aria-label="Giỏ hàng"
-          >
-            <span className="relative inline-flex">
-              <span className="material-symbols-outlined">shopping_bag</span>
-              {cartCount > 0 && (
-                <strong className="absolute -top-2 -right-2 w-5 h-5 flex items-center justify-center bg-sage text-white text-[10px] font-bold font-sans rounded-full border-[1.5px] border-ivory leading-none pointer-events-none">
-                  {cartCount}
-                </strong>
-              )}
-            </span>
-          </button>
+          <div className="relative">
+            <button
+              id="cart-trigger"
+              className={`${styles.iconBtn} ${isCartOpen ? styles.activeIcon : ''} ${styles.hoverScaleIcon}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsCartOpen(!isCartOpen);
+              }}
+              aria-label="Giỏ hàng"
+            >
+              <span className="relative inline-flex">
+                <span className="material-symbols-outlined">shopping_bag</span>
+                {cartCount > 0 && (
+                  <strong className="absolute -top-2 -right-2 w-5 h-5 flex items-center justify-center bg-sage text-white text-[10px] font-bold font-sans rounded-full border-[1.5px] border-ivory leading-none pointer-events-none">
+                    {cartCount}
+                  </strong>
+                )}
+              </span>
+            </button>
 
-          <button 
-            className={`${styles.iconBtn} ${styles.hoverScaleIcon} ${activeView === 'login' ? styles.activeIcon : ''}`} 
-            aria-label="Tài khoản" 
+            {isCartOpen && (
+              <CartFloatingModal
+                cart={cart}
+                cartTotal={cartTotal}
+                removeFromCart={removeFromCart}
+                setIsCartOpen={setIsCartOpen}
+                setActiveView={setActiveView}
+              />
+            )}
+          </div>
+
+          <button
+            className={`${styles.iconBtn} ${styles.hoverScaleIcon} ${activeView === 'login' ? styles.activeIcon : ''}`}
+            aria-label="Tài khoản"
             onClick={() => { router.push('/sign-in'); setIsCartOpen(false); }}
             onMouseEnter={() => router.prefetch('/sign-in')}
           >

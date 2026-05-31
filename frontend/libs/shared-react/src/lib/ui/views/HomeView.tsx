@@ -28,8 +28,8 @@ export default function HomeView({
       region: 'Hà Nội',
       highlight: 'Bespoke Fitting & Hoàn Thiện',
       desc: 'Nơi tập trung các nhà thiết kế bespoke, thực hiện thiết kế chi tiết dáng người, đo đạc chỉ số cơ thể và hoàn thiện các chi tiết thêu đính thủ công tinh xảo trên áo trước khi đóng gói gửi khách.',
-      x: '39.4%',
-      y: '18.1%',
+      x: '26.8%',
+      y: '15.0%',
       icon: 'architecture'
     },
     {
@@ -38,8 +38,8 @@ export default function HomeView({
       region: 'Sa Pa, Lào Cai',
       highlight: 'Sợi Alpaca & Đan Tay',
       desc: 'Quy tụ hơn 30 nghệ nhân dân tộc H\'Mông với kỹ nghệ đan kim kép truyền thống siêu việt. Chuyên trách các sản phẩm áo khoác len Merino dầy dặn và khăn choàng bespoke.',
-      x: '30.6%',
-      y: '10.6%',
+      x: '18.8%',
+      y: '8.1%',
       icon: 'yard'
     },
     {
@@ -48,8 +48,8 @@ export default function HomeView({
       region: 'Đà Nẵng',
       highlight: 'Móc Hoạ Tiết Bespoke',
       desc: 'Nổi tiếng với các hoạ tiết hoa văn đan nổi dân tộc. Nơi các nghệ nhân đan móc từng đoá hoa hồng, cúc gỗ dừa và hoạ tiết vintage tỉ mỉ cho bộ sưu tập len cao cấp.',
-      x: '48.1%',
-      y: '51.3%',
+      x: '40.6%',
+      y: '48.0%',
       icon: 'local_florist'
     },
     {
@@ -58,8 +58,8 @@ export default function HomeView({
       region: 'Đà Lạt, Lâm Đồng',
       highlight: 'Nhuộm Tự Nhiên & Thú Bông',
       desc: 'Trang trại cung cấp các sợi len organic dệt thô tự nhiên. Đặc biệt phụ trách kỹ thuật nhuộm màu từ lá cây, vỏ quả tự nhiên và tạo hình thú bông organic cho bé yêu.',
-      x: '49.4%',
-      y: '67.5%',
+      x: '41.0%',
+      y: '71.5%',
       icon: 'yard'
     },
     {
@@ -68,8 +68,8 @@ export default function HomeView({
       region: 'TP. Hồ Chí Minh',
       highlight: 'Bespoke Fitting & Ship Hỏa Tốc',
       desc: 'Trực tiếp hỗ trợ đo dáng, tư vấn chất liệu len phù hợp thời tiết phương Nam và điều phối giao hàng hoả tốc các tác phẩm len bespoked cho khách hàng khu vực phía Nam.',
-      x: '42.5%',
-      y: '75.0%',
+      x: '34.5%',
+      y: '76.2%',
       icon: 'local_shipping'
     }
   ];
