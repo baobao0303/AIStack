@@ -33,12 +33,12 @@ export class ErrorBoundary extends Component<Props, State> {
         return this.props.fallback;
       }
       return (
-        <div style={{ padding: '40px 20px', textAlign: 'center', backgroundColor: '#fff', borderRadius: '8px', border: '1px solid #e2e8f0', margin: '20px 0' }}>
-          <h2 style={{ fontSize: '24px', color: '#e53e3e', marginBottom: '8px' }}>Đã có lỗi hệ thống xảy ra</h2>
-          <p style={{ color: '#4a5568', marginBottom: '20px' }}>Ứng dụng không thể tải nội dung này. Vui lòng làm mới trang hoặc liên hệ hỗ trợ.</p>
+        <div className="p-10 text-center bg-white rounded-lg border border-gray-200 my-5">
+          <h2 className="text-2xl text-red-600 mb-2">Đã có lỗi hệ thống xảy ra</h2>
+          <p className="text-gray-600 mb-5">Ứng dụng không thể tải nội dung này. Vui lòng làm mới trang hoặc liên hệ hỗ trợ.</p>
           <button 
-            onClick={() => window.location.reload()}
-            style={{ padding: '8px 16px', backgroundColor: '#3182ce', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
+            onClick={() => typeof window !== 'undefined' && window.location.reload()}
+            className="px-4 py-2 bg-blue-600 text-white rounded cursor-pointer border-none hover:bg-blue-700 transition-colors"
           >
             Tải Lại Trang
           </button>

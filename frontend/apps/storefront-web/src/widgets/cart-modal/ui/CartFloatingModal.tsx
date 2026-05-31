@@ -66,7 +66,7 @@ export default function CartFloatingModal({
                 />
                 <div className={styles.modalItemDetails}>
                   <h4>{item.product.name}</h4>
-                  <p className="text-xs text-sage font-medium" style={{ color: '#4a654f' }}>Màu: {item.customColor}</p>
+                  <p className="text-xs text-sage font-medium">Màu: {item.customColor}</p>
                   <p>{item.product.price.toLocaleString('vi-VN')}đ {item.quantity > 1 && `x${item.quantity}`}</p>
                   <button 
                     className={styles.btnRemoveItem} 

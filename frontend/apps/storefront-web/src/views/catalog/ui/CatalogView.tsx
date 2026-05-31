@@ -71,7 +71,7 @@ export default function CatalogView({
                   type="checkbox" 
                   checked={selectedWoolTypes.includes(type)}
                   onChange={() => toggleWoolType(type)}
-                  style={{ display: 'none' }}
+                  className="hidden"
                 />
                 <span className={styles.radioDot}></span>
                 {type}
@@ -84,17 +84,14 @@ export default function CatalogView({
           <h3>Màu Nhuộm Organic</h3>
           <div className={styles.organicColorsGrid}>
             {['Cream', 'Sage', 'Oatmeal', 'Lavender'].map((color) => {
-              const colorHex = color === 'Cream' ? '#F5F5DC' : color === 'Sage' ? '#8DAA91' : color === 'Oatmeal' ? '#D9C5B2' : '#E1D2FF';
+              const colorBgClass = color === 'Cream' ? 'bg-[#F5F5DC]' : color === 'Sage' ? 'bg-[#8DAA91]' : color === 'Oatmeal' ? 'bg-[#D9C5B2]' : 'bg-[#E1D2FF]';
               const isActive = selectedColors.includes(color);
               return (
                 <button 
                   key={color}
-                  className={styles.colorCircle}
-                  style={{ 
-                    backgroundColor: colorHex, 
-                    border: isActive ? '3px solid #1a1c1a' : '1px solid #c2c8c0',
-                    transform: isActive ? 'scale(1.1)' : 'none'
-                  }}
+                  className={`${styles.colorCircle} ${colorBgClass} transition-transform duration-200 ${
+                    isActive ? 'border-[#1a1c1a] border-[3px] scale-11' : 'border-customBorder border'
+                  }`}
                   onClick={() => toggleColorFilter(color)}
                   title={color}
                 />
@@ -112,7 +109,7 @@ export default function CatalogView({
             step="50000"
             value={maxPrice}
             onChange={(e) => setMaxPrice(Number(e.target.value))}
-            style={{ width: '100%', accentColor: '#4a654f' }}
+            className="w-full accent-sage"
           />
         </div>
 
@@ -132,9 +129,9 @@ export default function CatalogView({
         </div>
 
         {filteredProducts.length === 0 ? (
-          <div className={styles.emptyCart} style={{ padding: '80px 0' }}>
-            <span style={{ fontSize: '48px' }}>🔍</span>
-            <p style={{ marginTop: '16px' }}>Không tìm thấy sản phẩm phù hợp bộ lọc.</p>
+          <div className={`${styles.emptyCart} py-[80px]`}>
+            <span className="text-[48px]">🔍</span>
+            <p className="mt-4">Không tìm thấy sản phẩm phù hợp bộ lọc.</p>
           </div>
         ) : (
           <div className={styles.productsCatalogGrid}>

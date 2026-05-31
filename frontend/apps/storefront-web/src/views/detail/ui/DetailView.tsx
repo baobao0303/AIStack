@@ -182,8 +182,7 @@ export default function DetailView({
               Xác Nhận & Đặt Đan Ngay
             </button>
             <button
-              className={`${styles.btnViewCart} ${styles.hoverScaleBtn}`}
-              style={{ marginTop: '12px' }}
+              className={`${styles.btnViewCart} ${styles.hoverScaleBtn} mt-3`}
               onClick={() => alert('Đang kết nối tới Chat Hub SignalR... Hỗ trợ trực tuyến với nghệ nhân đã sẵn sàng.')}
             >
               Tư vấn số đo với nghệ nhân

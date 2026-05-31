@@ -57,40 +57,40 @@
   "fileMap": {
     "nonProjectFiles": [
       {
+        "file": ".prettierignore",
+        "hash": "5407418692668764289"
+      },
+      {
         "file": "README.md",
         "hash": "11199411773125993063"
       },
       {
-        "file": "eslint.config.mjs",
-        "hash": "3462096019013144053"
-      },
-      {
-        "file": "package.json",
-        "hash": "11039934904927527366"
-      },
-      {
-        "file": "nx.json",
-        "hash": "9392488300530054959"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "3578037404204155601"
-      },
-      {
-        "file": "package-lock.json",
-        "hash": "3684368496026388459"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "5407418692668764289"
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
       },
       {
         "file": ".nxignore",
         "hash": "16904018250184961811"
       },
       {
-        "file": ".prettierrc",
-        "hash": "16267754514737964994"
+        "file": "eslint.config.mjs",
+        "hash": "3462096019013144053"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "3578037404204155601"
+      },
+      {
+        "file": "nx.json",
+        "hash": "9392488300530054959"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "3684368496026388459"
+      },
+      {
+        "file": "package.json",
+        "hash": "11039934904927527366"
       }
     ],
     "projectFileMap": {
@@ -378,6 +378,10 @@
           ]
         },
         {
+          "file": "apps/storefront-web/postcss.config.js",
+          "hash": "13598591179375906364"
+        },
+        {
           "file": "apps/storefront-web/project.json",
           "hash": "14781326824346860409"
         },
@@ -390,8 +394,20 @@
           "hash": "9303420814833116677"
         },
         {
+          "file": "apps/storefront-web/src/app/(authen)/auth.module.scss",
+          "hash": "2462843516733617683"
+        },
+        {
           "file": "apps/storefront-web/src/app/(authen)/forgot-password/page.tsx",
-          "hash": "17509319930751374884",
+          "hash": "10699149087428940647",
+          "deps": [
+            "npm:react",
+            "npm:next"
+          ]
+        },
+        {
+          "file": "apps/storefront-web/src/app/(authen)/layout.tsx",
+          "hash": "6472362240039404107",
           "deps": [
             "npm:react",
             "npm:next"
@@ -399,7 +415,7 @@
         },
         {
           "file": "apps/storefront-web/src/app/(authen)/sign-in/page.tsx",
-          "hash": "3557370943388537112",
+          "hash": "14523372848886142417",
           "deps": [
             "npm:react",
             "npm:next"
@@ -407,7 +423,7 @@
         },
         {
           "file": "apps/storefront-web/src/app/(authen)/sign-up/page.tsx",
-          "hash": "17981951833816670816",
+          "hash": "18318542724443320583",
           "deps": [
             "npm:react",
             "npm:next"
@@ -442,11 +458,14 @@
         },
         {
           "file": "apps/storefront-web/src/app/global.css",
-          "hash": "12506830226503380545"
+          "hash": "12133012933292631533"
         },
         {
           "file": "apps/storefront-web/src/app/layout.tsx",
-          "hash": "7774644196413341045"
+          "hash": "7308402521964502497",
+          "deps": [
+            "npm:next"
+          ]
         },
         {
           "file": "apps/storefront-web/src/app/page.tsx",
@@ -473,7 +492,7 @@
         },
         {
           "file": "apps/storefront-web/src/core/components/ErrorBoundary.tsx",
-          "hash": "11407429391243531327",
+          "hash": "14368396296983146203",
           "deps": [
             "npm:react"
           ]
@@ -607,32 +626,32 @@
         },
         {
           "file": "apps/storefront-web/src/shared/styles/page.module.scss",
-          "hash": "17181335851190984106"
+          "hash": "10047030544801453882"
         },
         {
           "file": "apps/storefront-web/src/shared/ui/ShaderBackground.tsx",
-          "hash": "6373040382158038228",
+          "hash": "10016251863506009306",
           "deps": [
             "npm:react"
           ]
         },
         {
           "file": "apps/storefront-web/src/views/catalog/ui/CatalogView.tsx",
-          "hash": "17073913603742206088",
+          "hash": "13139288373727271669",
           "deps": [
             "npm:react"
           ]
         },
         {
           "file": "apps/storefront-web/src/views/checkout/ui/CheckoutView.tsx",
-          "hash": "9237395132763236660",
+          "hash": "12465112783403885612",
           "deps": [
             "npm:react"
           ]
         },
         {
           "file": "apps/storefront-web/src/views/detail/ui/DetailView.tsx",
-          "hash": "6841760609893900783",
+          "hash": "4031606254773577636",
           "deps": [
             "npm:react"
           ]
@@ -646,7 +665,7 @@
         },
         {
           "file": "apps/storefront-web/src/views/login/ui/LoginView.tsx",
-          "hash": "17926065524053471994",
+          "hash": "18293702210584063359",
           "deps": [
             "npm:react",
             "npm:next"
@@ -654,14 +673,14 @@
         },
         {
           "file": "apps/storefront-web/src/views/tracking/ui/TrackingView.tsx",
-          "hash": "6744316532314028414",
+          "hash": "17872301735003673829",
           "deps": [
             "npm:react"
           ]
         },
         {
           "file": "apps/storefront-web/src/widgets/cart-modal/ui/CartFloatingModal.tsx",
-          "hash": "6664949295311049950",
+          "hash": "6799456079865659959",
           "deps": [
             "npm:react"
           ]
@@ -684,11 +703,15 @@
         },
         {
           "file": "apps/storefront-web/src/widgets/navbar/ui/Navbar.tsx",
-          "hash": "12967278945292309782",
+          "hash": "4470502611832356818",
           "deps": [
             "npm:react",
             "npm:next"
           ]
+        },
+        {
+          "file": "apps/storefront-web/tailwind.config.js",
+          "hash": "349641018552094102"
         },
         {
           "file": "apps/storefront-web/tsconfig.json",

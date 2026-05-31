@@ -127,7 +127,9 @@ void main() {
         mouse.y = ny * canvas!.height;
       }
     };
-    window.addEventListener('mousemove', handleMouseMove);
+    if (typeof window !== 'undefined') {
+      window.addEventListener('mousemove', handleMouseMove);
+    }
 
     let frameId: number;
     function render(t: number) {
@@ -142,7 +144,9 @@ void main() {
     frameId = requestAnimationFrame(render);
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('mousemove', handleMouseMove);
+      }
       cancelAnimationFrame(frameId);
       if (resizeObserver) {
         resizeObserver.disconnect();
@@ -151,8 +155,8 @@ void main() {
   }, []);
 
   return (
-    <div style={{ position: 'fixed', inset: 0, width: '100%', height: '100%', zIndex: -10, opacity: 0.3, pointerEvents: 'none', display: 'block' }}>
-      <canvas ref={canvasRef} style={{ display: 'block', width: '100%', height: '100%' }} />
+    <div className="fixed inset-0 w-full h-full -z-10 opacity-30 pointer-events-none block">
+      <canvas ref={canvasRef} className="block w-full h-full" />
     </div>
   );
 }

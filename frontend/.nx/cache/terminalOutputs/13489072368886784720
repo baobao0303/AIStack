@@ -1,0 +1,47 @@
+> next build
+
+   [1m[38;2;173;127;168m▲ Next.js 15.2.9[39m[22m
+
+ [37m[1m [22m[39m Creating an optimized production build ...
+[31mFailed to compile.
+[39m
+./src/shared/ui/ShaderBackground.tsx
+Error:   [31mx[0m 'const' declarations must be initialized
+     ,-[[36;1;4m/Users/bao312/Desktop/Test/frontend/apps/storefront-web/src/shared/ui/ShaderBackground.tsx[0m:154:1]
+ [2m151[0m |         resizeObserver.disconnect();
+ [2m152[0m |       }
+ [2m153[0m |     };
+ [2m154[0m |   }, []);
+     : [35;1m     ^^[0m
+ [2m155[0m | 
+ [2m156[0m |   return (
+ [2m157[0m |     <div className="fixed inset-0 w-full h-full -z-10 opacity-30 pointer-events-none block">
+     `----
+  [31mx[0m Expected a semicolon
+     ,-[[36;1;4m/Users/bao312/Desktop/Test/frontend/apps/storefront-web/src/shared/ui/ShaderBackground.tsx[0m:154:1]
+ [2m151[0m |         resizeObserver.disconnect();
+ [2m152[0m |       }
+ [2m153[0m |     };
+ [2m154[0m |   }, []);
+     : [35;1m       ^[0m
+ [2m155[0m | 
+ [2m156[0m |   return (
+ [2m157[0m |     <div className="fixed inset-0 w-full h-full -z-10 opacity-30 pointer-events-none block">
+     `----
+  [31mx[0m Unexpected eof
+     ,-[[36;1;4m/Users/bao312/Desktop/Test/frontend/apps/storefront-web/src/shared/ui/ShaderBackground.tsx[0m:161:3]
+ [2m159[0m |     </div>
+ [2m160[0m |   );
+ [2m161[0m | }
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/shared/ui/ShaderBackground.tsx
+./src/widgets/layout/ui/StorefrontShell.tsx
+./src/app/page.tsx
+
+
+> Build failed because of webpack errors

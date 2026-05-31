@@ -1,0 +1,74 @@
+// auth.module.scss
+
+@keyframes authSlowZoom {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.authAnimateImg {
+  animation: authSlowZoom 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes authFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.authAnimateHeader {
+  opacity: 0;
+  animation: authFadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.authAnimateField1 {
+  opacity: 0;
+  animation: authFadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.12s forwards;
+}
+
+.authAnimateField2 {
+  opacity: 0;
+  animation: authFadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.22s forwards;
+}
+
+.authAnimateField3 {
+  opacity: 0;
+  animation: authFadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.32s forwards;
+}
+
+.authAnimateField4 {
+  opacity: 0;
+  animation: authFadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.42s forwards;
+}
+
+.authAnimateField5 {
+  opacity: 0;
+  animation: authFadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.52s forwards;
+}
+
+.authCardContainer {
+  &::-webkit-scrollbar {
+    width: 4px;
+    display: block;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(74, 101, 79, 0.3);
+    border-radius: 10px;
+  }
+}
+
+.materialFill {
+  font-variation-settings: 'FILL' 1;
+}
+

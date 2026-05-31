@@ -3657,15 +3657,16 @@ $color-border: #c2c8c0; // Outline variant
 
   input {
     width: 100%;
-    background-color: rgba($color-charcoal, 0.03);
+    background-color: #faf9f6;
     border: 1px solid rgba($color-border, 0.5);
     padding: 14px 16px 14px 48px;
-    border-radius: 99px; // Beautiful capsule input
+    border-radius: 8px; // Clean, premium 8px rounded corners
     font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 14px;
     color: $color-charcoal;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     outline: none;
+    box-sizing: border-box;
 
     &::placeholder {
       color: rgba($color-charcoal, 0.3);
@@ -4292,19 +4293,23 @@ $color-border: #c2c8c0; // Outline variant
   transform: translate(25%, -25%);
 }
 
-// Unified Authentication Layout Shell (Con Cung Style)
+// Unified Authentication Layout Shell (Con Cung Style) - Responsive scroll shell
 .authShellContainer {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
   background-color: $color-white;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .authShellHeader {
-  height: 80px;
+  height: 72px;
+  flex-shrink: 0;
   background-color: $color-white;
-  border-bottom: 1px solid rgba($color-border, 0.25);
+  border-bottom: 1px solid rgba($color-border, 0.2);
   display: flex;
   align-items: center;
   padding: 0 40px;
@@ -4312,7 +4317,7 @@ $color-border: #c2c8c0; // Outline variant
 
   @media (max-width: 768px) {
     padding: 0 20px;
-    height: 72px;
+    height: 64px;
   }
 }
 
@@ -4334,37 +4339,39 @@ $color-border: #c2c8c0; // Outline variant
 
 .authShellHeaderDivider {
   width: 1px;
-  height: 24px;
-  background-color: rgba($color-border, 0.45);
+  height: 20px;
+  background-color: rgba($color-border, 0.4);
   margin: 0 16px;
 }
 
 .authShellHeaderTitle {
   font-family: 'Be Vietnam Pro', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   color: $color-charcoal;
 }
 
 .authShellMain {
-  flex: 1;
+  min-height: calc(100vh - 72px);
   background: linear-gradient(135deg, #eaf2eb 0%, #faf9f6 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 60px 40px;
+  padding: 24px 40px;
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
 
   @media (max-width: 991px) {
-    padding: 40px 20px;
+    padding: 20px 16px;
+    min-height: calc(100vh - 64px);
   }
 }
 
 .authShellContent {
   width: 100%;
   max-width: 1100px;
+  height: 100%;
   display: grid;
   grid-template-columns: 1.15fr 1fr;
   gap: 48px;
@@ -4373,13 +4380,15 @@ $color-border: #c2c8c0; // Outline variant
 
   @media (max-width: 991px) {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 0;
   }
 }
 
 .authShellVisual {
   position: relative;
   width: 100%;
+  height: 100%;
+  max-height: 480px;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 20px 40px rgba($color-sage, 0.06);
@@ -4387,7 +4396,6 @@ $color-border: #c2c8c0; // Outline variant
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  height: 480px;
 
   @media (max-width: 991px) {
     display: none;
@@ -4397,131 +4405,47 @@ $color-border: #c2c8c0; // Outline variant
 .authShellCardContainer {
   background-color: $color-white;
   border-radius: 16px;
-  padding: 40px 32px;
-  box-shadow: 0 20px 50px rgba($color-sage, 0.06);
+  padding: 32px 28px;
+  box-shadow: 0 20px 50px rgba(74, 101, 79, 0.06);
   border: 1px solid rgba($color-border, 0.15);
   width: 100%;
+  max-height: 100%;
+  overflow-y: auto; // Forms will scroll internally if vertical height is too small
   box-sizing: border-box;
 
+  &::-webkit-scrollbar {
+    width: 4px;
+    display: block;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba($color-sage, 0.3);
+    border-radius: 10px;
+  }
+
   @media (max-width: 480px) {
-    padding: 32px 20px;
+    padding: 24px 16px;
   }
 }
 
 .authShellFooter {
+  height: 64px;
+  flex-shrink: 0;
   background-color: $color-white;
-  border-top: 1px solid rgba($color-border, 0.25);
-  padding: 48px 40px;
+  border-top: 1px solid rgba($color-border, 0.2);
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
   box-sizing: border-box;
   width: 100%;
+  z-index: 10;
 
   @media (max-width: 768px) {
-    padding: 32px 20px;
-  }
-}
-
-.authShellValuesRow {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  margin-bottom: 40px;
-  border-bottom: 1px solid rgba($color-border, 0.2);
-  padding-bottom: 32px;
-  flex-wrap: wrap;
-
-  @media (max-width: 768px) {
-    justify-content: center;
-    gap: 24px;
-  }
-}
-
-.authShellValueItem {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  width: 140px;
-
-  .iconBox {
-    width: 56px;
+    padding: 0 20px;
     height: 56px;
-    border-radius: 99px;
-    background-color: rgba($color-sage, 0.08);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 12px;
-    
-    span {
-      font-size: 24px;
-      color: $color-sage;
-    }
-  }
-
-  h4 {
-    font-size: 13px;
-    font-weight: 600;
-    color: $color-charcoal;
-    margin: 0 0 4px 0;
-  }
-
-  p {
-    font-size: 11px;
-    color: rgba($color-charcoal, 0.5);
-    margin: 0;
   }
 }
 
-.authShellDetailsRow {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1.25fr 1fr;
-  gap: 40px;
-  
-  @media (max-width: 991px) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
-  }
-
-  @media (max-width: 560px) {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-}
-
-.authShellFooterCol {
-  h4 {
-    font-size: 13px;
-    font-weight: 700;
-    color: $color-charcoal;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin: 0 0 16px 0;
-  }
-
-  p {
-    font-size: 12px;
-    line-height: 1.8;
-    color: rgba($color-charcoal, 0.6);
-    margin: 0;
-  }
-
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-    a {
-      font-size: 12px;
-      color: rgba($color-charcoal, 0.6);
-      text-decoration: none;
-      transition: color 0.2s ease;
-
-      &:hover {
-        color: $color-sage;
-      }
-    }
-  }
-}
+// End of file

@@ -117,7 +117,7 @@ export default function Navbar({
         </div>
 
         <div className={styles.navIcons}>
-          <div className={styles.navSearchBox} ref={searchRef} style={{ position: 'relative' }}>
+          <div className={`${styles.navSearchBox} relative`} ref={searchRef}>
             <span className="material-symbols-outlined">search</span>
             <input 
               type="text" 
@@ -126,7 +126,6 @@ export default function Navbar({
               onChange={(e) => {
                 const value = e.target.value;
                 setSearchQuery(value);
-                // Only jump to the catalog once the user actually types a query
                 if (value.trim() !== '' && activeView !== 'catalog') {
                   setActiveView('catalog');
                 }
@@ -136,33 +135,11 @@ export default function Navbar({
             />
 
             {isSearchOpen && (
-              <div 
-                style={{
-                  position: 'absolute',
-                  top: 'calc(100% + 12px)',
-                  right: 0,
-                  width: '520px',
-                  maxWidth: 'calc(100vw - 32px)',
-                  boxSizing: 'border-box',
-                  backgroundColor: '#ffffff',
-                  borderRadius: '16px',
-                  boxShadow: '0 10px 40px rgba(26, 28, 26, 0.08)',
-                  border: '1px solid rgba(194, 200, 192, 0.8)',
-                  padding: '20px',
-                  zIndex: 1000,
-                  fontFamily: "'Be Vietnam Pro', sans-serif",
-                }}
-              >
-                <div style={{ marginBottom: '14px', fontSize: '13px', fontWeight: 600, color: '#4a654f', letterSpacing: '0.02em' }}>
+              <div className="absolute top-[calc(100%+12px)] right-0 w-[520px] max-w-[calc(100vw-32px)] box-border bg-white rounded-2xl shadow-[0_10px_40px_rgba(26,28,26,0.08)] border border-customBorder/80 p-5 z-[1000] font-sans">
+                <div className="mb-3.5 text-[13px] font-semibold text-sage tracking-wide">
                   🎁 Ưu đãi đan móc đặc biệt hôm nay
                 </div>
-                <div 
-                  style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(2, 1fr)',
-                    gap: '12px',
-                  }}
-                >
+                <div className="grid grid-cols-2 gap-3">
                   {woolPromotions.map((promo, idx) => (
                     <div 
                       key={idx}
@@ -172,52 +149,19 @@ export default function Navbar({
                         setActiveView('catalog');
                         setIsSearchOpen(false);
                       }}
-                      style={{
-                        display: 'flex',
-                        gap: '12px',
-                        alignItems: 'center',
-                        padding: '12px',
-                        borderRadius: '12px',
-                        backgroundColor: '#faf9f6',
-                        border: '1px solid rgba(194, 200, 192, 0.3)',
-                        cursor: 'pointer',
-                        transition: 'all 0.2s ease',
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.backgroundColor = 'rgba(74, 101, 79, 0.05)';
-                        e.currentTarget.style.borderColor = '#4a654f';
-                        e.currentTarget.style.transform = 'translateY(-2px)';
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.backgroundColor = '#faf9f6';
-                        e.currentTarget.style.borderColor = 'rgba(194, 200, 192, 0.3)';
-                        e.currentTarget.style.transform = 'translateY(0)';
-                      }}
+                      className="flex gap-3 items-center p-3 rounded-xl bg-ivory border border-customBorder/30 cursor-pointer transition-all duration-200 hover:bg-sage/5 hover:border-sage hover:-translate-y-0.5"
                     >
-                      <div 
-                        style={{
-                          width: '40px',
-                          height: '40px',
-                          borderRadius: '8px',
-                          backgroundColor: '#ffffff',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          fontSize: '20px',
-                          border: '1px solid rgba(194, 200, 192, 0.5)',
-                          flexShrink: 0,
-                        }}
-                      >
+                      <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center text-xl border border-customBorder/50 shrink-0">
                         {promo.icon}
                       </div>
-                      <div style={{ display: 'flex', flexDirection: 'column', minWidth: 0 }}>
-                        <span style={{ fontSize: '9px', color: '#c5a059', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                      <div className="flex flex-col min-w-0">
+                        <span className="text-[9px] text-gold font-bold uppercase tracking-wider">
                           {promo.tag}
                         </span>
-                        <h4 style={{ margin: '2px 0 0 0', fontSize: '11px', fontWeight: 600, color: '#1a1c1a', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                        <h4 className="mt-0.5 text-[11px] font-semibold text-charcoal truncate">
                           {promo.title}
                         </h4>
-                        <p style={{ margin: '1px 0 0 0', fontSize: '9px', color: 'rgba(26, 28, 26, 0.6)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                        <p className="mt-px text-[9px] text-charcoal/60 truncate">
                           {promo.desc}
                         </p>
                       </div>
@@ -237,32 +181,10 @@ export default function Navbar({
             }}
             aria-label="Giỏ hàng"
           >
-            <span style={{ position: 'relative', display: 'inline-flex' }}>
+            <span className="relative inline-flex">
               <span className="material-symbols-outlined">shopping_bag</span>
               {cartCount > 0 && (
-                <span
-                  style={{
-                    position: 'absolute',
-                    top: '-8px',
-                    right: '-8px',
-                    minWidth: '20px',
-                    height: '20px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    backgroundColor: '#4a654f',
-                    color: '#ffffff',
-                    fontSize: '11px',
-                    fontWeight: 700,
-                    fontFamily: "'Be Vietnam Pro', sans-serif",
-                    padding: '0 4px',
-                    borderRadius: '99px',
-                    lineHeight: 1,
-                    border: '1.5px solid #faf9f6',
-                    boxSizing: 'border-box',
-                    pointerEvents: 'none',
-                  }}
-                >
+                <span className="absolute -top-2 -right-2 w-5 h-5 flex items-center justify-center bg-sage text-white text-[10px] font-bold font-sans rounded-full border-[1.5px] border-ivory leading-none pointer-events-none">
                   {cartCount}
                 </span>
               )}

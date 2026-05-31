@@ -1,39 +1,21 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useRouter } from 'next/navigation';
 import LoginView from '../../../views/login/ui/LoginView';
-import styles from '../../../shared/styles/page.module.scss';
-import ShaderBackground from '../../../shared/ui/ShaderBackground';
 
 export default function SignInPage() {
   const router = useRouter();
 
-  useEffect(() => {
-    document.documentElement.style.overflow = 'hidden';
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.documentElement.style.overflow = '';
-      document.body.style.overflow = '';
-    };
-  }, []);
-
   return (
-    <div className={styles.storefrontLayout} style={{ minHeight: '100vh', position: 'relative', overflow: 'hidden', padding: 0 }}>
-      {/* Background Weave Layer */}
-      <div className={styles.ambientGrain}></div>
-      <ShaderBackground />
-
-      <LoginView 
-        styles={styles} 
-        setActiveView={(view) => {
-          if (view === 'home') {
-            router.push('/');
-          } else {
-            router.push(`/${view}`);
-          }
-        }} 
-      />
-    </div>
+    <LoginView 
+      setActiveView={(view) => {
+        if (view === 'home') {
+          router.push('/');
+        } else {
+          router.push(`/${view}`);
+        }
+      }} 
+    />
   );
 }

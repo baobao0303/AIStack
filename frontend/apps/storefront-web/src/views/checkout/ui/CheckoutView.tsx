@@ -78,7 +78,7 @@ export default function CheckoutView({
           {cart.length === 0 ? (
             <div className={styles.emptyCart}>
               <p>Giỏ hàng đang trống. Quay lại Cửa hàng để thêm sản phẩm.</p>
-              <button className={styles.btnCheckout} style={{ marginTop: '16px' }} onClick={() => setActiveView('catalog')}>
+              <button className={`${styles.btnCheckout} mt-4`} onClick={() => setActiveView('catalog')}>
                 Đến Cửa Hàng
               </button>
             </div>
@@ -105,9 +105,8 @@ export default function CheckoutView({
                     </div>
                   </div>
                   <button 
-                    className={styles.btnRemoveItem}
+                    className={`${styles.btnRemoveItem} absolute top-4 right-4`}
                     onClick={() => removeFromCart(item.id)}
-                    style={{ position: 'absolute', top: '16px', right: '16px' }}
                   >
                     Xóa
                   </button>
@@ -123,7 +122,7 @@ export default function CheckoutView({
                   <span>Phí vận chuyển</span>
                   <span className="text-sage">Miễn phí</span>
                 </div>
-                <hr style={{ border: 0, borderTop: '1px solid #cbc3d5' }} />
+                <hr className="border-0 border-t border-[#cbc3d5]" />
                 <div className={styles.totalRow}>
                   <span>Tổng tiền đơn hàng</span>
                   <span>{cartTotal.toLocaleString('vi-VN')}đ</span>

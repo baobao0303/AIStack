@@ -61,7 +61,7 @@ export default function TrackingView({
         </div>
 
         {activeOrder ? (
-          <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '32px', marginTop: '40px' }}>
+          <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-8 mt-10">
             
             {/* Left Column: Vertical timeline Progress Flow */}
             <div className={styles.timelineBlock}>
@@ -117,30 +117,30 @@ export default function TrackingView({
               <div className={styles.recapDetails}>
                 <p><strong>Người nhận:</strong> {activeOrder.shipping.name}</p>
                 <p><strong>Địa chỉ giao:</strong> {activeOrder.shipping.address}, {activeOrder.shipping.city}</p>
-                <hr style={{ border: 0, borderTop: '1px solid #cbc3d5', margin: '8px 0' }} />
-                <p style={{ fontWeight: 700, color: '#4a654f' }}>Thông số đan tay tùy biến:</p>
+                <hr className="border-0 border-t border-[#cbc3d5] my-2" />
+                <p className="font-bold text-sage">Thông số đan tay tùy biến:</p>
                 {activeOrder.items.map((item) => (
-                  <div key={item.id} style={{ padding: '8px', backgroundColor: '#ffffff', borderRadius: '8px', marginBottom: '8px', border: '1px solid #cbc3d5' }}>
-                    <p style={{ fontWeight: 600 }}>{item.product.name}</p>
-                    <p style={{ fontSize: '11px', color: '#665978' }}>Màu dệt: {item.customColor}</p>
+                  <div key={item.id} className="p-2 bg-white rounded-lg mb-2 border border-[#cbc3d5]">
+                    <p className="font-semibold text-charcoal">{item.product.name}</p>
+                    <p className="text-[11px] text-[#665978]">Màu dệt: {item.customColor}</p>
                     {item.chestWidth !== 'N/A' && (
-                      <p style={{ fontSize: '11px', color: '#665978' }}>Ngực: {item.chestWidth}cm | Dài tay: {item.sleeveLength}cm | Chiều cao: {item.height}cm</p>
+                      <p className="text-[11px] text-[#665978]">Ngực: {item.chestWidth}cm | Dài tay: {item.sleeveLength}cm | Chiều cao: {item.height}cm</p>
                     )}
                     {item.customNotes && (
-                      <p style={{ fontSize: '11px', fontStyle: 'italic', color: '#c5a059' }}>Ghi chú: {item.customNotes}</p>
+                      <p className="text-[11px] italic text-gold">Ghi chú: {item.customNotes}</p>
                     )}
                   </div>
                 ))}
-                <hr style={{ border: 0, borderTop: '1px solid #cbc3d5', margin: '8px 0' }} />
-                <p style={{ fontSize: '16px', fontWeight: 700 }}>Tổng tiền: {activeOrder.total.toLocaleString('vi-VN')}đ</p>
+                <hr className="border-0 border-t border-[#cbc3d5] my-2" />
+                <p className="text-base font-bold text-charcoal">Tổng tiền: {activeOrder.total.toLocaleString('vi-VN')}đ</p>
               </div>
             </div>
 
           </div>
         ) : (
-          <div className={styles.emptyCart} style={{ padding: '60px 0' }}>
+          <div className={`${styles.emptyCart} py-[60px]`}>
             <p>Lịch sử đơn hàng trống. Hãy đặt đan sản phẩm đầu tiên của bạn!</p>
-            <button className={styles.btnCheckout} style={{ marginTop: '16px', maxWidth: '240px', marginLeft: 'auto', marginRight: 'auto' }} onClick={() => setActiveView('catalog')}>
+            <button className={`${styles.btnCheckout} mt-4 max-w-[240px] mx-auto block`} onClick={() => setActiveView('catalog')}>
               Đến Cửa Hàng
             </button>
           </div>
