@@ -57,8 +57,20 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": ".prettierignore",
-        "hash": "5407418692668764289"
+        "file": "package-lock.json",
+        "hash": "8231007409265252650"
+      },
+      {
+        "file": "README.md",
+        "hash": "11199411773125993063"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
+      },
+      {
+        "file": "package.json",
+        "hash": "17250260497661144684"
       },
       {
         "file": "tsconfig.base.json",
@@ -69,28 +81,16 @@
         "hash": "16904018250184961811"
       },
       {
-        "file": "README.md",
-        "hash": "11199411773125993063"
-      },
-      {
-        "file": "package.json",
-        "hash": "17250260497661144684"
-      },
-      {
         "file": "eslint.config.mjs",
         "hash": "3462096019013144053"
       },
       {
+        "file": ".prettierignore",
+        "hash": "5407418692668764289"
+      },
+      {
         "file": "nx.json",
         "hash": "9392488300530054959"
-      },
-      {
-        "file": ".prettierrc",
-        "hash": "16267754514737964994"
-      },
-      {
-        "file": "package-lock.json",
-        "hash": "8231007409265252650"
       }
     ],
     "projectFileMap": {
@@ -131,55 +131,6 @@
           "hash": "495073956729887886"
         },
         {
-          "file": "apps/storefront-web/src/app/components/CartFloatingModal.tsx",
-          "hash": "6664949295311049950",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/storefront-web/src/app/components/CatalogView.tsx",
-          "hash": "17073913603742206088",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/storefront-web/src/app/components/CheckoutView.tsx",
-          "hash": "9237395132763236660",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/storefront-web/src/app/components/DetailView.tsx",
-          "hash": "6841760609893900783",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/storefront-web/src/app/components/HomeView.tsx",
-          "hash": "9024019078051742725",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/storefront-web/src/app/components/ShaderBackground.tsx",
-          "hash": "6373040382158038228",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/storefront-web/src/app/components/TrackingView.tsx",
-          "hash": "6744316532314028414",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
           "file": "apps/storefront-web/src/app/global.css",
           "hash": "4323902441721715750"
         },
@@ -188,12 +139,76 @@
           "hash": "9829716422944234846"
         },
         {
-          "file": "apps/storefront-web/src/app/page.module.scss",
+          "file": "apps/storefront-web/src/app/page.tsx",
+          "hash": "5565396431363121512",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/storefront-web/src/entities/product/data/products.ts",
+          "hash": "11679887587480818166"
+        },
+        {
+          "file": "apps/storefront-web/src/pages/catalog/ui/CatalogView.tsx",
+          "hash": "17073913603742206088",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/storefront-web/src/pages/checkout/ui/CheckoutView.tsx",
+          "hash": "9237395132763236660",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/storefront-web/src/pages/detail/ui/DetailView.tsx",
+          "hash": "6841760609893900783",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/storefront-web/src/pages/home/ui/HomeView.tsx",
+          "hash": "9024019078051742725",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/storefront-web/src/pages/tracking/ui/TrackingView.tsx",
+          "hash": "6744316532314028414",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/storefront-web/src/shared/model/types.ts",
+          "hash": "894211920276042239"
+        },
+        {
+          "file": "apps/storefront-web/src/shared/styles/page.module.scss",
           "hash": "399821003298298591"
         },
         {
-          "file": "apps/storefront-web/src/app/page.tsx",
-          "hash": "5991548247410385892",
+          "file": "apps/storefront-web/src/shared/ui/ShaderBackground.tsx",
+          "hash": "6373040382158038228",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/storefront-web/src/widgets/cart-modal/ui/CartFloatingModal.tsx",
+          "hash": "6664949295311049950",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/storefront-web/src/widgets/footer/ui/Footer.tsx",
+          "hash": "7812756322438996368",
           "deps": [
             "npm:react"
           ]

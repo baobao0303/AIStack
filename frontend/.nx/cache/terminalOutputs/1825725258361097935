@@ -1,0 +1,26 @@
+> next build
+
+   [1m[38;2;173;127;168m▲ Next.js 15.2.9[39m[22m
+
+ [37m[1m [22m[39m Creating an optimized production build ...
+ [32m[1m✓[22m[39m Compiled successfully
+ [37m[1m [22m[39m Skipping linting
+ [37m[1m [22m[39m Checking validity of types ...
+ [37m[1m [22m[39m Collecting page data ...
+ [37m[1m [22m[39m Generating static pages (0/10) ...
+TypeError: Cannot read properties of undefined (reading 'containerMax')
+    at p (.next/server/pages/catalog/ui/CatalogView.js:1:875)
+Error occurred prerendering page "/catalog/ui/CatalogView". Read more: https://nextjs.org/docs/messages/prerender-error
+TypeError: Cannot read properties of undefined (reading 'containerMax')
+    at p (/Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/server/pages/catalog/ui/CatalogView.js:1:875)
+    at renderWithHooks (/Users/bao312/Desktop/Test/frontend/node_modules/react-dom/cjs/react-dom-server.edge.production.js:4747:18)
+    at renderElement (/Users/bao312/Desktop/Test/frontend/node_modules/react-dom/cjs/react-dom-server.edge.production.js:4885:14)
+    at retryNode (/Users/bao312/Desktop/Test/frontend/node_modules/react-dom/cjs/react-dom-server.edge.production.js:5603:16)
+    at renderNodeDestructive (/Users/bao312/Desktop/Test/frontend/node_modules/react-dom/cjs/react-dom-server.edge.production.js:5397:7)
+    at renderElement (/Users/bao312/Desktop/Test/frontend/node_modules/react-dom/cjs/react-dom-server.edge.production.js:4882:7)
+    at retryNode (/Users/bao312/Desktop/Test/frontend/node_modules/react-dom/cjs/react-dom-server.edge.production.js:5603:16)
+    at renderNodeDestructive (/Users/bao312/Desktop/Test/frontend/node_modules/react-dom/cjs/react-dom-server.edge.production.js:5397:7)
+    at finishFunctionComponent (/Users/bao312/Desktop/Test/frontend/node_modules/react-dom/cjs/react-dom-server.edge.production.js:4788:9)
+    at renderElement (/Users/bao312/Desktop/Test/frontend/node_modules/react-dom/cjs/react-dom-server.edge.production.js:4887:7)
+Export encountered an error on /catalog/ui/CatalogView, exiting the build.
+ [31m[1m⨯[22m[39m Next.js build worker exited with code: 1 and signal: null

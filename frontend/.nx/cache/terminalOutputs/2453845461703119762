@@ -1,0 +1,21 @@
+> next build
+
+   [1m[38;2;173;127;168m▲ Next.js 15.2.9[39m[22m
+
+ [37m[1m [22m[39m Creating an optimized production build ...
+ [32m[1m✓[22m[39m Compiled successfully
+ [37m[1m [22m[39m Skipping linting
+ [37m[1m [22m[39m Checking validity of types ...
+[31mFailed to compile.
+[39m
+[36m./src/app/page.tsx[39m:[33m17[39m:[33m10[39m
+[31m[1mType error[22m[39m: Duplicate identifier 'Product'.
+
+[0m [90m 15 |[39m[0m
+[0m [90m 16 |[39m [90m// Import shared types[39m[0m
+[0m[31m[1m>[22m[39m[90m 17 |[39m [36mimport[39m { [33mProduct[39m[33m,[39m [33mCartItem[39m[33m,[39m [33mOrder[39m } [36mfrom[39m [32m'./types'[39m[33m;[39m[0m
+[0m [90m    |[39m          [31m[1m^[22m[39m[0m
+[0m [90m 18 |[39m[0m
+[0m [90m 19 |[39m [90m// Product catalog data and domain types extracted into dedicated modules[39m[0m
+[0m [90m 20 |[39m [36mimport[39m { [33mPRODUCTS[39m[33m,[39m type [33mProduct[39m } [36mfrom[39m [32m'./data/products'[39m[33m;[39m[0m
+Next.js build worker exited with code: 1 and signal: null
