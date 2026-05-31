@@ -57,40 +57,40 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": ".prettierignore",
-        "hash": "5407418692668764289"
-      },
-      {
-        "file": ".nxignore",
-        "hash": "16904018250184961811"
+        "file": "eslint.config.mjs",
+        "hash": "3462096019013144053"
       },
       {
         "file": "package-lock.json",
         "hash": "3684368496026388459"
       },
       {
+        "file": ".prettierignore",
+        "hash": "5407418692668764289"
+      },
+      {
         "file": "README.md",
         "hash": "11199411773125993063"
       },
       {
+        "file": "tsconfig.base.json",
+        "hash": "3578037404204155601"
+      },
+      {
         "file": "package.json",
-        "hash": "8892926569953399355"
-      },
-      {
-        "file": "nx.json",
-        "hash": "9392488300530054959"
-      },
-      {
-        "file": "eslint.config.mjs",
-        "hash": "3462096019013144053"
+        "hash": "2391517790195664756"
       },
       {
         "file": ".prettierrc",
         "hash": "16267754514737964994"
       },
       {
-        "file": "tsconfig.base.json",
-        "hash": "3578037404204155601"
+        "file": "nx.json",
+        "hash": "9392488300530054959"
+      },
+      {
+        "file": ".nxignore",
+        "hash": "16904018250184961811"
       }
     ],
     "projectFileMap": {
@@ -270,10 +270,6 @@
           "hash": "9303420814833116677"
         },
         {
-          "file": "apps/storefront-web/src/app/api/hello/route.ts",
-          "hash": "495073956729887886"
-        },
-        {
           "file": "apps/storefront-web/src/app/global.css",
           "hash": "12506830226503380545"
         },
@@ -420,11 +416,11 @@
         },
         {
           "file": "apps/storefront-web/src/shared/model/types.ts",
-          "hash": "894211920276042239"
+          "hash": "5317950721122033615"
         },
         {
           "file": "apps/storefront-web/src/shared/styles/page.module.scss",
-          "hash": "11780214743667388424"
+          "hash": "9387593804445805216"
         },
         {
           "file": "apps/storefront-web/src/shared/ui/ShaderBackground.tsx",
@@ -462,6 +458,13 @@
           ]
         },
         {
+          "file": "apps/storefront-web/src/views/login/ui/LoginView.tsx",
+          "hash": "6704179009150525316",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
           "file": "apps/storefront-web/src/views/tracking/ui/TrackingView.tsx",
           "hash": "6744316532314028414",
           "deps": [
@@ -484,7 +487,7 @@
         },
         {
           "file": "apps/storefront-web/src/widgets/navbar/ui/Navbar.tsx",
-          "hash": "14424175177746753184",
+          "hash": "7988211790928638424",
           "deps": [
             "npm:react"
           ]

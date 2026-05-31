@@ -267,7 +267,11 @@ export default function Navbar({
             </span>
           </button>
 
-          <button className={`${styles.iconBtn} ${styles.hoverScaleIcon}`} aria-label="Tài khoản" onClick={() => setActiveView('tracking')}>
+          <button 
+            className={`${styles.iconBtn} ${styles.hoverScaleIcon} ${activeView === 'login' ? styles.activeIcon : ''}`} 
+            aria-label="Tài khoản" 
+            onClick={() => { setActiveView('login'); setIsCartOpen(false); }}
+          >
             <span className="material-symbols-outlined">person</span>
           </button>
         </div>
