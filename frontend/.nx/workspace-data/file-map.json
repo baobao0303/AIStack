@@ -57,32 +57,28 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "README.md",
-        "hash": "11199411773125993063"
+        "file": "eslint.config.mjs",
+        "hash": "3462096019013144053"
       },
       {
         "file": "nx.json",
         "hash": "9392488300530054959"
       },
       {
-        "file": "eslint.config.mjs",
-        "hash": "3462096019013144053"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "3578037404204155601"
-      },
-      {
         "file": ".prettierrc",
         "hash": "16267754514737964994"
       },
       {
-        "file": "package.json",
-        "hash": "8892926569953399355"
+        "file": "README.md",
+        "hash": "11199411773125993063"
       },
       {
         "file": ".prettierignore",
         "hash": "5407418692668764289"
+      },
+      {
+        "file": "package.json",
+        "hash": "8892926569953399355"
       },
       {
         "file": ".nxignore",
@@ -91,6 +87,10 @@
       {
         "file": "package-lock.json",
         "hash": "3684368496026388459"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "3578037404204155601"
       }
     ],
     "projectFileMap": {
@@ -424,7 +424,7 @@
         },
         {
           "file": "apps/storefront-web/src/shared/styles/page.module.scss",
-          "hash": "7804527626572794816"
+          "hash": "15783977846621577938"
         },
         {
           "file": "apps/storefront-web/src/shared/ui/ShaderBackground.tsx",
@@ -456,7 +456,7 @@
         },
         {
           "file": "apps/storefront-web/src/views/home/ui/HomeView.tsx",
-          "hash": "1851473435901547119",
+          "hash": "14467462309048317440",
           "deps": [
             "npm:react"
           ]
@@ -484,7 +484,7 @@
         },
         {
           "file": "apps/storefront-web/src/widgets/navbar/ui/Navbar.tsx",
-          "hash": "17559186537889458973",
+          "hash": "16198418249711223949",
           "deps": [
             "npm:react"
           ]

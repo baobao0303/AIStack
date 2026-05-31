@@ -120,17 +120,14 @@ export default function Navbar({
               placeholder="Bạn muốn mua gì..." 
               value={searchQuery}
               onChange={(e) => {
-                setSearchQuery(e.target.value);
-                if (activeView !== 'catalog') {
+                const value = e.target.value;
+                setSearchQuery(value);
+                // Only jump to the catalog once the user actually types a query
+                if (value.trim() !== '' && activeView !== 'catalog') {
                   setActiveView('catalog');
                 }
               }}
-              onFocus={() => {
-                setIsSearchOpen(true);
-                if (activeView !== 'catalog') {
-                  setActiveView('catalog');
-                }
-              }}
+              onFocus={() => setIsSearchOpen(true)}
               className={styles.navSearchInput}
             />
 

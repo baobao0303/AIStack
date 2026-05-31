@@ -312,11 +312,12 @@ export default function HomeView({
             <div className={styles.newsletterIconBox}>
               <span className="material-symbols-outlined">mail_outline</span>
             </div>
+            <span className={styles.newsletterTagline}>Bản Tin Độc Quyền</span>
             <h2>Tham Gia Cùng Chúng Tôi</h2>
-            <p>Nhận thông báo sớm nhất về các bộ sưu tập giới hạn và mẹo bảo quản đồ len từ các nghệ nhân.</p>
+            <p>Đăng ký nhận thông báo sớm nhất về các bộ sưu tập giới hạn và bí quyết bảo quản đồ len đan tay từ các nghệ nhân bậc thầy.</p>
             <form className={styles.newsletterForm} onSubmit={(e) => { e.preventDefault(); alert('Cảm ơn bạn đã đăng ký!'); }}>
               <input type="email" placeholder="Email của bạn..." required />
-              <button type="submit" className={`${styles.btnNewsletterSubmit} ${styles.hoverScaleBtn}`}>Đăng Ký Ngay</button>
+              <button type="submit" className={styles.btnNewsletterSubmit}>Đăng Ký Ngay</button>
             </form>
           </div>
         </div>

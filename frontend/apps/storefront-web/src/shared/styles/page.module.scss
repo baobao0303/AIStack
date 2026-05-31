@@ -401,10 +401,10 @@ $color-border: #c2c8c0; // Outline variant
 
 .newsletterOuter {
   width: 100%;
-  background-color: rgba($color-beige, 0.2);
-  border-top: 1px solid $color-border;
-  border-bottom: 1px solid $color-border;
-  padding: 80px 0;
+  background-color: #faf9f6; // Clean Ivory canvas to let the forest green pop!
+  border-top: 1px solid rgba($color-border, 0.2);
+  border-bottom: 1px solid rgba($color-border, 0.2);
+  padding: 96px 0;
 }
 
 .heroBg {
@@ -2604,48 +2604,96 @@ $color-border: #c2c8c0; // Outline variant
 
 // ==================== PREMIUM NEWSLETTER SECTION ====================
 .newsletterSection {
-  background-color: rgba($color-beige, 0.12);
-  border: 1px solid rgba($color-beige, 0.3);
-  border-radius: 24px;
-  padding: 48px;
+  background: linear-gradient(135deg, $color-sage 0%, darken($color-sage, 8%) 100%);
+  border: 1.5px solid rgba($color-gold, 0.25);
+  border-radius: 32px;
+  padding: 64px 48px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
   margin: 40px 0;
+  box-shadow: 0 24px 64px rgba($color-sage, 0.15);
+  position: relative;
+  overflow: hidden;
+
+  // Shimmer decor light overlay
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 70% 20%, rgba($color-white, 0.05) 0%, rgba($color-white, 0) 60%);
+    pointer-events: none;
+  }
+
+  .newsletterTagline {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: $color-gold;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: -4px;
+    z-index: 2;
+  }
 
   h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 32px;
+    font-size: 38px;
     font-weight: 700;
     margin: 0;
-    color: $color-charcoal;
+    color: $color-white;
+    text-shadow: 0 2px 10px rgba($color-charcoal, 0.1);
+    z-index: 2;
+
+    @media (max-width: 600px) {
+      font-size: 28px;
+    }
   }
 
   p {
-    font-size: 16px;
-    color: rgba($color-charcoal, 0.65);
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 15px;
+    color: rgba($color-white, 0.82);
     max-width: 500px;
-    margin: 0 0 12px 0;
-    line-height: 1.6;
+    margin: 0 0 16px 0;
+    line-height: 1.7;
+    z-index: 2;
   }
 }
 
 .newsletterIconBox {
-  width: 80px;
-  height: 80px;
-  background-color: $color-white;
-  border-radius: 99px;
+  width: 72px;
+  height: 72px;
+  background-color: rgba($color-white, 0.08);
+  border: 1.5px solid rgba($color-white, 0.2);
+  backdrop-filter: blur(8px);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 24px auto;
-  box-shadow: 0 8px 20px rgba($color-charcoal, 0.04);
+  margin: 0 auto 12px auto;
+  color: $color-gold;
+  box-shadow: 0 8px 24px rgba($color-charcoal, 0.08);
+  z-index: 2;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 
   span {
-    font-size: 36px;
-    color: $color-sage;
+    font-size: 32px;
+    color: $color-gold;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &:hover {
+    background-color: rgba($color-white, 0.15);
+    border-color: rgba($color-gold, 0.4);
+    transform: scale(1.08) rotate(10deg);
+    box-shadow: 0 12px 32px rgba($color-gold, 0.15);
+
+    span {
+      transform: scale(1.05);
+    }
   }
 }
 
@@ -2653,44 +2701,62 @@ $color-border: #c2c8c0; // Outline variant
   display: flex;
   gap: 12px;
   width: 100%;
-  max-width: 500px;
+  max-width: 480px;
+  z-index: 2;
 
   @media (max-width: 600px) {
     flex-direction: column;
-    gap: 8px;
+    gap: 12px;
   }
 
   input {
     flex: 1;
-    background-color: $color-white;
-    border: 1px solid $color-beige;
-    padding: 14px 20px;
+    background-color: rgba($color-white, 0.06);
+    border: 1.5px solid rgba($color-white, 0.25);
+    padding: 15px 24px;
     border-radius: 99px;
-    font-size: 13px;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 13.5px;
     outline: none;
-    color: $color-charcoal;
-    box-shadow: 0 2px 8px rgba($color-charcoal, 0.01);
+    color: $color-white;
+    box-shadow: 0 4px 12px rgba($color-charcoal, 0.02);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+    &::placeholder {
+      color: rgba($color-white, 0.45);
+    }
 
     &:focus {
-      border-color: $color-charcoal;
+      border-color: $color-gold;
+      background-color: rgba($color-white, 0.12);
+      box-shadow: 0 0 16px rgba($color-gold, 0.15);
     }
   }
 
   .btnNewsletterSubmit {
-    background-color: $color-sage;
-    color: $color-white;
+    background-color: $color-gold;
+    color: $color-charcoal;
     border: none;
-    font-weight: 600;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 700;
     font-size: 13px;
-    padding: 14px 28px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 15px 36px;
     border-radius: 99px;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba($color-sage, 0.15);
-    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba($color-gold, 0.2);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 
     &:hover {
-      background-color: rgba($color-sage, 0.9);
-      transform: translateY(-2px);
+      background-color: $color-white;
+      color: $color-sage;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba($color-white, 0.25);
+    }
+
+    &:active {
+      transform: translateY(-1px);
     }
   }
 }
