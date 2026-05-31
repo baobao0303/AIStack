@@ -1,0 +1,21 @@
+> next build
+
+   [1m[38;2;173;127;168m▲ Next.js 15.2.9[39m[22m
+
+ [37m[1m [22m[39m Creating an optimized production build ...
+[31mFailed to compile.
+[39m
+./src/app/page.module.scss
+Undefined variable.
+    ╷
+191 │   background-color: $color-surface;
+    │                     ^^^^^^^^^^^^^^
+    ╵
+  src/app/page.module.scss 191:21  root stylesheet
+
+Import trace for requested module:
+./src/app/page.module.scss
+./src/app/page.tsx
+
+
+> Build failed because of webpack errors

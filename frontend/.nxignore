@@ -1,0 +1,7 @@
+# Nx ignore list
+node_modules
+.next
+dist
+tmp
+out
+.nx

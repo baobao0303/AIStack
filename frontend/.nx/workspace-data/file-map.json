@@ -1,0 +1,497 @@
+{
+  "version": "6.0",
+  "nxVersion": "20.8.4",
+  "pathMappings": {
+    "@tiem-nha-zit/shared-ui": [
+      "libs/shared-ui/src/index.ts"
+    ],
+    "@tiem-nha-zit/shared-types": [
+      "libs/shared-types/src/index.ts"
+    ],
+    "@tiem-nha-zit/shared-utils": [
+      "libs/shared-utils/src/index.ts"
+    ],
+    "@tiem-nha-zit/shared-auth": [
+      "libs/shared-auth/src/index.ts"
+    ],
+    "@tiem-nha-zit/shared-api": [
+      "libs/shared-api/src/index.ts"
+    ],
+    "@tiem-nha-zit/shared-layout": [
+      "libs/shared-layout/src/index.ts"
+    ],
+    "@tiem-nha-zit/shared-config": [
+      "libs/shared-config/src/index.ts"
+    ]
+  },
+  "nxJsonPlugins": [
+    {
+      "name": "@nx/next/plugin",
+      "options": {
+        "startTargetName": "start",
+        "buildTargetName": "build",
+        "devTargetName": "dev",
+        "serveStaticTargetName": "serve-static",
+        "buildDepsTargetName": "build-deps",
+        "watchDepsTargetName": "watch-deps"
+      }
+    },
+    {
+      "name": "@nx/react/router-plugin",
+      "options": {
+        "buildTargetName": "build",
+        "devTargetName": "dev",
+        "startTargetName": "start",
+        "watchDepsTargetName": "watch-deps",
+        "buildDepsTargetName": "build-deps",
+        "typecheckTargetName": "typecheck"
+      }
+    },
+    {
+      "name": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "eslint:lint"
+      }
+    }
+  ],
+  "fileMap": {
+    "nonProjectFiles": [
+      {
+        "file": ".prettierignore",
+        "hash": "5407418692668764289"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "3578037404204155601"
+      },
+      {
+        "file": ".nxignore",
+        "hash": "16904018250184961811"
+      },
+      {
+        "file": "README.md",
+        "hash": "11199411773125993063"
+      },
+      {
+        "file": "package.json",
+        "hash": "17250260497661144684"
+      },
+      {
+        "file": "eslint.config.mjs",
+        "hash": "3462096019013144053"
+      },
+      {
+        "file": "nx.json",
+        "hash": "9392488300530054959"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "8231007409265252650"
+      }
+    ],
+    "projectFileMap": {
+      "storefront-web": [
+        {
+          "file": "apps/storefront-web/.swcrc",
+          "hash": "2742566327615098680"
+        },
+        {
+          "file": "apps/storefront-web/index.d.ts",
+          "hash": "5498222895072842432"
+        },
+        {
+          "file": "apps/storefront-web/next-env.d.ts",
+          "hash": "1320675027584673186"
+        },
+        {
+          "file": "apps/storefront-web/next.config.js",
+          "hash": "17252635002163063865",
+          "deps": [
+            "npm:@nx/next"
+          ]
+        },
+        {
+          "file": "apps/storefront-web/project.json",
+          "hash": "14781326824346860409"
+        },
+        {
+          "file": "apps/storefront-web/public/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/storefront-web/public/favicon.ico",
+          "hash": "9303420814833116677"
+        },
+        {
+          "file": "apps/storefront-web/src/app/api/hello/route.ts",
+          "hash": "495073956729887886"
+        },
+        {
+          "file": "apps/storefront-web/src/app/components/CartFloatingModal.tsx",
+          "hash": "6664949295311049950",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/storefront-web/src/app/components/CatalogView.tsx",
+          "hash": "17073913603742206088",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/storefront-web/src/app/components/CheckoutView.tsx",
+          "hash": "9237395132763236660",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/storefront-web/src/app/components/DetailView.tsx",
+          "hash": "6841760609893900783",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/storefront-web/src/app/components/HomeView.tsx",
+          "hash": "9024019078051742725",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/storefront-web/src/app/components/ShaderBackground.tsx",
+          "hash": "6373040382158038228",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/storefront-web/src/app/components/TrackingView.tsx",
+          "hash": "6744316532314028414",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/storefront-web/src/app/global.css",
+          "hash": "4323902441721715750"
+        },
+        {
+          "file": "apps/storefront-web/src/app/layout.tsx",
+          "hash": "9829716422944234846"
+        },
+        {
+          "file": "apps/storefront-web/src/app/page.module.scss",
+          "hash": "399821003298298591"
+        },
+        {
+          "file": "apps/storefront-web/src/app/page.tsx",
+          "hash": "5991548247410385892",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/storefront-web/tsconfig.json",
+          "hash": "18321646776979351406"
+        },
+        {
+          "file": "apps/storefront-web/tsconfig.tsbuildinfo",
+          "hash": "16661474356264141605"
+        }
+      ],
+      "shared-config": [
+        {
+          "file": "libs/shared-config/README.md",
+          "hash": "11344091312476438942"
+        },
+        {
+          "file": "libs/shared-config/eslint.config.mjs",
+          "hash": "2624537849564014525"
+        },
+        {
+          "file": "libs/shared-config/project.json",
+          "hash": "1733190342991515703"
+        },
+        {
+          "file": "libs/shared-config/src/index.ts",
+          "hash": "6012523220236044104"
+        },
+        {
+          "file": "libs/shared-config/src/lib/shared-config.ts",
+          "hash": "10044098770085738551"
+        },
+        {
+          "file": "libs/shared-config/tsconfig.json",
+          "hash": "6159797437362864955"
+        },
+        {
+          "file": "libs/shared-config/tsconfig.lib.json",
+          "hash": "15798669420171897096"
+        }
+      ],
+      "shared-api": [
+        {
+          "file": "libs/shared-api/README.md",
+          "hash": "4373489930994176579"
+        },
+        {
+          "file": "libs/shared-api/eslint.config.mjs",
+          "hash": "2624537849564014525"
+        },
+        {
+          "file": "libs/shared-api/project.json",
+          "hash": "4645157912812262816"
+        },
+        {
+          "file": "libs/shared-api/src/index.ts",
+          "hash": "5072728333800078275"
+        },
+        {
+          "file": "libs/shared-api/src/lib/shared-api.ts",
+          "hash": "14878882240123191496"
+        },
+        {
+          "file": "libs/shared-api/tsconfig.json",
+          "hash": "6159797437362864955"
+        },
+        {
+          "file": "libs/shared-api/tsconfig.lib.json",
+          "hash": "15798669420171897096"
+        }
+      ],
+      "shared-layout": [
+        {
+          "file": "libs/shared-layout/.babelrc",
+          "hash": "2946678488919325452"
+        },
+        {
+          "file": "libs/shared-layout/README.md",
+          "hash": "12339328957930107041"
+        },
+        {
+          "file": "libs/shared-layout/project.json",
+          "hash": "16386483216103273184"
+        },
+        {
+          "file": "libs/shared-layout/src/index.ts",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/shared-layout/tsconfig.json",
+          "hash": "14088618039610991405"
+        },
+        {
+          "file": "libs/shared-layout/tsconfig.lib.json",
+          "hash": "10514678202960682525"
+        }
+      ],
+      "shared-auth": [
+        {
+          "file": "libs/shared-auth/README.md",
+          "hash": "18368541109435954817"
+        },
+        {
+          "file": "libs/shared-auth/eslint.config.mjs",
+          "hash": "2624537849564014525"
+        },
+        {
+          "file": "libs/shared-auth/project.json",
+          "hash": "10886298955429895006"
+        },
+        {
+          "file": "libs/shared-auth/src/index.ts",
+          "hash": "17210863074906492802"
+        },
+        {
+          "file": "libs/shared-auth/src/lib/shared-auth.ts",
+          "hash": "9175713305409945288"
+        },
+        {
+          "file": "libs/shared-auth/tsconfig.json",
+          "hash": "6159797437362864955"
+        },
+        {
+          "file": "libs/shared-auth/tsconfig.lib.json",
+          "hash": "15798669420171897096"
+        }
+      ],
+      "crm-portal": [
+        {
+          "file": "apps/crm-portal/eslint.config.mjs",
+          "hash": "16756400681144203361",
+          "deps": [
+            "npm:@nx/eslint-plugin"
+          ]
+        },
+        {
+          "file": "apps/crm-portal/project.json",
+          "hash": "12685872106418123856"
+        },
+        {
+          "file": "apps/crm-portal/public/favicon.ico",
+          "hash": "9303420814833116677"
+        },
+        {
+          "file": "apps/crm-portal/src/app/app.component.html",
+          "hash": "11987652264972370457"
+        },
+        {
+          "file": "apps/crm-portal/src/app/app.component.scss",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/crm-portal/src/app/app.component.ts",
+          "hash": "2104666059472741097",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router"
+          ]
+        },
+        {
+          "file": "apps/crm-portal/src/app/app.config.ts",
+          "hash": "6137170128205633588",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router"
+          ]
+        },
+        {
+          "file": "apps/crm-portal/src/app/app.routes.ts",
+          "hash": "6185150965714414910",
+          "deps": [
+            "npm:@angular/router"
+          ]
+        },
+        {
+          "file": "apps/crm-portal/src/app/nx-welcome.component.ts",
+          "hash": "17790635888868125412",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common"
+          ]
+        },
+        {
+          "file": "apps/crm-portal/src/index.html",
+          "hash": "3570690928347189118"
+        },
+        {
+          "file": "apps/crm-portal/src/main.ts",
+          "hash": "16635586463787978962",
+          "deps": [
+            "npm:@angular/platform-browser"
+          ]
+        },
+        {
+          "file": "apps/crm-portal/src/styles.scss",
+          "hash": "5195668842064076916"
+        },
+        {
+          "file": "apps/crm-portal/tsconfig.app.json",
+          "hash": "8365644956319658761"
+        },
+        {
+          "file": "apps/crm-portal/tsconfig.editor.json",
+          "hash": "1055794200401717100"
+        },
+        {
+          "file": "apps/crm-portal/tsconfig.json",
+          "hash": "10650950471711549738"
+        }
+      ],
+      "shared-ui": [
+        {
+          "file": "libs/shared-ui/.babelrc",
+          "hash": "2946678488919325452"
+        },
+        {
+          "file": "libs/shared-ui/README.md",
+          "hash": "1173670062938964454"
+        },
+        {
+          "file": "libs/shared-ui/project.json",
+          "hash": "1974437768734572024"
+        },
+        {
+          "file": "libs/shared-ui/src/index.ts",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "libs/shared-ui/tsconfig.json",
+          "hash": "14088618039610991405"
+        },
+        {
+          "file": "libs/shared-ui/tsconfig.lib.json",
+          "hash": "10514678202960682525"
+        }
+      ],
+      "shared-utils": [
+        {
+          "file": "libs/shared-utils/README.md",
+          "hash": "16763671309847105818"
+        },
+        {
+          "file": "libs/shared-utils/eslint.config.mjs",
+          "hash": "2624537849564014525"
+        },
+        {
+          "file": "libs/shared-utils/project.json",
+          "hash": "11446200766455598644"
+        },
+        {
+          "file": "libs/shared-utils/src/index.ts",
+          "hash": "2115022695656941492"
+        },
+        {
+          "file": "libs/shared-utils/src/lib/shared-utils.ts",
+          "hash": "393383238747502460"
+        },
+        {
+          "file": "libs/shared-utils/tsconfig.json",
+          "hash": "6159797437362864955"
+        },
+        {
+          "file": "libs/shared-utils/tsconfig.lib.json",
+          "hash": "15798669420171897096"
+        }
+      ],
+      "shared-types": [
+        {
+          "file": "libs/shared-types/README.md",
+          "hash": "5891734351485625143"
+        },
+        {
+          "file": "libs/shared-types/eslint.config.mjs",
+          "hash": "2624537849564014525"
+        },
+        {
+          "file": "libs/shared-types/project.json",
+          "hash": "11620605097954518575"
+        },
+        {
+          "file": "libs/shared-types/src/index.ts",
+          "hash": "17477233218007285873"
+        },
+        {
+          "file": "libs/shared-types/src/lib/shared-types.ts",
+          "hash": "11715063447328923451"
+        },
+        {
+          "file": "libs/shared-types/tsconfig.json",
+          "hash": "6159797437362864955"
+        },
+        {
+          "file": "libs/shared-types/tsconfig.lib.json",
+          "hash": "15798669420171897096"
+        }
+      ]
+    }
+  }
+}

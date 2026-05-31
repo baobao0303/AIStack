@@ -1,0 +1,28 @@
+> next build
+
+   [1m[38;2;173;127;168m▲ Next.js 15.2.9[39m[22m
+
+ [37m[1m [22m[39m Creating an optimized production build ...
+[31mFailed to compile.
+[39m
+./src/app/page.tsx
+Error:   [31mx[0m Unexpected token `div`. Expected jsx identifier
+     ,-[[36;1;4m/Users/bao312/Desktop/Test/frontend/apps/storefront-web/src/app/page.tsx[0m:331:1]
+ [2m328[0m |   }, [activeView]);
+ [2m329[0m | 
+ [2m330[0m |   return (
+ [2m331[0m |     <div className={styles.storefrontLayout}>
+     : [35;1m     ^^^[0m
+ [2m332[0m |       {/* Background Weave Layer */}
+ [2m333[0m |       <div className={styles.ambientGrain}></div>
+ [2m334[0m |       <ShaderBackground />
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/page.tsx
+
+
+> Build failed because of webpack errors

@@ -1,0 +1,1184 @@
+{
+  "apps/storefront-web": {
+    "root": [
+      "apps/storefront-web/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "apps/storefront-web/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.build": [
+      "apps/storefront-web/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.build.options": [
+      "apps/storefront-web/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.build.dependsOn": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.cache": [
+      "apps/storefront-web/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.build.inputs": [
+      "apps/storefront-web/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.build.outputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.executor": [
+      "apps/storefront-web/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.build.options.cwd": [
+      "apps/storefront-web/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.build.options.tty": [
+      "apps/storefront-web/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.build.options.command": [
+      "apps/storefront-web/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.dev": [
+      "apps/storefront-web/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.dev.options": [
+      "apps/storefront-web/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.dev.executor": [
+      "apps/storefront-web/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.dev.options.cwd": [
+      "apps/storefront-web/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.dev.options.command": [
+      "apps/storefront-web/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.start": [
+      "apps/storefront-web/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.start.options": [
+      "apps/storefront-web/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.start.dependsOn": [
+      "apps/storefront-web/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.start.executor": [
+      "apps/storefront-web/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.start.options.cwd": [
+      "apps/storefront-web/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.start.options.command": [
+      "apps/storefront-web/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.serve-static": [
+      "apps/storefront-web/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.serve-static.options": [
+      "apps/storefront-web/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.serve-static.dependsOn": [
+      "apps/storefront-web/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.serve-static.executor": [
+      "apps/storefront-web/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.serve-static.options.cwd": [
+      "apps/storefront-web/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.serve-static.options.command": [
+      "apps/storefront-web/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.build-deps": [
+      "apps/storefront-web/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.build-deps.dependsOn": [
+      "apps/storefront-web/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.watch-deps": [
+      "apps/storefront-web/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.watch-deps.dependsOn": [
+      "apps/storefront-web/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.watch-deps.executor": [
+      "apps/storefront-web/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.watch-deps.options": [
+      "apps/storefront-web/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.watch-deps.options.command": [
+      "apps/storefront-web/next.config.js",
+      "@nx/next/plugin"
+    ],
+    "targets.eslint:lint": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.cache": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.options": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.inputs": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.outputs": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.executor": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.options.cwd": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.options.command": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.technologies": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.technologies.0": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.description": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.help": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.help.command": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.help.example": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "apps/storefront-web/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "apps/storefront-web/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "apps/storefront-web/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "apps/storefront-web/project.json",
+      "nx/core/project-json"
+    ],
+    "// targets": [
+      "apps/storefront-web/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "apps/storefront-web/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ]
+  },
+  "apps/crm-portal": {
+    "root": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "apps/crm-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint": [
+      "apps/crm-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.cache": [
+      "apps/crm-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.options": [
+      "apps/crm-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.inputs": [
+      "apps/crm-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.outputs": [
+      "apps/crm-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata": [
+      "apps/crm-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.executor": [
+      "apps/crm-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.options.cwd": [
+      "apps/crm-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.options.command": [
+      "apps/crm-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.technologies": [
+      "apps/crm-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.technologies.0": [
+      "apps/crm-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.description": [
+      "apps/crm-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.help": [
+      "apps/crm-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.help.command": [
+      "apps/crm-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.help.example": [
+      "apps/crm-portal/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "prefix": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.outputs": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.defaultConfiguration": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.outputPath": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.index": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.browser": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.polyfills": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.tsConfig": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.inlineStyleLanguage": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.assets": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.styles": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.scripts": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production.budgets": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production.outputHashing": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.development": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.development.optimization": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.development.extractLicenses": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.development.sourceMap": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.executor": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.defaultConfiguration": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.production": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.production.buildTarget": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.development": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.development.buildTarget": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.extract-i18n": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.extract-i18n.executor": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.extract-i18n.options": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.extract-i18n.options.buildTarget": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.executor": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve-static": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve-static.executor": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve-static.options": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve-static.options.buildTarget": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve-static.options.staticFilePath": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve-static.options.spa": [
+      "apps/crm-portal/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.dependsOn": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ]
+  },
+  "libs/shared-layout": {
+    "root": [
+      "libs/shared-layout/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.cache": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.options": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.inputs": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.outputs": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.executor": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.options.cwd": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.options.command": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.technologies": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.technologies.0": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.description": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.help": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.help.command": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.help.example": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "libs/shared-layout/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "libs/shared-layout/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "libs/shared-layout/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "libs/shared-layout/project.json",
+      "nx/core/project-json"
+    ],
+    "// targets": [
+      "libs/shared-layout/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "libs/shared-layout/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "libs/shared-ui": {
+    "root": [
+      "libs/shared-ui/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.cache": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.options": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.inputs": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.outputs": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.executor": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.options.cwd": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.options.command": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.technologies": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.technologies.0": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.description": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.help": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.help.command": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.help.example": [
+      "eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "libs/shared-ui/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "libs/shared-ui/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "libs/shared-ui/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "libs/shared-ui/project.json",
+      "nx/core/project-json"
+    ],
+    "// targets": [
+      "libs/shared-ui/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "libs/shared-ui/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "libs/shared-api": {
+    "root": [
+      "libs/shared-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "libs/shared-api/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint": [
+      "libs/shared-api/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.cache": [
+      "libs/shared-api/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.options": [
+      "libs/shared-api/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.inputs": [
+      "libs/shared-api/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.outputs": [
+      "libs/shared-api/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata": [
+      "libs/shared-api/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.executor": [
+      "libs/shared-api/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.options.cwd": [
+      "libs/shared-api/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.options.command": [
+      "libs/shared-api/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.technologies": [
+      "libs/shared-api/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.technologies.0": [
+      "libs/shared-api/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.description": [
+      "libs/shared-api/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.help": [
+      "libs/shared-api/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.help.command": [
+      "libs/shared-api/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.help.example": [
+      "libs/shared-api/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "libs/shared-api/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "libs/shared-api/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "libs/shared-api/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "libs/shared-api/project.json",
+      "nx/core/project-json"
+    ],
+    "// targets": [
+      "libs/shared-api/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "libs/shared-api/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "libs/shared-auth": {
+    "root": [
+      "libs/shared-auth/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "libs/shared-auth/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint": [
+      "libs/shared-auth/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.cache": [
+      "libs/shared-auth/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.options": [
+      "libs/shared-auth/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.inputs": [
+      "libs/shared-auth/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.outputs": [
+      "libs/shared-auth/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata": [
+      "libs/shared-auth/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.executor": [
+      "libs/shared-auth/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.options.cwd": [
+      "libs/shared-auth/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.options.command": [
+      "libs/shared-auth/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.technologies": [
+      "libs/shared-auth/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.technologies.0": [
+      "libs/shared-auth/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.description": [
+      "libs/shared-auth/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.help": [
+      "libs/shared-auth/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.help.command": [
+      "libs/shared-auth/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.help.example": [
+      "libs/shared-auth/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "libs/shared-auth/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "libs/shared-auth/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "libs/shared-auth/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "libs/shared-auth/project.json",
+      "nx/core/project-json"
+    ],
+    "// targets": [
+      "libs/shared-auth/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "libs/shared-auth/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "libs/shared-config": {
+    "root": [
+      "libs/shared-config/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "libs/shared-config/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint": [
+      "libs/shared-config/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.cache": [
+      "libs/shared-config/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.options": [
+      "libs/shared-config/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.inputs": [
+      "libs/shared-config/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.outputs": [
+      "libs/shared-config/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata": [
+      "libs/shared-config/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.executor": [
+      "libs/shared-config/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.options.cwd": [
+      "libs/shared-config/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.options.command": [
+      "libs/shared-config/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.technologies": [
+      "libs/shared-config/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.technologies.0": [
+      "libs/shared-config/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.description": [
+      "libs/shared-config/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.help": [
+      "libs/shared-config/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.help.command": [
+      "libs/shared-config/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.help.example": [
+      "libs/shared-config/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "libs/shared-config/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "libs/shared-config/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "libs/shared-config/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "libs/shared-config/project.json",
+      "nx/core/project-json"
+    ],
+    "// targets": [
+      "libs/shared-config/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "libs/shared-config/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "libs/shared-types": {
+    "root": [
+      "libs/shared-types/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "libs/shared-types/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint": [
+      "libs/shared-types/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.cache": [
+      "libs/shared-types/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.options": [
+      "libs/shared-types/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.inputs": [
+      "libs/shared-types/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.outputs": [
+      "libs/shared-types/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata": [
+      "libs/shared-types/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.executor": [
+      "libs/shared-types/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.options.cwd": [
+      "libs/shared-types/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.options.command": [
+      "libs/shared-types/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.technologies": [
+      "libs/shared-types/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.technologies.0": [
+      "libs/shared-types/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.description": [
+      "libs/shared-types/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.help": [
+      "libs/shared-types/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.help.command": [
+      "libs/shared-types/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.help.example": [
+      "libs/shared-types/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "libs/shared-types/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "libs/shared-types/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "libs/shared-types/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "libs/shared-types/project.json",
+      "nx/core/project-json"
+    ],
+    "// targets": [
+      "libs/shared-types/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "libs/shared-types/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "libs/shared-utils": {
+    "root": [
+      "libs/shared-utils/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "libs/shared-utils/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint": [
+      "libs/shared-utils/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.cache": [
+      "libs/shared-utils/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.options": [
+      "libs/shared-utils/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.inputs": [
+      "libs/shared-utils/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.outputs": [
+      "libs/shared-utils/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata": [
+      "libs/shared-utils/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.executor": [
+      "libs/shared-utils/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.options.cwd": [
+      "libs/shared-utils/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.options.command": [
+      "libs/shared-utils/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.technologies": [
+      "libs/shared-utils/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.technologies.0": [
+      "libs/shared-utils/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.description": [
+      "libs/shared-utils/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.help": [
+      "libs/shared-utils/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.help.command": [
+      "libs/shared-utils/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.eslint:lint.metadata.help.example": [
+      "libs/shared-utils/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "name": [
+      "libs/shared-utils/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "libs/shared-utils/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "libs/shared-utils/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "libs/shared-utils/project.json",
+      "nx/core/project-json"
+    ],
+    "// targets": [
+      "libs/shared-utils/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "libs/shared-utils/project.json",
+      "nx/core/project-json"
+    ]
+  }
+}
