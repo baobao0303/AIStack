@@ -57,40 +57,40 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": ".nxignore",
-        "hash": "16904018250184961811"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "3578037404204155601"
-      },
-      {
-        "file": "nx.json",
-        "hash": "9392488300530054959"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "5407418692668764289"
-      },
-      {
-        "file": "eslint.config.mjs",
-        "hash": "3462096019013144053"
-      },
-      {
         "file": "package-lock.json",
         "hash": "3684368496026388459"
-      },
-      {
-        "file": "README.md",
-        "hash": "11199411773125993063"
       },
       {
         "file": "package.json",
         "hash": "2391517790195664756"
       },
       {
+        "file": "tsconfig.base.json",
+        "hash": "3578037404204155601"
+      },
+      {
+        "file": "README.md",
+        "hash": "11199411773125993063"
+      },
+      {
+        "file": "nx.json",
+        "hash": "9392488300530054959"
+      },
+      {
+        "file": "eslint.config.mjs",
+        "hash": "3462096019013144053"
+      },
+      {
+        "file": ".nxignore",
+        "hash": "16904018250184961811"
+      },
+      {
         "file": ".prettierrc",
         "hash": "16267754514737964994"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "5407418692668764289"
       }
     ],
     "projectFileMap": {
@@ -271,7 +271,7 @@
         },
         {
           "file": "apps/storefront-web/src/app/(authen)/sign-in/page.tsx",
-          "hash": "164344455662390973",
+          "hash": "3708366368535206464",
           "deps": [
             "npm:react",
             "npm:next"
@@ -279,7 +279,7 @@
         },
         {
           "file": "apps/storefront-web/src/app/(authen)/sign-up/page.tsx",
-          "hash": "13527646051057945572",
+          "hash": "8261242192851049225",
           "deps": [
             "npm:react",
             "npm:next"
@@ -476,7 +476,7 @@
         },
         {
           "file": "apps/storefront-web/src/shared/styles/page.module.scss",
-          "hash": "8372595165527050398"
+          "hash": "8444352880810240142"
         },
         {
           "file": "apps/storefront-web/src/shared/ui/ShaderBackground.tsx",

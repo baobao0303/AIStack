@@ -3947,3 +3947,209 @@ $color-border: #c2c8c0; // Outline variant
     }
   }
 }
+
+// ==================== PREMIUM DUAL-COLUMN AUTH SPLIT VIEW ====================
+.authSplitCard {
+  position: relative;
+  width: 100%;
+  max-width: 1080px;
+  background-color: $color-white;
+  border: 1px solid rgba($color-border, 0.4);
+  border-radius: 28px;
+  padding: 24px;
+  box-shadow: 0 20px 50px rgba($color-charcoal, 0.04);
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 40px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+  @media (max-width: 991px) {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    padding: 32px 24px;
+  }
+}
+
+.authSplitVisual {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 580px;
+  border-radius: 20px;
+  overflow: hidden;
+  display: block;
+
+  @media (max-width: 991px) {
+    display: none;
+  }
+}
+
+.authVisualImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &:hover {
+    transform: scale(1.03);
+  }
+}
+
+.authVisualOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(26, 28, 26, 0.75) 0%, rgba(26, 28, 26, 0.2) 60%, transparent 100%);
+  pointer-events: none;
+}
+
+.authVisualText {
+  position: absolute;
+  bottom: 48px;
+  left: 40px;
+  right: 40px;
+  color: $color-white;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  z-index: 2;
+
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: $color-white;
+    margin: 0 0 12px 0;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba($color-white, 0.85);
+    margin: 0;
+  }
+}
+
+.authSplitForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 16px 20px;
+  gap: 28px;
+
+  @media (max-width: 991px) {
+    padding: 0;
+  }
+}
+
+.authSplitHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: $color-charcoal;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba($color-charcoal, 0.55);
+    margin: 0;
+  }
+}
+
+.authFormFields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.authSplitLabel {
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba($color-charcoal, 0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.authSplitInput {
+  width: 100%;
+  background-color: #faf9f6;
+  border: 1px solid rgba($color-border, 0.7);
+  padding: 14px 18px;
+  border-radius: 8px;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 14px;
+  color: $color-charcoal;
+  transition: all 0.3s ease;
+  outline: none;
+  box-sizing: border-box;
+
+  &::placeholder {
+    color: rgba($color-charcoal, 0.35);
+  }
+
+  &:focus {
+    background-color: $color-white;
+    border-color: $color-sage;
+    box-shadow: 0 0 0 3px rgba($color-sage, 0.1);
+  }
+}
+
+.authPasswordRow {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.authSubmitBtn {
+  background-color: $color-sage;
+  color: $color-white;
+  border: none;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 16px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba($color-sage, 0.1);
+
+  &:hover {
+    background-color: #384e3d;
+    box-shadow: 0 8px 20px rgba($color-sage, 0.2);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
