@@ -13,7 +13,7 @@ export default function Footer({ styles, setActiveView }: FooterProps) {
     <footer className={`${styles.footer} ${styles.revealOnScroll} reveal-on-scroll`}>
       <div className={styles.footerContainer}>
         {/* Column 1: Brand Directory */}
-        <div className={styles.footerColumn}>
+        <div className={`${styles.footerColumn} ${styles.footerColumnBrand}`}>
           <h3>Tiệm Nhà Zịt</h3>
           <p className={styles.footerTagline}>
             Nơi những sợi len dệt nên sự ấm áp và tình yêu dành cho thủ công mỹ nghệ Việt Nam.
@@ -29,7 +29,7 @@ export default function Footer({ styles, setActiveView }: FooterProps) {
         </div>
 
         {/* Column 2: Dịch Vụ */}
-        <div className={styles.footerColumn}>
+        <div className={`${styles.footerColumn} ${styles.footerColumnMenu}`}>
           <h4>Dịch Vụ</h4>
           <ul>
             <li onClick={() => setActiveView('catalog')}>Shipping Policy</li>
@@ -40,7 +40,7 @@ export default function Footer({ styles, setActiveView }: FooterProps) {
         </div>
 
         {/* Column 3: Bộ Sưu Tập */}
-        <div className={styles.footerColumn}>
+        <div className={`${styles.footerColumn} ${styles.footerColumnMenu}`}>
           <h4>Bộ Sưu Tập</h4>
           <ul>
             <li onClick={() => setActiveView('catalog')}>Đồ Cho Bé</li>
@@ -51,7 +51,7 @@ export default function Footer({ styles, setActiveView }: FooterProps) {
         </div>
 
         {/* Column 4: Liên Hệ */}
-        <div className={styles.footerColumn}>
+        <div className={`${styles.footerColumn} ${styles.footerColumnContact}`}>
           <h4>Liên Hệ</h4>
           <ul className={styles.footerContactList}>
             <li>

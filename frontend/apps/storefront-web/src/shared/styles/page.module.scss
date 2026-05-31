@@ -404,7 +404,7 @@ $color-border: #c2c8c0; // Outline variant
   background-color: #faf9f6; // Clean Ivory canvas to let the forest green pop!
   border-top: 1px solid rgba($color-border, 0.2);
   border-bottom: 1px solid rgba($color-border, 0.2);
-  padding: 96px 0;
+  padding: 0 0 48px 0;
 }
 
 .heroBg {
@@ -639,63 +639,121 @@ $color-border: #c2c8c0; // Outline variant
 // BRAND VALUES
 .brandValues {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 32px;
+  margin-top: 48px;
 }
 
 .valueCard {
+  position: relative;
   background-color: $color-white;
-  border: 1px solid rgba($color-beige, 0.25);
-  padding: 32px;
-  border-radius: 20px;
-  box-shadow: 0 4px 20px rgba($color-charcoal, 0.01);
-  transition: all 0.3s ease;
+  border: 1px solid rgba($color-border, 0.3);
+  padding: 40px 32px;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba($color-charcoal, 0.02);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  overflow: hidden;
 
-  &:hover {
-    transform: translateY(-5px);
-    border-color: rgba($color-sage, 0.4);
-    background-color: rgba($color-sage, 0.02);
-
-    .valueIconBox {
-      background-color: $color-beige;
-      transform: scale(1.1);
-    }
+  // Golden card number
+  .cardNumber {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: rgba($color-gold, 0.15);
+    transition: all 0.4s ease;
+    user-select: none;
   }
 
   h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 700;
-    margin: 0 0 12px 0;
+    color: $color-charcoal;
+    margin: 0 0 14px 0;
+    transition: color 0.4s ease;
   }
 
   p {
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1.6;
-    color: rgba($color-charcoal, 0.7);
+    color: rgba($color-charcoal, 0.65);
     margin: 0;
+    transition: color 0.4s ease;
+  }
+
+  // Hover states
+  &:hover {
+    transform: translateY(-8px);
+    background-color: $color-sage;
+    border-color: $color-sage;
+    box-shadow: 0 20px 40px rgba($color-sage, 0.15);
+
+    .cardNumber {
+      color: rgba($color-gold, 0.35);
+      transform: scale(1.1);
+    }
+
+    h3 {
+      color: $color-white;
+    }
+
+    p {
+      color: rgba($color-white, 0.85);
+    }
+
+    .valueIconBox {
+      background-color: rgba($color-white, 0.1);
+      border-color: rgba($color-white, 0.3);
+      transform: rotate(360deg) scale(1.05);
+
+      span {
+        color: $color-gold;
+      }
+    }
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+
+  // Decorative bottom expansion line on hover
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: $color-gold;
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+    transform-origin: center;
   }
 }
 
 .valueIconBox {
-  width: 80px;
-  height: 80px;
-  background-color: $color-ivory;
-  border-radius: 16px;
+  width: 72px;
+  height: 72px;
+  background-color: rgba($color-sage, 0.05);
+  border: 1px solid rgba($color-sage, 0.15);
+  border-radius: 99px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 24px;
-  border: 1px solid rgba($color-border, 0.5);
-  transition: all 0.3s ease;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 
   span {
-    font-size: 36px;
+    font-size: 32px;
     color: $color-sage;
+    transition: color 0.4s ease;
   }
 }
 
@@ -1757,7 +1815,7 @@ $color-border: #c2c8c0; // Outline variant
   background-color: #f2eee5;
   border-top: 1px solid rgba($color-border, 0.3);
   padding: 64px 0 32px 0;
-  margin-top: 80px;
+  margin-top: 0;
 }
 
 .footerContainer {
@@ -2589,19 +2647,53 @@ $color-border: #c2c8c0; // Outline variant
 .brandValuesTitle {
   text-align: center;
   max-width: 600px;
-  margin: 0 auto -20px auto;
+  margin: 0 auto 16px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .valuesTagline {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: $color-gold;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 8px;
+  }
 
   h2 {
     font-family: 'Playfair Display', serif;
     font-size: 36px;
     font-weight: 700;
-    margin: 0 0 12px 0;
+    margin: 0 0 16px 0;
+    color: $color-charcoal;
   }
 
   p {
     font-size: 16px;
+    line-height: 1.6;
     color: rgba($color-charcoal, 0.6);
     margin: 0;
+  }
+
+  .titleSeparator {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    margin-bottom: 16px;
+
+    .line {
+      height: 1px;
+      flex: 1;
+      background: linear-gradient(to right, rgba($color-border, 0), rgba($color-border, 0.6), rgba($color-border, 0));
+    }
+
+    span {
+      color: $color-sage;
+      font-size: 18px;
+    }
   }
 }
 
@@ -2616,7 +2708,7 @@ $color-border: #c2c8c0; // Outline variant
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  margin: 40px 0;
+  margin: 0;
   box-shadow: 0 24px 64px rgba($color-sage, 0.15);
   position: relative;
   overflow: hidden;
@@ -2769,11 +2861,10 @@ $color-border: #c2c8c0; // Outline variant
   display: flex;
   flex-direction: column;
   gap: 16px;
-  max-width: 280px;
   width: 100%;
 
   @media (max-width: 768px) {
-    max-width: 100%;
+    max-width: 100% !important;
     align-items: center;
     text-align: center;
   }
@@ -2794,12 +2885,13 @@ $color-border: #c2c8c0; // Outline variant
   }
 
   h4 {
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
     font-weight: 700;
     color: $color-charcoal;
     margin: 0;
+    text-transform: none;
+    letter-spacing: normal;
   }
 
   ul {
@@ -2825,6 +2917,21 @@ $color-border: #c2c8c0; // Outline variant
       }
     }
   }
+}
+
+.footerColumnBrand {
+  max-width: 320px;
+  flex: 1.5;
+}
+
+.footerColumnMenu {
+  max-width: 180px;
+  flex: 1;
+}
+
+.footerColumnContact {
+  max-width: 240px;
+  flex: 1.2;
 }
 
 .footerSocials {

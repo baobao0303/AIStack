@@ -57,40 +57,40 @@
   "fileMap": {
     "nonProjectFiles": [
       {
+        "file": ".prettierignore",
+        "hash": "5407418692668764289"
+      },
+      {
         "file": ".nxignore",
         "hash": "16904018250184961811"
       },
       {
-        "file": "tsconfig.base.json",
-        "hash": "3578037404204155601"
-      },
-      {
-        "file": "package.json",
-        "hash": "8892926569953399355"
+        "file": "package-lock.json",
+        "hash": "3684368496026388459"
       },
       {
         "file": "README.md",
         "hash": "11199411773125993063"
       },
       {
-        "file": "eslint.config.mjs",
-        "hash": "3462096019013144053"
+        "file": "package.json",
+        "hash": "8892926569953399355"
       },
       {
         "file": "nx.json",
         "hash": "9392488300530054959"
       },
       {
+        "file": "eslint.config.mjs",
+        "hash": "3462096019013144053"
+      },
+      {
         "file": ".prettierrc",
         "hash": "16267754514737964994"
       },
       {
-        "file": ".prettierignore",
-        "hash": "5407418692668764289"
-      },
-      {
-        "file": "package-lock.json",
-        "hash": "3684368496026388459"
+        "file": "tsconfig.base.json",
+        "hash": "3578037404204155601"
       }
     ],
     "projectFileMap": {
@@ -424,7 +424,7 @@
         },
         {
           "file": "apps/storefront-web/src/shared/styles/page.module.scss",
-          "hash": "2157812623868284808"
+          "hash": "11780214743667388424"
         },
         {
           "file": "apps/storefront-web/src/shared/ui/ShaderBackground.tsx",
@@ -456,7 +456,7 @@
         },
         {
           "file": "apps/storefront-web/src/views/home/ui/HomeView.tsx",
-          "hash": "14467462309048317440",
+          "hash": "4325444048320291311",
           "deps": [
             "npm:react"
           ]
@@ -477,7 +477,7 @@
         },
         {
           "file": "apps/storefront-web/src/widgets/footer/ui/Footer.tsx",
-          "hash": "3575791037850894084",
+          "hash": "17655378201668376132",
           "deps": [
             "npm:react"
           ]

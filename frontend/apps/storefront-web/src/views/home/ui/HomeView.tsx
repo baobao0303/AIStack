@@ -276,11 +276,18 @@ export default function HomeView({
       <section className={`${styles.valuesSection} ${styles.revealOnScroll} reveal-on-scroll`}>
         <div className={styles.containerMax}>
           <div className={styles.brandValuesTitle}>
+            <span className={styles.valuesTagline}>Tiêu Chuẩn Xanh</span>
             <h2>Giá Trị Thủ Công</h2>
+            <div className={styles.titleSeparator}>
+              <div className={styles.line}></div>
+              <span className="material-symbols-outlined">yard</span>
+              <div className={styles.line}></div>
+            </div>
             <p>Chúng tôi tin rằng cái đẹp nằm ở sự tử tế và bền vững trong từng khâu sản xuất.</p>
           </div>
           <div className={styles.brandValues}>
             <div className={`${styles.valueCard} ${styles.revealOnScroll} reveal-on-scroll ${styles.staggerDelay1}`}>
+              <div className={styles.cardNumber}>01</div>
               <div className={styles.valueIconBox}>
                 <span className="material-symbols-outlined">eco</span>
               </div>
@@ -288,6 +295,7 @@ export default function HomeView({
               <p>Sợi len tự nhiên được nhập khẩu với đầy đủ chứng chỉ hữu cơ, an toàn cho làn da nhạy cảm.</p>
             </div>
             <div className={`${styles.valueCard} ${styles.revealOnScroll} reveal-on-scroll ${styles.staggerDelay2}`}>
+              <div className={styles.cardNumber}>02</div>
               <div className={styles.valueIconBox}>
                 <span className="material-symbols-outlined">palette</span>
               </div>
@@ -295,6 +303,7 @@ export default function HomeView({
               <p>Kỹ thuật nhuộm thảo mộc tự nhiên giúp màu sắc bền lâu và không gây hại cho môi trường.</p>
             </div>
             <div className={`${styles.valueCard} ${styles.revealOnScroll} reveal-on-scroll ${styles.staggerDelay3}`}>
+              <div className={styles.cardNumber}>03</div>
               <div className={styles.valueIconBox}>
                 <span className="material-symbols-outlined">volunteer_activism</span>
               </div>
