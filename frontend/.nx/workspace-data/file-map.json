@@ -57,20 +57,28 @@
   "fileMap": {
     "nonProjectFiles": [
       {
+        "file": "tsconfig.base.json",
+        "hash": "3578037404204155601"
+      },
+      {
         "file": "nx.json",
         "hash": "9392488300530054959"
       },
       {
-        "file": ".prettierrc",
-        "hash": "16267754514737964994"
+        "file": "eslint.config.mjs",
+        "hash": "3462096019013144053"
       },
       {
-        "file": ".prettierignore",
-        "hash": "5407418692668764289"
+        "file": ".nxignore",
+        "hash": "16904018250184961811"
       },
       {
         "file": "package-lock.json",
         "hash": "3684368496026388459"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
       },
       {
         "file": "package.json",
@@ -81,16 +89,8 @@
         "hash": "11199411773125993063"
       },
       {
-        "file": ".nxignore",
-        "hash": "16904018250184961811"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "3578037404204155601"
-      },
-      {
-        "file": "eslint.config.mjs",
-        "hash": "3462096019013144053"
+        "file": ".prettierignore",
+        "hash": "5407418692668764289"
       }
     ],
     "projectFileMap": {
@@ -410,7 +410,7 @@
         },
         {
           "file": "apps/storefront-web/src/shared/styles/page.module.scss",
-          "hash": "16258865537678196772"
+          "hash": "1613846281270921587"
         },
         {
           "file": "apps/storefront-web/src/shared/ui/ShaderBackground.tsx",
@@ -470,7 +470,7 @@
         },
         {
           "file": "apps/storefront-web/src/widgets/navbar/ui/Navbar.tsx",
-          "hash": "7420650046089952534",
+          "hash": "9913578321404894672",
           "deps": [
             "npm:react"
           ]

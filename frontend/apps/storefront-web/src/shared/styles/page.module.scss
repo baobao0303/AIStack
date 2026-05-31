@@ -402,7 +402,7 @@ $color-border: #c2c8c0; // Outline variant
 .btnSecondary {
   background-color: $color-white;
   color: $color-charcoal;
-  border: 1px solid $color-beige;
+  border: 1px solid $color-sage;
   font-weight: 600;
   font-size: 14px;
   padding: 14px 28px;
@@ -411,7 +411,7 @@ $color-border: #c2c8c0; // Outline variant
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: rgba($color-beige, 0.15);
+    background-color: rgba($color-sage, 0.1);
     transform: translateY(-2px);
   }
 }
@@ -2421,7 +2421,7 @@ $color-border: #c2c8c0; // Outline variant
 // 💳 FLOATING CART MODAL (TOP-RIGHT CORNER DROP PANEL)
 .cartFloatingModal {
   position: absolute;
-  top: 80px;
+  top: 180px;
   right: 140px;
   width: 350px;
   background-color: $color-white;
@@ -2730,6 +2730,7 @@ $color-border: #c2c8c0; // Outline variant
     color: rgba($color-charcoal, 0.6);
     text-decoration: none;
     transition: color 0.2s;
+
     &:hover {
       color: $color-sage;
     }
@@ -2795,6 +2796,7 @@ $color-border: #c2c8c0; // Outline variant
 
   &:hover {
     background-color: rgba($color-beige, 0.2);
+
     span {
       transform: scale(1.1);
     }
@@ -2850,7 +2852,7 @@ $color-border: #c2c8c0; // Outline variant
 
 .artisanVisual {
   position: relative;
-  
+
   &::before {
     content: '';
     position: absolute;
