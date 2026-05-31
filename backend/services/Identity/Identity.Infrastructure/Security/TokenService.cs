@@ -1,9 +1,11 @@
 using System;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Identity.Domain.Entities;
 using Identity.Application.Common.Interfaces;
@@ -13,15 +15,31 @@ namespace Identity.Infrastructure.Security
     public class TokenService : ITokenService
     {
         private readonly IConfiguration _configuration;
+        private readonly IHostEnvironment _hostEnvironment;
 
-        public TokenService(IConfiguration configuration)
+        public TokenService(IConfiguration configuration, IHostEnvironment hostEnvironment)
         {
             _configuration = configuration;
+            _hostEnvironment = hostEnvironment;
+        }
+
+        private string GetSecretKey()
+        {
+            var secretKey = _configuration["Jwt:Secret"];
+            if (string.IsNullOrEmpty(secretKey))
+            {
+                if (_hostEnvironment.IsProduction())
+                {
+                    throw new InvalidOperationException("Critical security error: JWT Secret is not configured in production environment!");
+                }
+                secretKey = "ThisIsASuperSecretKeyForSigningJWTTokens1234567890!";
+            }
+            return secretKey;
         }
 
         public string GenerateAccessToken(User user, string[] roles)
         {
-            var secretKey = _configuration["Jwt:Secret"] ?? "ThisIsASuperSecretKeyForSigningJWTTokens1234567890!";
+            var secretKey = GetSecretKey();
             var issuer = _configuration["Jwt:Issuer"] ?? "Identity.Api";
             var audience = _configuration["Jwt:Audience"] ?? "CRMPortal";
 
@@ -54,7 +72,7 @@ namespace Identity.Infrastructure.Security
 
         public string GenerateRefreshToken(User user, string jti, DateTimeOffset absoluteExpiry)
         {
-            var secretKey = _configuration["Jwt:Secret"] ?? "ThisIsASuperSecretKeyForSigningJWTTokens1234567890!";
+            var secretKey = GetSecretKey();
             var issuer = _configuration["Jwt:Issuer"] ?? "Identity.Api";
             var audience = _configuration["Jwt:Audience"] ?? "CRMPortal";
 
