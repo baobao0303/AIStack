@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Identity.Application.Common.Interfaces;
 using Identity.Domain.Entities;
@@ -33,16 +34,19 @@ namespace Identity.Application.Authentication.Commands.RefreshToken
     {
         private readonly IIdentityDbContext _context;
         private readonly ITokenService _tokenService;
+        private readonly Microsoft.Extensions.Hosting.IHostEnvironment? _hostEnvironment;
         private readonly IConfiguration _configuration;
 
         public RefreshTokenCommandHandler(
             IIdentityDbContext context,
             ITokenService tokenService,
-            IConfiguration configuration)
+            IConfiguration configuration,
+            Microsoft.Extensions.Hosting.IHostEnvironment? hostEnvironment = null)
         {
             _context = context;
             _tokenService = tokenService;
             _configuration = configuration;
+            _hostEnvironment = hostEnvironment;
         }
 
         public async Task<RefreshTokenResponse> Handle(RefreshTokenCommand request, CancellationToken cancellationToken)
@@ -59,7 +63,15 @@ namespace Identity.Application.Authentication.Commands.RefreshToken
 
             try
             {
-                var secretKey = _configuration["Jwt:Secret"] ?? "ThisIsASuperSecretKeyForSigningJWTTokens1234567890!";
+                var secretKey = _configuration["Jwt:Secret"];
+                if (string.IsNullOrEmpty(secretKey))
+                {
+                    if (_hostEnvironment.IsProduction())
+                    {
+                        throw new InvalidOperationException("Critical security error: JWT Secret is not configured in production environment!");
+                    }
+                    secretKey = "ThisIsASuperSecretKeyForSigningJWTTokens1234567890!";
+                }
                 var issuer = _configuration["Jwt:Issuer"] ?? "Identity.Api";
                 var audience = _configuration["Jwt:Audience"] ?? "CRMPortal";
 

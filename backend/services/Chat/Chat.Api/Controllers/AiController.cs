@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 using Chat.Api.Entities;
 using Chat.Api.Persistence;
 using Chat.Api.Services;
@@ -12,6 +13,7 @@ namespace Chat.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class AiController : ControllerBase
     {
         private readonly IGeminiAiService _aiService;

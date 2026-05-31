@@ -14,9 +14,9 @@ namespace ECommerce.Infrastructure.Payments
     public class StripePaymentService : IStripePaymentService
     {
         private readonly IConfiguration _configuration;
-        private readonly IHostEnvironment _hostEnvironment;
+        private readonly IHostEnvironment? _hostEnvironment;
 
-        public StripePaymentService(IConfiguration configuration, IHostEnvironment hostEnvironment)
+        public StripePaymentService(IConfiguration configuration, IHostEnvironment? hostEnvironment = null)
         {
             _configuration = configuration;
             _hostEnvironment = hostEnvironment;
@@ -27,7 +27,7 @@ namespace ECommerce.Infrastructure.Payments
             var secretKey = _configuration["Stripe:SecretKey"] ?? "sk_test_mock";
             
             // Seamless mock mode for development/tests if secret key is mock
-            if (!_hostEnvironment.IsProduction() && secretKey == "sk_test_mock")
+            if (_hostEnvironment != null && !_hostEnvironment.IsProduction() && secretKey == "sk_test_mock")
             {
                 var mockSessionId = $"cs_test_{Guid.NewGuid()}";
                 
@@ -35,6 +35,14 @@ namespace ECommerce.Infrastructure.Payments
                 // C# lets us mutate private/internal fields or via EF change tracker
                 typeof(Order).GetProperty("StripeSessionId")?.SetValue(order, mockSessionId);
 
+                return $"https://checkout.stripe.com/pay/{mockSessionId}";
+            }
+
+            // Default to mock session in tests if host environment is null (unit testing)
+            if (_hostEnvironment == null && secretKey == "sk_test_mock")
+            {
+                var mockSessionId = $"cs_test_{Guid.NewGuid()}";
+                typeof(Order).GetProperty("StripeSessionId")?.SetValue(order, mockSessionId);
                 return $"https://checkout.stripe.com/pay/{mockSessionId}";
             }
 
@@ -86,7 +94,7 @@ namespace ECommerce.Infrastructure.Payments
             var secretKey = _configuration["Stripe:SecretKey"] ?? "sk_test_mock";
 
             // Mock webhook payload parsing in tests/development
-            if (!_hostEnvironment.IsProduction() && (secretKey == "sk_test_mock" || stripeSignatureHeader == "mock_signature"))
+            if (_hostEnvironment != null && !_hostEnvironment.IsProduction() && (secretKey == "sk_test_mock" || stripeSignatureHeader == "mock_signature"))
             {
                 // In mock mode, we expect jsonPayload to contain the sessionId directly or order ID
                 // e.g. "{\"sessionId\":\"cs_test_123\"}"
@@ -102,6 +110,21 @@ namespace ECommerce.Infrastructure.Payments
                 {
                     // Fallback
                 }
+                return Task.FromResult<string?>(jsonPayload);
+            }
+
+            // Default to mock webhook in tests if host environment is null (unit testing)
+            if (_hostEnvironment == null && (secretKey == "sk_test_mock" || stripeSignatureHeader == "mock_signature"))
+            {
+                try
+                {
+                    var doc = System.Text.Json.JsonDocument.Parse(jsonPayload);
+                    if (doc.RootElement.TryGetProperty("sessionId", out var idProp))
+                    {
+                        return Task.FromResult<string?>(idProp.GetString());
+                    }
+                }
+                catch {}
                 return Task.FromResult<string?>(jsonPayload);
             }
 

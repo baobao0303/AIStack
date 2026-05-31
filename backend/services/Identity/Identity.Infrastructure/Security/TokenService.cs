@@ -15,9 +15,9 @@ namespace Identity.Infrastructure.Security
     public class TokenService : ITokenService
     {
         private readonly IConfiguration _configuration;
-        private readonly IHostEnvironment _hostEnvironment;
+        private readonly IHostEnvironment? _hostEnvironment;
 
-        public TokenService(IConfiguration configuration, IHostEnvironment hostEnvironment)
+        public TokenService(IConfiguration configuration, IHostEnvironment? hostEnvironment = null)
         {
             _configuration = configuration;
             _hostEnvironment = hostEnvironment;
@@ -28,7 +28,7 @@ namespace Identity.Infrastructure.Security
             var secretKey = _configuration["Jwt:Secret"];
             if (string.IsNullOrEmpty(secretKey))
             {
-                if (_hostEnvironment.IsProduction())
+                if (_hostEnvironment != null && _hostEnvironment.IsProduction())
                 {
                     throw new InvalidOperationException("Critical security error: JWT Secret is not configured in production environment!");
                 }

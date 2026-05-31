@@ -4,6 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Configuration;
 using ECommerce.Application.Orders.Commands.CreateOrder;
 using ECommerce.Application.Orders.Commands.CompleteOrder;
@@ -15,6 +16,7 @@ namespace ECommerce.Api.Controllers
 {
     [ApiController]
     [Route("api/orders")]
+    [Authorize]
     public class OrdersController : ApiControllerBase
     {
         private readonly IConfiguration _configuration;
@@ -53,6 +55,7 @@ namespace ECommerce.Api.Controllers
         }
 
         [HttpPost("webhook")]
+        [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> StripeWebhook()

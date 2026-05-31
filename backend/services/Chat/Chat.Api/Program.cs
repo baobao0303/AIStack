@@ -6,6 +6,10 @@ using Microsoft.Extensions.Hosting;
 using Chat.Api.Hubs;
 using Chat.Api.Persistence;
 using Chat.Api.Services;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,29 +24,87 @@ builder.Services.AddSwaggerGen(options =>
         Version = "v1",
         Description = "Hệ thống hỗ trợ hội thoại trực tuyến thời gian thực (Real-time SignalR Live Chat) cho khách hàng và nhân viên hỗ trợ."
     });
+
+    // Cấu hình nút Authorize bảo mật JWT Bearer trên giao diện Swagger
+    options.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+    {
+        Description = "Nhập Token JWT vào ô trống theo định dạng: Bearer {your_jwt_token}",
+        Name = "Authorization",
+        In = Microsoft.OpenApi.Models.ParameterLocation.Header,
+        Type = Microsoft.OpenApi.Models.SecuritySchemeType.ApiKey,
+        Scheme = "Bearer"
+    });
+
+    options.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement
+    {
+        {
+            new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+            {
+                Reference = new Microsoft.OpenApi.Models.OpenApiReference
+                {
+                    Type = Microsoft.OpenApi.Models.ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            Array.Empty<string>()
+        }
+    });
 });
 
-// 2. Register PostgreSQL DB Context mapping employees, shifts, sessions, messages
+// Register Npgsql Database Context mapping employees, shifts, sessions, messages
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
     ?? "Host=localhost;Database=crm_shared;Username=postgres;Password=supersecretpassword";
 builder.Services.AddDbContext<ChatDbContext>(options =>
     options.UseNpgsql(connectionString));
 
-// 3. Register Redis scale-out backend for SignalR socket communication synchronization
+// Register Redis scale-out backend for SignalR socket communication synchronization
 var redisConnectionString = builder.Configuration.GetConnectionString("RedisConnection") ?? "localhost:6379";
 builder.Services.AddSignalR().AddStackExchangeRedis(redisConnectionString, options =>
 {
     options.Configuration.ChannelPrefix = "crm_chat";
 });
 
-// 4. Register chat business logic services
+// Register Chat Business Logic Services
 builder.Services.AddScoped<IChatRoutingService, ChatRoutingService>();
 builder.Services.AddHostedService<ShiftMonitoringBackgroundService>();
 builder.Services.AddHttpClient<IGeminiAiService, GeminiAiService>();
 
+// Cấu hình xác thực bảo mật JWT Bearer cho Chat API
+var secretKey = builder.Configuration["Jwt:Secret"] ?? "ThisIsASuperSecretKeyForSigningJWTTokens1234567890!";
+var issuer = builder.Configuration["Jwt:Issuer"] ?? "Identity.Api";
+var audience = builder.Configuration["Jwt:Audience"] ?? "CRMPortal";
+
+var authBuilder = builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+});
+
+if (builder.Environment.IsEnvironment("Testing"))
+{
+    // Cài đặt Scheme Test luôn luôn thành công cho kiểm thử tích hợp SignalR & API
+    authBuilder.AddScheme<AuthenticationSchemeOptions, TestAuthHandler>(JwtBearerDefaults.AuthenticationScheme, options => {});
+}
+else
+{
+    authBuilder.AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = issuer,
+            ValidAudience = audience,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
+        };
+    });
+}
+
 var app = builder.Build();
 
-// 5. Database Auto-Migration & Seeding on Startup
+// Database Auto-Migration & Seeding on Startup
 await DbInitializer.SeedAsync(app.Services);
 
 // Configure the HTTP request pipeline
@@ -54,13 +116,39 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
 
-// 6. Map the SignalR WebSocket Hub endpoint
+// Map the SignalR WebSocket Hub endpoint
 app.MapHub<ChatHub>("/hubs/chat");
 
 app.Run();
+
+public class TestAuthHandler : AuthenticationHandler<AuthenticationSchemeOptions>
+{
+    public TestAuthHandler(
+        Microsoft.Extensions.Options.IOptionsMonitor<AuthenticationSchemeOptions> options,
+        ILoggerFactory logger,
+        System.Text.Encodings.Web.UrlEncoder encoder,
+        ISystemClock clock)
+        : base(options, logger, encoder, clock)
+    {
+    }
+
+    protected override Task<AuthenticateResult> HandleAuthenticateAsync()
+    {
+        var claims = new[] { 
+            new System.Security.Claims.Claim(System.Security.Claims.ClaimTypes.Name, "TestUser"),
+            new System.Security.Claims.Claim(System.Security.Claims.ClaimTypes.Role, "Admin") 
+        };
+        var identity = new System.Security.Claims.ClaimsIdentity(claims, "Test");
+        var principal = new System.Security.Claims.ClaimsPrincipal(identity);
+        var ticket = new AuthenticationTicket(principal, JwtBearerDefaults.AuthenticationScheme);
+
+        return Task.FromResult(AuthenticateResult.Success(ticket));
+    }
+}
 
 public partial class Program { }
