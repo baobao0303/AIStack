@@ -265,6 +265,8 @@ export default function StorefrontIndex() {
         isCartOpen={isCartOpen}
         setIsCartOpen={setIsCartOpen}
         cartCount={cart.length}
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
       />
 
       {/* 💳 FLOATING CART DRAWER DROP PANEL */}

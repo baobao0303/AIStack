@@ -10,6 +10,8 @@ interface NavbarProps {
   isCartOpen: boolean;
   setIsCartOpen: (open: boolean) => void;
   cartCount: number;
+  searchQuery: string;
+  setSearchQuery: (query: string) => void;
 }
 
 export default function Navbar({
@@ -19,6 +21,8 @@ export default function Navbar({
   isCartOpen,
   setIsCartOpen,
   cartCount,
+  searchQuery,
+  setSearchQuery,
 }: NavbarProps) {
   return (
     <nav className={styles.navbar}>
@@ -55,9 +59,18 @@ export default function Navbar({
         </div>
 
         <div className={styles.navIcons}>
-          <button className={`${styles.iconBtn} ${styles.hoverScaleIcon}`} aria-label="Tìm kiếm" onClick={() => setActiveView('catalog')}>
+          <div className={styles.searchBox}>
             <span className="material-symbols-outlined">search</span>
-          </button>
+            <input
+              type="text"
+              className={styles.searchInput}
+              placeholder="Bạn muốn mua gì..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onFocus={() => { setActiveView('catalog'); setIsCartOpen(false); }}
+              aria-label="Tìm kiếm sản phẩm"
+            />
+          </div>
 
           <button
             id="cart-trigger"
