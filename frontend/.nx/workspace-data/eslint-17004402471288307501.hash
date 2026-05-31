@@ -3316,5 +3316,48 @@
         }
       }
     }
-  }
+  },
+  "9040357315054925995": {},
+  "7395183100622001863": {
+    "apps/storefront-web": {
+      "targets": {
+        "eslint:lint": {
+          "command": "eslint .",
+          "cache": true,
+          "options": {
+            "cwd": "apps/storefront-web"
+          },
+          "inputs": [
+            "default",
+            "^default",
+            "{workspaceRoot}/eslint.config.mjs",
+            "{workspaceRoot}/tools/eslint-rules/**/*",
+            {
+              "externalDependencies": [
+                "eslint"
+              ]
+            }
+          ],
+          "outputs": [
+            "{options.outputFile}"
+          ],
+          "metadata": {
+            "technologies": [
+              "eslint"
+            ],
+            "description": "Runs ESLint on project",
+            "help": {
+              "command": "npx eslint --help",
+              "example": {
+                "options": {
+                  "max-warnings": 0
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "14525382988044051085": {}
 }

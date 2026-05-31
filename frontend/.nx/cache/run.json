@@ -1,18 +1,18 @@
 {
   "run": {
-    "command": "nx build storefront-web",
-    "startTime": "2026-05-31T03:49:43.492Z",
-    "endTime": "2026-05-31T03:49:50.637Z",
+    "command": "nx run-many -t lint",
+    "startTime": "2026-05-31T04:14:33.632Z",
+    "endTime": "2026-05-31T04:14:34.776Z",
     "inner": false
   },
   "tasks": [
     {
-      "taskId": "storefront-web:build",
-      "target": "build",
-      "projectName": "storefront-web",
-      "hash": "16405334641280947085",
-      "startTime": "2026-05-31T03:49:43.524Z",
-      "endTime": "2026-05-31T03:49:50.620Z",
+      "taskId": "crm-portal:lint",
+      "target": "lint",
+      "projectName": "crm-portal",
+      "hash": "5741772673023477097",
+      "startTime": "2026-05-31T04:14:33.673Z",
+      "endTime": "2026-05-31T04:14:34.774Z",
       "params": "",
       "cacheStatus": "cache-miss",
       "status": 0

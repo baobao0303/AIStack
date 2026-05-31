@@ -63,7 +63,7 @@ run_dotnet() {
     else
       echo "validate-quick: no test project in $sln; skipping tests."
     fi
-  done < <(find . -name '*.sln' -not -path '*/bin/*' -not -path '*/obj/*' | sort)
+  done < <(find . -name '*.sln' -not -path '*/node_modules/*' -not -path '*/bin/*' -not -path '*/obj/*' | sort)
 
   [ "$found" -eq 0 ] && echo "validate-quick: no .sln found; skipping .NET."
 }

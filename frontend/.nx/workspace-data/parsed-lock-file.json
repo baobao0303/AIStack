@@ -5301,6 +5301,24 @@
         "hash": "sha512-+PmQX0PiAYPMeVYe237LJAYvOMYW1j2rH5YROyS3b4CTVJum34HfRvKvAzozHAQG0TnHNdUfY9nCeUyRAs//cw=="
       }
     },
+    "npm:@tanstack/query-core": {
+      "type": "npm",
+      "name": "npm:@tanstack/query-core",
+      "data": {
+        "version": "5.100.14",
+        "packageName": "@tanstack/query-core",
+        "hash": "sha512-5X41dGpxgeaHISCRW2oYwcSycZeULZzAunaudXT9ov1KOTj9xwt0CH6hbwqP1/z74ZWF7rYFnDpyYH07XFcZew=="
+      }
+    },
+    "npm:@tanstack/react-query": {
+      "type": "npm",
+      "name": "npm:@tanstack/react-query",
+      "data": {
+        "version": "5.100.14",
+        "packageName": "@tanstack/react-query",
+        "hash": "sha512-oOr6aRdSFEwWhzxEkD/9ZcItM3+LjBSkeVmadWKwUssAHTsqd/7bOjWrX4AbvEkoEhgAxzN0Xk6H/aYzXiYBAw=="
+      }
+    },
     "npm:@tokenizer/inflate": {
       "type": "npm",
       "name": "npm:@tokenizer/inflate",
@@ -11142,6 +11160,15 @@
         "hash": "sha512-0prMI+hvBbPjsWnxDLxlCGyM8PN6UuWjEUCYmZhO67xIV9Xasa/r/vDnq+Xyq4Lo27g8QSbO5YzARu0D1Sps3g=="
       }
     },
+    "npm:react-hook-form": {
+      "type": "npm",
+      "name": "npm:react-hook-form",
+      "data": {
+        "version": "7.76.1",
+        "packageName": "react-hook-form",
+        "hash": "sha512-rYM7tPiWlu3nZchkR/ex7piyzui2vFPyaLnXnI/RnblB/L4qfMmyses8llJVtF1NpE9WBBsJlGtcSZzPCXW1qQ=="
+      }
+    },
     "npm:react-is": {
       "type": "npm",
       "name": "npm:react-is",
@@ -11149,6 +11176,15 @@
         "version": "18.3.1",
         "packageName": "react-is",
         "hash": "sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg=="
+      }
+    },
+    "npm:react-refresh": {
+      "type": "npm",
+      "name": "npm:react-refresh",
+      "data": {
+        "version": "0.18.0",
+        "packageName": "react-refresh",
+        "hash": "sha512-QgT5//D3jfjJb6Gsjxv0Slpj23ip+HtOpnNgnb2S5zU3CB26G/IDPGoy4RJB42wzFE46DRsstbW6tKHoKbhAxw=="
       }
     },
     "npm:read-cache": {
@@ -19704,6 +19740,11 @@
     },
     {
       "source": "npm:@rspack/plugin-react-refresh",
+      "target": "npm:react-refresh",
+      "type": "static"
+    },
+    {
+      "source": "npm:@rspack/plugin-react-refresh",
       "target": "npm:error-stack-parser",
       "type": "static"
     },
@@ -20115,6 +20156,16 @@
     {
       "source": "npm:@szmarczak/http-timer",
       "target": "npm:defer-to-connect",
+      "type": "static"
+    },
+    {
+      "source": "npm:@tanstack/react-query",
+      "target": "npm:react",
+      "type": "static"
+    },
+    {
+      "source": "npm:@tanstack/react-query",
+      "target": "npm:@tanstack/query-core",
       "type": "static"
     },
     {
@@ -26530,6 +26581,11 @@
     {
       "source": "npm:react-dom",
       "target": "npm:scheduler",
+      "type": "static"
+    },
+    {
+      "source": "npm:react-hook-form",
+      "target": "npm:react",
       "type": "static"
     },
     {
