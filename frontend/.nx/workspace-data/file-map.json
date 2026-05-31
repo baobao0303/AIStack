@@ -57,6 +57,14 @@
   "fileMap": {
     "nonProjectFiles": [
       {
+        "file": "nx.json",
+        "hash": "9392488300530054959"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "5407418692668764289"
+      },
+      {
         "file": "package-lock.json",
         "hash": "3684368496026388459"
       },
@@ -65,28 +73,20 @@
         "hash": "16904018250184961811"
       },
       {
-        "file": ".prettierignore",
-        "hash": "5407418692668764289"
+        "file": "tsconfig.base.json",
+        "hash": "3578037404204155601"
       },
       {
         "file": "README.md",
         "hash": "11199411773125993063"
       },
       {
-        "file": "tsconfig.base.json",
-        "hash": "3578037404204155601"
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
       },
       {
         "file": "package.json",
-        "hash": "8328800953823045492"
-      },
-      {
-        "file": "nx.json",
-        "hash": "9392488300530054959"
-      },
-      {
-        "file": ".prettierrc",
-        "hash": "16267754514737964994"
+        "hash": "8892926569953399355"
       },
       {
         "file": "eslint.config.mjs",
@@ -410,7 +410,7 @@
         },
         {
           "file": "apps/storefront-web/src/shared/styles/page.module.scss",
-          "hash": "8744252533913359872"
+          "hash": "13351713021486984426"
         },
         {
           "file": "apps/storefront-web/src/shared/ui/ShaderBackground.tsx",

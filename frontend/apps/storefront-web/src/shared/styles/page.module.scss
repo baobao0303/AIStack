@@ -359,7 +359,7 @@ $color-border: #c2c8c0; // Outline variant
     font-size: 56px;
     font-weight: 700;
     line-height: 1.15;
-    color: $color-charcoal;
+    color: $color-sage;
     margin-bottom: 24px;
 
     @media (max-width: 900px) {
@@ -382,7 +382,7 @@ $color-border: #c2c8c0; // Outline variant
 }
 
 .btnPrimary {
-  background-color: $color-charcoal;
+  background-color: $color-sage;
   color: $color-white;
   border: none;
   font-weight: 600;
@@ -390,12 +390,12 @@ $color-border: #c2c8c0; // Outline variant
   padding: 14px 28px;
   border-radius: 99px;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba($color-charcoal, 0.15);
+  box-shadow: 0 4px 15px rgba($color-sage, 0.2);
   transition: all 0.3s ease;
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba($color-charcoal, 0.25);
+    box-shadow: 0 8px 25px rgba($color-sage, 0.35);
   }
 }
 

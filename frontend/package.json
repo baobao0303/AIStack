@@ -8,7 +8,7 @@
     "test": "nx test",
     "lint": "nx run-many -t lint",
     "graph": "nx graph",
-    "dev:storefront": "rm -rf apps/storefront-web/.next && next dev apps/storefront-web",
+    "dev:storefront": "rm -rf apps/storefront-web/.next && rm -rf node_modules/.cache && next dev apps/storefront-web",
     "dev:crm": "nx serve crm-portal"
   },
   "dependencies": {
