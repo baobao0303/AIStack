@@ -1,0 +1,77 @@
+---
+description: Authoritative schema specification and validation rules for Handcrafted Product entities in storefront-web and microservices
+globs: "**/products.json, **/products.ts, **/storefront.types.ts, **/GetProductsQuery.cs"
+---
+
+# Handcrafted Product Schema Specification
+
+This rule acts as the single source of truth for the `Product` entity structure across **Tiệm Nhà Zịt** Slow-Fashion workspace. Refer to this schema when modifying mock databases, model types, or backend query DTOs.
+
+---
+
+## 📊 Full-Stack Model Mapping
+
+| Field (FE) | Field (BE) | FE Type (TS) | BE Type (C#) | DB Column Type | Nullability | Example Data |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| `id` | `Id` | `string` | `Guid` | `uuid` | **Required** | `"prod-12"` or `f81d4fae-7dec-11d0-a765-00a0c91e6bf6` |
+| `name` | `Name` | `string` | `string` | `varchar(255)` | **Required** | `"Móc khoá ngọn lửa Calcifer len 50gr"` |
+| `description` | `Description`| `string` | `string` | `text` | **Required** | `"Móc khoá ngọn lửa Calcifer đan tay từ len nhung..."` |
+| `price` | `Price` | `number` | `decimal` | `numeric(18,2)` | **Required** | `35000` (stored as `35000.00`) |
+| `category` | `Category` | `string` | `string` | `varchar(100)` | **Required** | `"Móc Khóa"`, `"Thời Trang"`, `"Phụ Kiện"` |
+| `imageUrl` | `ImageUrl` | `string` | `string?` | `varchar(512)` | **Required** (FE) / *Nullable* (BE) | `"/calcifer_keychain.png"` |
+| `woolType` | `WoolType` | `string` | `string` | `varchar(100)` | **Required** (Defaults to `"Milk Cotton"`) | `"Chenille Velvet"`, `"Merino Wool"`, `"Milk Cotton"` |
+| `images` | `Images` | `string[]` (opt) | `List<string>?`| `text[]` (Array) | *Optional* | `["/calcifer_keychain_blue.png", "/calcifer_keychain_red.png"]` |
+| `colors` | `Colors` | `Color[]` (opt) | `List<ColorDto>?`| `jsonb` (Structured) | *Optional* | *See Color Variant Schema* |
+| `types` | *N/A* | `string[]` (opt) | *N/A* | *N/A* | *Optional* | `["Có tua rua", "Không tua rua"]` |
+| *N/A* | `InventoryStock` | *N/A* | `int` | `integer` | **Required** (BE) | `20` |
+
+---
+
+## 🔍 Validation Rules
+
+1. **Product Identifier (`id` / `Id`)**:
+   - Frontend must match legacy alphanumeric catalog string pattern: `/^prod-[0-9]+$/`.
+   - Backend must validate as unique, non-empty database UUID.
+
+2. **Pricing (`price` / `Price`)**:
+   - Numeric range: `>= 20,000` (lowest phone strap) up to `100,000,000`.
+   - Frontend must display price formatted using `vi-VN` localization (e.g. `35.000đ`).
+
+3. **Material Composition (`woolType` / `WoolType`)**:
+   - Must match one of the organic studio materials:
+     - `"Merino Wool"` (Len cừu Merino)
+     - `"Alpaca Wool"` (Len Alpaca tự nhiên)
+     - `"Organic Cotton"` (Bông hữu cơ)
+     - `"Milk Cotton"` (Milk Cotton mác đen)
+     - `"Chenille Velvet"` (Len nhung gấu)
+
+---
+
+## 🎨 Color Variant Schema (`colors` / `Colors`)
+
+Represents customized dyed variants of the item.
+
+### TypeScript Definition:
+```typescript
+interface Color {
+  name: string;      // Swatch option name (e.g. "Lửa xanh")
+  hex: string;       // 6-digit hex code for circular swatch rendering (e.g. "#84A9C0")
+  imageUrl?: string; // Optional variant specific image path that hot-swaps on click
+}
+```
+
+### C# DTO Definition:
+```csharp
+public class ColorDto
+{
+    public string Name { get; set; } = null!;
+    public string Hex { get; set; } = null!;
+    public string? ImageUrl { get; set; }
+}
+```
+
+---
+
+## 🧶 Customizer Options (`types`)
+- **Example**: `["Có tua rua", "Không tua rua"]` for the Merino scarf (`prod-20`).
+- **Processing Logic**: Flattened button Customizers. Chosen options are prefixed into the checkout `customNotes` field for clean backend compatibility.
