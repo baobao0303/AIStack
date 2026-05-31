@@ -57,28 +57,8 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "tsconfig.base.json",
-        "hash": "3578037404204155601"
-      },
-      {
-        "file": "nx.json",
-        "hash": "9392488300530054959"
-      },
-      {
         "file": "package-lock.json",
         "hash": "3684368496026388459"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "5407418692668764289"
-      },
-      {
-        "file": "README.md",
-        "hash": "11199411773125993063"
-      },
-      {
-        "file": ".prettierrc",
-        "hash": "16267754514737964994"
       },
       {
         "file": "package.json",
@@ -87,6 +67,26 @@
       {
         "file": ".nxignore",
         "hash": "16904018250184961811"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "3578037404204155601"
+      },
+      {
+        "file": "nx.json",
+        "hash": "9392488300530054959"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "5407418692668764289"
+      },
+      {
+        "file": "README.md",
+        "hash": "11199411773125993063"
       },
       {
         "file": "eslint.config.mjs",
@@ -388,6 +388,10 @@
         {
           "file": "apps/storefront-web/public/.gitkeep",
           "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/storefront-web/public/data/products.json",
+          "hash": "17062988609111750332"
         },
         {
           "file": "apps/storefront-web/public/favicon.ico",
