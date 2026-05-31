@@ -57,6 +57,14 @@
   "fileMap": {
     "nonProjectFiles": [
       {
+        "file": "package.json",
+        "hash": "8328800953823045492"
+      },
+      {
+        "file": "README.md",
+        "hash": "11199411773125993063"
+      },
+      {
         "file": "tsconfig.base.json",
         "hash": "3578037404204155601"
       },
@@ -73,24 +81,16 @@
         "hash": "3462096019013144053"
       },
       {
-        "file": "README.md",
-        "hash": "11199411773125993063"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "5407418692668764289"
-      },
-      {
-        "file": "package.json",
-        "hash": "8328800953823045492"
-      },
-      {
         "file": "package-lock.json",
         "hash": "3684368496026388459"
       },
       {
         "file": ".nxignore",
         "hash": "16904018250184961811"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "5407418692668764289"
       }
     ],
     "projectFileMap": {
@@ -410,7 +410,7 @@
         },
         {
           "file": "apps/storefront-web/src/shared/styles/page.module.scss",
-          "hash": "12756561884314979287"
+          "hash": "11020446518847450505"
         },
         {
           "file": "apps/storefront-web/src/shared/ui/ShaderBackground.tsx",
