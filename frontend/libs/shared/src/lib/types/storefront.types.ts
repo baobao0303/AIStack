@@ -1,6 +1,6 @@
 // Centralized Type Definitions (FSD Shared Models segment)
 
-export type ViewType = 'home' | 'catalog' | 'detail' | 'checkout' | 'tracking' | 'login';
+export type ViewType = 'home' | 'catalog' | 'detail' | 'checkout' | 'tracking' | 'login' | 'about';
 
 export interface Product {
   id: string;
@@ -10,6 +10,9 @@ export interface Product {
   imageUrl: string;
   woolType: string;
   description: string;
+  images?: string[];
+  colors?: { name: string; hex: string; imageUrl?: string }[];
+  types?: string[];
 }
 
 export interface CartItem {
