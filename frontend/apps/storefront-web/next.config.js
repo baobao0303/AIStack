@@ -18,6 +18,10 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  transpilePackages: [
+    '@tiem-nha-zit/shared',
+    '@tiem-nha-zit/shared-react'
+  ],
 };
 
 const plugins = [

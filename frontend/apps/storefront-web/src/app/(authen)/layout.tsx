@@ -2,11 +2,9 @@
 
 import React from 'react';
 import { usePathname } from 'next/navigation';
-import Footer from '../../widgets/footer/ui/Footer';
-import { useScrollReveal } from '../../shared/lib/useScrollReveal';
-import { useViewNavigation } from '../../shared/lib/useViewNavigation';
-import globalStyles from '../../shared/styles/page.module.scss';
-import authStyles from './auth.module.scss';
+import { Footer, useScrollReveal, useViewNavigation } from '@tiem-nha-zit/shared-react';
+import globalStyles from '@tiem-nha-zit/shared-react/src/lib/ui/styles/page.module.scss';
+import authStyles from '@tiem-nha-zit/shared-react/src/lib/ui/styles/auth.module.scss';
 
 export default function AuthLayout({
   children,
@@ -41,7 +39,7 @@ export default function AuthLayout({
             <img
               alt="Organic Crafting Studio backdrop"
               className={`w-full h-full object-cover object-[center_40%] absolute top-0 left-0 transition-transform duration-[1200ms] cubic-bezier(0.16,1,0.3,1) hover:scale-[1.03] ${authStyles.authAnimateImg}`}
-              src="https://lh3.googleusercontent.com/aida/ADBb0ujF9EIkF5XOFy216NOg8aknzCdm9ueX3Jyuk-ITk6aFQPVlAN_EU6vUUhkgarLmQe7R3C-xkwozhAookNyvYAQyZX67D3rN7f3HIcEXA58aDlf3ZFe9LjxO5256k6tuxJ2uG2O8DZJBd6uHISR4G4stSq-Hil1q-xI7XxSQx6M_jMG91kaSkDLpOJPbqB4N2w5JSU1bgNbqRsl0D1fqOPGSW9zaCBPvG9e0EVpajr99p8Bx5Pdt6s2gW424"
+              src="https://lh3.googleusercontent.com/aida/ADBb0uhF9EIkF5XOFy216NOg8aknzCdm9ueX3Jyuk-ITk6aFQPVlAN_EU6vUUhkgarLmQe7R3C-xkwozhAookNyvYAQyZX67D3rN7f3HIcEXA58aDlf3ZFe9LjxO5256k6tuxJ2uG2O8DZJBd6uHISR4G4stSq-Hil1q-xI7XxSQx6M_jMG91kaSkDLpOJPbqB4N2w5JSU1bgNbqRsl0D1fqOPGSW9zaCBPvG9e0EVpajr99p8Bx5Pdt6s2gW424"
             />
             {/* Visual overlay gradient */}
             <div className="absolute inset-0 bg-gradient-to-t from-sage/70 via-charcoal/10 to-transparent pointer-events-none z-[1]"></div>
@@ -65,7 +63,7 @@ export default function AuthLayout({
       </main>
 
       {/* 3. CORPORATE SHARED FOOTER SECTION (Rendered exactly like the Home page footer) */}
-      <Footer styles={globalStyles} setActiveView={handleActiveViewChange} />
+      <Footer setActiveView={handleActiveViewChange} />
     </div>
   );
 }

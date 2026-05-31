@@ -2,12 +2,8 @@
 
 import React from 'react';
 import { useShallow } from 'zustand/react/shallow';
-import styles from '../../shared/styles/page.module.scss';
-import CatalogView from '../../views/catalog/ui/CatalogView';
-import StorefrontShell from '../../widgets/layout/ui/StorefrontShell';
-import { useAppStore } from '../../core/stores/app.store';
-import { useViewNavigation } from '../../shared/lib/useViewNavigation';
-import { PRODUCTS } from '../../entities/product/data/products';
+import { CatalogView, StorefrontShell, useAppStore, useViewNavigation } from '@tiem-nha-zit/shared-react';
+import { PRODUCTS } from '@tiem-nha-zit/shared';
 
 export default function CatalogRoute() {
   const navigate = useViewNavigation();
@@ -76,7 +72,6 @@ export default function CatalogRoute() {
         fetchPriority="high" 
       />
       <CatalogView
-        styles={styles}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
         selectedWoolTypes={selectedWoolTypes}

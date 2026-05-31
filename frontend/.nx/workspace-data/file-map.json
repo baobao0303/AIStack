@@ -2,26 +2,17 @@
   "version": "6.0",
   "nxVersion": "20.8.4",
   "pathMappings": {
-    "@tiem-nha-zit/shared-ui": [
-      "libs/shared-ui/src/index.ts"
+    "@tiem-nha-zit/shared": [
+      "libs/shared/src/index.ts"
     ],
-    "@tiem-nha-zit/shared-types": [
-      "libs/shared-types/src/index.ts"
+    "@tiem-nha-zit/shared/*": [
+      "libs/shared/*"
     ],
-    "@tiem-nha-zit/shared-utils": [
-      "libs/shared-utils/src/index.ts"
+    "@tiem-nha-zit/shared-react": [
+      "libs/shared-react/src/index.ts"
     ],
-    "@tiem-nha-zit/shared-auth": [
-      "libs/shared-auth/src/index.ts"
-    ],
-    "@tiem-nha-zit/shared-api": [
-      "libs/shared-api/src/index.ts"
-    ],
-    "@tiem-nha-zit/shared-layout": [
-      "libs/shared-layout/src/index.ts"
-    ],
-    "@tiem-nha-zit/shared-config": [
-      "libs/shared-config/src/index.ts"
+    "@tiem-nha-zit/shared-react/*": [
+      "libs/shared-react/*"
     ]
   },
   "nxJsonPlugins": [
@@ -57,28 +48,40 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "package-lock.json",
-        "hash": "3684368496026388459"
+        "file": ".angular/cache/19.2.26/crm-portal/.tsbuildinfo",
+        "hash": "15539182441921982922"
       },
       {
         "file": "package.json",
-        "hash": "11039934904927527366"
+        "hash": "13382240879115596663"
       },
       {
         "file": ".nxignore",
         "hash": "16904018250184961811"
       },
       {
-        "file": ".prettierrc",
-        "hash": "16267754514737964994"
+        "file": ".angular/cache/19.2.26/crm-portal/vite/deps_temp_5d3e5975/package.json",
+        "hash": "8630294688235076505"
+      },
+      {
+        "file": ".angular/cache/19.2.26/crm-portal/angular-compiler.db",
+        "hash": "12755592501493365853"
+      },
+      {
+        "file": "eslint.config.mjs",
+        "hash": "3462096019013144053"
+      },
+      {
+        "file": ".angular/cache/19.2.26/crm-portal/angular-compiler.db-lock",
+        "hash": "9603166783630660697"
       },
       {
         "file": "tsconfig.base.json",
-        "hash": "3578037404204155601"
+        "hash": "15235928896169849589"
       },
       {
-        "file": "nx.json",
-        "hash": "9392488300530054959"
+        "file": "package-lock.json",
+        "hash": "3684368496026388459"
       },
       {
         "file": ".prettierignore",
@@ -89,98 +92,113 @@
         "hash": "11199411773125993063"
       },
       {
-        "file": "eslint.config.mjs",
-        "hash": "3462096019013144053"
+        "file": "nx.json",
+        "hash": "9392488300530054959"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
       }
     ],
     "projectFileMap": {
-      "shared-utils": [
+      "shared": [
         {
-          "file": "libs/shared-utils/README.md",
-          "hash": "16763671309847105818"
+          "file": "libs/shared/project.json",
+          "hash": "12455052663787226298"
         },
         {
-          "file": "libs/shared-utils/eslint.config.mjs",
-          "hash": "2624537849564014525"
+          "file": "libs/shared/src/index.ts",
+          "hash": "8460271965149855382"
         },
         {
-          "file": "libs/shared-utils/project.json",
-          "hash": "11446200766455598644"
+          "file": "libs/shared/src/lib/api/api.exception.ts",
+          "hash": "14141873350965804706"
         },
         {
-          "file": "libs/shared-utils/src/index.ts",
-          "hash": "2115022695656941492"
+          "file": "libs/shared/src/lib/api/api.service.ts",
+          "hash": "13264198513767475649",
+          "deps": [
+            "npm:axios"
+          ]
         },
         {
-          "file": "libs/shared-utils/src/lib/shared-utils.ts",
-          "hash": "393383238747502460"
+          "file": "libs/shared/src/lib/api/base.model.ts",
+          "hash": "16494205379431038083"
         },
         {
-          "file": "libs/shared-utils/tsconfig.json",
-          "hash": "6159797437362864955"
+          "file": "libs/shared/src/lib/api/base.repository.ts",
+          "hash": "10530901509790266797"
         },
         {
-          "file": "libs/shared-utils/tsconfig.lib.json",
-          "hash": "15798669420171897096"
-        }
-      ],
-      "shared-config": [
-        {
-          "file": "libs/shared-config/README.md",
-          "hash": "11344091312476438942"
+          "file": "libs/shared/src/lib/api/data/products.ts",
+          "hash": "3802857049652434380"
         },
         {
-          "file": "libs/shared-config/eslint.config.mjs",
-          "hash": "2624537849564014525"
-        },
-        {
-          "file": "libs/shared-config/project.json",
-          "hash": "1733190342991515703"
-        },
-        {
-          "file": "libs/shared-config/src/index.ts",
-          "hash": "6012523220236044104"
-        },
-        {
-          "file": "libs/shared-config/src/lib/shared-config.ts",
-          "hash": "10044098770085738551"
-        },
-        {
-          "file": "libs/shared-config/tsconfig.json",
-          "hash": "6159797437362864955"
-        },
-        {
-          "file": "libs/shared-config/tsconfig.lib.json",
-          "hash": "15798669420171897096"
-        }
-      ],
-      "shared-api": [
-        {
-          "file": "libs/shared-api/README.md",
-          "hash": "4373489930994176579"
-        },
-        {
-          "file": "libs/shared-api/eslint.config.mjs",
-          "hash": "2624537849564014525"
-        },
-        {
-          "file": "libs/shared-api/project.json",
-          "hash": "4645157912812262816"
-        },
-        {
-          "file": "libs/shared-api/src/index.ts",
-          "hash": "5072728333800078275"
-        },
-        {
-          "file": "libs/shared-api/src/lib/shared-api.ts",
+          "file": "libs/shared/src/lib/api/shared-api.ts",
           "hash": "14878882240123191496"
         },
         {
-          "file": "libs/shared-api/tsconfig.json",
+          "file": "libs/shared/src/lib/config/api.constants.ts",
+          "hash": "13410963908234940633"
+        },
+        {
+          "file": "libs/shared/src/lib/config/app.constants.ts",
+          "hash": "12626104620639690488"
+        },
+        {
+          "file": "libs/shared/src/lib/config/permission.constants.ts",
+          "hash": "18100112696558997239"
+        },
+        {
+          "file": "libs/shared/src/lib/config/role.constants.ts",
+          "hash": "13316352682938572786"
+        },
+        {
+          "file": "libs/shared/src/lib/config/route.constants.ts",
+          "hash": "15586923062119862088"
+        },
+        {
+          "file": "libs/shared/src/lib/config/shared-config.ts",
+          "hash": "10044098770085738551"
+        },
+        {
+          "file": "libs/shared/src/lib/types/api.types.ts",
+          "hash": "14626789568023482298"
+        },
+        {
+          "file": "libs/shared/src/lib/types/shared-types.ts",
+          "hash": "11715063447328923451"
+        },
+        {
+          "file": "libs/shared/src/lib/types/storefront.types.ts",
+          "hash": "5317950721122033615"
+        },
+        {
+          "file": "libs/shared/src/lib/utils/date.ts",
+          "hash": "17247640285174004520"
+        },
+        {
+          "file": "libs/shared/src/lib/utils/file.ts",
+          "hash": "5278778877045467037"
+        },
+        {
+          "file": "libs/shared/src/lib/utils/number.ts",
+          "hash": "14500094738199078360"
+        },
+        {
+          "file": "libs/shared/src/lib/utils/shared-utils.ts",
+          "hash": "393383238747502460"
+        },
+        {
+          "file": "libs/shared/src/lib/utils/string.ts",
+          "hash": "7205699781023095325"
+        },
+        {
+          "file": "libs/shared/tsconfig.json",
           "hash": "6159797437362864955"
         },
         {
-          "file": "libs/shared-api/tsconfig.lib.json",
+          "file": "libs/shared/tsconfig.lib.json",
           "hash": "15798669420171897096"
         }
       ],
@@ -210,10 +228,11 @@
         },
         {
           "file": "apps/crm-portal/src/app/app.component.ts",
-          "hash": "2104666059472741097",
+          "hash": "6391587406620804834",
           "deps": [
             "npm:@angular/core",
-            "npm:@angular/router"
+            "npm:@angular/router",
+            "shared"
           ]
         },
         {
@@ -267,90 +286,221 @@
           "hash": "10650950471711549738"
         }
       ],
-      "shared-auth": [
+      "shared-react": [
         {
-          "file": "libs/shared-auth/README.md",
-          "hash": "18368541109435954817"
+          "file": "libs/shared-react/project.json",
+          "hash": "17598879822844161576"
         },
         {
-          "file": "libs/shared-auth/eslint.config.mjs",
-          "hash": "2624537849564014525"
+          "file": "libs/shared-react/src/index.ts",
+          "hash": "4215740335065743493"
         },
         {
-          "file": "libs/shared-auth/project.json",
-          "hash": "10886298955429895006"
-        },
-        {
-          "file": "libs/shared-auth/src/index.ts",
-          "hash": "17210863074906492802"
-        },
-        {
-          "file": "libs/shared-auth/src/lib/shared-auth.ts",
+          "file": "libs/shared-react/src/lib/auth/shared-auth.ts",
           "hash": "9175713305409945288"
         },
         {
-          "file": "libs/shared-auth/tsconfig.json",
-          "hash": "6159797437362864955"
+          "file": "libs/shared-react/src/lib/auth/useAuth.ts",
+          "hash": "14661451348411943679",
+          "deps": [
+            "npm:react",
+            "shared"
+          ]
         },
         {
-          "file": "libs/shared-auth/tsconfig.lib.json",
-          "hash": "15798669420171897096"
-        }
-      ],
-      "shared-ui": [
-        {
-          "file": "libs/shared-ui/.babelrc",
-          "hash": "2946678488919325452"
+          "file": "libs/shared-react/src/lib/auth/usePermission.ts",
+          "hash": "10374688795115597255",
+          "deps": [
+            "npm:react",
+            "shared"
+          ]
         },
         {
-          "file": "libs/shared-ui/README.md",
-          "hash": "1173670062938964454"
+          "file": "libs/shared-react/src/lib/hooks/index.ts",
+          "hash": "15538659501755236325"
         },
         {
-          "file": "libs/shared-ui/project.json",
-          "hash": "1974437768734572024"
+          "file": "libs/shared-react/src/lib/hooks/useClickOutside.ts",
+          "hash": "16480970651557304657",
+          "deps": [
+            "npm:react"
+          ]
         },
         {
-          "file": "libs/shared-ui/src/index.ts",
-          "hash": "3244421341483603138"
+          "file": "libs/shared-react/src/lib/hooks/useDebounce.ts",
+          "hash": "13275811793622568448",
+          "deps": [
+            "npm:react"
+          ]
         },
         {
-          "file": "libs/shared-ui/tsconfig.json",
+          "file": "libs/shared-react/src/lib/hooks/useInfiniteScroll.ts",
+          "hash": "12293027683403844455",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/shared-react/src/lib/hooks/useLoading.ts",
+          "hash": "14501350619068247492",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/shared-react/src/lib/hooks/usePagination.ts",
+          "hash": "11577952710953065799",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/shared-react/src/lib/hooks/useScrollReveal.ts",
+          "hash": "3730557354968807450",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/shared-react/src/lib/hooks/useViewNavigation.ts",
+          "hash": "7918140963839792188",
+          "deps": [
+            "npm:react",
+            "npm:next",
+            "shared"
+          ]
+        },
+        {
+          "file": "libs/shared-react/src/lib/layout/StorefrontShell.tsx",
+          "hash": "8932942083389677587",
+          "deps": [
+            "npm:react",
+            "npm:next",
+            "npm:zustand",
+            "shared"
+          ]
+        },
+        {
+          "file": "libs/shared-react/src/lib/store/app.store.ts",
+          "hash": "3381932558211486811",
+          "deps": [
+            "npm:zustand",
+            "shared"
+          ]
+        },
+        {
+          "file": "libs/shared-react/src/lib/store/base.store.ts",
+          "hash": "12573361313932212024"
+        },
+        {
+          "file": "libs/shared-react/src/lib/ui/components/ErrorBoundary.tsx",
+          "hash": "14368396296983146203",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/shared-react/src/lib/ui/components/ShaderBackground.tsx",
+          "hash": "13158502403658869927",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/shared-react/src/lib/ui/index.ts",
+          "hash": "7257095809769545007"
+        },
+        {
+          "file": "libs/shared-react/src/lib/ui/styles/auth.module.scss",
+          "hash": "3414027406313473510"
+        },
+        {
+          "file": "libs/shared-react/src/lib/ui/styles/page.module.scss",
+          "hash": "17327108941146462593"
+        },
+        {
+          "file": "libs/shared-react/src/lib/ui/views/CatalogView.tsx",
+          "hash": "13368707832658330181",
+          "deps": [
+            "npm:react",
+            "shared"
+          ]
+        },
+        {
+          "file": "libs/shared-react/src/lib/ui/views/CheckoutView.tsx",
+          "hash": "16860974688717026365",
+          "deps": [
+            "npm:react",
+            "shared"
+          ]
+        },
+        {
+          "file": "libs/shared-react/src/lib/ui/views/DetailView.tsx",
+          "hash": "824868661075998989",
+          "deps": [
+            "npm:react",
+            "npm:next",
+            "shared"
+          ]
+        },
+        {
+          "file": "libs/shared-react/src/lib/ui/views/HomeView.tsx",
+          "hash": "9273131628250966324",
+          "deps": [
+            "npm:react",
+            "npm:next",
+            "shared"
+          ]
+        },
+        {
+          "file": "libs/shared-react/src/lib/ui/views/LoginView.tsx",
+          "hash": "2073348304283699151",
+          "deps": [
+            "npm:react",
+            "npm:next",
+            "shared"
+          ]
+        },
+        {
+          "file": "libs/shared-react/src/lib/ui/views/TrackingView.tsx",
+          "hash": "13392069350349188217",
+          "deps": [
+            "npm:react",
+            "shared"
+          ]
+        },
+        {
+          "file": "libs/shared-react/src/lib/ui/widgets/CartFloatingModal.tsx",
+          "hash": "7202143637347350373",
+          "deps": [
+            "npm:react",
+            "shared"
+          ]
+        },
+        {
+          "file": "libs/shared-react/src/lib/ui/widgets/Footer.tsx",
+          "hash": "549497205673674310",
+          "deps": [
+            "npm:react",
+            "shared"
+          ]
+        },
+        {
+          "file": "libs/shared-react/src/lib/ui/widgets/Navbar.tsx",
+          "hash": "2244354035095064296",
+          "deps": [
+            "npm:react",
+            "npm:next",
+            "shared"
+          ]
+        },
+        {
+          "file": "libs/shared-react/tsconfig.json",
           "hash": "14088618039610991405"
         },
         {
-          "file": "libs/shared-ui/tsconfig.lib.json",
+          "file": "libs/shared-react/tsconfig.lib.json",
           "hash": "10514678202960682525"
-        }
-      ],
-      "shared-types": [
-        {
-          "file": "libs/shared-types/README.md",
-          "hash": "5891734351485625143"
-        },
-        {
-          "file": "libs/shared-types/eslint.config.mjs",
-          "hash": "2624537849564014525"
-        },
-        {
-          "file": "libs/shared-types/project.json",
-          "hash": "11620605097954518575"
-        },
-        {
-          "file": "libs/shared-types/src/index.ts",
-          "hash": "17477233218007285873"
-        },
-        {
-          "file": "libs/shared-types/src/lib/shared-types.ts",
-          "hash": "11715063447328923451"
-        },
-        {
-          "file": "libs/shared-types/tsconfig.json",
-          "hash": "6159797437362864955"
-        },
-        {
-          "file": "libs/shared-types/tsconfig.lib.json",
-          "hash": "15798669420171897096"
         }
       ],
       "storefront-web": [
@@ -372,7 +522,7 @@
         },
         {
           "file": "apps/storefront-web/next.config.js",
-          "hash": "6851724599270449065",
+          "hash": "4625527364618851482",
           "deps": [
             "npm:@nx/next"
           ]
@@ -403,325 +553,101 @@
         },
         {
           "file": "apps/storefront-web/src/app/(authen)/forgot-password/page.tsx",
-          "hash": "10699149087428940647",
+          "hash": "970585783482270373",
           "deps": [
             "npm:react",
-            "npm:next"
+            "npm:next",
+            "shared-react"
           ]
         },
         {
           "file": "apps/storefront-web/src/app/(authen)/layout.tsx",
-          "hash": "12456522112497519262",
+          "hash": "14185458762669763736",
           "deps": [
             "npm:react",
-            "npm:next"
+            "npm:next",
+            "shared-react"
           ]
         },
         {
           "file": "apps/storefront-web/src/app/(authen)/sign-in/page.tsx",
-          "hash": "8173211760337896344",
+          "hash": "6199574953993765539",
           "deps": [
-            "npm:react"
+            "npm:react",
+            "shared-react"
           ]
         },
         {
           "file": "apps/storefront-web/src/app/(authen)/sign-up/page.tsx",
-          "hash": "2746531249530995347",
+          "hash": "666738790039936426",
           "deps": [
             "npm:react",
-            "npm:next"
+            "npm:next",
+            "shared-react"
           ]
         },
         {
           "file": "apps/storefront-web/src/app/checkout/page.tsx",
-          "hash": "7716176750539736334",
+          "hash": "8773994074174099854",
           "deps": [
             "npm:react",
             "npm:next",
-            "npm:zustand"
+            "npm:zustand",
+            "shared-react"
           ]
         },
         {
           "file": "apps/storefront-web/src/app/global.css",
-          "hash": "12133012933292631533"
+          "hash": "14293094673314494440"
         },
         {
           "file": "apps/storefront-web/src/app/layout.tsx",
-          "hash": "11333989520867576136",
+          "hash": "4918223158765837271",
           "deps": [
             "npm:next"
           ]
         },
         {
           "file": "apps/storefront-web/src/app/page.tsx",
-          "hash": "6877361291011634488",
+          "hash": "4514665714636310128",
           "deps": [
-            "npm:react"
+            "npm:react",
+            "shared-react",
+            "shared"
           ]
         },
         {
           "file": "apps/storefront-web/src/app/product/[id]/page.tsx",
-          "hash": "14271649303895493669",
+          "hash": "8298602407711435286",
           "deps": [
             "npm:react",
             "npm:zustand",
+            "shared-react",
+            "shared",
             "npm:next"
           ]
         },
         {
           "file": "apps/storefront-web/src/app/product/page.tsx",
-          "hash": "12584461834986432528",
+          "hash": "14138615394446780082",
           "deps": [
             "npm:react",
-            "npm:zustand"
+            "npm:zustand",
+            "shared-react",
+            "shared"
           ]
         },
         {
           "file": "apps/storefront-web/src/app/tracking/page.tsx",
-          "hash": "32610676503143483",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/storefront-web/src/core/api/api.service.ts",
-          "hash": "9520651316772921736",
-          "deps": [
-            "npm:axios"
-          ]
-        },
-        {
-          "file": "apps/storefront-web/src/core/components/ErrorBoundary.tsx",
-          "hash": "14368396296983146203",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/storefront-web/src/core/constants/api.constants.ts",
-          "hash": "13410963908234940633"
-        },
-        {
-          "file": "apps/storefront-web/src/core/constants/app.constants.ts",
-          "hash": "338808335406153620"
-        },
-        {
-          "file": "apps/storefront-web/src/core/constants/permission.constants.ts",
-          "hash": "18100112696558997239"
-        },
-        {
-          "file": "apps/storefront-web/src/core/constants/role.constants.ts",
-          "hash": "13316352682938572786"
-        },
-        {
-          "file": "apps/storefront-web/src/core/constants/route.constants.ts",
-          "hash": "15586923062119862088"
-        },
-        {
-          "file": "apps/storefront-web/src/core/exceptions/api.exception.ts",
-          "hash": "803163991256330722"
-        },
-        {
-          "file": "apps/storefront-web/src/core/hooks/useAuth.ts",
-          "hash": "4283617753051621590",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/storefront-web/src/core/hooks/useDebounce.ts",
-          "hash": "13275811793622568448",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/storefront-web/src/core/hooks/useInfiniteScroll.ts",
-          "hash": "12293027683403844455",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/storefront-web/src/core/hooks/useLoading.ts",
-          "hash": "14501350619068247492",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/storefront-web/src/core/hooks/usePagination.ts",
-          "hash": "11577952710953065799",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/storefront-web/src/core/hooks/usePermission.ts",
-          "hash": "1625335386414638801",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/storefront-web/src/core/models/base.model.ts",
-          "hash": "16494205379431038083"
-        },
-        {
-          "file": "apps/storefront-web/src/core/repositories/base.repository.ts",
-          "hash": "13671074617126151250"
-        },
-        {
-          "file": "apps/storefront-web/src/core/stores/app.store.ts",
-          "hash": "3571174403313014877",
-          "deps": [
-            "npm:zustand"
-          ]
-        },
-        {
-          "file": "apps/storefront-web/src/core/stores/base.store.ts",
-          "hash": "12573361313932212024"
-        },
-        {
-          "file": "apps/storefront-web/src/core/types/api.types.ts",
-          "hash": "14626789568023482298"
-        },
-        {
-          "file": "apps/storefront-web/src/core/utils/date.ts",
-          "hash": "17247640285174004520"
-        },
-        {
-          "file": "apps/storefront-web/src/core/utils/file.ts",
-          "hash": "5278778877045467037"
-        },
-        {
-          "file": "apps/storefront-web/src/core/utils/number.ts",
-          "hash": "14500094738199078360"
-        },
-        {
-          "file": "apps/storefront-web/src/core/utils/string.ts",
-          "hash": "7205699781023095325"
-        },
-        {
-          "file": "apps/storefront-web/src/entities/product/data/products.ts",
-          "hash": "11679887587480818166"
-        },
-        {
-          "file": "apps/storefront-web/src/shared/lib/useClickOutside.ts",
-          "hash": "16480970651557304657",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/storefront-web/src/shared/lib/useScrollReveal.ts",
-          "hash": "3730557354968807450",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/storefront-web/src/shared/lib/useViewNavigation.ts",
-          "hash": "7137874490266369064",
+          "hash": "3807142475383167614",
           "deps": [
             "npm:react",
-            "npm:next"
-          ]
-        },
-        {
-          "file": "apps/storefront-web/src/shared/model/types.ts",
-          "hash": "5317950721122033615"
-        },
-        {
-          "file": "apps/storefront-web/src/shared/styles/page.module.scss",
-          "hash": "16184142996351035173"
-        },
-        {
-          "file": "apps/storefront-web/src/shared/ui/ShaderBackground.tsx",
-          "hash": "10016251863506009306",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/storefront-web/src/views/catalog/ui/CatalogView.tsx",
-          "hash": "1042713647996290790",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/storefront-web/src/views/checkout/ui/CheckoutView.tsx",
-          "hash": "12465112783403885612",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/storefront-web/src/views/detail/ui/DetailView.tsx",
-          "hash": "5328602350793985425",
-          "deps": [
-            "npm:react",
-            "npm:next"
-          ]
-        },
-        {
-          "file": "apps/storefront-web/src/views/home/ui/HomeView.tsx",
-          "hash": "11332038008401649579",
-          "deps": [
-            "npm:react",
-            "npm:next"
-          ]
-        },
-        {
-          "file": "apps/storefront-web/src/views/login/ui/LoginView.tsx",
-          "hash": "11830815298782968211",
-          "deps": [
-            "npm:react",
-            "npm:next"
-          ]
-        },
-        {
-          "file": "apps/storefront-web/src/views/tracking/ui/TrackingView.tsx",
-          "hash": "17872301735003673829",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/storefront-web/src/widgets/cart-modal/ui/CartFloatingModal.tsx",
-          "hash": "6799456079865659959",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/storefront-web/src/widgets/footer/ui/Footer.tsx",
-          "hash": "15968081853541925374",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/storefront-web/src/widgets/layout/ui/StorefrontShell.tsx",
-          "hash": "6784895525677281999",
-          "deps": [
-            "npm:react",
-            "npm:next",
-            "npm:zustand"
-          ]
-        },
-        {
-          "file": "apps/storefront-web/src/widgets/navbar/ui/Navbar.tsx",
-          "hash": "7133918711340630519",
-          "deps": [
-            "npm:react",
-            "npm:next"
+            "shared-react"
           ]
         },
         {
           "file": "apps/storefront-web/tailwind.config.js",
-          "hash": "349641018552094102"
+          "hash": "13845667127364554828"
         },
         {
           "file": "apps/storefront-web/tsconfig.json",
@@ -730,32 +656,6 @@
         {
           "file": "apps/storefront-web/tsconfig.tsbuildinfo",
           "hash": "16661474356264141605"
-        }
-      ],
-      "shared-layout": [
-        {
-          "file": "libs/shared-layout/.babelrc",
-          "hash": "2946678488919325452"
-        },
-        {
-          "file": "libs/shared-layout/README.md",
-          "hash": "12339328957930107041"
-        },
-        {
-          "file": "libs/shared-layout/project.json",
-          "hash": "16386483216103273184"
-        },
-        {
-          "file": "libs/shared-layout/src/index.ts",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "libs/shared-layout/tsconfig.json",
-          "hash": "14088618039610991405"
-        },
-        {
-          "file": "libs/shared-layout/tsconfig.lib.json",
-          "hash": "10514678202960682525"
         }
       ]
     }

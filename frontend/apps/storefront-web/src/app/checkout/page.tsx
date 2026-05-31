@@ -3,11 +3,7 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import { useShallow } from 'zustand/react/shallow';
-import styles from '../../shared/styles/page.module.scss';
-import CheckoutView from '../../views/checkout/ui/CheckoutView';
-import StorefrontShell from '../../widgets/layout/ui/StorefrontShell';
-import { useAppStore } from '../../core/stores/app.store';
-import { useViewNavigation } from '../../shared/lib/useViewNavigation';
+import { CheckoutView, StorefrontShell, useAppStore, useViewNavigation } from '@tiem-nha-zit/shared-react';
 
 export default function CheckoutRoute() {
   const router = useRouter();
@@ -67,7 +63,6 @@ export default function CheckoutRoute() {
   return (
     <StorefrontShell activeView="checkout">
       <CheckoutView
-        styles={styles}
         cart={cart}
         cartTotal={cartTotal}
         removeFromCart={removeFromCart}

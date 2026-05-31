@@ -133,70 +133,16 @@
         "implicitDependencies": []
       }
     },
-    "shared-config": {
-      "name": "shared-config",
+    "shared-react": {
+      "name": "shared-react",
       "type": "lib",
       "data": {
-        "root": "libs/shared-config",
+        "root": "libs/shared-react",
         "targets": {
           "eslint:lint": {
             "cache": true,
             "options": {
-              "cwd": "libs/shared-config",
-              "command": "eslint ."
-            },
-            "inputs": [
-              "default",
-              "^default",
-              "{workspaceRoot}/eslint.config.mjs",
-              "{projectRoot}/eslint.config.mjs",
-              "{workspaceRoot}/tools/eslint-rules/**/*",
-              {
-                "externalDependencies": [
-                  "eslint"
-                ]
-              }
-            ],
-            "outputs": [
-              "{options.outputFile}"
-            ],
-            "metadata": {
-              "technologies": [
-                "eslint"
-              ],
-              "description": "Runs ESLint on project",
-              "help": {
-                "command": "npx eslint --help",
-                "example": {
-                  "options": {
-                    "max-warnings": 0
-                  }
-                }
-              }
-            },
-            "executor": "nx:run-commands",
-            "configurations": {},
-            "parallelism": true
-          }
-        },
-        "name": "shared-config",
-        "$schema": "../../node_modules/nx/schemas/project-schema.json",
-        "sourceRoot": "libs/shared-config/src",
-        "projectType": "library",
-        "tags": [],
-        "implicitDependencies": []
-      }
-    },
-    "shared-layout": {
-      "name": "shared-layout",
-      "type": "lib",
-      "data": {
-        "root": "libs/shared-layout",
-        "targets": {
-          "eslint:lint": {
-            "cache": true,
-            "options": {
-              "cwd": "libs/shared-layout",
+              "cwd": "libs/shared-react",
               "command": "eslint ."
             },
             "inputs": [
@@ -232,171 +178,9 @@
             "parallelism": true
           }
         },
-        "name": "shared-layout",
+        "name": "shared-react",
         "$schema": "../../node_modules/nx/schemas/project-schema.json",
-        "sourceRoot": "libs/shared-layout/src",
-        "projectType": "library",
-        "tags": [],
-        "implicitDependencies": []
-      }
-    },
-    "shared-types": {
-      "name": "shared-types",
-      "type": "lib",
-      "data": {
-        "root": "libs/shared-types",
-        "targets": {
-          "eslint:lint": {
-            "cache": true,
-            "options": {
-              "cwd": "libs/shared-types",
-              "command": "eslint ."
-            },
-            "inputs": [
-              "default",
-              "^default",
-              "{workspaceRoot}/eslint.config.mjs",
-              "{projectRoot}/eslint.config.mjs",
-              "{workspaceRoot}/tools/eslint-rules/**/*",
-              {
-                "externalDependencies": [
-                  "eslint"
-                ]
-              }
-            ],
-            "outputs": [
-              "{options.outputFile}"
-            ],
-            "metadata": {
-              "technologies": [
-                "eslint"
-              ],
-              "description": "Runs ESLint on project",
-              "help": {
-                "command": "npx eslint --help",
-                "example": {
-                  "options": {
-                    "max-warnings": 0
-                  }
-                }
-              }
-            },
-            "executor": "nx:run-commands",
-            "configurations": {},
-            "parallelism": true
-          }
-        },
-        "name": "shared-types",
-        "$schema": "../../node_modules/nx/schemas/project-schema.json",
-        "sourceRoot": "libs/shared-types/src",
-        "projectType": "library",
-        "tags": [],
-        "implicitDependencies": []
-      }
-    },
-    "shared-utils": {
-      "name": "shared-utils",
-      "type": "lib",
-      "data": {
-        "root": "libs/shared-utils",
-        "targets": {
-          "eslint:lint": {
-            "cache": true,
-            "options": {
-              "cwd": "libs/shared-utils",
-              "command": "eslint ."
-            },
-            "inputs": [
-              "default",
-              "^default",
-              "{workspaceRoot}/eslint.config.mjs",
-              "{projectRoot}/eslint.config.mjs",
-              "{workspaceRoot}/tools/eslint-rules/**/*",
-              {
-                "externalDependencies": [
-                  "eslint"
-                ]
-              }
-            ],
-            "outputs": [
-              "{options.outputFile}"
-            ],
-            "metadata": {
-              "technologies": [
-                "eslint"
-              ],
-              "description": "Runs ESLint on project",
-              "help": {
-                "command": "npx eslint --help",
-                "example": {
-                  "options": {
-                    "max-warnings": 0
-                  }
-                }
-              }
-            },
-            "executor": "nx:run-commands",
-            "configurations": {},
-            "parallelism": true
-          }
-        },
-        "name": "shared-utils",
-        "$schema": "../../node_modules/nx/schemas/project-schema.json",
-        "sourceRoot": "libs/shared-utils/src",
-        "projectType": "library",
-        "tags": [],
-        "implicitDependencies": []
-      }
-    },
-    "shared-auth": {
-      "name": "shared-auth",
-      "type": "lib",
-      "data": {
-        "root": "libs/shared-auth",
-        "targets": {
-          "eslint:lint": {
-            "cache": true,
-            "options": {
-              "cwd": "libs/shared-auth",
-              "command": "eslint ."
-            },
-            "inputs": [
-              "default",
-              "^default",
-              "{workspaceRoot}/eslint.config.mjs",
-              "{projectRoot}/eslint.config.mjs",
-              "{workspaceRoot}/tools/eslint-rules/**/*",
-              {
-                "externalDependencies": [
-                  "eslint"
-                ]
-              }
-            ],
-            "outputs": [
-              "{options.outputFile}"
-            ],
-            "metadata": {
-              "technologies": [
-                "eslint"
-              ],
-              "description": "Runs ESLint on project",
-              "help": {
-                "command": "npx eslint --help",
-                "example": {
-                  "options": {
-                    "max-warnings": 0
-                  }
-                }
-              }
-            },
-            "executor": "nx:run-commands",
-            "configurations": {},
-            "parallelism": true
-          }
-        },
-        "name": "shared-auth",
-        "$schema": "../../node_modules/nx/schemas/project-schema.json",
-        "sourceRoot": "libs/shared-auth/src",
+        "sourceRoot": "libs/shared-react/src",
         "projectType": "library",
         "tags": [],
         "implicitDependencies": []
@@ -560,70 +344,16 @@
         "implicitDependencies": []
       }
     },
-    "shared-api": {
-      "name": "shared-api",
+    "shared": {
+      "name": "shared",
       "type": "lib",
       "data": {
-        "root": "libs/shared-api",
+        "root": "libs/shared",
         "targets": {
           "eslint:lint": {
             "cache": true,
             "options": {
-              "cwd": "libs/shared-api",
-              "command": "eslint ."
-            },
-            "inputs": [
-              "default",
-              "^default",
-              "{workspaceRoot}/eslint.config.mjs",
-              "{projectRoot}/eslint.config.mjs",
-              "{workspaceRoot}/tools/eslint-rules/**/*",
-              {
-                "externalDependencies": [
-                  "eslint"
-                ]
-              }
-            ],
-            "outputs": [
-              "{options.outputFile}"
-            ],
-            "metadata": {
-              "technologies": [
-                "eslint"
-              ],
-              "description": "Runs ESLint on project",
-              "help": {
-                "command": "npx eslint --help",
-                "example": {
-                  "options": {
-                    "max-warnings": 0
-                  }
-                }
-              }
-            },
-            "executor": "nx:run-commands",
-            "configurations": {},
-            "parallelism": true
-          }
-        },
-        "name": "shared-api",
-        "$schema": "../../node_modules/nx/schemas/project-schema.json",
-        "sourceRoot": "libs/shared-api/src",
-        "projectType": "library",
-        "tags": [],
-        "implicitDependencies": []
-      }
-    },
-    "shared-ui": {
-      "name": "shared-ui",
-      "type": "lib",
-      "data": {
-        "root": "libs/shared-ui",
-        "targets": {
-          "eslint:lint": {
-            "cache": true,
-            "options": {
-              "cwd": "libs/shared-ui",
+              "cwd": "libs/shared",
               "command": "eslint ."
             },
             "inputs": [
@@ -659,9 +389,9 @@
             "parallelism": true
           }
         },
-        "name": "shared-ui",
+        "name": "shared",
         "$schema": "../../node_modules/nx/schemas/project-schema.json",
-        "sourceRoot": "libs/shared-ui/src",
+        "sourceRoot": "libs/shared/src",
         "projectType": "library",
         "tags": [],
         "implicitDependencies": []
@@ -13550,20 +13280,42 @@
       },
       {
         "source": "storefront-web",
+        "target": "shared-react",
+        "type": "static"
+      },
+      {
+        "source": "storefront-web",
         "target": "npm:zustand",
         "type": "static"
       },
       {
         "source": "storefront-web",
-        "target": "npm:axios",
+        "target": "shared",
         "type": "static"
       }
     ],
-    "shared-config": [],
-    "shared-layout": [],
-    "shared-types": [],
-    "shared-utils": [],
-    "shared-auth": [],
+    "shared-react": [
+      {
+        "source": "shared-react",
+        "target": "npm:react",
+        "type": "static"
+      },
+      {
+        "source": "shared-react",
+        "target": "shared",
+        "type": "static"
+      },
+      {
+        "source": "shared-react",
+        "target": "npm:next",
+        "type": "static"
+      },
+      {
+        "source": "shared-react",
+        "target": "npm:zustand",
+        "type": "static"
+      }
+    ],
     "crm-portal": [
       {
         "source": "crm-portal",
@@ -13582,6 +13334,11 @@
       },
       {
         "source": "crm-portal",
+        "target": "shared",
+        "type": "static"
+      },
+      {
+        "source": "crm-portal",
         "target": "npm:@angular/common",
         "type": "static"
       },
@@ -13591,8 +13348,13 @@
         "type": "static"
       }
     ],
-    "shared-api": [],
-    "shared-ui": [],
+    "shared": [
+      {
+        "source": "shared",
+        "target": "npm:axios",
+        "type": "static"
+      }
+    ],
     "npm:@ampproject/remapping": [
       {
         "source": "npm:@ampproject/remapping",
@@ -30440,5 +30202,5 @@
   },
   "version": "6.0",
   "errors": [],
-  "computedAt": 1780234030677
+  "computedAt": 1780236599438
 }

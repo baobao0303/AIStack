@@ -1,12 +1,9 @@
 'use client';
 
 import React from 'react';
-import styles from '../shared/styles/page.module.scss';
-import HomeView from '../views/home/ui/HomeView';
-import StorefrontShell from '../widgets/layout/ui/StorefrontShell';
-import { useAppStore } from '../core/stores/app.store';
-import { useViewNavigation } from '../shared/lib/useViewNavigation';
-import { PRODUCTS } from '../entities/product/data/products';
+import { HomeView, StorefrontShell, useAppStore, useViewNavigation } from '@tiem-nha-zit/shared-react';
+import { PRODUCTS } from '@tiem-nha-zit/shared';
+import styles from '@tiem-nha-zit/shared-react/src/lib/ui/styles/page.module.scss';
 
 export default function StorefrontIndex() {
   const navigate = useViewNavigation();
@@ -16,7 +13,6 @@ export default function StorefrontIndex() {
   return (
     <StorefrontShell activeView="home">
       <HomeView
-        styles={styles}
         setActiveView={navigate}
         setSelectedProduct={setSelectedProduct}
         PRODUCTS={PRODUCTS}

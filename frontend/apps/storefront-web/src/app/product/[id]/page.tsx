@@ -2,12 +2,8 @@
 
 import React, { useEffect, use } from 'react';
 import { useShallow } from 'zustand/react/shallow';
-import styles from '../../../shared/styles/page.module.scss';
-import DetailView from '../../../views/detail/ui/DetailView';
-import StorefrontShell from '../../../widgets/layout/ui/StorefrontShell';
-import { useAppStore } from '../../../core/stores/app.store';
-import { useViewNavigation } from '../../../shared/lib/useViewNavigation';
-import { PRODUCTS } from '../../../entities/product/data/products';
+import { DetailView, StorefrontShell, useAppStore, useViewNavigation } from '@tiem-nha-zit/shared-react';
+import { PRODUCTS } from '@tiem-nha-zit/shared';
 import { notFound } from 'next/navigation';
 
 interface PageProps {
@@ -77,7 +73,6 @@ export default function ProductDetailRoute({ params }: PageProps) {
         fetchPriority="high" 
       />
       <DetailView
-        styles={styles}
         selectedProduct={selectedProduct || product}
         detailMainImage={detailMainImage}
         setDetailMainImage={setDetailMainImage}

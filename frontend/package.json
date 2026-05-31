@@ -9,8 +9,10 @@
     "lint": "nx run-many -t lint",
     "graph": "nx graph",
     "remove:storefront": "rm -rf apps/storefront-web/.next",
-    "dev:storefront": "rm -rf node_modules/.cache && next dev apps/storefront-web",
-    "dev:crm": "nx serve crm-portal"
+    "dev:storefront": "nx dev storefront-web",
+    "dev:crm": "nx serve crm-portal",
+    "build:crm": "nx build crm-portal",
+    "lint:crm": "nx lint crm-portal"
   },
   "dependencies": {
     "@angular/animations": "^19.0.0",

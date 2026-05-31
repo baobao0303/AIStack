@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import authStyles from '../auth.module.scss';
+import authStyles from '@tiem-nha-zit/shared-react/src/lib/ui/styles/auth.module.scss';
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState('');
@@ -52,7 +52,7 @@ export default function ForgotPasswordPage() {
           <p className="text-xs leading-relaxed text-charcoal/60 text-center m-0 mb-6 px-2">
             Đừng lo lắng, hãy nhập email bạn đã đăng ký. Chúng tôi sẽ gửi một liên kết để bạn đặt lại mật khẩu mới.
           </p>
-
+ 
           <div className="w-full flex flex-col gap-4">
             
             {/* EMAIL FIELD */}

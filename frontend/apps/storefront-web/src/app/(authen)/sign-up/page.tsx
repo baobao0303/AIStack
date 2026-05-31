@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import authStyles from '../auth.module.scss';
+import authStyles from '@tiem-nha-zit/shared-react/src/lib/ui/styles/auth.module.scss';
 
 export default function SignUpPage() {
   const router = useRouter();
