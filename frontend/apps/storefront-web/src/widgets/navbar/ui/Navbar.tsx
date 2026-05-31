@@ -234,8 +234,8 @@ export default function Navbar({
                 <span
                   style={{
                     position: 'absolute',
-                    top: '-2px',
-                    right: '-2px',
+                    top: '-8px',
+                    right: '-8px',
                     minWidth: '20px',
                     height: '20px',
                     display: 'flex',

@@ -251,6 +251,30 @@ export default function StorefrontIndex() {
     };
   }, [activeView]);
 
+  // Close Cart Modal when clicking or tapping outside of it
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent | TouchEvent) {
+      if (isCartOpen) {
+        const modalElement = document.getElementById('cart-modal');
+        const triggerElement = document.getElementById('cart-trigger');
+        if (
+          modalElement && 
+          !modalElement.contains(event.target as Node) &&
+          (!triggerElement || !triggerElement.contains(event.target as Node))
+        ) {
+          setIsCartOpen(false);
+        }
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [isCartOpen]);
+
   return (
     <div className={styles.storefrontLayout}>
       {/* Background Weave Layer */}
