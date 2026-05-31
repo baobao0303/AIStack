@@ -27,31 +27,114 @@ export default function HomeView({
   PRODUCTS,
   handleAddToCartDefault
 }: HomeViewProps) {
+  const [currentSlide, setCurrentSlide] = React.useState(0);
+
+  const slides = [
+    {
+      image: "https://lh3.googleusercontent.com/aida/ADBb0ugGS8xiSKzBXsjv8f1Ndlh_xEwfvoLw4w-Jkz6jpej5o8qs2KX3QclLsivoMQ3mSg2UHI4Exh8_IkKypIdzDstLCP8Expv5nV73exEJ86YzUJcMijfIvK69Z0l5zGnK0GNACMt6puf5FtAxLz3NounFNAIglefpQIoyMa6W9u-XZzDM1q9fAAwZm_lHxUVAv3liK_uJ9vk6B3F1A7APZvVfLYmqMpmMGoDW2zXj0oVelqv11MLtXPcUQTwI",
+      title: "Sản Phẩm Từ Tâm - Đan Dệt Yêu Thương",
+      description: "Khám phá bộ sưu tập len Merino cao cấp, được đan tay tỉ mỉ bởi những nghệ nhân tại Tiệm Nhà Zịt.",
+      actionType: "catalog",
+      primaryText: "Khám Phá Cửa Hàng",
+      secondaryText: "Đặt Đan Theo Yêu Cầu",
+      secondaryAction: "detail"
+    },
+    {
+      image: "https://lh3.googleusercontent.com/aida/ADBb0uhvpx8zRyIkiRxiqR5TYKu0lVSNibzq_zBeQve0TTm-3dGQykEsnaiMfNG28NfXDihyTrMyl6A2rbAVvVNpQYYub2wts4h-7flmo59K_0jpzXdRFc3nPKLRS7QHxhbpTpd4IHhseUNkyV9C3eQLjjehIQH_5tBzOo7mizGcWa-NN3GGSSPH9y1g0i1TK33ziyq9WBZ5UBC3ykeVjMxhk_rPmyfdfacFbtu-YmQKdTXA0E45BVE3QdM4v1f7",
+      title: "Nghệ Thuật Đan Tay Truyền Thống",
+      description: "Mỗi sản phẩm đều mang một câu chuyện riêng, được dệt nên từ tình yêu và sự tỉ mỉ qua từng mũi kim đan.",
+      actionType: "catalog",
+      primaryText: "Xem Bộ Sưu Tập",
+      secondaryText: "Câu Chuyện Của Zịt",
+      secondaryAction: "story"
+    },
+    {
+      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAS-VgCNe0c0ipLm_ydBUdPVufGIU1fYPO0CzURgYC_iQ0Np1JriASAlJzZ6eU7VM3uf3yrhDZw5aLmtMJ6T9huT1WhbFbkn5rtDLNZkI5jMHKzT4jh6Ng51VY9ba74nDfewTAfTL2r4gXDFTthe0-H6YZqYThGEIHsHJTD--BSlolpLNBJhv9XOyE_ZpGczyyeOl3QnfQNycoKtEZAeQDeikPxFrXGUjKDeuE7T0Gu1nUmuJYoAsM0cKsf-JUGabrqlGoohSy4BlB8",
+      title: "Thiết Kế Độc Bản Cho Riêng Bạn",
+      description: "Tùy chọn kích thước, màu sắc và kiểu dáng theo sở thích cá nhân. Chúng tôi đan dệt theo đúng số đo cơ thể của bạn.",
+      actionType: "detail",
+      primaryText: "Tự Thiết Kế Ngay",
+      secondaryText: "Xem Sản Phẩm",
+      secondaryAction: "catalog"
+    }
+  ];
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, [slides.length]);
+
   return (
     <div className={styles.homeTab}>
-      {/* HERO BANNER */}
+      {/* HERO BANNER WITH SLIDESHOW CAROUSEL */}
       <section className={styles.heroSection}>
         <div className={styles.heroBg}>
-          <img 
-            alt="Cozy knit warm wool blankets" 
-            className={`${styles.heroImg} ${styles.animateFadeIn}`} 
-            src="https://lh3.googleusercontent.com/aida/ADBb0ugGS8xiSKzBXsjv8f1Ndlh_xEwfvoLw4w-Jkz6jpej5o8qs2KX3QclLsivoMQ3mSg2UHI4Exh8_IkKypIdzDstLCP8Expv5nV73exEJ86YzUJcMijfIvK69Z0l5zGnK0GNACMt6puf5FtAxLz3NounFNAIglefpQIoyMa6W9u-XZzDM1q9fAAwZm_lHxUVAv3liK_uJ9vk6B3F1A7APZvVfLYmqMpmMGoDW2zXj0oVelqv11MLtXPcUQTwI"
-          />
-          <div className={styles.heroOverlay}></div>
+          {slides.map((slide, idx) => (
+            <div 
+              key={idx}
+              className={`${styles.slideBgItem} ${currentSlide === idx ? styles.activeSlide : ''}`}
+            >
+              <img 
+                alt={slide.title} 
+                className={styles.heroImg} 
+                src={slide.image}
+              />
+              <div className={styles.heroOverlay}></div>
+            </div>
+          ))}
         </div>
+        
         <div className={styles.containerMax}>
-          <div className={styles.heroText}>
-            <h2 className={styles.animateSlideUp}>Sản Phẩm Từ Tâm - Đan Dệt Yêu Thương</h2>
-            <p className={`${styles.animateSlideUp} ${styles.staggerDelay1}`}>Khám phá bộ sưu tập len Merino cao cấp, được đan tay tỉ mỉ bởi những nghệ nhân tại Tiệm Nhà Zịt.</p>
+          {/* Keyed element forces React to re-trigger slideUp entrance micro-animations on index swap */}
+          <div className={styles.heroText} key={currentSlide}>
+            <h2 className={styles.animateSlideUp}>{slides[currentSlide].title}</h2>
+            <p className={`${styles.animateSlideUp} ${styles.staggerDelay1}`}>{slides[currentSlide].description}</p>
             <div className={`${styles.heroActions} ${styles.animateSlideUp} ${styles.staggerDelay2}`}>
-              <button className={`${styles.btnPrimary} ${styles.hoverScaleBtn}`} onClick={() => setActiveView('catalog')}>
-                Khám Phá Cửa Hàng
+              <button 
+                className={`${styles.btnPrimary} ${styles.hoverScaleBtn}`} 
+                onClick={() => {
+                  if (slides[currentSlide].actionType === 'catalog') {
+                    setActiveView('catalog');
+                  } else {
+                    setSelectedProduct(PRODUCTS[4]);
+                    setActiveView('detail');
+                  }
+                }}
+              >
+                {slides[currentSlide].primaryText}
               </button>
-              <button className={`${styles.btnSecondary} ${styles.hoverScaleBtn}`} onClick={() => { setSelectedProduct(PRODUCTS[4]); setActiveView('detail'); }}>
-                Đặt Đan Theo Yêu Cầu
+              <button 
+                className={`${styles.btnSecondary} ${styles.hoverScaleBtn}`} 
+                onClick={() => {
+                  const secAct = slides[currentSlide].secondaryAction;
+                  if (secAct === 'catalog') {
+                    setActiveView('catalog');
+                  } else if (secAct === 'detail') {
+                    setSelectedProduct(PRODUCTS[4]);
+                    setActiveView('detail');
+                  } else if (secAct === 'story') {
+                    document.querySelector(`.${styles.storySection}`)?.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
+                {slides[currentSlide].secondaryText}
               </button>
             </div>
           </div>
+        </div>
+
+        {/* CAROUSEL CONTROLLER DOT INDICATORS */}
+        <div className={styles.heroIndicators}>
+          {slides.map((_, idx) => (
+            <button 
+              key={idx}
+              className={`${styles.indicatorDot} ${currentSlide === idx ? styles.activeIndicator : ''}`}
+              onClick={() => setCurrentSlide(idx)}
+              aria-label={`Slide ${idx + 1}`}
+            />
+          ))}
         </div>
       </section>
 

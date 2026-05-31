@@ -85,20 +85,34 @@ $color-border: #c2c8c0; // Outline variant
   font-size: 14px;
   font-weight: 600;
   padding: 8px 16px;
-  border-radius: 99px;
   color: rgba($color-charcoal, 0.7);
   cursor: pointer;
-  transition: all 0.3s ease;
+  position: relative;
+  transition: color 0.3s ease;
 
   &:hover {
     color: $color-sage;
   }
 
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 16px;
+    right: 16px;
+    height: 2px;
+    background-color: $color-sage;
+    transform: scaleX(0);
+    transform-origin: bottom center;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
   &.active {
     color: $color-sage;
-    border-bottom: 2px solid $color-sage;
-    border-radius: 0;
-    padding-bottom: 4px;
+
+    &::after {
+      transform: scaleX(1);
+    }
   }
 }
 
@@ -223,6 +237,51 @@ $color-border: #c2c8c0; // Outline variant
   position: absolute;
   inset: 0;
   z-index: 0;
+}
+
+.slideBgItem {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+
+  &.activeSlide {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.heroIndicators {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 20;
+}
+
+.indicatorDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 99px;
+  background-color: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+
+  &.activeIndicator {
+    background-color: $color-sage;
+    width: 28px;
+    border-color: $color-sage;
+  }
 }
 
 .heroImg {
@@ -2522,14 +2581,17 @@ $color-border: #c2c8c0; // Outline variant
 
 .staggerDelay1 {
   transition-delay: 100ms;
+  animation-delay: 100ms;
 }
 
 .staggerDelay2 {
   transition-delay: 200ms;
+  animation-delay: 200ms;
 }
 
 .staggerDelay3 {
   transition-delay: 300ms;
+  animation-delay: 300ms;
 }
 
 .animateFadeIn {
