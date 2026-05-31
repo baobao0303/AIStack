@@ -57,36 +57,36 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "package-lock.json",
-        "hash": "3684368496026388459"
-      },
-      {
-        "file": "package.json",
-        "hash": "2391517790195664756"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "3578037404204155601"
-      },
-      {
-        "file": "README.md",
-        "hash": "11199411773125993063"
+        "file": ".nxignore",
+        "hash": "16904018250184961811"
       },
       {
         "file": "nx.json",
         "hash": "9392488300530054959"
       },
       {
-        "file": "eslint.config.mjs",
-        "hash": "3462096019013144053"
+        "file": "package.json",
+        "hash": "11039934904927527366"
       },
       {
-        "file": ".nxignore",
-        "hash": "16904018250184961811"
+        "file": "README.md",
+        "hash": "11199411773125993063"
       },
       {
         "file": ".prettierrc",
         "hash": "16267754514737964994"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "3684368496026388459"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "3578037404204155601"
+      },
+      {
+        "file": "eslint.config.mjs",
+        "hash": "3462096019013144053"
       },
       {
         "file": ".prettierignore",
@@ -94,6 +94,36 @@
       }
     ],
     "projectFileMap": {
+      "shared-utils": [
+        {
+          "file": "libs/shared-utils/README.md",
+          "hash": "16763671309847105818"
+        },
+        {
+          "file": "libs/shared-utils/eslint.config.mjs",
+          "hash": "2624537849564014525"
+        },
+        {
+          "file": "libs/shared-utils/project.json",
+          "hash": "11446200766455598644"
+        },
+        {
+          "file": "libs/shared-utils/src/index.ts",
+          "hash": "2115022695656941492"
+        },
+        {
+          "file": "libs/shared-utils/src/lib/shared-utils.ts",
+          "hash": "393383238747502460"
+        },
+        {
+          "file": "libs/shared-utils/tsconfig.json",
+          "hash": "6159797437362864955"
+        },
+        {
+          "file": "libs/shared-utils/tsconfig.lib.json",
+          "hash": "15798669420171897096"
+        }
+      ],
       "shared-config": [
         {
           "file": "libs/shared-config/README.md",
@@ -121,6 +151,36 @@
         },
         {
           "file": "libs/shared-config/tsconfig.lib.json",
+          "hash": "15798669420171897096"
+        }
+      ],
+      "shared-api": [
+        {
+          "file": "libs/shared-api/README.md",
+          "hash": "4373489930994176579"
+        },
+        {
+          "file": "libs/shared-api/eslint.config.mjs",
+          "hash": "2624537849564014525"
+        },
+        {
+          "file": "libs/shared-api/project.json",
+          "hash": "4645157912812262816"
+        },
+        {
+          "file": "libs/shared-api/src/index.ts",
+          "hash": "5072728333800078275"
+        },
+        {
+          "file": "libs/shared-api/src/lib/shared-api.ts",
+          "hash": "14878882240123191496"
+        },
+        {
+          "file": "libs/shared-api/tsconfig.json",
+          "hash": "6159797437362864955"
+        },
+        {
+          "file": "libs/shared-api/tsconfig.lib.json",
           "hash": "15798669420171897096"
         }
       ],
@@ -207,30 +267,90 @@
           "hash": "10650950471711549738"
         }
       ],
-      "shared-layout": [
+      "shared-auth": [
         {
-          "file": "libs/shared-layout/.babelrc",
+          "file": "libs/shared-auth/README.md",
+          "hash": "18368541109435954817"
+        },
+        {
+          "file": "libs/shared-auth/eslint.config.mjs",
+          "hash": "2624537849564014525"
+        },
+        {
+          "file": "libs/shared-auth/project.json",
+          "hash": "10886298955429895006"
+        },
+        {
+          "file": "libs/shared-auth/src/index.ts",
+          "hash": "17210863074906492802"
+        },
+        {
+          "file": "libs/shared-auth/src/lib/shared-auth.ts",
+          "hash": "9175713305409945288"
+        },
+        {
+          "file": "libs/shared-auth/tsconfig.json",
+          "hash": "6159797437362864955"
+        },
+        {
+          "file": "libs/shared-auth/tsconfig.lib.json",
+          "hash": "15798669420171897096"
+        }
+      ],
+      "shared-ui": [
+        {
+          "file": "libs/shared-ui/.babelrc",
           "hash": "2946678488919325452"
         },
         {
-          "file": "libs/shared-layout/README.md",
-          "hash": "12339328957930107041"
+          "file": "libs/shared-ui/README.md",
+          "hash": "1173670062938964454"
         },
         {
-          "file": "libs/shared-layout/project.json",
-          "hash": "16386483216103273184"
+          "file": "libs/shared-ui/project.json",
+          "hash": "1974437768734572024"
         },
         {
-          "file": "libs/shared-layout/src/index.ts",
+          "file": "libs/shared-ui/src/index.ts",
           "hash": "3244421341483603138"
         },
         {
-          "file": "libs/shared-layout/tsconfig.json",
+          "file": "libs/shared-ui/tsconfig.json",
           "hash": "14088618039610991405"
         },
         {
-          "file": "libs/shared-layout/tsconfig.lib.json",
+          "file": "libs/shared-ui/tsconfig.lib.json",
           "hash": "10514678202960682525"
+        }
+      ],
+      "shared-types": [
+        {
+          "file": "libs/shared-types/README.md",
+          "hash": "5891734351485625143"
+        },
+        {
+          "file": "libs/shared-types/eslint.config.mjs",
+          "hash": "2624537849564014525"
+        },
+        {
+          "file": "libs/shared-types/project.json",
+          "hash": "11620605097954518575"
+        },
+        {
+          "file": "libs/shared-types/src/index.ts",
+          "hash": "17477233218007285873"
+        },
+        {
+          "file": "libs/shared-types/src/lib/shared-types.ts",
+          "hash": "11715063447328923451"
+        },
+        {
+          "file": "libs/shared-types/tsconfig.json",
+          "hash": "6159797437362864955"
+        },
+        {
+          "file": "libs/shared-types/tsconfig.lib.json",
+          "hash": "15798669420171897096"
         }
       ],
       "storefront-web": [
@@ -271,7 +391,7 @@
         },
         {
           "file": "apps/storefront-web/src/app/(authen)/sign-in/page.tsx",
-          "hash": "3708366368535206464",
+          "hash": "11228259439265632646",
           "deps": [
             "npm:react",
             "npm:next"
@@ -279,7 +399,7 @@
         },
         {
           "file": "apps/storefront-web/src/app/(authen)/sign-up/page.tsx",
-          "hash": "8261242192851049225",
+          "hash": "8382925965154717792",
           "deps": [
             "npm:react",
             "npm:next"
@@ -315,7 +435,7 @@
         },
         {
           "file": "apps/storefront-web/src/app/layout.tsx",
-          "hash": "13360916791916277653"
+          "hash": "7774644196413341045"
         },
         {
           "file": "apps/storefront-web/src/app/page.tsx",
@@ -476,7 +596,7 @@
         },
         {
           "file": "apps/storefront-web/src/shared/styles/page.module.scss",
-          "hash": "8444352880810240142"
+          "hash": "18227803494834194715"
         },
         {
           "file": "apps/storefront-web/src/shared/ui/ShaderBackground.tsx",
@@ -515,7 +635,7 @@
         },
         {
           "file": "apps/storefront-web/src/views/login/ui/LoginView.tsx",
-          "hash": "7356023981894884290",
+          "hash": "13752661714956147747",
           "deps": [
             "npm:react",
             "npm:next"
@@ -567,150 +687,30 @@
           "hash": "16661474356264141605"
         }
       ],
-      "shared-types": [
+      "shared-layout": [
         {
-          "file": "libs/shared-types/README.md",
-          "hash": "5891734351485625143"
-        },
-        {
-          "file": "libs/shared-types/eslint.config.mjs",
-          "hash": "2624537849564014525"
-        },
-        {
-          "file": "libs/shared-types/project.json",
-          "hash": "11620605097954518575"
-        },
-        {
-          "file": "libs/shared-types/src/index.ts",
-          "hash": "17477233218007285873"
-        },
-        {
-          "file": "libs/shared-types/src/lib/shared-types.ts",
-          "hash": "11715063447328923451"
-        },
-        {
-          "file": "libs/shared-types/tsconfig.json",
-          "hash": "6159797437362864955"
-        },
-        {
-          "file": "libs/shared-types/tsconfig.lib.json",
-          "hash": "15798669420171897096"
-        }
-      ],
-      "shared-ui": [
-        {
-          "file": "libs/shared-ui/.babelrc",
+          "file": "libs/shared-layout/.babelrc",
           "hash": "2946678488919325452"
         },
         {
-          "file": "libs/shared-ui/README.md",
-          "hash": "1173670062938964454"
+          "file": "libs/shared-layout/README.md",
+          "hash": "12339328957930107041"
         },
         {
-          "file": "libs/shared-ui/project.json",
-          "hash": "1974437768734572024"
+          "file": "libs/shared-layout/project.json",
+          "hash": "16386483216103273184"
         },
         {
-          "file": "libs/shared-ui/src/index.ts",
+          "file": "libs/shared-layout/src/index.ts",
           "hash": "3244421341483603138"
         },
         {
-          "file": "libs/shared-ui/tsconfig.json",
+          "file": "libs/shared-layout/tsconfig.json",
           "hash": "14088618039610991405"
         },
         {
-          "file": "libs/shared-ui/tsconfig.lib.json",
+          "file": "libs/shared-layout/tsconfig.lib.json",
           "hash": "10514678202960682525"
-        }
-      ],
-      "shared-utils": [
-        {
-          "file": "libs/shared-utils/README.md",
-          "hash": "16763671309847105818"
-        },
-        {
-          "file": "libs/shared-utils/eslint.config.mjs",
-          "hash": "2624537849564014525"
-        },
-        {
-          "file": "libs/shared-utils/project.json",
-          "hash": "11446200766455598644"
-        },
-        {
-          "file": "libs/shared-utils/src/index.ts",
-          "hash": "2115022695656941492"
-        },
-        {
-          "file": "libs/shared-utils/src/lib/shared-utils.ts",
-          "hash": "393383238747502460"
-        },
-        {
-          "file": "libs/shared-utils/tsconfig.json",
-          "hash": "6159797437362864955"
-        },
-        {
-          "file": "libs/shared-utils/tsconfig.lib.json",
-          "hash": "15798669420171897096"
-        }
-      ],
-      "shared-api": [
-        {
-          "file": "libs/shared-api/README.md",
-          "hash": "4373489930994176579"
-        },
-        {
-          "file": "libs/shared-api/eslint.config.mjs",
-          "hash": "2624537849564014525"
-        },
-        {
-          "file": "libs/shared-api/project.json",
-          "hash": "4645157912812262816"
-        },
-        {
-          "file": "libs/shared-api/src/index.ts",
-          "hash": "5072728333800078275"
-        },
-        {
-          "file": "libs/shared-api/src/lib/shared-api.ts",
-          "hash": "14878882240123191496"
-        },
-        {
-          "file": "libs/shared-api/tsconfig.json",
-          "hash": "6159797437362864955"
-        },
-        {
-          "file": "libs/shared-api/tsconfig.lib.json",
-          "hash": "15798669420171897096"
-        }
-      ],
-      "shared-auth": [
-        {
-          "file": "libs/shared-auth/README.md",
-          "hash": "18368541109435954817"
-        },
-        {
-          "file": "libs/shared-auth/eslint.config.mjs",
-          "hash": "2624537849564014525"
-        },
-        {
-          "file": "libs/shared-auth/project.json",
-          "hash": "10886298955429895006"
-        },
-        {
-          "file": "libs/shared-auth/src/index.ts",
-          "hash": "17210863074906492802"
-        },
-        {
-          "file": "libs/shared-auth/src/lib/shared-auth.ts",
-          "hash": "9175713305409945288"
-        },
-        {
-          "file": "libs/shared-auth/tsconfig.json",
-          "hash": "6159797437362864955"
-        },
-        {
-          "file": "libs/shared-auth/tsconfig.lib.json",
-          "hash": "15798669420171897096"
         }
       ]
     }

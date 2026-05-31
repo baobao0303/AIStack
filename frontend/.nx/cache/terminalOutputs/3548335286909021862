@@ -21,9 +21,9 @@
 ├ ○ /catalog                             1.86 kB         [37m[1m116 kB[22m[39m
 ├ ○ /checkout                            2.04 kB         [37m[1m117 kB[22m[39m
 ├ ○ /detail                              3.18 kB         [37m[1m118 kB[22m[39m
-├ ○ /sign-in                             7.27 kB         [37m[1m108 kB[22m[39m
-├ ○ /sign-up                             7.41 kB         [37m[1m108 kB[22m[39m
-└ ○ /tracking                            2.02 kB         [37m[1m116 kB[22m[39m
+├ ○ /sign-in                             8.37 kB         [37m[1m109 kB[22m[39m
+├ ○ /sign-up                             7.95 kB         [37m[1m109 kB[22m[39m
+└ ○ /tracking                            2.02 kB         [37m[1m117 kB[22m[39m
 + First Load JS shared by all             [37m[1m101 kB[22m[39m
   ├ chunks/315-2ab105b66baa9fa9.js       45.8 kB
   ├ chunks/87c73c54-4706085ff9cd1421.js  53.3 kB
