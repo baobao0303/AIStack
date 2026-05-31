@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { ViewType } from '../../../shared/model/types';
 
 interface LoginViewProps {
@@ -9,6 +10,7 @@ interface LoginViewProps {
 }
 
 export default function LoginView({ styles, setActiveView }: LoginViewProps) {
+  const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -150,7 +152,7 @@ export default function LoginView({ styles, setActiveView }: LoginViewProps) {
 
         <div className={styles.loginFooter}>
           <span>Bạn chưa có tài khoản? </span>
-          <button type="button" onClick={() => alert('Chức năng Đăng ký tài khoản mới đang liên kết!')}>
+          <button type="button" onClick={() => router.push('/sign-up')}>
             Tạo tài khoản tại đây
           </button>
         </div>

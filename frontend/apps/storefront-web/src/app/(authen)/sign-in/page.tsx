@@ -2,9 +2,9 @@
 
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import LoginView from '../../views/login/ui/LoginView';
-import styles from '../../shared/styles/page.module.scss';
-import ShaderBackground from '../../shared/ui/ShaderBackground';
+import LoginView from '../../../views/login/ui/LoginView';
+import styles from '../../../shared/styles/page.module.scss';
+import ShaderBackground from '../../../shared/ui/ShaderBackground';
 
 export default function SignInPage() {
   const router = useRouter();
