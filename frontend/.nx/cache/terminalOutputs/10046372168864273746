@@ -1,0 +1,28 @@
+[2m> [22mnext dev
+
+   [1m[38;2;173;127;168m▲ Next.js 15.2.9[39m[22m
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.88.130:3000
+
+ [32m[1m✓[22m[39m Starting...
+ [32m[1m✓[22m[39m Ready in 2.4s
+ [37m[1m○[22m[39m Compiling / ...
+ [32m[1m✓[22m[39m Compiled / in 1458ms (1011 modules)
+ GET / [32m200[39m in 1881ms
+ [37m[1m○[22m[39m Compiling /_not-found ...
+ [32m[1m✓[22m[39m Compiled /_not-found in 1936ms (1015 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json [33m404[39m in 2128ms
+ [32m[1m✓[22m[39m Compiled in 1611ms (1029 modules)
+ GET / [32m200[39m in 63ms
+ [32m[1m✓[22m[39m Compiled in 293ms (1025 modules)
+ GET / [32m200[39m in 53ms
+ [32m[1m✓[22m[39m Compiled in 2.4s (1025 modules)
+ GET / [32m200[39m in 172ms
+ [32m[1m✓[22m[39m Compiled /_not-found in 287ms (1015 modules)
+ GET /_next/static/css/app/layout.css?v=1780237376715 [33m404[39m in 587ms
+ GET /_next/static/css/app/page.css?v=1780237376715 [33m404[39m in 525ms
+ [32m[1m✓[22m[39m Compiled in 2.4s (1015 modules)
+ GET /_next/static/css/app/layout.css?1780237386962 [33m404[39m in 602ms
+ GET / [32m200[39m in 135ms
+ GET /_next/static/css/app/layout.css?v=1780237387611 [33m404[39m in 88ms
+^C[?25h

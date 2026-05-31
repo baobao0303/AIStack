@@ -1,0 +1,30 @@
+> next build
+
+   [1m[38;2;173;127;168m▲ Next.js 15.2.9[39m[22m
+
+ [37m[1m [22m[39m Creating an optimized production build ...
+[31mFailed to compile.
+[39m
+../../libs/shared-react/src/lib/ui/views/HomeView.tsx
+Error:   [31mx[0m Unexpected token `div`. Expected jsx identifier
+     ,-[[36;1;4m/Users/bao312/Desktop/Test/frontend/libs/shared-react/src/lib/ui/views/HomeView.tsx[0m:117:1]
+ [2m114[0m |   }, [slides.length]);
+ [2m115[0m | 
+ [2m116[0m |   return (
+ [2m117[0m |     <div className={styles.homeTab}>
+     : [35;1m     ^^^[0m
+ [2m118[0m |       {/* HERO BANNER WITH SLIDESHOW CAROUSEL */}
+ [2m119[0m |       <section className={styles.heroSection}>
+ [2m120[0m |         <div className={styles.heroBg}>
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+../../libs/shared-react/src/lib/ui/views/HomeView.tsx
+../../libs/shared-react/src/index.ts
+./src/app/checkout/page.tsx
+
+
+> Build failed because of webpack errors

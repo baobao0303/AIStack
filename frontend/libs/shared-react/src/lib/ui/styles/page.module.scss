@@ -4493,8 +4493,15 @@ $color-border: #c2c8c0; // Outline variant
 
 .mapSvgWrapper {
   position: relative;
-  width: 320px;
-  height: 480px;
+  width: 560px;
+  height: 560px;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+
+  @media (max-width: 480px) {
+    width: 320px;
+    height: 320px;
+  }
 }
 
 .vietnamPath {
@@ -4524,14 +4531,15 @@ $color-border: #c2c8c0; // Outline variant
   &:hover {
     .pinDot {
       transform: scale(1.4);
-      background-color: $color-gold;
-      box-shadow: 0 0 16px $color-gold;
+      background-color: $color-white;
+      border: 3px solid $color-sage;
+      box-shadow: 0 0 16px rgba($color-sage, 0.5);
     }
     
     .pinPulse {
       animation: none;
       transform: scale(2);
-      border-color: $color-gold;
+      border-color: $color-sage;
       opacity: 0;
     }
   }
@@ -4539,12 +4547,13 @@ $color-border: #c2c8c0; // Outline variant
   &.activePin {
     .pinDot {
       transform: scale(1.5);
-      background-color: $color-gold;
-      box-shadow: 0 0 20px $color-gold;
+      background-color: $color-white;
+      border: 3.5px solid $color-sage;
+      box-shadow: 0 0 20px rgba($color-sage, 0.6);
     }
 
     .pinPulse {
-      border-color: $color-gold;
+      border-color: $color-sage;
     }
   }
 }

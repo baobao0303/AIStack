@@ -1,0 +1,76 @@
+[2m> [22mnext dev
+
+   [1m[38;2;173;127;168m▲ Next.js 15.2.9[39m[22m
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.88.130:3000
+
+ [32m[1m✓[22m[39m Starting...
+ [32m[1m✓[22m[39m Ready in 1531ms
+ [37m[1m○[22m[39m Compiling / ...
+ [32m[1m✓[22m[39m Compiled / in 5.2s (1061 modules)
+ GET / [32m200[39m in 5603ms
+ [37m[1m○[22m[39m Compiling /_not-found ...
+ [32m[1m✓[22m[39m Compiled /_not-found in 6.9s (1029 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json [33m404[39m in 6999ms
+ GET / [32m200[39m in 149ms
+ [32m[1m✓[22m[39m Compiled in 1477ms (1025 modules)
+ GET / [32m200[39m in 226ms
+ [32m[1m✓[22m[39m Compiled in 1588ms (1034 modules)
+ GET / [32m200[39m in 116ms
+[Error: ENOENT: no such file or directory, stat '/Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/cache/webpack/client-development/1.pack.gz'] {
+  errno: [33m-2[39m,
+  code: [32m'ENOENT'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/cache/webpack/client-development/1.pack.gz'[39m
+}
+ [31m[1m⨯[22m[39m unhandledRejection: [Error: ENOENT: no such file or directory, stat '/Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/cache/webpack/client-development/1.pack.gz'] {
+  errno: [33m-2[39m,
+  code: [32m'ENOENT'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/cache/webpack/client-development/1.pack.gz'[39m
+}
+ [31m[1m⨯[22m[39m unhandledRejection:  [Error: ENOENT: no such file or directory, stat '/Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/cache/webpack/client-development/1.pack.gz'] {
+  errno: [33m-2[39m,
+  code: [32m'ENOENT'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/cache/webpack/client-development/1.pack.gz'[39m
+}
+<w> [1m[33m[webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, stat '/Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/cache/webpack/client-development/1.pack.gz'[39m[22m
+[Error: ENOENT: no such file or directory, stat '/Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/cache/webpack/server-development/0.pack.gz'] {
+  errno: [33m-2[39m,
+  code: [32m'ENOENT'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/cache/webpack/server-development/0.pack.gz'[39m
+}
+ [31m[1m⨯[22m[39m unhandledRejection: [Error: ENOENT: no such file or directory, stat '/Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/cache/webpack/server-development/0.pack.gz'] {
+  errno: [33m-2[39m,
+  code: [32m'ENOENT'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/cache/webpack/server-development/0.pack.gz'[39m
+}
+ [31m[1m⨯[22m[39m unhandledRejection:  [Error: ENOENT: no such file or directory, stat '/Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/cache/webpack/server-development/0.pack.gz'] {
+  errno: [33m-2[39m,
+  code: [32m'ENOENT'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/cache/webpack/server-development/0.pack.gz'[39m
+}
+[Error: ENOENT: no such file or directory, stat '/Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/cache/webpack/server-development/1.pack.gz'] {
+  errno: [33m-2[39m,
+  code: [32m'ENOENT'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/cache/webpack/server-development/1.pack.gz'[39m
+}
+ [31m[1m⨯[22m[39m unhandledRejection: [Error: ENOENT: no such file or directory, stat '/Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/cache/webpack/server-development/1.pack.gz'] {
+  errno: [33m-2[39m,
+  code: [32m'ENOENT'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/cache/webpack/server-development/1.pack.gz'[39m
+}
+ [31m[1m⨯[22m[39m unhandledRejection:  [Error: ENOENT: no such file or directory, stat '/Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/cache/webpack/server-development/1.pack.gz'] {
+  errno: [33m-2[39m,
+  code: [32m'ENOENT'[39m,
+  syscall: [32m'stat'[39m,
+  path: [32m'/Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/cache/webpack/server-development/1.pack.gz'[39m
+}
+<w> [1m[33m[webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, stat '/Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/cache/webpack/server-development/0.pack.gz'[39m[22m
+^C[?25h
