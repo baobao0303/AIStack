@@ -5493,3 +5493,18 @@
 [NX v20.8.4 Daemon Server] - 2026-05-31T05:21:38.652Z - [SYNC]: project graph hash is the same, not collecting task sync generators
 [NX v20.8.4 Daemon Server] - 2026-05-31T05:21:38.652Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
 [NX v20.8.4 Daemon Server] - 2026-05-31T05:21:38.652Z - Time taken for 'total execution time for createProjectGraph()' 32.206582999788225ms
+[NX v20.8.4 Daemon Server] - 2026-05-31T05:21:45.527Z - Closed a connection. Number of open connections: 4
+[NX v20.8.4 Daemon Server] - 2026-05-31T05:21:45.540Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX v20.8.4 Daemon Server] - 2026-05-31T05:21:45.540Z - Done responding to the client recordOutputsHash
+[NX v20.8.4 Daemon Server] - 2026-05-31T05:21:45.540Z - Handled RECORD_OUTPUTS_HASH. Handling time: 5. Response time: 0.
+[NX v20.8.4 Daemon Server] - 2026-05-31T05:21:45.547Z - [REQUEST]: Responding to the client. handleRecordTaskRuns
+[NX v20.8.4 Daemon Server] - 2026-05-31T05:21:45.547Z - Done responding to the client handleRecordTaskRuns
+[NX v20.8.4 Daemon Server] - 2026-05-31T05:21:45.547Z - Handled RECORD_TASK_RUNS. Handling time: 1. Response time: 0.
+[NX v20.8.4 Daemon Server] - 2026-05-31T05:21:45.548Z - [REQUEST]: Responding to the client. handleGetFlakyTasks
+[NX v20.8.4 Daemon Server] - 2026-05-31T05:21:45.548Z - Done responding to the client handleGetFlakyTasks
+[NX v20.8.4 Daemon Server] - 2026-05-31T05:21:45.548Z - Handled GET_FLAKY_TASKS. Handling time: 0. Response time: 0.
+[NX v20.8.4 Daemon Server] - 2026-05-31T05:21:45.560Z - [REQUEST]: Responding to the client. handleRunPostTasksExecution
+[NX v20.8.4 Daemon Server] - 2026-05-31T05:21:45.561Z - Done responding to the client handleRunPostTasksExecution
+[NX v20.8.4 Daemon Server] - 2026-05-31T05:21:45.561Z - Handled POST_TASKS_EXECUTION. Handling time: 2. Response time: 1.
+[NX v20.8.4 Daemon Server] - 2026-05-31T05:21:45.561Z - Time taken for 'postTasksExecution' 1.1886660000309348ms
+[NX v20.8.4 Daemon Server] - 2026-05-31T05:21:45.574Z - Closed a connection. Number of open connections: 3
