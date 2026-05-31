@@ -15,14 +15,23 @@ import Footer from '../widgets/footer/ui/Footer';
 import Navbar from '../widgets/navbar/ui/Navbar';
 
 // Import shared types
-import { Product, CartItem, Order } from '../shared/model/types';
+import { Product, CartItem, Order, ViewType } from '../shared/model/types';
+
+// Shared hooks
+import { useScrollReveal } from '../shared/lib/useScrollReveal';
+import { useClickOutside } from '../shared/lib/useClickOutside';
 
 // Product catalog data
 import { PRODUCTS } from '../entities/product/data/products';
 
+// Local id generator (crypto.randomUUID with a safe fallback)
+const createId = (prefix: string): string =>
+  typeof crypto !== 'undefined' && 'randomUUID' in crypto
+    ? `${prefix}-${crypto.randomUUID()}`
+    : `${prefix}-${Date.now()}-${Math.round(Math.random() * 1e9)}`;
 
 export default function StorefrontIndex() {
-  const [activeView, setActiveView] = useState<'home' | 'catalog' | 'detail' | 'checkout' | 'tracking'>('home');
+  const [activeView, setActiveView] = useState<ViewType>('home');
   const [selectedProduct, setSelectedProduct] = useState<Product>(PRODUCTS[4]);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
@@ -107,7 +116,7 @@ export default function StorefrontIndex() {
     e.stopPropagation();
     const isFashion = prod.category === 'Thời Trang' || prod.category === 'Mũ Len';
     const newItem: CartItem = {
-      id: `cart-${Date.now()}-${Math.random()}`,
+      id: createId('cart'),
       product: prod,
       quantity: 1,
       customColor: 'Sage Green',
@@ -116,14 +125,14 @@ export default function StorefrontIndex() {
       height: isFashion ? '165' : 'N/A',
       customNotes: ''
     };
-    setCart([...cart, newItem]);
+    setCart((prev) => [...prev, newItem]);
     setIsCartOpen(true);
   };
 
   // Handle Add to Cart from Customizer Detail Page
   const handleAddToCartCustom = () => {
     const newItem: CartItem = {
-      id: `cart-${Date.now()}-${Math.random()}`,
+      id: createId('cart'),
       product: selectedProduct,
       quantity: 1,
       customColor,
@@ -132,16 +141,16 @@ export default function StorefrontIndex() {
       height,
       customNotes
     };
-    setCart([...cart, newItem]);
+    setCart((prev) => [...prev, newItem]);
     setIsCartOpen(true);
   };
 
   const removeFromCart = (itemId: string) => {
-    setCart(cart.filter((item) => item.id !== itemId));
+    setCart((prev) => prev.filter((item) => item.id !== itemId));
   };
 
   // Simulated Payment Checkout
-  const handleCheckoutSubmit = (e: React.FormEvent) => {
+  const handleCheckoutSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     if (!shippingForm.name || !shippingForm.email || !shippingForm.address) {
       alert('Vui lòng điền đầy đủ thông tin giao hàng.');
@@ -158,7 +167,7 @@ export default function StorefrontIndex() {
         status: 'received',
         date: new Date().toLocaleDateString('vi-VN')
       };
-      setOrderHistory([newOrder, ...orderHistory]);
+      setOrderHistory((prev) => [newOrder, ...prev]);
       setActiveOrder(newOrder);
       setCart([]);
       setCheckoutLoading(false);
@@ -175,10 +184,10 @@ export default function StorefrontIndex() {
 
     // Simulate color matches (just for interactivity demonstration)
     const matchesColor = selectedColors.length === 0 ||
-      selectedColors.includes('Sage') && prod.id === 'prod-5' ||
-      selectedColors.includes('Cream') && prod.id === 'prod-1' ||
-      selectedColors.includes('Oatmeal') && prod.id === 'prod-2' ||
-      selectedColors.includes('Lavender') && prod.id === 'prod-4';
+      (selectedColors.includes('Sage') && prod.id === 'prod-5') ||
+      (selectedColors.includes('Cream') && prod.id === 'prod-1') ||
+      (selectedColors.includes('Oatmeal') && prod.id === 'prod-2') ||
+      (selectedColors.includes('Lavender') && prod.id === 'prod-4');
 
     const matchesPrice = prod.price <= maxPrice;
 
@@ -186,19 +195,15 @@ export default function StorefrontIndex() {
   });
 
   const toggleWoolType = (type: string) => {
-    if (selectedWoolTypes.includes(type)) {
-      setSelectedWoolTypes(selectedWoolTypes.filter((t) => t !== type));
-    } else {
-      setSelectedWoolTypes([...selectedWoolTypes, type]);
-    }
+    setSelectedWoolTypes((prev) =>
+      prev.includes(type) ? prev.filter((t) => t !== type) : [...prev, type]
+    );
   };
 
   const toggleColorFilter = (color: string) => {
-    if (selectedColors.includes(color)) {
-      setSelectedColors(selectedColors.filter((c) => c !== color));
-    } else {
-      setSelectedColors([...selectedColors, color]);
-    }
+    setSelectedColors((prev) =>
+      prev.includes(color) ? prev.filter((c) => c !== color) : [...prev, color]
+    );
   };
 
   // Simulate Order Tracking Status Transitions
@@ -218,62 +223,11 @@ export default function StorefrontIndex() {
     }
   }, [activeOrder, activeView]);
 
-  // Scroll Reveal logic using Intersection Observer
-  useEffect(() => {
-    const observerOptions = {
-      threshold: 0.15,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add(styles.isVisible);
-        }
-      });
-    }, observerOptions);
-
-    const elements = document.querySelectorAll('.reveal-on-scroll');
-    elements.forEach(el => observer.observe(el));
-
-    const timeoutId = setTimeout(() => {
-      elements.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight) {
-          el.classList.add(styles.isVisible);
-        }
-      });
-    }, 100);
-
-    return () => {
-      observer.disconnect();
-      clearTimeout(timeoutId);
-    };
-  }, [activeView]);
+  // Scroll Reveal logic (Intersection Observer) — re-runs when the view changes
+  useScrollReveal(styles.isVisible, [activeView]);
 
   // Close Cart Modal when clicking or tapping outside of it
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent | TouchEvent) {
-      if (isCartOpen) {
-        const modalElement = document.getElementById('cart-modal');
-        const triggerElement = document.getElementById('cart-trigger');
-        if (
-          modalElement && 
-          !modalElement.contains(event.target as Node) &&
-          (!triggerElement || !triggerElement.contains(event.target as Node))
-        ) {
-          setIsCartOpen(false);
-        }
-      }
-    }
-
-    document.addEventListener('mousedown', handleClickOutside);
-    document.addEventListener('touchstart', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('touchstart', handleClickOutside);
-    };
-  }, [isCartOpen]);
+  useClickOutside(isCartOpen, ['cart-modal', 'cart-trigger'], () => setIsCartOpen(false));
 
   return (
     <div className={styles.storefrontLayout}>

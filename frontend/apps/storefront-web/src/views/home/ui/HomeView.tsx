@@ -143,20 +143,73 @@ export default function HomeView({
         <div className={styles.containerMax}>
           <div className={styles.brandStory}>
             <div className={styles.storyVisual}>
+              <div className={styles.storyBgDecor}></div>
               <div className={styles.storyBorderOffset}></div>
               <img 
                 alt="Knitting yarn wool details" 
                 className={styles.storyImg} 
                 src="https://lh3.googleusercontent.com/aida/ADBb0uhvpx8zRyIkiRxiqR5TYKu0lVSNibzq_zBeQve0TTm-3dGQykEsnaiMfNG28NfXDihyTrMyl6A2rbAVvVNpQYYub2wts4h-7flmo59K_0jpzXdRFc3nPKLRS7QHxhbpTpd4IHhseUNkyV9C3eQLjjehIQH_5tBzOo7mizGcWa-NN3GGSSPH9y1g0i1TK33ziyq9WBZ5UBC3ykeVjMxhk_rPmyfdfacFbtu-YmQKdTXA0E45BVE3QdM4v1f7"
               />
+              <div className={styles.storyFloatingCard}>
+                <div className={styles.floatingCardImgWrapper}>
+                  <img 
+                    alt="Detail of organic wool" 
+                    src="https://lh3.googleusercontent.com/aida/ADBb0uhVFoGEYpMQ4ApsytjsctntvFwVW4pWh4s3RwmAkj2nixSjrnQVoB-zrJ1Ev7qEWihr5aJ6r4ooWWRiA3X4Wa4Gu5TEKD8X98XenUtSMQh9VTJviYKHYOoFItDI349VWGISmeVH5Qy5JFFaWsg9AYsDB_DSy89CERvWOKqcfcunAEw707Na5JIvQ2QyiErApQzb8PW4zKbGLVAsLv_PV0vRQ5I4h-CImO74Rz19--UpuVxt8dTPdvLDTTc"
+                    className={styles.floatingCardImg}
+                  />
+                </div>
+                <div className={styles.floatingCardText}>
+                  <span className={styles.floatingCardTitle}>Sợi Len Thượng Hạng</span>
+                  <div className={styles.floatingCardRating}>
+                    <span className="material-symbols-outlined">grade</span>
+                    <span>100% Organic</span>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className={styles.storyText}>
               <span className={styles.storyTagline}>Câu Chuyện Thương Hiệu</span>
-              <h2>Bộ Sưu Tập Nghệ Nhân</h2>
-              <p>Tại Tiệm Nhà Zịt, mỗi mũi đan đều mang theo tâm huyết và câu chuyện riêng. Chúng tôi chọn lọc những sợi len Merino tốt nhất, kết hợp cùng đôi bàn tay khéo léo của người thợ địa phương để tạo nên những sản phẩm không chỉ ấm áp mà còn mang tính nghệ thuật cao.</p>
+              <h2>Bộ Sưu Tập <span className={styles.accentTitle}>Nghệ Nhân</span></h2>
+              <p className={styles.storyParagraph}>
+                <span className={styles.dropCap}>T</span>ại Tiệm Nhà Zịt, mỗi mũi đan đều mang theo tâm huyết và câu chuyện riêng. Chúng tôi chọn lọc những sợi len Merino tốt nhất, kết hợp cùng đôi bàn tay khéo léo của người thợ địa phương để tạo nên những sản phẩm không chỉ ấm áp mà còn mang tính nghệ thuật cao.
+              </p>
+
+              <div className={styles.storyHighlights}>
+                <div className={styles.highlightItem}>
+                  <div className={styles.highlightIcon}>
+                    <span className="material-symbols-outlined">workspace_premium</span>
+                  </div>
+                  <div className={styles.highlightInfo}>
+                    <h4>100% Thủ Công</h4>
+                    <p>Đan móc tỉ mỉ từ nghệ nhân Việt</p>
+                  </div>
+                </div>
+
+                <div className={styles.highlightItem}>
+                  <div className={styles.highlightIcon}>
+                    <span className="material-symbols-outlined">interests</span>
+                  </div>
+                  <div className={styles.highlightInfo}>
+                    <h4>Merino Thượng Hạng</h4>
+                    <p>Sợi len organic siêu mềm và nhẹ</p>
+                  </div>
+                </div>
+
+                <div className={styles.highlightItem}>
+                  <div className={styles.highlightIcon}>
+                    <span className="material-symbols-outlined">local_florist</span>
+                  </div>
+                  <div className={styles.highlightInfo}>
+                    <h4>Nhuộm Thảo Mộc</h4>
+                    <p>Màu tự nhiên an toàn tuyệt đối</p>
+                  </div>
+                </div>
+              </div>
+
               <div className={styles.storyActionRow}>
                 <button className={styles.btnStoryLink} onClick={() => setActiveView('catalog')}>
-                  TÌM HIỂU VỀ CHÚNG TÔI <span className="material-symbols-outlined">arrow_forward</span>
+                  <span>Khám Phá Hành Trình</span>
+                  <span className="material-symbols-outlined">arrow_right_alt</span>
                 </button>
               </div>
             </div>

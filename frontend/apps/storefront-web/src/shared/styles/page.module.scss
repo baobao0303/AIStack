@@ -1982,61 +1982,167 @@ $color-border: #c2c8c0; // Outline variant
 }
 
 // ==================== PREMIUM BRAND STORY SECTION ====================
+// ==================== PREMIUM BRAND STORY SECTION ====================
+.storySection {
+  border-top: 1px solid rgba($color-border, 0.25);
+  border-bottom: 1px solid rgba($color-border, 0.25);
+  background-color: rgba($color-ivory, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
 .brandStory {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.1fr 1fr;
   gap: 80px;
   align-items: center;
-  padding: 64px 0;
+  padding: 96px 0;
 
   @media (max-width: 900px) {
     grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 40px 0;
+    gap: 48px;
+    padding: 64px 0;
   }
 }
 
 .storyVisual {
   position: relative;
   width: 100%;
-  aspect-ratio: 1.1 / 1;
+  aspect-ratio: 1.15 / 1;
   cursor: pointer;
 
   &:hover {
     .storyImg {
-      transform: translateY(-8px) scale(1.02) rotate(-1deg);
-      box-shadow: 0 30px 60px rgba($color-charcoal, 0.15);
+      transform: translateY(-8px) scale(1.025) rotate(-1deg);
+      box-shadow: 0 32px 64px rgba($color-charcoal, 0.15);
     }
 
     .storyBorderOffset {
-      transform: translate(16px, 16px) rotate(2deg) scale(1.02);
-      border-color: rgba($color-sage, 0.6);
-      background-color: rgba($color-beige, 0.15);
+      transform: translate(28px, 28px) rotate(2deg) scale(0.98);
+      border-color: rgba($color-gold, 0.6);
+      background-color: rgba($color-beige, 0.12);
+    }
+
+    .storyFloatingCard {
+      transform: translate(-4px, -4px) scale(1.03);
+      box-shadow: 0 20px 48px rgba($color-charcoal, 0.16);
     }
   }
+}
+
+.storyBgDecor {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba($color-beige, 0.55) 0%, rgba($color-ivory, 0) 70%);
+  top: -60px;
+  left: -60px;
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.85;
+  filter: blur(20px);
 }
 
 .storyBorderOffset {
   position: absolute;
   inset: -16px;
-  border: 1.5px solid rgba($color-beige, 0.8);
-  border-radius: 20px;
-  transform: translate(24px, 24px);
-  z-index: 0;
-  background-color: rgba($color-beige, 0.05);
-  backdrop-filter: blur(4px);
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1.5px solid rgba($color-gold, 0.35);
+  border-radius: 24px;
+  transform: translate(20px, 20px);
+  z-index: 1;
+  background-color: rgba($color-beige, 0.04);
+  backdrop-filter: blur(6px);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .storyImg {
   position: relative;
-  z-index: 10;
+  z-index: 2;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba($color-charcoal, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 20px 44px rgba($color-charcoal, 0.08);
+  border: 1.5px solid rgba($color-white, 0.4);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.storyFloatingCard {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba($color-white, 0.88);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba($color-white, 0.95);
+  box-shadow: 0 16px 36px rgba($color-charcoal, 0.1);
+  padding: 12px 18px;
+  border-radius: 16px;
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: floatCard 6s ease-in-out infinite;
+
+  @media (max-width: 600px) {
+    right: 0px;
+    bottom: -15px;
+    padding: 10px 14px;
+  }
+}
+
+.floatingCardImgWrapper {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid $color-gold;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba($color-gold, 0.15);
+}
+
+.floatingCardImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.floatingCardText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.floatingCardTitle {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: $color-charcoal;
+  white-space: nowrap;
+}
+
+.floatingCardRating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  color: $color-sage;
+
+  span:first-child {
+    font-size: 14px;
+    color: $color-gold;
+  }
+}
+
+@keyframes floatCard {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 .storyText {
@@ -2080,16 +2186,112 @@ $color-border: #c2c8c0; // Outline variant
     margin: 8px 0 0 0;
 
     @media (max-width: 900px) {
-      font-size: 32px;
+      font-size: 36px;
     }
+  }
+
+  .accentTitle {
+    color: $color-sage;
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background-color: rgba($color-gold, 0.2);
+      z-index: -1;
+      border-radius: 99px;
+    }
+  }
+
+  .storyParagraph {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 15.5px;
+    line-height: 1.9;
+    color: rgba($color-charcoal, 0.72);
+    margin: 8px 0 0 0;
+    text-align: justify;
+
+    .dropCap {
+      float: left;
+      font-family: 'Playfair Display', serif;
+      font-size: 54px;
+      line-height: 0.8;
+      font-weight: 700;
+      color: $color-sage;
+      margin-right: 12px;
+      margin-top: 4px;
+      text-shadow: 3px 3px 0px rgba($color-beige, 0.5);
+    }
+  }
+}
+
+.storyHighlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  margin: 16px 0 8px 0;
+  padding: 24px 0;
+  border-top: 1.5px dashed rgba($color-border, 0.4);
+  border-bottom: 1.5px dashed rgba($color-border, 0.4);
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 16px 0;
+  }
+}
+
+.highlightItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.highlightIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba($color-sage, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-sage;
+  flex-shrink: 0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+  span {
+    font-size: 18px;
+  }
+
+  &:hover {
+    background-color: $color-sage;
+    color: $color-white;
+    transform: rotate(15deg) scale(1.1);
+  }
+}
+
+.highlightInfo {
+  h4 {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: $color-charcoal;
+    margin: 0 0 2px 0;
   }
 
   p {
     font-family: 'Be Vietnam Pro', sans-serif;
-    font-size: 16px;
-    line-height: 1.8;
-    color: rgba($color-charcoal, 0.75);
-    margin: 0 0 8px 0;
+    font-size: 11px;
+    line-height: 1.4;
+    color: rgba($color-charcoal, 0.55);
+    margin: 0;
   }
 }
 
@@ -2098,6 +2300,8 @@ $color-border: #c2c8c0; // Outline variant
 }
 
 .btnStoryLink {
+  position: relative;
+  overflow: hidden;
   background-color: transparent;
   border: 1.5px solid $color-sage;
   color: $color-sage;
@@ -2105,36 +2309,57 @@ $color-border: #c2c8c0; // Outline variant
   font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 12px 28px;
+  letter-spacing: 0.08em;
+  padding: 14px 32px;
   border-radius: 99px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 12px rgba($color-sage, 0.04);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 6px 16px rgba($color-sage, 0.06);
+  z-index: 1;
 
-  span {
-    font-size: 16px;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  span:first-child {
+    font-size: 13px;
+  }
+
+  span:last-child {
+    font-size: 18px;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba($color-white, 0.25), transparent);
+    transition: all 0.6s ease;
+    z-index: -1;
   }
 
   &:hover {
     background-color: $color-sage;
     color: $color-white;
-    transform: translateY(-3px);
-    box-shadow: 0 12px 24px rgba($color-sage, 0.25);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba($color-sage, 0.22);
     border-color: $color-sage;
 
-    span {
-      transform: translateX(4px);
+    &::before {
+      left: 100%;
+    }
+
+    span:last-child {
+      transform: translateX(6px);
     }
   }
 
   &:active {
-    transform: translateY(-1px);
-    box-shadow: 0 6px 12px rgba($color-sage, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba($color-sage, 0.15);
   }
 }
 
