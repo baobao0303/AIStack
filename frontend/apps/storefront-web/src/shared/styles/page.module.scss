@@ -15,7 +15,7 @@ $color-border: #c2c8c0; // Outline variant
   position: relative;
   min-height: 100vh;
   background-color: $color-ivory;
-  font-family: 'Be Vietnam Pro', sans-serif;
+  font-family: var(--font-be-vietnam-pro), sans-serif;
   color: $color-charcoal;
 }
 
@@ -45,7 +45,7 @@ $color-border: #c2c8c0; // Outline variant
 }
 
 .navContainer {
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 16px 24px;
   display: flex;
@@ -61,7 +61,7 @@ $color-border: #c2c8c0; // Outline variant
 }
 
 .logoText {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-playfair-display), serif;
   font-size: 28px;
   font-weight: 700;
   color: $color-sage;
@@ -81,7 +81,7 @@ $color-border: #c2c8c0; // Outline variant
 .navItem {
   background: none;
   border: none;
-  font-family: 'Be Vietnam Pro', sans-serif;
+  font-family: var(--font-be-vietnam-pro), sans-serif;
   font-size: 14px;
   font-weight: 600;
   padding: 8px 16px;
@@ -161,7 +161,7 @@ $color-border: #c2c8c0; // Outline variant
   background: none;
   border: none;
   outline: none;
-  font-family: 'Be Vietnam Pro', sans-serif;
+  font-family: var(--font-be-vietnam-pro), sans-serif;
   font-size: 13px;
   color: $color-charcoal;
   padding: 0;
@@ -276,7 +276,7 @@ $color-border: #c2c8c0; // Outline variant
   margin: 0 auto;
 
   .bestSellersTagline {
-    font-family: 'Be Vietnam Pro', sans-serif;
+    font-family: var(--font-be-vietnam-pro), sans-serif;
     font-size: 11px;
     font-weight: 700;
     color: $color-gold;
@@ -287,7 +287,7 @@ $color-border: #c2c8c0; // Outline variant
   }
 
   h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-playfair-display), serif;
     font-size: 40px;
     font-weight: 700;
     color: $color-charcoal;
@@ -295,7 +295,7 @@ $color-border: #c2c8c0; // Outline variant
   }
 
   .bestSellersSub {
-    font-family: 'Be Vietnam Pro', sans-serif;
+    font-family: var(--font-be-vietnam-pro), sans-serif;
     font-size: 14px;
     color: rgba($color-charcoal, 0.55);
     margin: 0 auto 20px auto;
@@ -333,7 +333,7 @@ $color-border: #c2c8c0; // Outline variant
   background-color: transparent;
   border: 1.5px solid $color-sage;
   color: $color-sage;
-  font-family: 'Be Vietnam Pro', sans-serif;
+  font-family: var(--font-be-vietnam-pro), sans-serif;
   font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
@@ -402,9 +402,9 @@ $color-border: #c2c8c0; // Outline variant
 .newsletterOuter {
   width: 100%;
   background-color: #faf9f6; // Clean Ivory canvas to let the forest green pop!
-  border-top: 1px solid rgba($color-border, 0.2);
+  border-top: 3px solid $color-beige; // Premium warm beige separator line
   border-bottom: 1px solid rgba($color-border, 0.2);
-  padding: 0 0 48px 0;
+  padding: 80px 0 48px 0; // Fixed: added 80px padding-top to give it spacious breathing room
 }
 
 .heroBg {
@@ -480,7 +480,7 @@ $color-border: #c2c8c0; // Outline variant
   max-width: 600px;
 
   h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-playfair-display), serif;
     font-size: 56px;
     font-weight: 700;
     line-height: 1.15;
@@ -493,7 +493,7 @@ $color-border: #c2c8c0; // Outline variant
   }
 
   p {
-    font-family: 'Be Vietnam Pro', sans-serif;
+    font-family: var(--font-be-vietnam-pro), sans-serif;
     font-size: 18px;
     line-height: 1.6;
     color: rgba($color-charcoal, 0.85);
@@ -663,7 +663,7 @@ $color-border: #c2c8c0; // Outline variant
     position: absolute;
     top: 24px;
     right: 24px;
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-playfair-display), serif;
     font-size: 32px;
     font-weight: 700;
     color: rgba($color-gold, 0.15);
@@ -672,7 +672,7 @@ $color-border: #c2c8c0; // Outline variant
   }
 
   h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-playfair-display), serif;
     font-size: 22px;
     font-weight: 700;
     color: $color-charcoal;
@@ -764,7 +764,7 @@ $color-border: #c2c8c0; // Outline variant
   margin: 0 auto;
 
   h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-playfair-display), serif;
     font-size: 32px;
     font-weight: 700;
     margin: 0 0 8px 0;
@@ -811,7 +811,7 @@ $color-border: #c2c8c0; // Outline variant
 }
 
 .cardImageContainer {
-  height: 320px;
+  height: 230px;
   background-color: rgba($color-beige, 0.12);
   display: flex;
   align-items: center;
@@ -827,7 +827,7 @@ $color-border: #c2c8c0; // Outline variant
     backdrop-filter: blur(8px);
     border: 1px solid rgba($color-gold, 0.35);
     color: $color-sage;
-    font-family: 'Be Vietnam Pro', sans-serif;
+    font-family: var(--font-be-vietnam-pro), sans-serif;
     font-size: 10px;
     font-weight: 700;
     text-transform: uppercase;
@@ -840,14 +840,14 @@ $color-border: #c2c8c0; // Outline variant
 }
 
 .cardInfo {
-  padding: 28px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 
   h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
+    font-family: var(--font-playfair-display), serif;
+    font-size: 20px;
     font-weight: 700;
     margin: 0 0 6px 0;
     color: $color-charcoal;
@@ -855,13 +855,13 @@ $color-border: #c2c8c0; // Outline variant
   }
 
   .cardMaterial {
-    font-family: 'Be Vietnam Pro', sans-serif;
+    font-family: var(--font-be-vietnam-pro), sans-serif;
     font-size: 11px;
     text-transform: uppercase;
     color: rgba($color-charcoal, 0.45);
     font-weight: 600;
     letter-spacing: 0.06em;
-    margin: 0 0 20px 0;
+    margin: 0 0 10px 0;
   }
 }
 
@@ -870,11 +870,11 @@ $color-border: #c2c8c0; // Outline variant
   justify-content: space-between;
   align-items: center;
   border-top: 1.5px solid rgba($color-border, 0.25);
-  padding-top: 20px;
+  padding-top: 14px;
   margin-top: auto;
 
   .cardPrice {
-    font-family: 'Be Vietnam Pro', sans-serif;
+    font-family: var(--font-be-vietnam-pro), sans-serif;
     font-weight: 700;
     font-size: 17px;
     color: $color-charcoal;
@@ -1096,7 +1096,7 @@ $color-border: #c2c8c0; // Outline variant
   margin-bottom: 24px;
 
   h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-playfair-display), serif;
     font-size: 28px;
     margin: 0 0 4px 0;
   }
@@ -1110,8 +1110,12 @@ $color-border: #c2c8c0; // Outline variant
 
 .productsCatalogGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 // ==================== 3. DETAIL VIEW TAB ====================
@@ -1190,7 +1194,7 @@ $color-border: #c2c8c0; // Outline variant
   }
 
   h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-playfair-display), serif;
     font-size: 36px;
     font-weight: 700;
     margin: 8px 0;
@@ -1237,7 +1241,7 @@ $color-border: #c2c8c0; // Outline variant
   border-radius: 16px;
 
   h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-playfair-display), serif;
     font-size: 18px;
     font-weight: 700;
     margin: 0 0 20px 0;
@@ -1373,7 +1377,7 @@ $color-border: #c2c8c0; // Outline variant
 
 .cartItemsArea {
   h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-playfair-display), serif;
     font-size: 28px;
     font-weight: 700;
     margin: 0 0 24px 0;
@@ -1418,7 +1422,7 @@ $color-border: #c2c8c0; // Outline variant
   flex: 1;
 
   h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-playfair-display), serif;
     font-size: 16px;
     font-weight: 700;
     margin: 0 0 4px 0;
@@ -1488,7 +1492,7 @@ $color-border: #c2c8c0; // Outline variant
 // STRIPE BILLING
 .checkoutFormArea {
   h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-playfair-display), serif;
     font-size: 28px;
     font-weight: 700;
     margin: 0 0 4px 0;
@@ -1631,7 +1635,7 @@ $color-border: #c2c8c0; // Outline variant
   margin-bottom: 40px;
 
   h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-playfair-display), serif;
     font-size: 32px;
     margin: 0 0 8px 0;
   }
@@ -1787,7 +1791,7 @@ $color-border: #c2c8c0; // Outline variant
   border-radius: 16px;
 
   h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-playfair-display), serif;
     font-size: 18px;
     font-weight: 700;
     margin: 0 0 16px 0;
@@ -1819,7 +1823,7 @@ $color-border: #c2c8c0; // Outline variant
 }
 
 .footerContainer {
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 24px;
   display: flex;
@@ -1838,7 +1842,7 @@ $color-border: #c2c8c0; // Outline variant
 
 .footerBrand {
   h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-playfair-display), serif;
     font-size: 18px;
     font-weight: 700;
     margin: 0 0 4px 0;
@@ -1905,7 +1909,7 @@ $color-border: #c2c8c0; // Outline variant
   }
 
   h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-playfair-display), serif;
     font-size: 20px;
     font-weight: 700;
     color: $color-charcoal;
@@ -2009,7 +2013,7 @@ $color-border: #c2c8c0; // Outline variant
   gap: 12px;
 
   h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-playfair-display), serif;
     font-size: 14px;
     font-weight: 700;
     color: $color-charcoal;
@@ -2339,7 +2343,7 @@ $color-border: #c2c8c0; // Outline variant
 }
 
 .floatingCardTitle {
-  font-family: 'Be Vietnam Pro', sans-serif;
+  font-family: var(--font-be-vietnam-pro), sans-serif;
   font-size: 12px;
   font-weight: 700;
   color: $color-charcoal;
@@ -2402,7 +2406,7 @@ $color-border: #c2c8c0; // Outline variant
   }
 
   h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-playfair-display), serif;
     font-size: 48px;
     font-weight: 700;
     line-height: 1.25;
@@ -2434,7 +2438,7 @@ $color-border: #c2c8c0; // Outline variant
   }
 
   .storyParagraph {
-    font-family: 'Be Vietnam Pro', sans-serif;
+    font-family: var(--font-be-vietnam-pro), sans-serif;
     font-size: 15.5px;
     line-height: 1.9;
     color: rgba($color-charcoal, 0.72);
@@ -2443,7 +2447,7 @@ $color-border: #c2c8c0; // Outline variant
 
     .dropCap {
       float: left;
-      font-family: 'Playfair Display', serif;
+      font-family: var(--font-playfair-display), serif;
       font-size: 54px;
       line-height: 0.8;
       font-weight: 700;
@@ -2503,7 +2507,7 @@ $color-border: #c2c8c0; // Outline variant
 
 .highlightInfo {
   h4 {
-    font-family: 'Be Vietnam Pro', sans-serif;
+    font-family: var(--font-be-vietnam-pro), sans-serif;
     font-size: 13px;
     font-weight: 700;
     color: $color-charcoal;
@@ -2511,7 +2515,7 @@ $color-border: #c2c8c0; // Outline variant
   }
 
   p {
-    font-family: 'Be Vietnam Pro', sans-serif;
+    font-family: var(--font-be-vietnam-pro), sans-serif;
     font-size: 11px;
     line-height: 1.4;
     color: rgba($color-charcoal, 0.55);
@@ -2529,7 +2533,7 @@ $color-border: #c2c8c0; // Outline variant
   background-color: transparent;
   border: 1.5px solid $color-sage;
   color: $color-sage;
-  font-family: 'Be Vietnam Pro', sans-serif;
+  font-family: var(--font-be-vietnam-pro), sans-serif;
   font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
@@ -2591,7 +2595,7 @@ $color-border: #c2c8c0; // Outline variant
 .btnViewAll {
   background: none;
   border: none;
-  font-family: 'Be Vietnam Pro', sans-serif;
+  font-family: var(--font-be-vietnam-pro), sans-serif;
   font-size: 13px;
   font-weight: 600;
   color: rgba($color-charcoal, 0.6);
@@ -2653,7 +2657,7 @@ $color-border: #c2c8c0; // Outline variant
   align-items: center;
 
   .valuesTagline {
-    font-family: 'Be Vietnam Pro', sans-serif;
+    font-family: var(--font-be-vietnam-pro), sans-serif;
     font-size: 11px;
     font-weight: 700;
     color: $color-gold;
@@ -2663,7 +2667,7 @@ $color-border: #c2c8c0; // Outline variant
   }
 
   h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-playfair-display), serif;
     font-size: 36px;
     font-weight: 700;
     margin: 0 0 16px 0;
@@ -2723,7 +2727,7 @@ $color-border: #c2c8c0; // Outline variant
   }
 
   .newsletterTagline {
-    font-family: 'Be Vietnam Pro', sans-serif;
+    font-family: var(--font-be-vietnam-pro), sans-serif;
     font-size: 11px;
     font-weight: 700;
     color: $color-gold;
@@ -2734,7 +2738,7 @@ $color-border: #c2c8c0; // Outline variant
   }
 
   h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-playfair-display), serif;
     font-size: 38px;
     font-weight: 700;
     margin: 0;
@@ -2748,7 +2752,7 @@ $color-border: #c2c8c0; // Outline variant
   }
 
   p {
-    font-family: 'Be Vietnam Pro', sans-serif;
+    font-family: var(--font-be-vietnam-pro), sans-serif;
     font-size: 15px;
     color: rgba($color-white, 0.82);
     max-width: 500px;
@@ -2810,7 +2814,7 @@ $color-border: #c2c8c0; // Outline variant
     border: 1.5px solid rgba($color-white, 0.25);
     padding: 15px 24px;
     border-radius: 99px;
-    font-family: 'Be Vietnam Pro', sans-serif;
+    font-family: var(--font-be-vietnam-pro), sans-serif;
     font-size: 13.5px;
     outline: none;
     color: $color-white;
@@ -2832,7 +2836,7 @@ $color-border: #c2c8c0; // Outline variant
     background-color: $color-gold;
     color: $color-white;
     border: none;
-    font-family: 'Be Vietnam Pro', sans-serif;
+    font-family: var(--font-be-vietnam-pro), sans-serif;
     font-weight: 700;
     font-size: 13px;
     text-transform: uppercase;
@@ -2870,7 +2874,7 @@ $color-border: #c2c8c0; // Outline variant
   }
 
   h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-playfair-display), serif;
     font-size: 24px;
     font-weight: 700;
     color: $color-sage;
@@ -2885,7 +2889,7 @@ $color-border: #c2c8c0; // Outline variant
   }
 
   h4 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-playfair-display), serif;
     font-size: 18px;
     font-weight: 700;
     color: $color-charcoal;
@@ -3018,7 +3022,7 @@ $color-border: #c2c8c0; // Outline variant
 
 // Active navigation link styles matching Stitch
 .navItemActive {
-  font-family: 'Be Vietnam Pro', sans-serif;
+  font-family: var(--font-be-vietnam-pro), sans-serif;
   font-size: 14px;
   font-weight: 700;
   color: $color-sage;
@@ -3055,7 +3059,7 @@ $color-border: #c2c8c0; // Outline variant
   z-index: 999;
   overflow: hidden;
   animation: popIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  font-family: 'Be Vietnam Pro', sans-serif;
+  font-family: var(--font-be-vietnam-pro), sans-serif;
 
   @media (min-width: 1200px) {
     right: calc((100% - 1200px) / 2 + 64px);
@@ -3220,7 +3224,7 @@ $color-border: #c2c8c0; // Outline variant
   cursor: pointer;
   transition: all 0.2s ease;
   width: 100%;
-  font-family: 'Be Vietnam Pro', sans-serif;
+  font-family: var(--font-be-vietnam-pro), sans-serif;
 
   &:hover {
     opacity: 0.9;
@@ -3237,7 +3241,7 @@ $color-border: #c2c8c0; // Outline variant
   cursor: pointer;
   transition: all 0.2s ease;
   width: 100%;
-  font-family: 'Be Vietnam Pro', sans-serif;
+  font-family: var(--font-be-vietnam-pro), sans-serif;
 
   &:hover {
     background-color: rgba($color-border, 0.1);
@@ -3520,7 +3524,7 @@ $color-border: #c2c8c0; // Outline variant
   }
 
   h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-playfair-display), serif;
     font-size: 32px;
     font-weight: 700;
     color: $color-charcoal;
@@ -3596,7 +3600,7 @@ $color-border: #c2c8c0; // Outline variant
   align-items: center;
 
   h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-playfair-display), serif;
     font-size: 18px;
     font-weight: 700;
     color: $color-sage;
@@ -3605,7 +3609,7 @@ $color-border: #c2c8c0; // Outline variant
   }
 
   h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-playfair-display), serif;
     font-size: 32px;
     font-weight: 700;
     color: $color-charcoal;
@@ -3661,7 +3665,7 @@ $color-border: #c2c8c0; // Outline variant
     border: 1px solid rgba($color-border, 0.5);
     padding: 14px 16px 14px 48px;
     border-radius: 8px; // Clean, premium 8px rounded corners
-    font-family: 'Be Vietnam Pro', sans-serif;
+    font-family: var(--font-be-vietnam-pro), sans-serif;
     font-size: 14px;
     color: $color-charcoal;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -3763,7 +3767,7 @@ $color-border: #c2c8c0; // Outline variant
   background: none;
   border: none;
   padding: 0;
-  font-family: 'Be Vietnam Pro', sans-serif;
+  font-family: var(--font-be-vietnam-pro), sans-serif;
   font-size: 13px;
   font-weight: 600;
   color: $color-gold;
@@ -3780,7 +3784,7 @@ $color-border: #c2c8c0; // Outline variant
   background-color: $color-gold;
   color: $color-white;
   border: none;
-  font-family: 'Be Vietnam Pro', sans-serif;
+  font-family: var(--font-be-vietnam-pro), sans-serif;
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 0.05em;
@@ -3831,7 +3835,7 @@ $color-border: #c2c8c0; // Outline variant
   }
 
   h4 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-playfair-display), serif;
     font-size: 24px;
     font-weight: 700;
     color: $color-charcoal;
@@ -3899,7 +3903,7 @@ $color-border: #c2c8c0; // Outline variant
   border: 1px solid rgba($color-border, 0.6);
   padding: 12px 16px;
   border-radius: 99px;
-  font-family: 'Be Vietnam Pro', sans-serif;
+  font-family: var(--font-be-vietnam-pro), sans-serif;
   font-size: 13px;
   font-weight: 600;
   color: rgba($color-charcoal, 0.7);
@@ -3935,7 +3939,7 @@ $color-border: #c2c8c0; // Outline variant
     background: none;
     border: none;
     padding: 0;
-    font-family: 'Be Vietnam Pro', sans-serif;
+    font-family: var(--font-be-vietnam-pro), sans-serif;
     font-size: 13px;
     font-weight: 700;
     color: $color-sage;
@@ -4013,11 +4017,11 @@ $color-border: #c2c8c0; // Outline variant
   left: 64px;
   right: 64px;
   color: $color-white;
-  font-family: 'Be Vietnam Pro', sans-serif;
+  font-family: var(--font-be-vietnam-pro), sans-serif;
   z-index: 2;
 
   h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-playfair-display), serif;
     font-size: 32px;
     font-weight: 700;
     color: $color-white;
@@ -4061,7 +4065,7 @@ $color-border: #c2c8c0; // Outline variant
   gap: 8px;
 
   h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-playfair-display), serif;
     font-size: 32px;
     font-weight: 700;
     color: $color-charcoal;
@@ -4099,7 +4103,7 @@ $color-border: #c2c8c0; // Outline variant
   border: 1px solid rgba($color-border, 0.7);
   padding: 14px 18px;
   border-radius: 8px;
-  font-family: 'Be Vietnam Pro', sans-serif;
+  font-family: var(--font-be-vietnam-pro), sans-serif;
   font-size: 14px;
   color: $color-charcoal;
   transition: all 0.3s ease;
@@ -4132,7 +4136,7 @@ $color-border: #c2c8c0; // Outline variant
   background-color: $color-sage;
   color: $color-white;
   border: none;
-  font-family: 'Be Vietnam Pro', sans-serif;
+  font-family: var(--font-be-vietnam-pro), sans-serif;
   font-weight: 600;
   font-size: 14px;
   padding: 16px 0;
@@ -4328,7 +4332,7 @@ $color-border: #c2c8c0; // Outline variant
   cursor: pointer;
   
   h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-playfair-display), serif;
     font-size: 24px;
     font-weight: 700;
     color: $color-sage;
@@ -4345,7 +4349,7 @@ $color-border: #c2c8c0; // Outline variant
 }
 
 .authShellHeaderTitle {
-  font-family: 'Be Vietnam Pro', sans-serif;
+  font-family: var(--font-be-vietnam-pro), sans-serif;
   font-size: 16px;
   font-weight: 600;
   color: $color-charcoal;

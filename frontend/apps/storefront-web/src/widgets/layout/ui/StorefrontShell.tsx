@@ -78,6 +78,11 @@ export default function StorefrontShell({ children, activeView }: StorefrontShel
       router.push('/');
     } else if (view === 'login') {
       router.push('/sign-in');
+    } else if (view === 'catalog') {
+      router.push('/product');
+    } else if (view === 'detail') {
+      const selectedProduct = useAppStore.getState().selectedProduct;
+      router.push(`/product/${selectedProduct?.id || 'prod-5'}`);
     } else {
       router.push(`/${view}`);
     }
@@ -108,7 +113,7 @@ export default function StorefrontShell({ children, activeView }: StorefrontShel
           setSearchQuery(query);
           // Auto-redirect to catalog once search inputs contain typed text
           if (query.trim() !== '' && activeView !== 'catalog') {
-            router.push('/catalog');
+            router.push('/product');
           }
         }}
       />

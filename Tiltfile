@@ -3,7 +3,7 @@
 # - NODE_ENV == 'production': Runs containerized inside Docker Compose.
 # - Other (default): Runs natively on the host machine for ultra-fast local feedback loops.
 
-node_env = os.getenv('NODE_ENV', 'development')
+node_env = os.environ.get('NODE_ENV', 'development')
 
 if node_env == 'production':
     # --- 1. Containerized Docker Orchestration (Production Mode) ---
@@ -40,13 +40,21 @@ if node_env == 'production':
     docker_compose('docker-compose.yml')
 else:
     # --- 2. Native Local Host Orchestration (Development Mode) ---
+    # Global watch settings to ignore build and log outputs across all watched local dependencies
+    watch_settings(ignore=[
+        '**/bin/**',
+        '**/obj/**',
+        '**/logs/**',
+        '**/.git/**',
+        '**/node_modules/**'
+    ])
+
     # 1. Identity Api Service (Xác thực & RBAC)
     local_resource(
         'identity-service',
         cmd='dotnet build backend/services/Identity/Identity.sln',
         serve_cmd='dotnet run --project backend/services/Identity/Identity.Api/Identity.Api.csproj --no-build',
-        deps=['backend/services/Identity'],
-        ignore=['**/bin/**', '**/obj/**', '**/logs/**']
+        deps=['backend/services/Identity']
     )
     
     # 2. ECommerce Api Service (Catalog & Stripe checkout)
@@ -54,8 +62,7 @@ else:
         'ecommerce-service',
         cmd='dotnet build backend/services/ECommerce/ECommerce.sln',
         serve_cmd='dotnet run --project backend/services/ECommerce/ECommerce.Api/ECommerce.Api.csproj --no-build',
-        deps=['backend/services/ECommerce'],
-        ignore=['**/bin/**', '**/obj/**', '**/logs/**']
+        deps=['backend/services/ECommerce']
     )
     
     # 3. API Gateway Service (Yarp reverse proxy)
@@ -63,8 +70,7 @@ else:
         'api-gateway',
         cmd='dotnet build backend/api-gateway/api-gateway.csproj',
         serve_cmd='dotnet run --project backend/api-gateway/api-gateway.csproj --no-build',
-        deps=['backend/api-gateway'],
-        ignore=['**/bin/**', '**/obj/**', '**/logs/**']
+        deps=['backend/api-gateway']
     )
     
     # 4. Notification Service (.NET background mail worker)
@@ -72,8 +78,7 @@ else:
         'notification-service',
         cmd='dotnet build backend/services/Notification/Notification.sln',
         serve_cmd='dotnet run --project backend/services/Notification/Notification.Service/Notification.Service.csproj --no-build',
-        deps=['backend/services/Notification'],
-        ignore=['**/bin/**', '**/obj/**', '**/logs/**']
+        deps=['backend/services/Notification']
     )
     
     # 5. CRM Chat Service (SignalR WebSockets Hub API)
@@ -81,6 +86,5 @@ else:
         'crmchat-service',
         cmd='dotnet build backend/services/Chat/Chat.sln',
         serve_cmd='dotnet run --project backend/services/Chat/Chat.Api/Chat.Api.csproj --no-build',
-        deps=['backend/services/Chat'],
-        ignore=['**/bin/**', '**/obj/**', '**/logs/**']
+        deps=['backend/services/Chat']
     )

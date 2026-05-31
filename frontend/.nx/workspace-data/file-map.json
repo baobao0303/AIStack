@@ -57,40 +57,40 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "package-lock.json",
-        "hash": "3684368496026388459"
-      },
-      {
-        "file": "package.json",
-        "hash": "11039934904927527366"
-      },
-      {
-        "file": "eslint.config.mjs",
-        "hash": "3462096019013144053"
+        "file": "tsconfig.base.json",
+        "hash": "3578037404204155601"
       },
       {
         "file": "nx.json",
         "hash": "9392488300530054959"
       },
       {
-        "file": "README.md",
-        "hash": "11199411773125993063"
-      },
-      {
-        "file": ".nxignore",
-        "hash": "16904018250184961811"
+        "file": "package-lock.json",
+        "hash": "3684368496026388459"
       },
       {
         "file": ".prettierignore",
         "hash": "5407418692668764289"
       },
       {
-        "file": "tsconfig.base.json",
-        "hash": "3578037404204155601"
+        "file": "README.md",
+        "hash": "11199411773125993063"
       },
       {
         "file": ".prettierrc",
         "hash": "16267754514737964994"
+      },
+      {
+        "file": "package.json",
+        "hash": "11039934904927527366"
+      },
+      {
+        "file": ".nxignore",
+        "hash": "16904018250184961811"
+      },
+      {
+        "file": "eslint.config.mjs",
+        "hash": "3462096019013144053"
       }
     ],
     "projectFileMap": {
@@ -372,7 +372,7 @@
         },
         {
           "file": "apps/storefront-web/next.config.js",
-          "hash": "17252635002163063865",
+          "hash": "6851724599270449065",
           "deps": [
             "npm:@nx/next"
           ]
@@ -429,14 +429,6 @@
           ]
         },
         {
-          "file": "apps/storefront-web/src/app/catalog/page.tsx",
-          "hash": "1803527159820306664",
-          "deps": [
-            "npm:react",
-            "npm:zustand"
-          ]
-        },
-        {
           "file": "apps/storefront-web/src/app/checkout/page.tsx",
           "hash": "7716176750539736334",
           "deps": [
@@ -446,20 +438,12 @@
           ]
         },
         {
-          "file": "apps/storefront-web/src/app/detail/page.tsx",
-          "hash": "18107170776176478600",
-          "deps": [
-            "npm:react",
-            "npm:zustand"
-          ]
-        },
-        {
           "file": "apps/storefront-web/src/app/global.css",
           "hash": "12133012933292631533"
         },
         {
           "file": "apps/storefront-web/src/app/layout.tsx",
-          "hash": "7308402521964502497",
+          "hash": "11333989520867576136",
           "deps": [
             "npm:next"
           ]
@@ -469,6 +453,23 @@
           "hash": "6877361291011634488",
           "deps": [
             "npm:react"
+          ]
+        },
+        {
+          "file": "apps/storefront-web/src/app/product/[id]/page.tsx",
+          "hash": "14271649303895493669",
+          "deps": [
+            "npm:react",
+            "npm:zustand",
+            "npm:next"
+          ]
+        },
+        {
+          "file": "apps/storefront-web/src/app/product/page.tsx",
+          "hash": "12584461834986432528",
+          "deps": [
+            "npm:react",
+            "npm:zustand"
           ]
         },
         {
@@ -510,7 +511,7 @@
         },
         {
           "file": "apps/storefront-web/src/core/constants/route.constants.ts",
-          "hash": "15509308203269007575"
+          "hash": "15586923062119862088"
         },
         {
           "file": "apps/storefront-web/src/core/exceptions/api.exception.ts",
@@ -568,7 +569,7 @@
         },
         {
           "file": "apps/storefront-web/src/core/stores/app.store.ts",
-          "hash": "15071572381459567462",
+          "hash": "3571174403313014877",
           "deps": [
             "npm:zustand"
           ]
@@ -617,7 +618,7 @@
         },
         {
           "file": "apps/storefront-web/src/shared/lib/useViewNavigation.ts",
-          "hash": "8032256463493555128",
+          "hash": "7137874490266369064",
           "deps": [
             "npm:react",
             "npm:next"
@@ -629,7 +630,7 @@
         },
         {
           "file": "apps/storefront-web/src/shared/styles/page.module.scss",
-          "hash": "10047030544801453882"
+          "hash": "16184142996351035173"
         },
         {
           "file": "apps/storefront-web/src/shared/ui/ShaderBackground.tsx",
@@ -640,7 +641,7 @@
         },
         {
           "file": "apps/storefront-web/src/views/catalog/ui/CatalogView.tsx",
-          "hash": "13139288373727271669",
+          "hash": "1042713647996290790",
           "deps": [
             "npm:react"
           ]
@@ -654,16 +655,18 @@
         },
         {
           "file": "apps/storefront-web/src/views/detail/ui/DetailView.tsx",
-          "hash": "4031606254773577636",
+          "hash": "5328602350793985425",
           "deps": [
-            "npm:react"
+            "npm:react",
+            "npm:next"
           ]
         },
         {
           "file": "apps/storefront-web/src/views/home/ui/HomeView.tsx",
-          "hash": "4325444048320291311",
+          "hash": "11332038008401649579",
           "deps": [
-            "npm:react"
+            "npm:react",
+            "npm:next"
           ]
         },
         {
@@ -697,7 +700,7 @@
         },
         {
           "file": "apps/storefront-web/src/widgets/layout/ui/StorefrontShell.tsx",
-          "hash": "11326825071635857649",
+          "hash": "6784895525677281999",
           "deps": [
             "npm:react",
             "npm:next",
@@ -706,7 +709,7 @@
         },
         {
           "file": "apps/storefront-web/src/widgets/navbar/ui/Navbar.tsx",
-          "hash": "4765519013947398103",
+          "hash": "7133918711340630519",
           "deps": [
             "npm:react",
             "npm:next"

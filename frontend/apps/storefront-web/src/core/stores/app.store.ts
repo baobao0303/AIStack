@@ -70,7 +70,7 @@ export interface AppStoreActions {
 
   // Cart operations
   addToCartDefault: (prod: Product, e?: React.MouseEvent) => void;
-  addToCartCustom: () => void;
+  addToCartCustom: (quantity?: number) => void;
   removeFromCart: (itemId: string) => void;
 
   // Shipping & Checkout
@@ -207,12 +207,12 @@ export const useAppStore = create<AppStore>((set, get) => ({
     }));
   },
 
-  addToCartCustom: () => {
+  addToCartCustom: (quantity = 1) => {
     const state = get();
     const newItem: CartItem = {
       id: createId('cart'),
       product: state.selectedProduct,
-      quantity: 1,
+      quantity: quantity,
       customColor: state.customColor,
       chestWidth: state.chestWidth,
       sleeveLength: state.sleeveLength,

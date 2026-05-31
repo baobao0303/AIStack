@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { useRouter } from 'next/navigation';
 
 interface Product {
   id: string;
@@ -27,6 +28,7 @@ export default function HomeView({
   PRODUCTS,
   handleAddToCartDefault
 }: HomeViewProps) {
+  const router = useRouter();
   const [currentSlide, setCurrentSlide] = React.useState(0);
 
   const slides = [
@@ -102,6 +104,13 @@ export default function HomeView({
                     setActiveView('detail');
                   }
                 }}
+                onMouseEnter={() => {
+                  if (slides[currentSlide].actionType === 'catalog') {
+                    router.prefetch('/product');
+                  } else {
+                    router.prefetch(`/product/${PRODUCTS[4].id}`);
+                  }
+                }}
               >
                 {slides[currentSlide].primaryText}
               </button>
@@ -116,6 +125,14 @@ export default function HomeView({
                     setActiveView('detail');
                   } else if (secAct === 'story') {
                     document.querySelector(`.${styles.storySection}`)?.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                onMouseEnter={() => {
+                  const secAct = slides[currentSlide].secondaryAction;
+                  if (secAct === 'catalog') {
+                    router.prefetch('/product');
+                  } else if (secAct === 'detail') {
+                    router.prefetch(`/product/${PRODUCTS[4].id}`);
                   }
                 }}
               >
@@ -207,7 +224,11 @@ export default function HomeView({
               </div>
 
               <div className={styles.storyActionRow}>
-                <button className={styles.btnStoryLink} onClick={() => setActiveView('catalog')}>
+                <button 
+                  className={styles.btnStoryLink} 
+                  onClick={() => setActiveView('catalog')}
+                  onMouseEnter={() => router.prefetch('/product')}
+                >
                   <span>Khám Phá Hành Trình</span>
                   <span className="material-symbols-outlined">arrow_right_alt</span>
                 </button>
@@ -235,7 +256,12 @@ export default function HomeView({
             {PRODUCTS.slice(0, 3).map((prod, index) => {
               const staggerClass = index === 0 ? styles.staggerDelay1 : index === 1 ? styles.staggerDelay2 : index === 2 ? styles.staggerDelay3 : '';
               return (
-                <div key={prod.id} className={`${styles.productCard} ${styles.revealOnScroll} reveal-on-scroll ${staggerClass}`} onClick={() => { setSelectedProduct(prod); setActiveView('detail'); }}>
+                <div 
+                  key={prod.id} 
+                  className={`${styles.productCard} ${styles.revealOnScroll} reveal-on-scroll ${staggerClass}`} 
+                  onClick={() => { setSelectedProduct(prod); setActiveView('detail'); }}
+                  onMouseEnter={() => router.prefetch(`/product/${prod.id}`)}
+                >
                   <div className={styles.cardImageContainer}>
                     <img 
                       src={prod.imageUrl} 
@@ -247,6 +273,10 @@ export default function HomeView({
                   <div className={styles.cardInfo}>
                     <h3>{prod.name}</h3>
                     <p className={styles.cardMaterial}>{prod.woolType}</p>
+                    {/* Product Description snippet */}
+                    <p className="text-[11px] leading-relaxed text-charcoal/50 mt-2 mb-3.5 line-clamp-2 h-[34px] font-sans box-border select-none">
+                      {prod.description}
+                    </p>
                     <div className={styles.cardBottom}>
                       <span className={styles.cardPrice}>{prod.price.toLocaleString('vi-VN')}đ</span>
                       <button 
@@ -264,7 +294,11 @@ export default function HomeView({
           </div>
 
           <div className={styles.bestSellersFooter}>
-            <button className={styles.btnViewAllProducts} onClick={() => setActiveView('catalog')}>
+            <button 
+              className={styles.btnViewAllProducts} 
+              onClick={() => setActiveView('catalog')}
+              onMouseEnter={() => router.prefetch('/product')}
+            >
               <span>Xem Tất Cả Sản Phẩm</span>
               <span className="material-symbols-outlined">arrow_right_alt</span>
             </button>

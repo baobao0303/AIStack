@@ -68,6 +68,13 @@ export default function CatalogRoute() {
 
   return (
     <StorefrontShell activeView="catalog">
+      {/* Preload first catalog product image for instant above-the-fold display */}
+      <link 
+        rel="preload" 
+        href={PRODUCTS[0].imageUrl} 
+        as="image" 
+        fetchPriority="high" 
+      />
       <CatalogView
         styles={styles}
         searchQuery={searchQuery}

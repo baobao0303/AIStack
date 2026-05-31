@@ -1,18 +1,28 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, use } from 'react';
 import { useShallow } from 'zustand/react/shallow';
-import styles from '../../shared/styles/page.module.scss';
-import DetailView from '../../views/detail/ui/DetailView';
-import StorefrontShell from '../../widgets/layout/ui/StorefrontShell';
-import { useAppStore } from '../../core/stores/app.store';
-import { useViewNavigation } from '../../shared/lib/useViewNavigation';
+import styles from '../../../shared/styles/page.module.scss';
+import DetailView from '../../../views/detail/ui/DetailView';
+import StorefrontShell from '../../../widgets/layout/ui/StorefrontShell';
+import { useAppStore } from '../../../core/stores/app.store';
+import { useViewNavigation } from '../../../shared/lib/useViewNavigation';
+import { PRODUCTS } from '../../../entities/product/data/products';
+import { notFound } from 'next/navigation';
 
-export default function DetailRoute() {
+interface PageProps {
+  params: Promise<{ id: string }>;
+}
+
+export default function ProductDetailRoute({ params }: PageProps) {
+  const { id } = use(params);
   const navigate = useViewNavigation();
+
+  const product = PRODUCTS.find((p) => p.id === id);
 
   const {
     selectedProduct,
+    setSelectedProduct,
     detailMainImage,
     setDetailMainImage,
     customColor,
@@ -29,6 +39,7 @@ export default function DetailRoute() {
   } = useAppStore(
     useShallow((state) => ({
       selectedProduct: state.selectedProduct,
+      setSelectedProduct: state.setSelectedProduct,
       detailMainImage: state.detailMainImage,
       setDetailMainImage: state.setDetailMainImage,
       customColor: state.customColor,
@@ -45,11 +56,29 @@ export default function DetailRoute() {
     }))
   );
 
+  // Sync route param ID to Zustand store
+  useEffect(() => {
+    if (product) {
+      setSelectedProduct(product);
+    }
+  }, [product, setSelectedProduct]);
+
+  if (!product) {
+    notFound();
+  }
+
   return (
     <StorefrontShell activeView="detail">
+      {/* Preload dynamic product detail image above-the-fold */}
+      <link 
+        rel="preload" 
+        href={product.imageUrl} 
+        as="image" 
+        fetchPriority="high" 
+      />
       <DetailView
         styles={styles}
-        selectedProduct={selectedProduct}
+        selectedProduct={selectedProduct || product}
         detailMainImage={detailMainImage}
         setDetailMainImage={setDetailMainImage}
         customColor={customColor}

@@ -2,8 +2,8 @@
 
 export const AppRoutes = {
   home: '/',
-  catalog: '/catalog',
-  productDetail: (id: string) => `/products/${id}`,
+  catalog: '/product',
+  productDetail: (id: string) => `/product/${id}`,
   checkout: '/checkout',
   tracking: (orderId: string) => `/tracking/${orderId}`,
   login: '/login',

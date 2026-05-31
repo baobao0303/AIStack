@@ -85,7 +85,11 @@ export default function Navbar({
   return (
     <nav className={styles.navbar}>
       <div className={styles.navContainer}>
-        <div className={styles.logoGroup} onClick={() => { setActiveView('home'); setIsCartOpen(false); }}>
+        <div 
+          className={styles.logoGroup} 
+          onClick={() => { setActiveView('home'); setIsCartOpen(false); }}
+          onMouseEnter={() => router.prefetch('/')}
+        >
           <span className={styles.logoText}>Tiệm Nhà Zịt</span>
         </div>
 
@@ -93,26 +97,16 @@ export default function Navbar({
           <button
             className={`${styles.navItem} ${activeView === 'home' ? styles.active : ''}`}
             onClick={() => { setActiveView('home'); setIsCartOpen(false); }}
+            onMouseEnter={() => router.prefetch('/')}
           >
             Trang Chủ
           </button>
           <button
             className={`${styles.navItem} ${activeView === 'catalog' ? styles.active : ''}`}
             onClick={() => { setActiveView('catalog'); setIsCartOpen(false); }}
+            onMouseEnter={() => router.prefetch('/product')}
           >
             Sản Phẩm
-          </button>
-          <button
-            className={`${styles.navItem} ${activeView === 'checkout' ? styles.active : ''}`}
-            onClick={() => { setActiveView('checkout'); setIsCartOpen(false); }}
-          >
-            Thanh Toán
-          </button>
-          <button
-            className={`${styles.navItem} ${activeView === 'tracking' ? styles.active : ''}`}
-            onClick={() => { setActiveView('tracking'); setIsCartOpen(false); }}
-          >
-            Theo Dõi Đơn
           </button>
         </div>
 
@@ -195,6 +189,7 @@ export default function Navbar({
             className={`${styles.iconBtn} ${styles.hoverScaleIcon} ${activeView === 'login' ? styles.activeIcon : ''}`} 
             aria-label="Tài khoản" 
             onClick={() => { router.push('/sign-in'); setIsCartOpen(false); }}
+            onMouseEnter={() => router.prefetch('/sign-in')}
           >
             <span className="material-symbols-outlined">person</span>
           </button>
