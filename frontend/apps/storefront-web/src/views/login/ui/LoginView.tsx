@@ -58,7 +58,7 @@ export default function LoginView({ setActiveView }: LoginViewProps) {
             <div className={authStyles.authAnimateField1}>
               <label className="text-[11px] font-bold text-charcoal/45 uppercase tracking-wider block mb-2 select-none" htmlFor="email">EMAIL</label>
               <div className="relative flex items-center">
-                <span className="absolute left-4 text-[20px] text-charcoal/40 pointer-events-none transition-colors duration-300 peer-focus:text-sage">mail</span>
+                <span className="material-symbols-outlined absolute left-4 text-[20px] text-charcoal/40 pointer-events-none transition-colors duration-300 peer-focus:text-sage">mail</span>
                 <input
                   type="email"
                   id="email"
@@ -83,7 +83,7 @@ export default function LoginView({ setActiveView }: LoginViewProps) {
                 </Link>
               </div>
               <div className="relative flex items-center">
-                <span className="absolute left-4 text-[20px] text-charcoal/40 pointer-events-none transition-colors duration-300 peer-focus:text-sage">lock</span>
+                <span className="material-symbols-outlined absolute left-4 text-[20px] text-charcoal/40 pointer-events-none transition-colors duration-300 peer-focus:text-sage">lock</span>
                 <input
                   type={showPassword ? 'text' : 'password'}
                   id="password"
@@ -95,7 +95,7 @@ export default function LoginView({ setActiveView }: LoginViewProps) {
                 />
                 <button
                   type="button"
-                  className="absolute right-4 bg-none border-none p-0 cursor-pointer flex items-center justify-center text-charcoal/40 hover:text-sage transition-colors duration-300"
+                  className="absolute right-4 z-10 bg-none border-none p-0 cursor-pointer flex items-center justify-center text-charcoal/40 hover:text-sage transition-colors duration-300"
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   <span className="material-symbols-outlined text-[20px]">

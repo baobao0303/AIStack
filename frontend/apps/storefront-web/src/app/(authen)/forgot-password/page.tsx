@@ -59,7 +59,7 @@ export default function ForgotPasswordPage() {
             <div className={`${authStyles.authAnimateField1} w-full`}>
               <label className="text-[11px] font-bold text-charcoal/45 uppercase tracking-wider block mb-2 text-left select-none" htmlFor="email">EMAIL ĐĂNG KÝ</label>
               <div className="relative flex items-center">
-                <span className="absolute left-4 text-[20px] text-charcoal/40 pointer-events-none transition-colors duration-300 peer-focus:text-sage">mail</span>
+                <span className="material-symbols-outlined absolute left-4 text-[20px] text-charcoal/40 pointer-events-none transition-colors duration-300 peer-focus:text-sage">mail</span>
                 <input
                   type="email"
                   id="email"

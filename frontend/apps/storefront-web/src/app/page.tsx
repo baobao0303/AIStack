@@ -1,15 +1,15 @@
 'use client';
 
 import React from 'react';
-import { useRouter } from 'next/navigation';
 import styles from '../shared/styles/page.module.scss';
 import HomeView from '../views/home/ui/HomeView';
 import StorefrontShell from '../widgets/layout/ui/StorefrontShell';
 import { useAppStore } from '../core/stores/app.store';
+import { useViewNavigation } from '../shared/lib/useViewNavigation';
 import { PRODUCTS } from '../entities/product/data/products';
 
 export default function StorefrontIndex() {
-  const router = useRouter();
+  const navigate = useViewNavigation();
   const setSelectedProduct = useAppStore((state) => state.setSelectedProduct);
   const addToCartDefault = useAppStore((state) => state.addToCartDefault);
 
@@ -17,13 +17,7 @@ export default function StorefrontIndex() {
     <StorefrontShell activeView="home">
       <HomeView
         styles={styles}
-        setActiveView={(view) => {
-          if (view === 'home') {
-            router.push('/');
-          } else {
-            router.push(`/${view}`);
-          }
-        }}
+        setActiveView={navigate}
         setSelectedProduct={setSelectedProduct}
         PRODUCTS={PRODUCTS}
         handleAddToCartDefault={addToCartDefault}

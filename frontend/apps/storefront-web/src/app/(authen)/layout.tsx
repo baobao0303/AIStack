@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useEffect } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
+import React from 'react';
+import { usePathname } from 'next/navigation';
 import Footer from '../../widgets/footer/ui/Footer';
 import { useScrollReveal } from '../../shared/lib/useScrollReveal';
+import { useViewNavigation } from '../../shared/lib/useViewNavigation';
 import globalStyles from '../../shared/styles/page.module.scss';
 import authStyles from './auth.module.scss';
 
@@ -13,7 +14,7 @@ export default function AuthLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const router = useRouter();
+  const handleActiveViewChange = useViewNavigation();
 
   // Dynamically map pathname to Action Title
   const getActionTitle = () => {
@@ -21,16 +22,6 @@ export default function AuthLayout({
     if (pathname.includes('/sign-up')) return 'Đăng ký';
     if (pathname.includes('/forgot-password')) return 'Khôi phục mật khẩu';
     return 'Xác thực';
-  };
-
-  const handleActiveViewChange = (view: any) => {
-    if (view === 'home') {
-      router.push('/');
-    } else if (view === 'login') {
-      router.push('/sign-in');
-    } else {
-      router.push(`/${view}`);
-    }
   };
 
   // Bind scroll reveal animations (matches Home page triggers)

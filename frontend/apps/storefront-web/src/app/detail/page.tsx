@@ -1,15 +1,15 @@
 'use client';
 
 import React from 'react';
-import { useRouter } from 'next/navigation';
 import { useShallow } from 'zustand/react/shallow';
 import styles from '../../shared/styles/page.module.scss';
 import DetailView from '../../views/detail/ui/DetailView';
 import StorefrontShell from '../../widgets/layout/ui/StorefrontShell';
 import { useAppStore } from '../../core/stores/app.store';
+import { useViewNavigation } from '../../shared/lib/useViewNavigation';
 
 export default function DetailRoute() {
-  const router = useRouter();
+  const navigate = useViewNavigation();
 
   const {
     selectedProduct,
@@ -63,13 +63,7 @@ export default function DetailRoute() {
         customNotes={customNotes}
         setCustomNotes={setCustomNotes}
         handleAddToCartCustom={addToCartCustom}
-        setActiveView={(view) => {
-          if (view === 'home') {
-            router.push('/');
-          } else {
-            router.push(`/${view}`);
-          }
-        }}
+        setActiveView={navigate}
       />
     </StorefrontShell>
   );

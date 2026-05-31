@@ -1,16 +1,16 @@
 'use client';
 
 import React from 'react';
-import { useRouter } from 'next/navigation';
 import { useShallow } from 'zustand/react/shallow';
 import styles from '../../shared/styles/page.module.scss';
 import CatalogView from '../../views/catalog/ui/CatalogView';
 import StorefrontShell from '../../widgets/layout/ui/StorefrontShell';
 import { useAppStore } from '../../core/stores/app.store';
+import { useViewNavigation } from '../../shared/lib/useViewNavigation';
 import { PRODUCTS } from '../../entities/product/data/products';
 
 export default function CatalogRoute() {
-  const router = useRouter();
+  const navigate = useViewNavigation();
 
   const {
     searchQuery,
@@ -80,13 +80,7 @@ export default function CatalogRoute() {
         setMaxPrice={setMaxPrice}
         filteredProducts={filteredProducts}
         setSelectedProduct={setSelectedProduct}
-        setActiveView={(view) => {
-          if (view === 'home') {
-            router.push('/');
-          } else {
-            router.push(`/${view}`);
-          }
-        }}
+        setActiveView={navigate}
         handleAddToCartDefault={addToCartDefault}
         onClearFilters={clearFilters}
       />

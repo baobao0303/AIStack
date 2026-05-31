@@ -184,9 +184,9 @@ export default function Navbar({
             <span className="relative inline-flex">
               <span className="material-symbols-outlined">shopping_bag</span>
               {cartCount > 0 && (
-                <span className="absolute -top-2 -right-2 w-5 h-5 flex items-center justify-center bg-sage text-white text-[10px] font-bold font-sans rounded-full border-[1.5px] border-ivory leading-none pointer-events-none">
+                <strong className="absolute -top-2 -right-2 w-5 h-5 flex items-center justify-center bg-sage text-white text-[10px] font-bold font-sans rounded-full border-[1.5px] border-ivory leading-none pointer-events-none">
                   {cartCount}
-                </span>
+                </strong>
               )}
             </span>
           </button>

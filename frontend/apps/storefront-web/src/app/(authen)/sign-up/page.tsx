@@ -11,6 +11,8 @@ export default function SignUpPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [agreeTerms, setAgreeTerms] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -62,7 +64,7 @@ export default function SignUpPage() {
             <div className={authStyles.authAnimateField1}>
               <label className="text-[11px] font-bold text-charcoal/45 uppercase tracking-wider block mb-2 select-none" htmlFor="fullName">HỌ VÀ TÊN</label>
               <div className="relative flex items-center">
-                <span className="absolute left-4 text-[20px] text-charcoal/40 pointer-events-none transition-colors duration-300 peer-focus:text-sage">person</span>
+                <span className="material-symbols-outlined absolute left-4 text-[20px] text-charcoal/40 pointer-events-none transition-colors duration-300 peer-focus:text-sage">person</span>
                 <input
                   type="text"
                   id="fullName"
@@ -79,7 +81,7 @@ export default function SignUpPage() {
             <div className={authStyles.authAnimateField2}>
               <label className="text-[11px] font-bold text-charcoal/45 uppercase tracking-wider block mb-2 select-none" htmlFor="email">EMAIL</label>
               <div className="relative flex items-center">
-                <span className="absolute left-4 text-[20px] text-charcoal/40 pointer-events-none transition-colors duration-300 peer-focus:text-sage">mail</span>
+                <span className="material-symbols-outlined absolute left-4 text-[20px] text-charcoal/40 pointer-events-none transition-colors duration-300 peer-focus:text-sage">mail</span>
                 <input
                   type="email"
                   id="email"
@@ -97,31 +99,49 @@ export default function SignUpPage() {
               <div>
                 <label className="text-[11px] font-bold text-charcoal/45 uppercase tracking-wider block mb-2 select-none" htmlFor="password">MẬT KHẨU</label>
                 <div className="relative flex items-center">
-                  <span className="absolute left-4 text-[20px] text-charcoal/40 pointer-events-none transition-colors duration-300 peer-focus:text-sage">lock</span>
+                  <span className="material-symbols-outlined absolute left-4 text-[20px] text-charcoal/40 pointer-events-none transition-colors duration-300 peer-focus:text-sage">lock</span>
                   <input
-                    type="password"
+                    type={showPassword ? 'text' : 'password'}
                     id="password"
                     placeholder="••••••••"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
-                    className="peer w-full bg-ivory border border-customBorder/50 py-3.5 pl-12 pr-4 rounded-lg font-sans text-sm text-charcoal outline-none transition-all duration-300 focus:bg-white focus:border-sage focus:ring-4 focus:ring-sage/10 box-border"
+                    className="peer w-full bg-ivory border border-customBorder/50 py-3.5 pl-12 pr-12 rounded-lg font-sans text-sm text-charcoal outline-none transition-all duration-300 focus:bg-white focus:border-sage focus:ring-4 focus:ring-sage/10 box-border"
                   />
+                  <button
+                    type="button"
+                    className="absolute right-4 z-10 bg-none border-none p-0 cursor-pointer flex items-center justify-center text-charcoal/40 hover:text-sage transition-colors duration-300"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    <span className="material-symbols-outlined text-[20px]">
+                      {showPassword ? 'visibility_off' : 'visibility'}
+                    </span>
+                  </button>
                 </div>
               </div>
               <div>
                 <label className="text-[11px] font-bold text-charcoal/45 uppercase tracking-wider block mb-2 select-none" htmlFor="confirmPass">XÁC NHẬN</label>
                 <div className="relative flex items-center">
-                  <span className="absolute left-4 text-[20px] text-charcoal/40 pointer-events-none transition-colors duration-300 peer-focus:text-sage">lock</span>
+                  <span className="material-symbols-outlined absolute left-4 text-[20px] text-charcoal/40 pointer-events-none transition-colors duration-300 peer-focus:text-sage">lock</span>
                   <input
-                    type="password"
+                    type={showConfirmPassword ? 'text' : 'password'}
                     id="confirmPass"
                     placeholder="••••••••"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     required
-                    className="peer w-full bg-ivory border border-customBorder/50 py-3.5 pl-12 pr-4 rounded-lg font-sans text-sm text-charcoal outline-none transition-all duration-300 focus:bg-white focus:border-sage focus:ring-4 focus:ring-sage/10 box-border"
+                    className="peer w-full bg-ivory border border-customBorder/50 py-3.5 pl-12 pr-12 rounded-lg font-sans text-sm text-charcoal outline-none transition-all duration-300 focus:bg-white focus:border-sage focus:ring-4 focus:ring-sage/10 box-border"
                   />
+                  <button
+                    type="button"
+                    className="absolute right-4 z-10 bg-none border-none p-0 cursor-pointer flex items-center justify-center text-charcoal/40 hover:text-sage transition-colors duration-300"
+                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                  >
+                    <span className="material-symbols-outlined text-[20px]">
+                      {showConfirmPassword ? 'visibility_off' : 'visibility'}
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>

@@ -7,9 +7,11 @@ import styles from '../../shared/styles/page.module.scss';
 import CheckoutView from '../../views/checkout/ui/CheckoutView';
 import StorefrontShell from '../../widgets/layout/ui/StorefrontShell';
 import { useAppStore } from '../../core/stores/app.store';
+import { useViewNavigation } from '../../shared/lib/useViewNavigation';
 
 export default function CheckoutRoute() {
   const router = useRouter();
+  const navigate = useViewNavigation();
 
   const {
     cart,
@@ -75,13 +77,7 @@ export default function CheckoutRoute() {
         setStripeCard={handleStripeCardChange}
         checkoutLoading={checkoutLoading}
         handleCheckoutSubmit={(e) => submitCheckout(e, router.push)}
-        setActiveView={(view) => {
-          if (view === 'home') {
-            router.push('/');
-          } else {
-            router.push(`/${view}`);
-          }
-        }}
+        setActiveView={navigate}
       />
     </StorefrontShell>
   );
