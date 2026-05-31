@@ -1,0 +1,37 @@
+> next build
+
+   [1m[38;2;173;127;168m▲ Next.js 15.2.9[39m[22m
+
+ [37m[1m [22m[39m Creating an optimized production build ...
+ [32m[1m✓[22m[39m Compiled successfully
+ [37m[1m [22m[39m Skipping validation of types
+ [37m[1m [22m[39m Skipping linting
+ [37m[1m [22m[39m Collecting page data ...
+ [37m[1m [22m[39m Generating static pages (0/11) ...
+ [37m[1m [22m[39m Generating static pages (2/11) 
+ [37m[1m [22m[39m Generating static pages (5/11) 
+ [37m[1m [22m[39m Generating static pages (8/11) 
+ [32m[1m✓[22m[39m Generating static pages (11/11)
+ [37m[1m [22m[39m Finalizing page optimization ...
+ [37m[1m [22m[39m Collecting build traces ...
+
+[4mRoute (app)[24m                                 [4mSize[24m  [4mFirst Load JS[24m  [4m[24m  [4m[24m
+┌ ○ /                                      385 B         [37m[1m202 kB[22m[39m
+├ ○ /_not-found                            975 B         [37m[1m102 kB[22m[39m
+├ ○ /about                                 622 B         [37m[1m203 kB[22m[39m
+├ ○ /checkout                              588 B         [37m[1m202 kB[22m[39m
+├ ○ /forgot-password                      1.9 kB         [37m[1m106 kB[22m[39m
+├ ○ /product                               976 B         [37m[1m203 kB[22m[39m
+├ ƒ /product/[id]                          700 B         [37m[1m203 kB[22m[39m
+├ ○ /sign-in                               290 B         [37m[1m202 kB[22m[39m
+├ ○ /sign-up                             3.35 kB         [37m[1m107 kB[22m[39m
+└ ○ /tracking                              334 B         [37m[1m202 kB[22m[39m
++ First Load JS shared by all             [37m[1m101 kB[22m[39m
+  ├ chunks/315-475acb0b9c97a093.js       45.8 kB
+  ├ chunks/87c73c54-fc40984717e13cb4.js  53.3 kB
+  └ other shared chunks (total)          1.92 kB
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

@@ -1,8 +1,8 @@
 {
   "run": {
-    "command": "nx build storefront-web --skip-nx-cache",
-    "startTime": "2026-05-31T15:06:21.503Z",
-    "endTime": "2026-05-31T15:06:29.758Z",
+    "command": "nx build storefront-web",
+    "startTime": "2026-05-31T16:47:28.178Z",
+    "endTime": "2026-05-31T16:47:35.930Z",
     "inner": false
   },
   "tasks": [
@@ -10,9 +10,9 @@
       "taskId": "storefront-web:build",
       "target": "build",
       "projectName": "storefront-web",
-      "hash": "4979853336209718913",
-      "startTime": "2026-05-31T15:06:21.538Z",
-      "endTime": "2026-05-31T15:06:29.752Z",
+      "hash": "3130853551934221193",
+      "startTime": "2026-05-31T16:47:28.212Z",
+      "endTime": "2026-05-31T16:47:35.901Z",
       "params": "",
       "cacheStatus": "cache-miss",
       "status": 0

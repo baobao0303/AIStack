@@ -1,0 +1,32 @@
+[2m> [22mnext dev
+
+   [1m[38;2;173;127;168m▲ Next.js 15.2.9[39m[22m
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.88.130:3000
+
+ [32m[1m✓[22m[39m Starting...
+ [32m[1m✓[22m[39m Ready in 1836ms
+ [37m[1m○[22m[39m Compiling /product ...
+ [32m[1m✓[22m[39m Compiled /product in 3.9s (1063 modules)
+ GET /product [32m200[39m in 4122ms
+ GET /product [32m200[39m in 219ms
+ [37m[1m○[22m[39m Compiling /about ...
+ [32m[1m✓[22m[39m Compiled /about in 787ms (1034 modules)
+ GET /about [32m200[39m in 1093ms
+ GET /about [32m200[39m in 78ms
+ [32m[1m✓[22m[39m Compiled / in 407ms (1027 modules)
+ GET / [32m200[39m in 515ms
+ GET / [32m200[39m in 88ms
+ GET /product [32m200[39m in 325ms
+ [32m[1m✓[22m[39m Compiled in 14.4s (1041 modules)
+ GET /product [32m200[39m in 291ms
+ [37m[1m○[22m[39m Compiling /sign-in ...
+ [32m[1m✓[22m[39m Compiled /sign-in in 651ms (1040 modules)
+ GET /sign-in [32m200[39m in 778ms
+ [32m[1m✓[22m[39m Compiled in 1553ms (1054 modules)
+ GET /product [32m200[39m in 155ms
+ [37m[1m○[22m[39m Compiling /_not-found ...
+ [32m[1m✓[22m[39m Compiled /_not-found in 1099ms (1044 modules)
+ GET /_next/static/css/app/product/page.css?v=1780243932463 [33m404[39m in 1221ms
+ GET /_next/static/css/app/layout.css?v=1780243932463 [33m404[39m in 1229ms
+^C[?25h

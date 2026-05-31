@@ -48,8 +48,20 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": ".angular/cache/19.2.26/crm-portal/angular-compiler.db-lock",
-        "hash": "9603166783630660697"
+        "file": "eslint.config.mjs",
+        "hash": "3462096019013144053"
+      },
+      {
+        "file": "nx.json",
+        "hash": "9392488300530054959"
+      },
+      {
+        "file": "README.md",
+        "hash": "11199411773125993063"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "3684368496026388459"
       },
       {
         "file": ".prettierrc",
@@ -61,31 +73,19 @@
       },
       {
         "file": ".angular/cache/19.2.26/crm-portal/.tsbuildinfo",
-        "hash": "15539182441921982922"
-      },
-      {
-        "file": "nx.json",
-        "hash": "9392488300530054959"
-      },
-      {
-        "file": "eslint.config.mjs",
-        "hash": "3462096019013144053"
-      },
-      {
-        "file": "README.md",
-        "hash": "11199411773125993063"
-      },
-      {
-        "file": "package-lock.json",
-        "hash": "3684368496026388459"
-      },
-      {
-        "file": ".nxignore",
-        "hash": "16904018250184961811"
+        "hash": "1551732662035273948"
       },
       {
         "file": ".angular/cache/19.2.26/crm-portal/vite/deps_temp_5d3e5975/package.json",
         "hash": "8630294688235076505"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "15235928896169849589"
+      },
+      {
+        "file": ".nxignore",
+        "hash": "16904018250184961811"
       },
       {
         "file": ".angular/cache/19.2.26/crm-portal/angular-compiler.db",
@@ -96,8 +96,8 @@
         "hash": "13382240879115596663"
       },
       {
-        "file": "tsconfig.base.json",
-        "hash": "15235928896169849589"
+        "file": ".angular/cache/19.2.26/crm-portal/angular-compiler.db-lock",
+        "hash": "9603166783630660697"
       }
     ],
     "projectFileMap": {
@@ -130,8 +130,12 @@
           "hash": "10530901509790266797"
         },
         {
+          "file": "libs/shared/src/lib/api/data/products.json",
+          "hash": "11784174680759081205"
+        },
+        {
           "file": "libs/shared/src/lib/api/data/products.ts",
-          "hash": "3802857049652434380"
+          "hash": "6051765773424619758"
         },
         {
           "file": "libs/shared/src/lib/api/shared-api.ts",
@@ -171,7 +175,7 @@
         },
         {
           "file": "libs/shared/src/lib/types/storefront.types.ts",
-          "hash": "5317950721122033615"
+          "hash": "7956290131890638203"
         },
         {
           "file": "libs/shared/src/lib/utils/date.ts",
@@ -293,7 +297,7 @@
         },
         {
           "file": "libs/shared-react/src/index.ts",
-          "hash": "4215740335065743493"
+          "hash": "9620503000202914702"
         },
         {
           "file": "libs/shared-react/src/lib/auth/shared-auth.ts",
@@ -382,7 +386,7 @@
         },
         {
           "file": "libs/shared-react/src/lib/store/app.store.ts",
-          "hash": "3381932558211486811",
+          "hash": "4168170688513560579",
           "deps": [
             "npm:zustand",
             "shared"
@@ -416,11 +420,18 @@
         },
         {
           "file": "libs/shared-react/src/lib/ui/styles/page.module.scss",
-          "hash": "15177292969319375226"
+          "hash": "14244678260737484272"
+        },
+        {
+          "file": "libs/shared-react/src/lib/ui/views/AboutView.tsx",
+          "hash": "3222898056201520088",
+          "deps": [
+            "npm:react"
+          ]
         },
         {
           "file": "libs/shared-react/src/lib/ui/views/CatalogView.tsx",
-          "hash": "13368707832658330181",
+          "hash": "14945755146368172815",
           "deps": [
             "npm:react",
             "shared"
@@ -436,7 +447,7 @@
         },
         {
           "file": "libs/shared-react/src/lib/ui/views/DetailView.tsx",
-          "hash": "824868661075998989",
+          "hash": "11804439935778548016",
           "deps": [
             "npm:react",
             "npm:next",
@@ -445,7 +456,7 @@
         },
         {
           "file": "libs/shared-react/src/lib/ui/views/HomeView.tsx",
-          "hash": "9269332871063843374",
+          "hash": "5711503466425980296",
           "deps": [
             "npm:react",
             "npm:next",
@@ -487,7 +498,7 @@
         },
         {
           "file": "libs/shared-react/src/lib/ui/widgets/Navbar.tsx",
-          "hash": "16581403028927254137",
+          "hash": "10807173666505583395",
           "deps": [
             "npm:react",
             "npm:next",
@@ -540,12 +551,124 @@
           "hash": "3244421341483603138"
         },
         {
+          "file": "apps/storefront-web/public/bouquet_18_flowers.png",
+          "hash": "2799739891592767551"
+        },
+        {
+          "file": "apps/storefront-web/public/calcifer_keychain.png",
+          "hash": "5499441716640078358"
+        },
+        {
+          "file": "apps/storefront-web/public/calcifer_keychain_blue.png",
+          "hash": "11233228797085392217"
+        },
+        {
+          "file": "apps/storefront-web/public/calcifer_keychain_both.png",
+          "hash": "5485961117787297354"
+        },
+        {
+          "file": "apps/storefront-web/public/calcifer_keychain_red.png",
+          "hash": "1096815468588347071"
+        },
+        {
+          "file": "apps/storefront-web/public/charm_bracelet_green.png",
+          "hash": "16836411617575572670"
+        },
+        {
+          "file": "apps/storefront-web/public/clover_strap.png",
+          "hash": "14014356860625363838"
+        },
+        {
+          "file": "apps/storefront-web/public/clover_strap_green.png",
+          "hash": "908647130162033808"
+        },
+        {
+          "file": "apps/storefront-web/public/clover_strap_pink.png",
+          "hash": "3935898639942813236"
+        },
+        {
           "file": "apps/storefront-web/public/data/products.json",
-          "hash": "17062988609111750332"
+          "hash": "2637943743074380351"
+        },
+        {
+          "file": "apps/storefront-web/public/doraemon_keychain.png",
+          "hash": "8961486953379344412"
         },
         {
           "file": "apps/storefront-web/public/favicon.ico",
           "hash": "9303420814833116677"
+        },
+        {
+          "file": "apps/storefront-web/public/flower_bracelet.png",
+          "hash": "4450649077479195349"
+        },
+        {
+          "file": "apps/storefront-web/public/flower_bracelet_blue.png",
+          "hash": "8977087334087660768"
+        },
+        {
+          "file": "apps/storefront-web/public/flower_bracelet_green.png",
+          "hash": "5273291194503522962"
+        },
+        {
+          "file": "apps/storefront-web/public/flower_bracelet_pink.png",
+          "hash": "10789946484998295381"
+        },
+        {
+          "file": "apps/storefront-web/public/ghost_keychain.png",
+          "hash": "18380651735459232882"
+        },
+        {
+          "file": "apps/storefront-web/public/merino_scarf.png",
+          "hash": "4161805207959358142"
+        },
+        {
+          "file": "apps/storefront-web/public/mini_plush_keychain.png",
+          "hash": "1957449137155237811"
+        },
+        {
+          "file": "apps/storefront-web/public/pig_keychain.png",
+          "hash": "7999230431530718407"
+        },
+        {
+          "file": "apps/storefront-web/public/soot_keychain.png",
+          "hash": "11877606331610132184"
+        },
+        {
+          "file": "apps/storefront-web/public/vietnam_flower_strap.png",
+          "hash": "15408780620621539964"
+        },
+        {
+          "file": "apps/storefront-web/public/vietnam_strap.png",
+          "hash": "13047909733439837317"
+        },
+        {
+          "file": "apps/storefront-web/public/vietnam_strap_blue.png",
+          "hash": "17656377645876908681"
+        },
+        {
+          "file": "apps/storefront-web/public/vietnam_strap_both.png",
+          "hash": "10328750795238658873"
+        },
+        {
+          "file": "apps/storefront-web/public/vietnam_strap_pink.png",
+          "hash": "11530028033019967718"
+        },
+        {
+          "file": "apps/storefront-web/public/vn_keychain.png",
+          "hash": "1278574702794006413"
+        },
+        {
+          "file": "apps/storefront-web/public/vn_keychain_2.png",
+          "hash": "1646607487631658410"
+        },
+        {
+          "file": "apps/storefront-web/public/vn_keychain_3.png",
+          "hash": "13846988306190452005"
+        },
+        {
+          "file": "apps/storefront-web/public/zootopia_keychain.png",
+          "hash": "14561176014325612898"
         },
         {
           "file": "apps/storefront-web/src/app/(authen)/auth.module.scss",
@@ -587,6 +710,14 @@
           ]
         },
         {
+          "file": "apps/storefront-web/src/app/about/page.tsx",
+          "hash": "11601362038361321862",
+          "deps": [
+            "npm:react",
+            "shared-react"
+          ]
+        },
+        {
           "file": "apps/storefront-web/src/app/checkout/page.tsx",
           "hash": "8773994074174099854",
           "deps": [
@@ -602,7 +733,7 @@
         },
         {
           "file": "apps/storefront-web/src/app/layout.tsx",
-          "hash": "4918223158765837271",
+          "hash": "1869162664764909920",
           "deps": [
             "npm:next"
           ]
@@ -629,7 +760,7 @@
         },
         {
           "file": "apps/storefront-web/src/app/product/page.tsx",
-          "hash": "14138615394446780082",
+          "hash": "16834892818288341944",
           "deps": [
             "npm:react",
             "npm:zustand",

@@ -1,0 +1,26 @@
+[2m> [22mnext dev
+
+   [1m[38;2;173;127;168m▲ Next.js 15.2.9[39m[22m
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.88.130:3000
+
+ [32m[1m✓[22m[39m Starting...
+ [32m[1m✓[22m[39m Ready in 2.4s
+ [37m[1m○[22m[39m Compiling /product ...
+<w> [1m[33m[webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, stat '/Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/cache/webpack/server-development/3.pack.gz'[39m[22m
+ [32m[1m✓[22m[39m Compiled /product in 6.2s (1063 modules)
+ GET /product [32m200[39m in 6826ms
+ [32m[1m✓[22m[39m Compiled in 1947ms (1027 modules)
+ GET /product [32m200[39m in 276ms
+ [32m[1m✓[22m[39m Compiled in 919ms (1027 modules)
+ GET /product [32m200[39m in 114ms
+ [32m[1m✓[22m[39m Compiled /_not-found in 333ms (1017 modules)
+ GET /_next/static/css/app/product/page.css?v=1780245804944 [33m404[39m in 492ms
+ [32m[1m✓[22m[39m Compiled in 1608ms (1049 modules)
+ [37m[1m○[22m[39m Compiling /_error ...
+ [32m[1m✓[22m[39m Compiled /_error in 3s (1346 modules)
+ GET /product [33m404[39m in 3921ms
+ GET /product [32m200[39m in 621ms
+ GET /product [32m200[39m in 170ms
+ GET /product [32m200[39m in 501ms
+^C^C^[OA[?25h

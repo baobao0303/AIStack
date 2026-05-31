@@ -1,0 +1,658 @@
+[2m> [22mnext dev
+
+   [1m[38;2;173;127;168m▲ Next.js 15.2.9[39m[22m
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.88.130:3000
+
+ [32m[1m✓[22m[39m Starting...
+ [32m[1m✓[22m[39m Ready in 2.5s
+ [37m[1m○[22m[39m Compiling / ...
+ [32m[1m✓[22m[39m Compiled / in 2.7s (1034 modules)
+ GET / [32m200[39m in 3043ms
+ [37m[1m○[22m[39m Compiling /_not-found ...
+ [32m[1m✓[22m[39m Compiled /_not-found in 957ms (1029 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json [33m404[39m in 1094ms
+ [32m[1m✓[22m[39m Compiled in 864ms (1011 modules)
+ [33m[1m⚠[22m[39m ../../libs/shared-react/src/lib/ui/styles/page.module.scss.webpack[javascript/auto]!=!../../node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!../../node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!../../node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[7].use[4]!../../node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[7].use[5]!../../libs/shared-react/src/lib/ui/styles/page.module.scss
+Deprecation Warning on line 5243, column 28 of file:///Users/bao312/Desktop/Test/frontend/libs/shared-react/src/lib/ui/styles/page.module.scss:5243:28:
+Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+5243 |           background-color: lighten($color-gold, 5%);
+
+../../libs/shared-react/src/lib/ui/styles/page.module.scss 5244:29  root stylesheet
+
+Import trace for requested module:
+../../libs/shared-react/src/lib/ui/styles/page.module.scss.webpack[javascript/auto]!=!../../node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!../../node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!../../node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[7].use[4]!../../node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[7].use[5]!../../libs/shared-react/src/lib/ui/styles/page.module.scss
+../../libs/shared-react/src/lib/ui/styles/page.module.scss
+../../libs/shared-react/src/lib/layout/StorefrontShell.tsx
+../../libs/shared-react/src/index.ts
+./src/app/page.tsx
+
+../../libs/shared-react/src/lib/ui/styles/page.module.scss.webpack[javascript/auto]!=!../../node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!../../node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!../../node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[7].use[4]!../../node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[7].use[5]!../../libs/shared-react/src/lib/ui/styles/page.module.scss
+Deprecation Warning on line 5243, column 28 of file:///Users/bao312/Desktop/Test/frontend/libs/shared-react/src/lib/ui/styles/page.module.scss:5243:28:
+lighten() is deprecated. Suggestions:
+
+color.scale($color, $lightness: 11.3839285714%)
+color.adjust($color, $lightness: 5%)
+
+More info: https://sass-lang.com/d/color-functions
+
+5243 |           background-color: lighten($color-gold, 5%);
+
+../../libs/shared-react/src/lib/ui/styles/page.module.scss 5244:29  root stylesheet
+
+Import trace for requested module:
+../../libs/shared-react/src/lib/ui/styles/page.module.scss.webpack[javascript/auto]!=!../../node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!../../node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!../../node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[7].use[4]!../../node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[7].use[5]!../../libs/shared-react/src/lib/ui/styles/page.module.scss
+../../libs/shared-react/src/lib/ui/styles/page.module.scss
+../../libs/shared-react/src/lib/layout/StorefrontShell.tsx
+../../libs/shared-react/src/index.ts
+./src/app/page.tsx
+
+../../libs/shared-react/src/lib/ui/styles/page.module.scss
+Deprecation Warning on line 5243, column 28 of file:///Users/bao312/Desktop/Test/frontend/libs/shared-react/src/lib/ui/styles/page.module.scss:5243:28:
+Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+5243 |           background-color: lighten($color-gold, 5%);
+
+../../libs/shared-react/src/lib/ui/styles/page.module.scss 5244:29  root stylesheet
+
+Import trace for requested module:
+../../libs/shared-react/src/lib/ui/styles/page.module.scss
+../../libs/shared-react/src/lib/layout/StorefrontShell.tsx
+../../libs/shared-react/src/index.ts
+./src/app/page.tsx
+
+../../libs/shared-react/src/lib/ui/styles/page.module.scss
+Deprecation Warning on line 5243, column 28 of file:///Users/bao312/Desktop/Test/frontend/libs/shared-react/src/lib/ui/styles/page.module.scss:5243:28:
+lighten() is deprecated. Suggestions:
+
+color.scale($color, $lightness: 11.3839285714%)
+color.adjust($color, $lightness: 5%)
+
+More info: https://sass-lang.com/d/color-functions
+
+5243 |           background-color: lighten($color-gold, 5%);
+
+../../libs/shared-react/src/lib/ui/styles/page.module.scss 5244:29  root stylesheet
+
+Import trace for requested module:
+../../libs/shared-react/src/lib/ui/styles/page.module.scss
+../../libs/shared-react/src/lib/layout/StorefrontShell.tsx
+../../libs/shared-react/src/index.ts
+./src/app/page.tsx
+ GET / [32m200[39m in 80ms
+ [33m[1m⚠[22m[39m ../../libs/shared-react/src/lib/ui/styles/page.module.scss
+Deprecation Warning on line 5243, column 28 of file:///Users/bao312/Desktop/Test/frontend/libs/shared-react/src/lib/ui/styles/page.module.scss:5243:28:
+Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+5243 |           background-color: lighten($color-gold, 5%);
+
+../../libs/shared-react/src/lib/ui/styles/page.module.scss 5244:29  root stylesheet
+
+Import trace for requested module:
+../../libs/shared-react/src/lib/ui/styles/page.module.scss
+../../libs/shared-react/src/lib/layout/StorefrontShell.tsx
+../../libs/shared-react/src/index.ts
+./src/app/page.tsx
+
+../../libs/shared-react/src/lib/ui/styles/page.module.scss
+Deprecation Warning on line 5243, column 28 of file:///Users/bao312/Desktop/Test/frontend/libs/shared-react/src/lib/ui/styles/page.module.scss:5243:28:
+lighten() is deprecated. Suggestions:
+
+color.scale($color, $lightness: 11.3839285714%)
+color.adjust($color, $lightness: 5%)
+
+More info: https://sass-lang.com/d/color-functions
+
+5243 |           background-color: lighten($color-gold, 5%);
+
+../../libs/shared-react/src/lib/ui/styles/page.module.scss 5244:29  root stylesheet
+
+Import trace for requested module:
+../../libs/shared-react/src/lib/ui/styles/page.module.scss
+../../libs/shared-react/src/lib/layout/StorefrontShell.tsx
+../../libs/shared-react/src/index.ts
+./src/app/page.tsx
+ GET / [32m200[39m in 16ms
+ [33m[1m⚠[22m[39m ../../libs/shared-react/src/lib/ui/styles/page.module.scss
+Deprecation Warning on line 5243, column 28 of file:///Users/bao312/Desktop/Test/frontend/libs/shared-react/src/lib/ui/styles/page.module.scss:5243:28:
+Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+5243 |           background-color: lighten($color-gold, 5%);
+
+../../libs/shared-react/src/lib/ui/styles/page.module.scss 5244:29  root stylesheet
+
+Import trace for requested module:
+../../libs/shared-react/src/lib/ui/styles/page.module.scss
+../../libs/shared-react/src/lib/ui/widgets/Footer.tsx
+../../libs/shared-react/src/index.ts
+./src/app/page.tsx
+
+../../libs/shared-react/src/lib/ui/styles/page.module.scss
+Deprecation Warning on line 5243, column 28 of file:///Users/bao312/Desktop/Test/frontend/libs/shared-react/src/lib/ui/styles/page.module.scss:5243:28:
+lighten() is deprecated. Suggestions:
+
+color.scale($color, $lightness: 11.3839285714%)
+color.adjust($color, $lightness: 5%)
+
+More info: https://sass-lang.com/d/color-functions
+
+5243 |           background-color: lighten($color-gold, 5%);
+
+../../libs/shared-react/src/lib/ui/styles/page.module.scss 5244:29  root stylesheet
+
+Import trace for requested module:
+../../libs/shared-react/src/lib/ui/styles/page.module.scss
+../../libs/shared-react/src/lib/ui/widgets/Footer.tsx
+../../libs/shared-react/src/index.ts
+./src/app/page.tsx
+ GET / [32m200[39m in 69ms
+ [33m[1m⚠[22m[39m ../../libs/shared-react/src/lib/ui/styles/page.module.scss
+Deprecation Warning on line 5243, column 28 of file:///Users/bao312/Desktop/Test/frontend/libs/shared-react/src/lib/ui/styles/page.module.scss:5243:28:
+Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+5243 |           background-color: lighten($color-gold, 5%);
+
+../../libs/shared-react/src/lib/ui/styles/page.module.scss 5244:29  root stylesheet
+
+Import trace for requested module:
+../../libs/shared-react/src/lib/ui/styles/page.module.scss
+../../libs/shared-react/src/lib/layout/StorefrontShell.tsx
+../../libs/shared-react/src/index.ts
+./src/app/page.tsx
+
+../../libs/shared-react/src/lib/ui/styles/page.module.scss
+Deprecation Warning on line 5243, column 28 of file:///Users/bao312/Desktop/Test/frontend/libs/shared-react/src/lib/ui/styles/page.module.scss:5243:28:
+lighten() is deprecated. Suggestions:
+
+color.scale($color, $lightness: 11.3839285714%)
+color.adjust($color, $lightness: 5%)
+
+More info: https://sass-lang.com/d/color-functions
+
+5243 |           background-color: lighten($color-gold, 5%);
+
+../../libs/shared-react/src/lib/ui/styles/page.module.scss 5244:29  root stylesheet
+
+Import trace for requested module:
+../../libs/shared-react/src/lib/ui/styles/page.module.scss
+../../libs/shared-react/src/lib/layout/StorefrontShell.tsx
+../../libs/shared-react/src/index.ts
+./src/app/page.tsx
+ GET / [32m200[39m in 107ms
+ [33m[1m⚠[22m[39m ../../libs/shared-react/src/lib/ui/styles/page.module.scss
+Deprecation Warning on line 5243, column 28 of file:///Users/bao312/Desktop/Test/frontend/libs/shared-react/src/lib/ui/styles/page.module.scss:5243:28:
+Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+5243 |           background-color: lighten($color-gold, 5%);
+
+../../libs/shared-react/src/lib/ui/styles/page.module.scss 5244:29  root stylesheet
+
+Import trace for requested module:
+../../libs/shared-react/src/lib/ui/styles/page.module.scss
+../../libs/shared-react/src/lib/layout/StorefrontShell.tsx
+../../libs/shared-react/src/index.ts
+./src/app/page.tsx
+
+../../libs/shared-react/src/lib/ui/styles/page.module.scss
+Deprecation Warning on line 5243, column 28 of file:///Users/bao312/Desktop/Test/frontend/libs/shared-react/src/lib/ui/styles/page.module.scss:5243:28:
+lighten() is deprecated. Suggestions:
+
+color.scale($color, $lightness: 11.3839285714%)
+color.adjust($color, $lightness: 5%)
+
+More info: https://sass-lang.com/d/color-functions
+
+5243 |           background-color: lighten($color-gold, 5%);
+
+../../libs/shared-react/src/lib/ui/styles/page.module.scss 5244:29  root stylesheet
+
+Import trace for requested module:
+../../libs/shared-react/src/lib/ui/styles/page.module.scss
+../../libs/shared-react/src/lib/layout/StorefrontShell.tsx
+../../libs/shared-react/src/index.ts
+./src/app/page.tsx
+ GET / [32m200[39m in 82ms
+ [33m[1m⚠[22m[39m ../../libs/shared-react/src/lib/ui/styles/page.module.scss
+Deprecation Warning on line 5243, column 28 of file:///Users/bao312/Desktop/Test/frontend/libs/shared-react/src/lib/ui/styles/page.module.scss:5243:28:
+Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+5243 |           background-color: lighten($color-gold, 5%);
+
+../../libs/shared-react/src/lib/ui/styles/page.module.scss 5244:29  root stylesheet
+
+Import trace for requested module:
+../../libs/shared-react/src/lib/ui/styles/page.module.scss
+../../libs/shared-react/src/lib/layout/StorefrontShell.tsx
+../../libs/shared-react/src/index.ts
+./src/app/page.tsx
+
+../../libs/shared-react/src/lib/ui/styles/page.module.scss
+Deprecation Warning on line 5243, column 28 of file:///Users/bao312/Desktop/Test/frontend/libs/shared-react/src/lib/ui/styles/page.module.scss:5243:28:
+lighten() is deprecated. Suggestions:
+
+color.scale($color, $lightness: 11.3839285714%)
+color.adjust($color, $lightness: 5%)
+
+More info: https://sass-lang.com/d/color-functions
+
+5243 |           background-color: lighten($color-gold, 5%);
+
+../../libs/shared-react/src/lib/ui/styles/page.module.scss 5244:29  root stylesheet
+
+Import trace for requested module:
+../../libs/shared-react/src/lib/ui/styles/page.module.scss
+../../libs/shared-react/src/lib/layout/StorefrontShell.tsx
+../../libs/shared-react/src/index.ts
+./src/app/page.tsx
+ GET / [32m200[39m in 258ms
+ GET / [32m200[39m in 40ms
+ [33m[1m⚠[22m[39m ../../libs/shared-react/src/lib/ui/styles/page.module.scss
+Deprecation Warning on line 5243, column 28 of file:///Users/bao312/Desktop/Test/frontend/libs/shared-react/src/lib/ui/styles/page.module.scss:5243:28:
+Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+5243 |           background-color: lighten($color-gold, 5%);
+
+../../libs/shared-react/src/lib/ui/styles/page.module.scss 5244:29  root stylesheet
+
+Import trace for requested module:
+../../libs/shared-react/src/lib/ui/styles/page.module.scss
+../../libs/shared-react/src/lib/layout/StorefrontShell.tsx
+../../libs/shared-react/src/index.ts
+./src/app/page.tsx
+
+../../libs/shared-react/src/lib/ui/styles/page.module.scss
+Deprecation Warning on line 5243, column 28 of file:///Users/bao312/Desktop/Test/frontend/libs/shared-react/src/lib/ui/styles/page.module.scss:5243:28:
+lighten() is deprecated. Suggestions:
+
+color.scale($color, $lightness: 11.3839285714%)
+color.adjust($color, $lightness: 5%)
+
+More info: https://sass-lang.com/d/color-functions
+
+5243 |           background-color: lighten($color-gold, 5%);
+
+../../libs/shared-react/src/lib/ui/styles/page.module.scss 5244:29  root stylesheet
+
+Import trace for requested module:
+../../libs/shared-react/src/lib/ui/styles/page.module.scss
+../../libs/shared-react/src/lib/layout/StorefrontShell.tsx
+../../libs/shared-react/src/index.ts
+./src/app/page.tsx
+ GET / [32m200[39m in 281ms
+ [33m[1m⚠[22m[39m ../../libs/shared-react/src/lib/ui/styles/page.module.scss
+Deprecation Warning on line 5243, column 28 of file:///Users/bao312/Desktop/Test/frontend/libs/shared-react/src/lib/ui/styles/page.module.scss:5243:28:
+Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+5243 |           background-color: lighten($color-gold, 5%);
+
+../../libs/shared-react/src/lib/ui/styles/page.module.scss 5244:29  root stylesheet
+
+Import trace for requested module:
+../../libs/shared-react/src/lib/ui/styles/page.module.scss
+../../libs/shared-react/src/lib/layout/StorefrontShell.tsx
+../../libs/shared-react/src/index.ts
+./src/app/page.tsx
+
+../../libs/shared-react/src/lib/ui/styles/page.module.scss
+Deprecation Warning on line 5243, column 28 of file:///Users/bao312/Desktop/Test/frontend/libs/shared-react/src/lib/ui/styles/page.module.scss:5243:28:
+lighten() is deprecated. Suggestions:
+
+color.scale($color, $lightness: 11.3839285714%)
+color.adjust($color, $lightness: 5%)
+
+More info: https://sass-lang.com/d/color-functions
+
+5243 |           background-color: lighten($color-gold, 5%);
+
+../../libs/shared-react/src/lib/ui/styles/page.module.scss 5244:29  root stylesheet
+
+Import trace for requested module:
+../../libs/shared-react/src/lib/ui/styles/page.module.scss
+../../libs/shared-react/src/lib/layout/StorefrontShell.tsx
+../../libs/shared-react/src/index.ts
+./src/app/page.tsx
+ GET / [32m200[39m in 2933ms
+ [33m[1m⚠[22m[39m ../../libs/shared-react/src/lib/ui/styles/page.module.scss
+Deprecation Warning on line 5243, column 28 of file:///Users/bao312/Desktop/Test/frontend/libs/shared-react/src/lib/ui/styles/page.module.scss:5243:28:
+Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+5243 |           background-color: lighten($color-gold, 5%);
+
+../../libs/shared-react/src/lib/ui/styles/page.module.scss 5244:29  root stylesheet
+
+Import trace for requested module:
+../../libs/shared-react/src/lib/ui/styles/page.module.scss
+../../libs/shared-react/src/lib/layout/StorefrontShell.tsx
+../../libs/shared-react/src/index.ts
+./src/app/page.tsx
+
+../../libs/shared-react/src/lib/ui/styles/page.module.scss
+Deprecation Warning on line 5243, column 28 of file:///Users/bao312/Desktop/Test/frontend/libs/shared-react/src/lib/ui/styles/page.module.scss:5243:28:
+lighten() is deprecated. Suggestions:
+
+color.scale($color, $lightness: 11.3839285714%)
+color.adjust($color, $lightness: 5%)
+
+More info: https://sass-lang.com/d/color-functions
+
+5243 |           background-color: lighten($color-gold, 5%);
+
+../../libs/shared-react/src/lib/ui/styles/page.module.scss 5244:29  root stylesheet
+
+Import trace for requested module:
+../../libs/shared-react/src/lib/ui/styles/page.module.scss
+../../libs/shared-react/src/lib/layout/StorefrontShell.tsx
+../../libs/shared-react/src/index.ts
+./src/app/page.tsx
+ [33m[1m⚠[22m[39m ../../libs/shared-react/src/lib/ui/styles/page.module.scss
+Deprecation Warning on line 5243, column 28 of file:///Users/bao312/Desktop/Test/frontend/libs/shared-react/src/lib/ui/styles/page.module.scss:5243:28:
+Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+5243 |           background-color: lighten($color-gold, 5%);
+
+../../libs/shared-react/src/lib/ui/styles/page.module.scss 5244:29  root stylesheet
+
+Import trace for requested module:
+../../libs/shared-react/src/lib/ui/styles/page.module.scss
+../../libs/shared-react/src/lib/layout/StorefrontShell.tsx
+../../libs/shared-react/src/index.ts
+./src/app/page.tsx
+
+../../libs/shared-react/src/lib/ui/styles/page.module.scss
+Deprecation Warning on line 5243, column 28 of file:///Users/bao312/Desktop/Test/frontend/libs/shared-react/src/lib/ui/styles/page.module.scss:5243:28:
+lighten() is deprecated. Suggestions:
+
+color.scale($color, $lightness: 11.3839285714%)
+color.adjust($color, $lightness: 5%)
+
+More info: https://sass-lang.com/d/color-functions
+
+5243 |           background-color: lighten($color-gold, 5%);
+
+../../libs/shared-react/src/lib/ui/styles/page.module.scss 5244:29  root stylesheet
+
+Import trace for requested module:
+../../libs/shared-react/src/lib/ui/styles/page.module.scss
+../../libs/shared-react/src/lib/layout/StorefrontShell.tsx
+../../libs/shared-react/src/index.ts
+./src/app/page.tsx
+ [32m[1m✓[22m[39m Compiled in 7.3s (1036 modules)
+ [37m[1m○[22m[39m Compiling /_not-found ...
+ [32m[1m✓[22m[39m Compiled /_not-found in 2.4s (1017 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json [33m404[39m in 2723ms
+ [32m[1m✓[22m[39m Compiled in 6.4s (1040 modules)
+ [37m[1m○[22m[39m Compiling /about ...
+ [32m[1m✓[22m[39m Compiled /about in 1116ms (1020 modules)
+ GET /about [32m200[39m in 3361ms
+ GET /about [32m200[39m in 453ms
+ GET /about [32m200[39m in 42ms
+ GET /about [32m200[39m in 141ms
+ GET /about [32m200[39m in 78ms
+ GET /about [32m200[39m in 167ms
+ GET /about [32m200[39m in 561ms
+ [32m[1m✓[22m[39m Compiled in 5.8s (1043 modules)
+ GET / [32m200[39m in 914ms
+ [37m[1m○[22m[39m Compiling /_not-found ...
+ [32m[1m✓[22m[39m Compiled /_not-found in 581ms (1024 modules)
+ [31m[1m⨯[22m[39m Error: Cannot find module './862.js'
+Require stack:
+- /Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/server/webpack-runtime.js
+- /Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/server/app/_not-found/page.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/require.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/load-components.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/utils.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/swc/options.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/swc/index.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/lib/router-server.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:198:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/app/_not-found/page.js:1:4377)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:1:4418) {
+  code: [32m'MODULE_NOT_FOUND'[39m,
+  requireStack: [36m[Array][39m
+}
+ [31m[1m⨯[22m[39m Error: Cannot find module './862.js'
+Require stack:
+- /Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/server/webpack-runtime.js
+- /Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/server/app/_not-found/page.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/require.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/load-components.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/utils.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/swc/options.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/swc/index.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/lib/router-server.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:198:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/app/_not-found/page.js:1:4377)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:1:4418) {
+  code: [32m'MODULE_NOT_FOUND'[39m,
+  requireStack: [36m[Array][39m
+}
+ GET / [32m200[39m in 438ms
+ [31m[1m⨯[22m[39m Error: Cannot find module './862.js'
+Require stack:
+- /Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/server/webpack-runtime.js
+- /Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/server/app/_not-found/page.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/require.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/load-components.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/utils.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/swc/options.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/swc/index.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/lib/router-server.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:198:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/app/_not-found/page.js:1:4377)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:1:4418) {
+  code: [32m'MODULE_NOT_FOUND'[39m,
+  requireStack: [36m[Array][39m
+}
+ GET / [32m200[39m in 846ms
+ GET / [32m200[39m in 887ms
+ GET / [32m200[39m in 1079ms
+ GET / [32m200[39m in 466ms
+ [37m[1m○[22m[39m Compiling /_error ...
+ GET / [32m200[39m in 1270ms
+ GET / [32m200[39m in 634ms
+ GET / [32m200[39m in 119ms
+ GET / [32m200[39m in 35ms
+ GET / [32m200[39m in 209ms
+ [32m[1m✓[22m[39m Compiled /_error in 2.7s (1353 modules)
+ GET /_next/static/css/app/layout.css?1780240649272 [31m500[39m in 13241ms
+ GET /_next/static/css/app/layout.css?1780240649271 [31m500[39m in 13289ms
+ GET /_next/static/css/app/layout.css?v=1780240616287 [31m500[39m in 12349ms
+ GET / [32m200[39m in 1620ms
+ GET / [32m200[39m in 215ms
+ GET /about [32m200[39m in 561ms
+ [31m[1m⨯[22m[39m Error: Cannot find module './862.js'
+Require stack:
+- /Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/server/webpack-runtime.js
+- /Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/server/app/page.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/require.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/load-components.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/utils.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/swc/options.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/swc/index.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/lib/router-server.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:198:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/app/_not-found/page.js:1:4377)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:1:4418) {
+  code: [32m'MODULE_NOT_FOUND'[39m,
+  requireStack: [36m[Array][39m
+}
+ GET /_next/static/css/app/layout.css?v=1780240665978 [31m500[39m in 153ms
+ [31m[1m⨯[22m[39m Error: Cannot find module './862.js'
+Require stack:
+- /Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/server/webpack-runtime.js
+- /Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/server/app/page.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/require.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/load-components.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/utils.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/swc/options.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/swc/index.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/lib/router-server.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:198:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/app/_not-found/page.js:1:4377)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:1:4418) {
+  code: [32m'MODULE_NOT_FOUND'[39m,
+  requireStack: [36m[Array][39m
+}
+ [31m[1m⨯[22m[39m Error: Cannot find module './862.js'
+Require stack:
+- /Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/server/webpack-runtime.js
+- /Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/server/app/page.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/require.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/load-components.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/utils.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/swc/options.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/swc/index.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/lib/router-server.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:198:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/app/_not-found/page.js:1:4377)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:1:4418) {
+  code: [32m'MODULE_NOT_FOUND'[39m,
+  requireStack: [36m[Array][39m
+}
+ GET /_next/static/chunks/main-app.js?v=1780240665978 [31m500[39m in 2865ms
+ GET /_next/static/chunks/app-pages-internals.js [31m500[39m in 2481ms
+ [31m[1m⨯[22m[39m Error: Cannot find module './862.js'
+Require stack:
+- /Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/server/webpack-runtime.js
+- /Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/server/app/page.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/require.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/load-components.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/utils.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/swc/options.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/swc/index.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/lib/router-server.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:198:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/app/_not-found/page.js:1:4377)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:1:4418) {
+  code: [32m'MODULE_NOT_FOUND'[39m,
+  requireStack: [36m[Array][39m
+}
+ [31m[1m⨯[22m[39m Error: Cannot find module './862.js'
+Require stack:
+- /Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/server/webpack-runtime.js
+- /Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/server/app/page.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/require.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/load-components.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/utils.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/swc/options.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/swc/index.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/lib/router-server.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:198:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/app/_not-found/page.js:1:4377)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:1:4418) {
+  code: [32m'MODULE_NOT_FOUND'[39m,
+  requireStack: [36m[Array][39m
+}
+ GET /_next/static/chunks/app-pages-internals.js [31m500[39m in 188ms
+ GET /_next/static/chunks/main-app.js?v=1780240665978 [31m500[39m in 215ms
+<w> [1m[33m[webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/cache/webpack/client-development-fallback/0.pack.gz_' -> '/Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/cache/webpack/client-development-fallback/0.pack.gz'[39m[22m
+<w> [1m[33m[webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/cache/webpack/client-development-fallback/0.pack.gz_' -> '/Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/cache/webpack/client-development-fallback/0.pack.gz'[39m[22m
+ [32m[1m✓[22m[39m Compiled in 1528ms (1376 modules)
+ [32m[1m✓[22m[39m Compiled in 1934ms (1376 modules)
+^C[?25h

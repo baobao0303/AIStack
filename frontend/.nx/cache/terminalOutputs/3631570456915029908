@@ -1,0 +1,25 @@
+[2m> [22mnext dev
+
+   [1m[38;2;173;127;168m▲ Next.js 15.2.9[39m[22m
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.88.130:3000
+
+ [32m[1m✓[22m[39m Starting...
+ [32m[1m✓[22m[39m Ready in 2.3s
+ [37m[1m○[22m[39m Compiling /product ...
+ [32m[1m✓[22m[39m Compiled /product in 4.5s (1063 modules)
+ [37m[1m○[22m[39m Compiling /_not-found ...
+ [32m[1m✓[22m[39m Compiled /_not-found in 2.2s (1031 modules)
+ [31m[1m⨯[22m[39m [Error: Cannot find module '/Users/bao312/Desktop/Test/frontend/apps/storefront-web/.next/server/middleware-manifest.json'
+Require stack:
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/next-server.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/dev/next-dev-server.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/next.js
+- /Users/bao312/Desktop/Test/frontend/node_modules/next/dist/server/lib/start-server.js] {
+  code: [32m'MODULE_NOT_FOUND'[39m,
+  requireStack: [36m[Array][39m
+}
+ [37m[1m○[22m[39m Compiling /_error ...
+ [32m[1m✓[22m[39m Compiled /_error in 1288ms (1346 modules)
+ GET /product [31m500[39m in 8525ms
+^C[?25h
