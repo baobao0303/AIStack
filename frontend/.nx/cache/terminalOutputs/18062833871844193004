@@ -1,0 +1,33 @@
+> next build
+
+   [1m[38;2;173;127;168m▲ Next.js 15.2.9[39m[22m
+
+ [37m[1m [22m[39m Creating an optimized production build ...
+ [32m[1m✓[22m[39m Compiled successfully
+ [37m[1m [22m[39m Skipping linting
+ [37m[1m [22m[39m Checking validity of types ...
+ [37m[1m [22m[39m Collecting page data ...
+ [37m[1m [22m[39m Generating static pages (0/9) ...
+ [37m[1m [22m[39m Generating static pages (2/9) 
+ [37m[1m [22m[39m Generating static pages (4/9) 
+ [37m[1m [22m[39m Generating static pages (6/9) 
+ [32m[1m✓[22m[39m Generating static pages (9/9)
+ [37m[1m [22m[39m Finalizing page optimization ...
+ [37m[1m [22m[39m Collecting build traces ...
+
+[4mRoute (app)[24m                                 [4mSize[24m  [4mFirst Load JS[24m  [4m[24m  [4m[24m
+┌ ○ /                                    4.37 kB         [37m[1m119 kB[22m[39m
+├ ○ /_not-found                            975 B         [37m[1m102 kB[22m[39m
+├ ○ /catalog                             1.86 kB         [37m[1m116 kB[22m[39m
+├ ○ /checkout                            2.04 kB         [37m[1m117 kB[22m[39m
+├ ○ /detail                              3.18 kB         [37m[1m118 kB[22m[39m
+├ ○ /sign-in                             7.27 kB         [37m[1m108 kB[22m[39m
+└ ○ /tracking                            2.02 kB         [37m[1m116 kB[22m[39m
++ First Load JS shared by all             [37m[1m101 kB[22m[39m
+  ├ chunks/315-2ab105b66baa9fa9.js       45.8 kB
+  ├ chunks/87c73c54-4706085ff9cd1421.js  53.3 kB
+  └ other shared chunks (total)          1.92 kB
+
+
+○  (Static)  prerendered as static content
+

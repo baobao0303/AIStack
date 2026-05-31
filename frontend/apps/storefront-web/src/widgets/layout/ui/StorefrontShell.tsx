@@ -1,0 +1,124 @@
+'use client';
+
+import React, { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import styles from '../../../shared/styles/page.module.scss';
+import ShaderBackground from '../../../shared/ui/ShaderBackground';
+import Navbar from '../../navbar/ui/Navbar';
+import Footer from '../../footer/ui/Footer';
+import CartFloatingModal from '../../cart-modal/ui/CartFloatingModal';
+import { useAppStore } from '../../../core/stores/app.store';
+import { ViewType } from '../../../shared/model/types';
+import { useScrollReveal } from '../../../shared/lib/useScrollReveal';
+import { useClickOutside } from '../../../shared/lib/useClickOutside';
+
+interface StorefrontShellProps {
+  children: React.ReactNode;
+  activeView: ViewType;
+}
+
+export default function StorefrontShell({ children, activeView }: StorefrontShellProps) {
+  const router = useRouter();
+
+  const {
+    isCartOpen,
+    setIsCartOpen,
+    cart,
+    searchQuery,
+    setSearchQuery,
+    removeFromCart,
+    activeOrder,
+    setActiveOrder,
+  } = useAppStore();
+
+  const cartTotal = cart.reduce((total, item) => total + item.product.price * item.quantity, 0);
+
+  // Sync order tracking statuses in the background when active view is tracking
+  useEffect(() => {
+    if (activeOrder && activeView === 'tracking') {
+      const interval = setInterval(() => {
+        useAppStore.setState((prev) => {
+          if (!prev.activeOrder) return {};
+          const nextStatusMap: Record<string, 'knitting' | 'completed' | 'shipping' | 'success'> = {
+            received: 'knitting',
+            knitting: 'completed',
+            completed: 'shipping',
+            shipping: 'success',
+          };
+          const nextStatus = nextStatusMap[prev.activeOrder.status];
+          if (nextStatus) {
+            return {
+              activeOrder: { ...prev.activeOrder, status: nextStatus }
+            };
+          }
+          return {};
+        });
+      }, 8000);
+      return () => clearInterval(interval);
+    }
+  }, [activeOrder, activeView]);
+
+  // Route transition helper mapping legacy tab state names to standard router paths
+  const handleActiveViewChange = (view: ViewType) => {
+    setIsCartOpen(false);
+    if (view === 'home') {
+      router.push('/');
+    } else if (view === 'login') {
+      router.push('/sign-in');
+    } else {
+      router.push(`/${view}`);
+    }
+  };
+
+  // Bind scroll reveal interactions and animations for storefront layout page changes
+  useScrollReveal(styles.isVisible, [activeView]);
+
+  // Handle clicking outside the cart drawer to dismiss
+  useClickOutside(isCartOpen, ['cart-modal', 'cart-trigger'], () => setIsCartOpen(false));
+
+  return (
+    <div className={styles.storefrontLayout}>
+      {/* Background Ambient Weave Layer */}
+      <div className={styles.ambientGrain}></div>
+      <ShaderBackground />
+
+      {/* TOP NAVIGATION BAR */}
+      <Navbar
+        styles={styles}
+        activeView={activeView}
+        setActiveView={handleActiveViewChange}
+        isCartOpen={isCartOpen}
+        setIsCartOpen={setIsCartOpen}
+        cartCount={cart.length}
+        searchQuery={searchQuery}
+        setSearchQuery={(query) => {
+          setSearchQuery(query);
+          // Auto-redirect to catalog once search inputs contain typed text
+          if (query.trim() !== '' && activeView !== 'catalog') {
+            router.push('/catalog');
+          }
+        }}
+      />
+
+      {/* 💳 FLOATING CART DRAWER PANEL */}
+      {isCartOpen && (
+        <CartFloatingModal
+          styles={styles}
+          cart={cart}
+          cartTotal={cartTotal}
+          removeFromCart={removeFromCart}
+          setIsCartOpen={setIsCartOpen}
+          setActiveView={handleActiveViewChange}
+        />
+      )}
+
+      {/* RENDER VIEW CHILDREN */}
+      <main>
+        {children}
+      </main>
+
+      {/* FOOTER */}
+      <Footer styles={styles} setActiveView={handleActiveViewChange} />
+    </div>
+  );
+}

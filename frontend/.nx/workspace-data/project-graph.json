@@ -13545,7 +13545,17 @@
       },
       {
         "source": "storefront-web",
+        "target": "npm:next",
+        "type": "static"
+      },
+      {
+        "source": "storefront-web",
         "target": "npm:axios",
+        "type": "static"
+      },
+      {
+        "source": "storefront-web",
+        "target": "npm:zustand",
         "type": "static"
       }
     ],
@@ -30430,5 +30440,5 @@
   },
   "version": "6.0",
   "errors": [],
-  "computedAt": 1780207847874
+  "computedAt": 1780208170878
 }

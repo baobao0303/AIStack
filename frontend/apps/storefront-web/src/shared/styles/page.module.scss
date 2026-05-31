@@ -3543,3 +3543,407 @@ $color-border: #c2c8c0; // Outline variant
   font-size: 16px;
   color: rgba($color-charcoal, 0.8);
 }
+
+// ==================== PREMIUM LOGIN VIEW ARCHITECTURE ====================
+.loginContainer {
+  width: 100%;
+  min-height: calc(100vh - 80px); // Full viewport minus nav bar height
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  background-color: #faf9f6; // Clean warm ivory surface
+  position: relative;
+  overflow: hidden;
+}
+
+.loginCard {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  background-color: $color-white;
+  border: 1px solid rgba($color-border, 0.4);
+  border-radius: 28px;
+  padding: 56px 48px;
+  box-shadow: 0 16px 48px rgba($color-charcoal, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+  @media (max-width: 500px) {
+    padding: 40px 24px;
+  }
+}
+
+// Decorative Corner Accent
+.loginCornerDecor {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 96px;
+  height: 96px;
+  background: linear-gradient(225deg, rgba($color-gold, 0.25) 0%, rgba($color-gold, 0) 70%);
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+  pointer-events: none;
+}
+
+.loginHeader {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: $color-sage;
+    margin: 0 0 6px 0;
+    letter-spacing: -0.01em;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: $color-charcoal;
+    margin: 0 0 12px 0;
+  }
+
+  p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba($color-charcoal, 0.55);
+    margin: 0;
+    max-width: 360px;
+  }
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.loginInputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  label {
+    font-size: 12px;
+    font-weight: 700;
+    color: $color-charcoal;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+}
+
+.loginInputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  span {
+    position: absolute;
+    left: 16px;
+    font-size: 20px;
+    color: rgba($color-charcoal, 0.4);
+    pointer-events: none;
+    transition: color 0.3s ease;
+  }
+
+  input {
+    width: 100%;
+    background-color: rgba($color-charcoal, 0.03);
+    border: 1px solid rgba($color-border, 0.5);
+    padding: 14px 16px 14px 48px;
+    border-radius: 99px; // Beautiful capsule input
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 14px;
+    color: $color-charcoal;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+
+    &::placeholder {
+      color: rgba($color-charcoal, 0.3);
+    }
+
+    &:focus {
+      background-color: $color-white;
+      border-color: $color-sage;
+      box-shadow: 0 0 0 4px rgba($color-sage, 0.1);
+
+      & ~ span {
+        color: $color-sage;
+      }
+    }
+  }
+}
+
+.loginTogglePassword {
+  position: absolute !important;
+  right: 16px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    position: relative !important;
+    left: 0 !important;
+    font-size: 20px;
+    color: rgba($color-charcoal, 0.4) !important;
+    pointer-events: auto !important;
+
+    &:hover {
+      color: $color-sage !important;
+    }
+  }
+}
+
+.loginFormActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.loginRememberCheckbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 500;
+  color: rgba($color-charcoal, 0.65);
+
+  input {
+    display: none;
+
+    &:checked ~ .loginCheckboxSpan {
+      background-color: $color-sage;
+      border-color: $color-sage;
+
+      &::after {
+        transform: scale(1);
+      }
+    }
+  }
+}
+
+.loginCheckboxSpan {
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgba($color-border, 0.8);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+
+  &::after {
+    content: 'check';
+    font-family: 'Material Symbols Outlined';
+    font-size: 12px;
+    color: $color-white;
+    transform: scale(0);
+    transition: transform 0.2s ease;
+  }
+}
+
+.loginForgotBtn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: $color-gold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #ae863b;
+    text-decoration: underline;
+  }
+}
+
+.btnLoginSubmit {
+  background-color: $color-gold;
+  color: $color-white;
+  border: none;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  padding: 16px 0;
+  border-radius: 99px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba($color-gold, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-top: 10px;
+
+  &:hover {
+    background-color: $color-sage;
+    box-shadow: 0 12px 28px rgba($color-sage, 0.2);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// Success State Block
+.loginSuccessBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 0;
+  animation: popIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+  .successIconOuter {
+    width: 80px;
+    height: 80px;
+    border-radius: 99px;
+    background-color: rgba($color-sage, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+
+    span {
+      font-size: 48px;
+      color: $color-sage;
+    }
+  }
+
+  h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: $color-charcoal;
+    margin: 0 0 8px 0;
+  }
+
+  p {
+    font-size: 14px;
+    color: rgba($color-charcoal, 0.5);
+    margin: 0;
+  }
+}
+
+// Loading Spinner
+.loginSpinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba($color-white, 0.3);
+  border-top-color: $color-white;
+  border-radius: 50%;
+  animation: loginSpin 0.8s linear infinite;
+}
+
+@keyframes loginSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Social Integrations
+.loginSocialGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.loginDivider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+
+  .line {
+    height: 1px;
+    flex: 1;
+    background-color: rgba($color-border, 0.4);
+  }
+
+  span {
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba($color-charcoal, 0.4);
+    letter-spacing: 0.1em;
+  }
+}
+
+.loginSocialButtons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.loginSocialBtn {
+  background-color: $color-white;
+  border: 1px solid rgba($color-border, 0.6);
+  padding: 12px 16px;
+  border-radius: 99px;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba($color-charcoal, 0.7);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+  span {
+    font-size: 18px;
+    color: rgba($color-charcoal, 0.5);
+  }
+
+  &:hover {
+    border-color: rgba($color-sage, 0.5);
+    background-color: rgba($color-sage, 0.02);
+    color: $color-sage;
+
+    span {
+      color: $color-sage;
+    }
+  }
+}
+
+.loginFooter {
+  text-align: center;
+  font-size: 13px;
+  color: rgba($color-charcoal, 0.5);
+
+  button {
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: $color-sage;
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #384e3d;
+      text-decoration: underline;
+    }
+  }
+}

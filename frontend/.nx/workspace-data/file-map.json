@@ -61,16 +61,28 @@
         "hash": "3462096019013144053"
       },
       {
-        "file": "package-lock.json",
-        "hash": "3684368496026388459"
+        "file": "nx.json",
+        "hash": "9392488300530054959"
       },
       {
-        "file": ".prettierignore",
-        "hash": "5407418692668764289"
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
       },
       {
         "file": "README.md",
         "hash": "11199411773125993063"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "3684368496026388459"
+      },
+      {
+        "file": ".nxignore",
+        "hash": "16904018250184961811"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "5407418692668764289"
       },
       {
         "file": "tsconfig.base.json",
@@ -79,18 +91,6 @@
       {
         "file": "package.json",
         "hash": "2391517790195664756"
-      },
-      {
-        "file": ".prettierrc",
-        "hash": "16267754514737964994"
-      },
-      {
-        "file": "nx.json",
-        "hash": "9392488300530054959"
-      },
-      {
-        "file": ".nxignore",
-        "hash": "16904018250184961811"
       }
     ],
     "projectFileMap": {
@@ -270,6 +270,30 @@
           "hash": "9303420814833116677"
         },
         {
+          "file": "apps/storefront-web/src/app/catalog/page.tsx",
+          "hash": "6979535676789769428",
+          "deps": [
+            "npm:react",
+            "npm:next"
+          ]
+        },
+        {
+          "file": "apps/storefront-web/src/app/checkout/page.tsx",
+          "hash": "11497552460969192007",
+          "deps": [
+            "npm:react",
+            "npm:next"
+          ]
+        },
+        {
+          "file": "apps/storefront-web/src/app/detail/page.tsx",
+          "hash": "13819183638884568505",
+          "deps": [
+            "npm:react",
+            "npm:next"
+          ]
+        },
+        {
           "file": "apps/storefront-web/src/app/global.css",
           "hash": "12506830226503380545"
         },
@@ -279,9 +303,26 @@
         },
         {
           "file": "apps/storefront-web/src/app/page.tsx",
-          "hash": "13533239624640353533",
+          "hash": "18093391150268326386",
           "deps": [
-            "npm:react"
+            "npm:react",
+            "npm:next"
+          ]
+        },
+        {
+          "file": "apps/storefront-web/src/app/sign-in/page.tsx",
+          "hash": "7579681230465379407",
+          "deps": [
+            "npm:react",
+            "npm:next"
+          ]
+        },
+        {
+          "file": "apps/storefront-web/src/app/tracking/page.tsx",
+          "hash": "129394414696753845",
+          "deps": [
+            "npm:react",
+            "npm:next"
           ]
         },
         {
@@ -373,6 +414,13 @@
           "hash": "13671074617126151250"
         },
         {
+          "file": "apps/storefront-web/src/core/stores/app.store.ts",
+          "hash": "15071572381459567462",
+          "deps": [
+            "npm:zustand"
+          ]
+        },
+        {
           "file": "apps/storefront-web/src/core/stores/base.store.ts",
           "hash": "12573361313932212024"
         },
@@ -420,7 +468,7 @@
         },
         {
           "file": "apps/storefront-web/src/shared/styles/page.module.scss",
-          "hash": "9387593804445805216"
+          "hash": "8372595165527050398"
         },
         {
           "file": "apps/storefront-web/src/shared/ui/ShaderBackground.tsx",
@@ -486,10 +534,19 @@
           ]
         },
         {
-          "file": "apps/storefront-web/src/widgets/navbar/ui/Navbar.tsx",
-          "hash": "7988211790928638424",
+          "file": "apps/storefront-web/src/widgets/layout/ui/StorefrontShell.tsx",
+          "hash": "17353980790614401773",
           "deps": [
-            "npm:react"
+            "npm:react",
+            "npm:next"
+          ]
+        },
+        {
+          "file": "apps/storefront-web/src/widgets/navbar/ui/Navbar.tsx",
+          "hash": "12967278945292309782",
+          "deps": [
+            "npm:react",
+            "npm:next"
           ]
         },
         {

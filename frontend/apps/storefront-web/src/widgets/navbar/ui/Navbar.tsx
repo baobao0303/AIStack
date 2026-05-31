@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { ViewType } from '../../../shared/model/types';
 
 interface NavbarProps {
@@ -63,6 +64,7 @@ export default function Navbar({
   searchQuery,
   setSearchQuery,
 }: NavbarProps) {
+  const router = useRouter();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
 
@@ -270,7 +272,7 @@ export default function Navbar({
           <button 
             className={`${styles.iconBtn} ${styles.hoverScaleIcon} ${activeView === 'login' ? styles.activeIcon : ''}`} 
             aria-label="Tài khoản" 
-            onClick={() => { setActiveView('login'); setIsCartOpen(false); }}
+            onClick={() => { router.push('/sign-in'); setIsCartOpen(false); }}
           >
             <span className="material-symbols-outlined">person</span>
           </button>
