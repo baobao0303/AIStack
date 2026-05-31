@@ -14,7 +14,15 @@ builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 
 // Cấu hình xác thực bảo mật JWT Bearer
-var secretKey = builder.Configuration["Jwt:Secret"] ?? "ThisIsASuperSecretKeyForSigningJWTTokens1234567890!";
+var secretKey = builder.Configuration["Jwt:Secret"];
+if (string.IsNullOrEmpty(secretKey))
+{
+    if (builder.Environment.IsProduction())
+    {
+        throw new InvalidOperationException("Critical security error: JWT Secret is not configured in production environment!");
+    }
+    secretKey = "ThisIsASuperSecretKeyForSigningJWTTokens1234567890!";
+}
 var issuer = builder.Configuration["Jwt:Issuer"] ?? "Identity.Api";
 var audience = builder.Configuration["Jwt:Audience"] ?? "CRMPortal";
 
@@ -84,6 +92,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<Identity.Api.Middlewares.LoginRateLimitingMiddleware>();
 
 app.UseAuthentication();
 app.UseAuthorization();

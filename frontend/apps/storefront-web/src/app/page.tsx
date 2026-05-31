@@ -12,6 +12,7 @@ import CheckoutView from '../views/checkout/ui/CheckoutView';
 import TrackingView from '../views/tracking/ui/TrackingView';
 import CartFloatingModal from '../widgets/cart-modal/ui/CartFloatingModal';
 import Footer from '../widgets/footer/ui/Footer';
+import Navbar from '../widgets/navbar/ui/Navbar';
 
 // Import shared types
 import { Product, CartItem, Order } from '../shared/model/types';
@@ -257,63 +258,14 @@ export default function StorefrontIndex() {
       <ShaderBackground />
 
       {/* TOP NAVIGATION BAR */}
-      <nav className={styles.navbar}>
-        <div className={styles.navContainer}>
-          <div className={styles.logoGroup} onClick={() => { setActiveView('home'); setIsCartOpen(false); }}>
-            <span className={styles.logoText}>Tiệm Nhà Zịt</span>
-          </div>
-
-          <div className={styles.navMenu}>
-            <button
-              className={`${styles.navItem} ${activeView === 'home' ? styles.active : ''}`}
-              onClick={() => { setActiveView('home'); setIsCartOpen(false); }}
-            >
-              Trang Chủ
-            </button>
-            <button
-              className={`${styles.navItem} ${activeView === 'catalog' ? styles.active : ''}`}
-              onClick={() => { setActiveView('catalog'); setIsCartOpen(false); }}
-            >
-              Sản Phẩm
-            </button>
-            <button
-              className={`${styles.navItem} ${activeView === 'checkout' ? styles.active : ''}`}
-              onClick={() => { setActiveView('checkout'); setIsCartOpen(false); }}
-            >
-              Thanh Toán
-            </button>
-            <button
-              className={`${styles.navItem} ${activeView === 'tracking' ? styles.active : ''}`}
-              onClick={() => { setActiveView('tracking'); setIsCartOpen(false); }}
-            >
-              Theo Dõi Đơn
-            </button>
-          </div>
-
-          <div className={styles.navIcons}>
-            <button className={`${styles.iconBtn} ${styles.hoverScaleIcon}`} aria-label="Tìm kiếm" onClick={() => setActiveView('catalog')}>
-              <span className="material-symbols-outlined">search</span>
-            </button>
-
-            <button
-              id="cart-trigger"
-              className={`${styles.iconBtn} ${isCartOpen ? styles.activeIcon : ''} ${styles.hoverScaleIcon}`}
-              onClick={(e) => {
-                e.stopPropagation();
-                setIsCartOpen(!isCartOpen);
-              }}
-              aria-label="Giỏ hàng"
-            >
-              <span className="material-symbols-outlined">shopping_bag</span>
-              {cart.length > 0 && <span className={styles.cartBadge}>{cart.length}</span>}
-            </button>
-
-            <button className={`${styles.iconBtn} ${styles.hoverScaleIcon}`} aria-label="Tài khoản" onClick={() => setActiveView('tracking')}>
-              <span className="material-symbols-outlined">person</span>
-            </button>
-          </div>
-        </div>
-      </nav>
+      <Navbar
+        styles={styles}
+        activeView={activeView}
+        setActiveView={setActiveView}
+        isCartOpen={isCartOpen}
+        setIsCartOpen={setIsCartOpen}
+        cartCount={cart.length}
+      />
 
       {/* 💳 FLOATING CART DRAWER DROP PANEL */}
       {isCartOpen && (

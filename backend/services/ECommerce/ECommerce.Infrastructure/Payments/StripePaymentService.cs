@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 using Stripe;
 using Stripe.Checkout;
 using ECommerce.Application.Common.Interfaces;
@@ -13,10 +14,12 @@ namespace ECommerce.Infrastructure.Payments
     public class StripePaymentService : IStripePaymentService
     {
         private readonly IConfiguration _configuration;
+        private readonly IHostEnvironment _hostEnvironment;
 
-        public StripePaymentService(IConfiguration configuration)
+        public StripePaymentService(IConfiguration configuration, IHostEnvironment hostEnvironment)
         {
             _configuration = configuration;
+            _hostEnvironment = hostEnvironment;
         }
 
         public async Task<string> CreateCheckoutSessionAsync(Order order, string successUrl, string cancelUrl)
@@ -24,7 +27,7 @@ namespace ECommerce.Infrastructure.Payments
             var secretKey = _configuration["Stripe:SecretKey"] ?? "sk_test_mock";
             
             // Seamless mock mode for development/tests if secret key is mock
-            if (secretKey == "sk_test_mock")
+            if (!_hostEnvironment.IsProduction() && secretKey == "sk_test_mock")
             {
                 var mockSessionId = $"cs_test_{Guid.NewGuid()}";
                 
@@ -83,7 +86,7 @@ namespace ECommerce.Infrastructure.Payments
             var secretKey = _configuration["Stripe:SecretKey"] ?? "sk_test_mock";
 
             // Mock webhook payload parsing in tests/development
-            if (secretKey == "sk_test_mock" || stripeSignatureHeader == "mock_signature")
+            if (!_hostEnvironment.IsProduction() && (secretKey == "sk_test_mock" || stripeSignatureHeader == "mock_signature"))
             {
                 // In mock mode, we expect jsonPayload to contain the sessionId directly or order ID
                 // e.g. "{\"sessionId\":\"cs_test_123\"}"
