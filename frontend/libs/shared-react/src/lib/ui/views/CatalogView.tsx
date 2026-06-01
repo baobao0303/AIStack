@@ -204,7 +204,19 @@ export default function CatalogView({
                         <span className={styles.cardTag}>{prod.category}</span>
                       </div>
                       <div className={styles.cardInfo}>
-                        <h3>{prod.name}</h3>
+                         <h3
+                          style={{
+                            display: '-webkit-box',
+                            WebkitLineClamp: 2,
+                            WebkitBoxOrient: 'vertical',
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis',
+                            height: '48px',
+                            lineHeight: '24px',
+                          }}
+                         >
+                           {prod.name}
+                         </h3>
                         <p className={styles.cardMaterial}>{prod.woolType}</p>
                         {/* Product Description snippet */}
                         <p 

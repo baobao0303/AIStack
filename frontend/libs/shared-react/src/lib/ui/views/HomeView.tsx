@@ -598,7 +598,17 @@ export default function HomeView({
                         </span>
                         <span className={styles.cardCategoryChip}>{prod.category}</span>
                       </div>
-                      <h3>{prod.name}</h3>
+                      <h3
+                        style={{
+                          display: "-webkit-box",
+                          WebkitLineClamp: 2,
+                          WebkitBoxOrient: "vertical",
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                          height: "48px",
+                          lineHeight: "24px",
+                        }}
+                       >{prod.name}</h3>
                       {/* Product Description snippet */}
                       <p 
                         className="text-[11px] leading-relaxed text-charcoal/50 mt-2 mb-3.5 line-clamp-2 h-[34px] font-sans box-border select-none"

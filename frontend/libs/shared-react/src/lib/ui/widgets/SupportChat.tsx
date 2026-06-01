@@ -210,21 +210,33 @@ export default function SupportChat() {
     <div className="fixed bottom-6 right-6 w-[360px] h-[500px] z-[1000] flex flex-col bg-[rgba(244,244,240,0.92)] backdrop-blur-md border border-sage/10 rounded-[28px] p-3.5 shadow-[0_12px_40px_rgba(74,69,62,0.15)] animate-[slideUp_0.4s_cubic-bezier(0.16,1,0.3,1)] font-sans">
       <div className="flex-1 flex flex-col bg-white rounded-[20px] shadow-sm border border-customBorder/30 overflow-hidden">
         {/* Hub header panel */}
-        <header className="px-4 py-3.5 border-b border-customBorder/30 bg-ivory flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-sage animate-pulse"></span>
+        <header className="px-4 py-3 bg-sage flex items-center justify-between text-white shadow-md">
+          <div className="flex items-center gap-3">
+            <div className="relative">
+              <img 
+                src="/artisan-avatar.png" 
+                alt="Nghệ nhân Mai Chi" 
+                className="w-10 h-10 rounded-full object-cover border border-white/20 shadow-sm"
+              />
+              <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-[#10b981] border-2 border-sage"></span>
+            </div>
             <div>
-              <h3 className="font-serif font-bold text-sm text-charcoal/90 leading-tight">Hỗ trợ Nghệ nhân</h3>
-              <p className="text-[10px] text-charcoal/50 leading-none mt-0.5">
-                {chatStatus === 'Active' ? `Đang chat với ${assignedAgentName}` : 'Phòng chat trực tuyến'}
+              <div className="flex items-center gap-1">
+                <h3 className="font-serif font-bold text-sm text-white leading-tight">
+                  {chatStatus === 'Active' ? assignedAgentName : 'Tiệm Nhà Zịt AI'}
+                </h3>
+                <span className="material-symbols-outlined text-[15px] text-[#60a5fa] select-none fill-current font-bold" title="Đã xác minh thương hiệu">verified</span>
+              </div>
+              <p className="text-[10px] text-white/70 leading-none mt-1">
+                {chatStatus === 'Queued' ? 'Đang kết nối...' : chatStatus === 'Closed' ? 'Đã đóng' : 'Trực tuyến'}
               </p>
             </div>
           </div>
           <button
             onClick={() => setIsSupportChatOpen(false)}
-            className="w-7 h-7 rounded-full hover:bg-sage/10 flex items-center justify-center text-charcoal/60 hover:text-charcoal transition-all border-none cursor-pointer"
+            className="w-8 h-8 rounded-full hover:bg-white/10 flex items-center justify-center text-white/80 hover:text-white transition-all border-none cursor-pointer"
           >
-            <span className="material-symbols-outlined text-[16px]">close</span>
+            <span className="material-symbols-outlined text-[18px]">close</span>
           </button>
         </header>
 
@@ -281,13 +293,13 @@ export default function SupportChat() {
                     </div>
                   );
                 }
-
+ 
                 const isSelf = msg.senderType === 'Customer';
                 return (
-                  <div key={i} className={`flex flex-col max-w-[80%] ${isSelf ? 'self-end items-end' : 'self-start items-start'}`}>
+                  <div key={i} className={`flex flex-col max-w-[85%] ${isSelf ? 'self-end items-end' : 'self-start items-start'}`}>
                     <span className="text-[9px] text-charcoal/40 font-bold mb-0.5 px-1">{msg.senderName}</span>
-                    <div className={`px-3 py-2.5 rounded-2xl text-xs font-sans leading-relaxed shadow-sm border ${
-                      isSelf
+                    <div className={`px-3.5 py-2.5 rounded-2xl text-xs font-sans leading-relaxed shadow-sm border ${
+                       isSelf
                         ? 'bg-sage text-white rounded-br-none border-sage/10'
                         : 'bg-white text-charcoal rounded-bl-none border-customBorder/30'
                     }`}>
@@ -296,23 +308,48 @@ export default function SupportChat() {
                   </div>
                 );
               })}
+              
+              {/* Intelligent suggested prompt chips (Image 2 style) */}
+              {chatStatus === 'Active' && messages.filter(m => m.senderType === 'Customer' || m.senderType === 'Employee').length === 0 && (
+                <div className="mt-4 flex flex-col gap-2 select-none">
+                  <span className="text-[10px] font-bold text-sage uppercase tracking-wider block mb-1">Gợi ý bắt đầu:</span>
+                  <div className="flex flex-col gap-2">
+                    {[
+                      'Tùy chỉnh kích thước áo len đan tay?',
+                      'Thời gian hoàn thành sản phẩm đan móc?',
+                      'Chất liệu len Merino và Alpaca tự nhiên?',
+                      'Chính sách bảo hành sản phẩm của tiệm?'
+                    ].map((chip) => (
+                      <button
+                        key={chip}
+                        type="button"
+                        onClick={() => setTypedMessage(chip)}
+                        className="text-left w-full px-3.5 py-2.5 bg-white border border-customBorder/60 hover:border-sage hover:bg-sage/5 rounded-full text-xs text-charcoal/80 font-medium transition-all duration-200 cursor-pointer shadow-sm hover:translate-y-[-0.5px] active:translate-y-0"
+                      >
+                        {chip}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+              
               <div ref={messagesEndRef} />
             </div>
-
-            {/* Input relay bar */}
-            <form onSubmit={handleSendMessage} className="p-3 border-t border-customBorder/30 bg-white flex gap-2">
+ 
+            {/* Input relay bar - Pill container and circular send (Image 2 style) */}
+            <form onSubmit={handleSendMessage} className="p-3.5 border-t border-customBorder/30 bg-white flex gap-3 items-center">
               <input
                 type="text"
                 disabled={chatStatus === 'Closed'}
                 placeholder={chatStatus === 'Closed' ? 'Đã đóng phòng chat...' : 'Gửi lời nhắn đến nghệ nhân...'}
                 value={typedMessage}
                 onChange={(e) => setTypedMessage(e.target.value)}
-                className="flex-1 px-3.5 py-2.5 bg-ivory/60 border border-customBorder/50 rounded-xl text-xs text-charcoal focus:outline-none focus:border-sage focus:bg-white focus:ring-1 focus:ring-sage/20 transition-all font-sans"
+                className="flex-1 px-4 py-2.5 bg-[#f5f5f0] border border-customBorder/50 rounded-full text-xs text-charcoal focus:outline-none focus:border-sage focus:bg-white focus:ring-1 focus:ring-sage/20 transition-all font-sans"
               />
               <button
                 type="submit"
                 disabled={chatStatus === 'Closed' || !typedMessage.trim()}
-                className="w-10 h-10 rounded-xl bg-sage text-white flex items-center justify-center cursor-pointer border-none transition-all hover:bg-sage/90 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-10 h-10 rounded-full bg-sage text-white flex items-center justify-center cursor-pointer border-none transition-all hover:bg-sage/90 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed shrink-0 shadow-sm"
               >
                 <span className="material-symbols-outlined text-[16px] text-white">send</span>
               </button>
