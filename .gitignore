@@ -27,3 +27,7 @@ out/
 .env
 .env.local
 .env.*.local
+
+# Angular / Nx cache and workspace data
+.angular/
+.nx/
