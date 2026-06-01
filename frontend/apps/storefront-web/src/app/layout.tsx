@@ -41,7 +41,7 @@ export default function RootLayout({
         {/* Preload critical LCP Hero Image for instant above-the-fold display */}
         <link 
           rel="preload" 
-          href="https://lh3.googleusercontent.com/aida/ADBb0uhVFoGEYpMQ4ApsytjsctntvFwVW4pWh4s3RwmAkj2nixSjrnQVoB-zrJ1Ev7qEWihr5aJ6r4ooWWRiA3X4Wa4Gu5TEKD8X98XenUtSMQh9VTJviYKHYOoFItDI349VWGISmeVH5Qy5JFFaWsg9AYsDB_DSy89CERvWOKqcfcunAEw707Na5JIvQ2QyiErApQzb8PW4zKbGLVAsLv_PV0vRQ5I4h-CImO74Rz19--UpuVxt8dTPdvLDTTc" 
+          href="/bouquet_18_flowers.png" 
           as="image" 
           fetchPriority="high"
         />

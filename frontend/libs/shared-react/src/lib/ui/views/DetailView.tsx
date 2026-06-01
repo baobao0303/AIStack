@@ -141,18 +141,18 @@ export default function DetailView({
                   <img src={selectedProduct.imageUrl} alt="Góc chụp chính" />
                 </button>
                 <button 
-                  className={`${styles.thumbImgButton} ${detailMainImage === 'https://lh3.googleusercontent.com/aida/ADBb0ugGS8xiSKzBXsjv8f1Ndlh_xEwfvoLw4w-Jkz6jpej5o8qs2KX3QclLsivoMQ3mSg2UHI4Exh8_IkKypIdzDstLCP8Expv5nV73exEJ86YzUJcMijfIvK69Z0l5zGnK0GNACMt6puf5FtAxLz3NounFNAIglefpQIoyMa6W9u-XZzDM1q9fAAwZm_lHxUVAv3liK_uJ9vk6B3F1A7APZvVfLYmqMpmMGoDW2zXj0oVelqv11MLtXPcUQTwI' ? styles.thumbActive : ''}`}
-                  onClick={() => setDetailMainImage('https://lh3.googleusercontent.com/aida/ADBb0ugGS8xiSKzBXsjv8f1Ndlh_xEwfvoLw4w-Jkz6jpej5o8qs2KX3QclLsivoMQ3mSg2UHI4Exh8_IkKypIdzDstLCP8Expv5nV73exEJ86YzUJcMijfIvK69Z0l5zGnK0GNACMt6puf5FtAxLz3NounFNAIglefpQIoyMa6W9u-XZzDM1q9fAAwZm_lHxUVAv3liK_uJ9vk6B3F1A7APZvVfLYmqMpmMGoDW2zXj0oVelqv11MLtXPcUQTwI')}
+                  className={`${styles.thumbImgButton} ${detailMainImage === '/merino_scarf.png' ? styles.thumbActive : ''}`}
+                  onClick={() => setDetailMainImage('/merino_scarf.png')}
                   title="Cận cảnh sợi len"
                 >
-                  <img src="https://lh3.googleusercontent.com/aida/ADBb0ugGS8xiSKzBXsjv8f1Ndlh_xEwfvoLw4w-Jkz6jpej5o8qs2KX3QclLsivoMQ3mSg2UHI4Exh8_IkKypIdzDstLCP8Expv5nV73exEJ86YzUJcMijfIvK69Z0l5zGnK0GNACMt6puf5FtAxLz3NounFNAIglefpQIoyMa6W9u-XZzDM1q9fAAwZm_lHxUVAv3liK_uJ9vk6B3F1A7APZvVfLYmqMpmMGoDW2zXj0oVelqv11MLtXPcUQTwI" alt="Cận cảnh sợi len" />
+                  <img src="/merino_scarf.png" alt="Cận cảnh sợi len" />
                 </button>
                 <button 
-                  className={`${styles.thumbImgButton} ${detailMainImage === 'https://lh3.googleusercontent.com/aida-public/AB6AXuAS-VgCNe0c0ipLm_ydBUdPVufGIU1fYPO0CzURgYC_iQ0Np1JriASAlJzZ6eU7VM3uf3yrhDZw5aLmtMJ6T9huT1WhbFbkn5rtDLNZkI5jMHKzT4jh6Ng51VY9ba74nDfewTAfTL2r4gXDFTthe0-H6YZqYThGEIHsHJTD--BSlolpLNBJhv9XOyE_ZpGczyyeOl3QnfQNycoKtEZAeQDeikPxFrXGUjKDeuE7T0Gu1nUmuJYoAsM0cKsf-JUGabrqlGoohSy4BlB8' ? styles.thumbActive : ''}`}
-                  onClick={() => setDetailMainImage('https://lh3.googleusercontent.com/aida-public/AB6AXuAS-VgCNe0c0ipLm_ydBUdPVufGIU1fYPO0CzURgYC_iQ0Np1JriASAlJzZ6eU7VM3uf3yrhDZw5aLmtMJ6T9huT1WhbFbkn5rtDLNZkI5jMHKzT4jh6Ng51VY9ba74nDfewTAfTL2r4gXDFTthe0-H6YZqYThGEIHsHJTD--BSlolpLNBJhv9XOyE_ZpGczyyeOl3QnfQNycoKtEZAeQDeikPxFrXGUjKDeuE7T0Gu1nUmuJYoAsM0cKsf-JUGabrqlGoohSy4BlB8')}
+                  className={`${styles.thumbImgButton} ${detailMainImage === '/vietnam_strap.png' ? styles.thumbActive : ''}`}
+                  onClick={() => setDetailMainImage('/vietnam_strap.png')}
                   title="Góc nghệ nhân"
                 >
-                  <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAS-VgCNe0c0ipLm_ydBUdPVufGIU1fYPO0CzURgYC_iQ0Np1JriASAlJzZ6eU7VM3uf3yrhDZw5aLmtMJ6T9huT1WhbFbkn5rtDLNZkI5jMHKzT4jh6Ng51VY9ba74nDfewTAfTL2r4gXDFTthe0-H6YZqYThGEIHsHJTD--BSlolpLNBJhv9XOyE_ZpGczyyeOl3QnfQNycoKtEZAeQDeikPxFrXGUjKDeuE7T0Gu1nUmuJYoAsM0cKsf-JUGabrqlGoohSy4BlB8" alt="Góc nghệ nhân" />
+                  <img src="/vietnam_strap.png" alt="Góc nghệ nhân" />
                 </button>
               </>
             )}
@@ -461,7 +461,7 @@ export default function DetailView({
           <div className={styles.artisanImgContainer}>
             <img
               alt="Artisan hands weaving wool"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_E8wjfDDaNUI6BOC0e8N_rRaUuVm3KQU-icXB4BhMdIUAKTNEyEsxxAUXzqQgwHHuqf52ZzH8cko8WjzoGp-HQ2EzqyeRqifWxHevOb9By6dkI66GV2YZ6ZI6ZlGAxq1hGkSzJOkB5S_tKnWh6Z2jP64liERAtEB0FlGqf35V8Q5I3LSZaqiNTxPRA2V6IrUmUXXBs15hjEv2flJssbFZNY5oK-V-YmZo5K3okc6Qwn4Od70VKz6rkcd3IqG-KawzX-qgdYWjjORt"
+              src="/auth-studio.jpg"
             />
           </div>
         </div>

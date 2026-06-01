@@ -78,7 +78,7 @@ export default function HomeView({
 
   const slides = [
     {
-      image: "https://lh3.googleusercontent.com/aida/ADBb0uhVFoGEYpMQ4ApsytjsctntvFwVW4pWh4s3RwmAkj2nixSjrnQVoB-zrJ1Ev7qEWihr5aJ6r4ooWWRiA3X4Wa4Gu5TEKD8X98XenUtSMQh9VTJviYKHYOoFItDI349VWGISmeVH5Qy5JFFaWsg9AYsDB_DSy89CERvWOKqcfcunAEw707Na5JIvQ2QyiErApQzb8PW4zKbGLVAsLv_PV0vRQ5I4h-CImO74Rz19--UpuVxt8dTPdvLDTTc",
+      image: "/bouquet_18_flowers.png",
       title: "Sản Phẩm Từ Tâm - Đan Dệt Yêu Thương",
       description: "Khám phá bộ sưu tập len Merino cao cấp, được đan tay tỉ mỉ bởi những nghệ nhân tại Tiệm Nhà Zịt.",
       actionType: "catalog",
@@ -87,7 +87,7 @@ export default function HomeView({
       secondaryAction: "detail"
     },
     {
-      image: "https://lh3.googleusercontent.com/aida/ADBb0uhvpx8zRyIkiRxiqR5TYKu0lVSNibzq_zBeQve0TTm-3dGQykEsnaiMfNG28NfXDihyTrMyl6A2rbAVvVNpQYYub2wts4h-7flmo59K_0jpzXdRFc3nPKLRS7QHxhbpTpd4IHhseUNkyV9C3eQLjjehIQH_5tBzOo7mizGcWa-NN3GGSSPH9y1g0i1TK33ziyq9WBZ5UBC3ykeVjMxhk_rPmyfdfacFbtu-YmQKdTXA0E45BVE3QdM4v1f7",
+      image: "/vietnam_strap.png",
       title: "Nghệ Thuật Đan Tay Truyền Thống",
       description: "Mỗi sản phẩm đều mang một câu chuyện riêng, được dệt nên từ tình yêu và sự tỉ mỉ qua từng mũi kim đan.",
       actionType: "catalog",
@@ -96,7 +96,7 @@ export default function HomeView({
       secondaryAction: "story"
     },
     {
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAS-VgCNe0c0ipLm_ydBUdPVufGIU1fYPO0CzURgYC_iQ0Np1JriASAlJzZ6eU7VM3uf3yrhDZw5aLmtMJ6T9huT1WhbFbkn5rtDLNZkI5jMHKzT4jh6Ng51VY9ba74nDfewTAfTL2r4gXDFTthe0-H6YZqYThGEIHsHJTD--BSlolpLNBJhv9XOyE_ZpGczyyeOl3QnfQNycoKtEZAeQDeikPxFrXGUjKDeuE7T0Gu1nUmuJYoAsM0cKsf-JUGabrqlGoohSy4BlB8",
+      image: "/mini_plush_keychain.png",
       title: "Thiết Kế Độc Bản Cho Riêng Bạn",
       description: "Tùy chọn kích thước, màu sắc và kiểu dáng theo sở thích cá nhân. Chúng tôi đan dệt theo đúng số đo cơ thể của bạn.",
       actionType: "detail",
@@ -210,13 +210,13 @@ export default function HomeView({
               <img
                 alt="Knitting yarn wool details"
                 className={styles.storyImg}
-                src="https://lh3.googleusercontent.com/aida/ADBb0uhvpx8zRyIkiRxiqR5TYKu0lVSNibzq_zBeQve0TTm-3dGQykEsnaiMfNG28NfXDihyTrMyl6A2rbAVvVNpQYYub2wts4h-7flmo59K_0jpzXdRFc3nPKLRS7QHxhbpTpd4IHhseUNkyV9C3eQLjjehIQH_5tBzOo7mizGcWa-NN3GGSSPH9y1g0i1TK33ziyq9WBZ5UBC3ykeVjMxhk_rPmyfdfacFbtu-YmQKdTXA0E45BVE3QdM4v1f7"
+                src="/merino_scarf.png"
               />
               <div className={styles.storyFloatingCard}>
                 <div className={styles.floatingCardImgWrapper}>
                   <img
                     alt="Detail of organic wool"
-                    src="https://lh3.googleusercontent.com/aida/ADBb0uhVFoGEYpMQ4ApsytjsctntvFwVW4pWh4s3RwmAkj2nixSjrnQVoB-zrJ1Ev7qEWihr5aJ6r4ooWWRiA3X4Wa4Gu5TEKD8X98XenUtSMQh9VTJviYKHYOoFItDI349VWGISmeVH5Qy5JFFaWsg9AYsDB_DSy89CERvWOKqcfcunAEw707Na5JIvQ2QyiErApQzb8PW4zKbGLVAsLv_PV0vRQ5I4h-CImO74Rz19--UpuVxt8dTPdvLDTTc"
+                    src="/bouquet_18_flowers.png"
                     className={styles.floatingCardImg}
                   />
                 </div>
@@ -498,7 +498,7 @@ export default function HomeView({
                     <span>Đại diện vùng</span>
                   </span>
                 </div>
-                
+
                 <h3>{activeRegion.name}</h3>
 
                 <div className={styles.cardHighlight}>

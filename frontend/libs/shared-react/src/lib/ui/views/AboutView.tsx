@@ -16,7 +16,7 @@ export default function AboutView({ setActiveView }: AboutViewProps) {
         <img
           alt="Hành trình đan len"
           className={styles.heroBgImg}
-          src="https://lh3.googleusercontent.com/aida/ADBb0uhvpx8zRyIkiRxiqR5TYKu0lVSNibzq_zBeQve0TTm-3dGQykEsnaiMfNG28NfXDihyTrMyl6A2rbAVvVNpQYYub2wts4h-7flmo59K_0jpzXdRFc3nPKLRS7QHxhbpTpd4IHhseUNkyV9C3eQLjjehIQH_5tBzOo7mizGcWa-NN3GGSSPH9y1g0i1TK33ziyq9WBZ5UBC3ykeVjMxhk_rPmyfdfacFbtu-YmQKdTXA0E45BVE3QdM4v1f7"
+          src="/merino_scarf.png"
         />
         <div className={styles.heroContent}>
           <span className={styles.heroTag}>Tiệm Nhà Zịt Story</span>
@@ -98,7 +98,7 @@ export default function AboutView({ setActiveView }: AboutViewProps) {
               <div className={styles.cardImage}>
                 <img
                   alt="Nghệ nhân H'Mong Sa Pa"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAS-VgCNe0c0ipLm_ydBUdPVufGIU1fYPO0CzURgYC_iQ0Np1JriASAlJzZ6eU7VM3uf3yrhDZw5aLmtMJ6T9huT1WhbFbkn5rtDLNZkI5jMHKzT4jh6Ng51VY9ba74nDfewTAfTL2r4gXDFTthe0-H6YZqYThGEIHsHJTD--BSlolpLNBJhv9XOyE_ZpGczyyeOl3QnfQNycoKtEZAeQDeikPxFrXGUjKDeuE7T0Gu1nUmuJYoAsM0cKsf-JUGabrqlGoohSy4BlB8"
+                  src="/vietnam_strap.png"
                 />
                 <span className={styles.regionBadge}>Sa Pa, Lào Cai</span>
               </div>
@@ -117,7 +117,7 @@ export default function AboutView({ setActiveView }: AboutViewProps) {
               <div className={styles.cardImage}>
                 <img
                   alt="Nghệ nhân đan móc Đà Nẵng"
-                  src="https://lh3.googleusercontent.com/aida/ADBb0uhVFoGEYpMQ4ApsytjsctntvFwVW4pWh4s3RwmAkj2nixSjrnQVoB-zrJ1Ev7qEWihr5aJ6r4ooWWRiA3X4Wa4Gu5TEKD8X98XenUtSMQh9VTJviYKHYOoFItDI349VWGISmeVH5Qy5JFFaWsg9AYsDB_DSy89CERvWOKqcfcunAEw707Na5JIvQ2QyiErApQzb8PW4zKbGLVAsLv_PV0vRQ5I4h-CImO74Rz19--UpuVxt8dTPdvLDTTc"
+                  src="/vietnam_flower_strap.png"
                 />
                 <span className={styles.regionBadge}>Đà Nẵng</span>
               </div>
@@ -136,7 +136,7 @@ export default function AboutView({ setActiveView }: AboutViewProps) {
               <div className={styles.cardImage}>
                 <img
                   alt="Nông trại sợi Đà Lạt"
-                  src="https://lh3.googleusercontent.com/aida/ADBb0uhvpx8zRyIkiRxiqR5TYKu0lVSNibzq_zBeQve0TTm-3dGQykEsnaiMfNG28NfXDihyTrMyl6A2rbAVvVNpQYYub2wts4h-7flmo59K_0jpzXdRFc3nPKLRS7QHxhbpTpd4IHhseUNkyV9C3eQLjjehIQH_5tBzOo7mizGcWa-NN3GGSSPH9y1g0i1TK33ziyq9WBZ5UBC3ykeVjMxhk_rPmyfdfacFbtu-YmQKdTXA0E45BVE3QdM4v1f7"
+                  src="/mini_plush_keychain.png"
                 />
                 <span className={styles.regionBadge}>Đà Lạt, Lâm Đồng</span>
               </div>
