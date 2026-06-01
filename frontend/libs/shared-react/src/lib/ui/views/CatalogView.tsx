@@ -190,34 +190,47 @@ export default function CatalogView({
                 return (
                   <div 
                     key={prod.id} 
-                    className={`${styles.productCard} ${styles.revealOnScroll} reveal-on-scroll ${staggerClass}`} 
+                    className={`${styles.productCardShell} ${styles.revealOnScroll} reveal-on-scroll ${staggerClass}`} 
                     onClick={() => { setSelectedProduct(prod); setActiveView('detail'); }}
                     onMouseEnter={() => prefetchRoute(`/product/${prod.id}`)}
                   >
-                    <div className={styles.cardImageContainer}>
-                      <img 
-                        src={prod.imageUrl} 
-                        alt={prod.name} 
-                        className={styles.cardImageReal} 
-                      />
-                      <span className={styles.cardTag}>{prod.category}</span>
-                    </div>
-                    <div className={styles.cardInfo}>
-                      <h3>{prod.name}</h3>
-                      <p className={styles.cardMaterial}>{prod.woolType}</p>
-                      {/* Product Description snippet */}
-                      <p className="text-[11px] leading-relaxed text-charcoal/50 mt-2 mb-3.5 line-clamp-2 h-[34px] font-sans box-border select-none">
-                        {prod.description}
-                      </p>
-                      <div className={styles.cardBottom}>
-                        <span className={styles.cardPrice}>{prod.price.toLocaleString('vi-VN')}đ</span>
-                        <button 
-                          className={styles.cardCartButton}
-                          onClick={(e) => { e.stopPropagation(); handleAddToCartDefault(prod, e); }}
-                          title="Thêm vào giỏ hàng"
+                    <div className={styles.productCardCore}>
+                      <div className={styles.cardImageContainer}>
+                        <img 
+                          src={prod.imageUrl} 
+                          alt={prod.name} 
+                          className={styles.cardImageReal} 
+                        />
+                        <span className={styles.cardTag}>{prod.category}</span>
+                      </div>
+                      <div className={styles.cardInfo}>
+                        <h3>{prod.name}</h3>
+                        <p className={styles.cardMaterial}>{prod.woolType}</p>
+                        {/* Product Description snippet */}
+                        <p 
+                          className="text-[11px] leading-relaxed text-charcoal/50 mt-2 mb-3.5 line-clamp-2 h-[34px] font-sans box-border select-none"
+                          style={{
+                            display: '-webkit-box',
+                            WebkitLineClamp: 2,
+                            WebkitBoxOrient: 'vertical',
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis',
+                            height: '34px',
+                            lineHeight: '17px',
+                          }}
                         >
-                          <span className="material-symbols-outlined">add_shopping_cart</span>
-                        </button>
+                          {prod.description}
+                        </p>
+                        <div className={styles.cardBottom}>
+                          <span className={styles.cardPrice}>{prod.price.toLocaleString('vi-VN')}đ</span>
+                          <button 
+                            className={styles.cardCartButton}
+                            onClick={(e) => { e.stopPropagation(); handleAddToCartDefault(prod, e); }}
+                            title="Thêm vào giỏ hàng"
+                          >
+                            <span className="material-symbols-outlined">add_shopping_cart</span>
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
