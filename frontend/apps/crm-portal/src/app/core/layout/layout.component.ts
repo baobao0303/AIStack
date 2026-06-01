@@ -20,31 +20,31 @@ import { CrmApiService } from '../services/crm-api.service';
         <nav class="crm-nav-menu">
           <li class="crm-nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
             <a routerLink="/dashboard">
-              <span class="icon">📊</span>
+              <span class="material-symbols-outlined">dashboard</span>
               <span>Tổng quan</span>
             </a>
           </li>
           <li class="crm-nav-item" routerLinkActive="active">
             <a routerLink="/products">
-              <span class="icon">🧶</span>
+              <span class="material-symbols-outlined">yard</span>
               <span>Sản phẩm</span>
             </a>
           </li>
           <li class="crm-nav-item" routerLinkActive="active">
             <a routerLink="/categories">
-              <span class="icon">📁</span>
+              <span class="material-symbols-outlined">folder</span>
               <span>Danh mục</span>
             </a>
           </li>
           <li class="crm-nav-item" routerLinkActive="active">
             <a routerLink="/inventory">
-              <span class="icon">📦</span>
+              <span class="material-symbols-outlined">inventory_2</span>
               <span>Tồn kho</span>
             </a>
           </li>
           <li class="crm-nav-item" routerLinkActive="active">
             <a routerLink="/reviews">
-              <span class="icon">⭐</span>
+              <span class="material-symbols-outlined">star</span>
               <span>Đánh giá</span>
             </a>
           </li>
@@ -78,8 +78,9 @@ import { CrmApiService } from '../services/crm-api.service';
               (blur)="hideSuggestions()"
             />
             <ul class="suggestions-dropdown" *ngIf="suggestions.length > 0">
-              <li *ngFor="let suggestion of suggestions" (mousedown)="selectSuggestion(suggestion)">
-                🔍 {{ suggestion }}
+              <li *ngFor="let suggestion of suggestions" (mousedown)="selectSuggestion(suggestion)" style="display: flex; align-items: center; gap: 8px; padding: 10px 14px; cursor: pointer;">
+                <span class="material-symbols-outlined" style="font-size: 16px; color: var(--color-text-muted);">search</span>
+                <span>{{ suggestion }}</span>
               </li>
             </ul>
           </div>
