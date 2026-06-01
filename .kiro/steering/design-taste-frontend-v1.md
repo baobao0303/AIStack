@@ -1,0 +1,19 @@
+---
+inclusion: manual
+---
+
+# Skill: design-taste-frontend-v1
+
+The original v1 taste-skill, preserved for projects depending on its exact behavior. The current default is `design-taste-frontend` (v2 experimental), which is a substantial rewrite. Use this v1 install name only if you need exact backward compatibility.
+
+## How to Invoke
+
+Read and follow the full skill instructions at:
+`.agents/skills/design-taste-frontend-v1/SKILL.md`
+
+## CLI Reference
+
+```bash
+./scripts/harness skill list              # See all skills
+./scripts/harness skill run design-taste-frontend-v1         # Run if wrapper exists
+```

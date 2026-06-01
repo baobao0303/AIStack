@@ -1,0 +1,19 @@
+---
+inclusion: manual
+---
+
+# Skill: brandkit
+
+Premium brand-kit image generation skill for creating high-end brand-guidelines boards, logo systems, identity decks, and visual-world presentations. Trained for minimalist, cinematic, editorial, dark-tech, luxury, cultural, security, gaming, developer-tool, and consumer-app brand systems. Optimized for intentional logo concepting, refined composition, sparse typography, strong symbolic meaning, premium mockups, art-directed imagery, and flexible grid layouts.
+
+## How to Invoke
+
+Read and follow the full skill instructions at:
+`.agents/skills/brandkit/SKILL.md`
+
+## CLI Reference
+
+```bash
+./scripts/harness skill list              # See all skills
+./scripts/harness skill run brandkit         # Run if wrapper exists
+```

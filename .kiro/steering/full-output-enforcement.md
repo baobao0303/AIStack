@@ -1,0 +1,19 @@
+---
+inclusion: manual
+---
+
+# Skill: full-output-enforcement
+
+Overrides default LLM truncation behavior. Enforces complete code generation, bans placeholder patterns, and handles token-limit splits cleanly. Apply to any task requiring exhaustive, unabridged output.
+
+## How to Invoke
+
+Read and follow the full skill instructions at:
+`.agents/skills/full-output-enforcement/SKILL.md`
+
+## CLI Reference
+
+```bash
+./scripts/harness skill list              # See all skills
+./scripts/harness skill run full-output-enforcement         # Run if wrapper exists
+```

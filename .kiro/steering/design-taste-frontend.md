@@ -1,0 +1,19 @@
+---
+inclusion: manual
+---
+
+# Skill: design-taste-frontend
+
+Anti-slop frontend skill for landing pages, portfolios, and redesigns. The agent reads the brief, infers the right design direction, and ships interfaces that do not look templated. Real design systems when applicable, audit-first on redesigns, strict pre-flight check.
+
+## How to Invoke
+
+Read and follow the full skill instructions at:
+`.agents/skills/design-taste-frontend/SKILL.md`
+
+## CLI Reference
+
+```bash
+./scripts/harness skill list              # See all skills
+./scripts/harness skill run design-taste-frontend         # Run if wrapper exists
+```
