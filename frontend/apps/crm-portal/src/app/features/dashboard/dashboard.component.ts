@@ -33,8 +33,11 @@ import { CrmApiService } from '../../core/services/crm-api.service';
           <span class="kpi-value" [style.color]="lowStockCount > 0 ? 'var(--color-error)' : 'var(--color-text-muted)'">
             {{ lowStockCount }}
           </span>
-          <span class="kpi-trend" [class.down]="lowStockCount > 0" [class.neutral]="lowStockCount === 0">
-            <span>{{ lowStockCount > 0 ? '⚠ Cần bổ sung' : '✔ An toàn' }}</span>
+          <span class="kpi-trend" [class.down]="lowStockCount > 0" [class.neutral]="lowStockCount === 0" style="display: flex; align-items: center; gap: 4px;">
+            <span class="material-symbols-outlined" style="font-size: 16px;">
+              {{ lowStockCount > 0 ? 'warning' : 'check_circle' }}
+            </span>
+            <span>{{ lowStockCount > 0 ? 'Cần bổ sung' : 'An toàn' }}</span>
           </span>
         </div>
 
@@ -58,7 +61,7 @@ import { CrmApiService } from '../../core/services/crm-api.service';
           
           <div class="panel-body">
             <div class="empty-state" *ngIf="lowStockItems.length === 0">
-              <span class="icon" style="font-size: 48px;">✔</span>
+              <span class="material-symbols-outlined" style="font-size: 48px; color: var(--color-success);">check_circle</span>
               <p>Mọi sản phẩm đều có mức tồn kho an toàn!</p>
             </div>
             
@@ -107,7 +110,14 @@ import { CrmApiService } from '../../core/services/crm-api.service';
               <div class="review-item" *ngFor="let rev of recentReviews">
                 <div class="rev-header">
                   <span class="rev-product">{{ rev.productName }}</span>
-                  <span class="rev-stars">{{ getStars(rev.rating) }}</span>
+                  <span class="rev-stars" style="display: inline-flex; gap: 2px; align-items: center; vertical-align: middle;">
+                    <span class="material-symbols-outlined" 
+                          *ngFor="let star of [1,2,3,4,5]"
+                          [style.color]="star <= rev.rating ? '#f59e0b' : 'var(--color-border)'"
+                          style="font-size: 16px; font-variation-settings: 'FILL' 1;">
+                      star
+                    </span>
+                  </span>
                 </div>
                 <p class="rev-comment">"{{ rev.comment }}"</p>
                 <div class="rev-footer">
