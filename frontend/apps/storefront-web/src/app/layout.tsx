@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import './global.css';
 import { Be_Vietnam_Pro, Playfair_Display } from 'next/font/google';
 
@@ -17,9 +18,41 @@ const playfairDisplay = Playfair_Display({
   display: 'swap',
 });
 
-export const metadata = {
-  title: 'Tiệm Nhà Zịt | Cửa Hàng Đồ Len & Sản Phẩm Đan Móc Thủ Công Cao Cấp',
-  description: 'Chào mừng bạn đến với Tiệm Nhà Zịt - thế giới của các sản phẩm len handmade, thú bông, cardigan cao cấp dệt từ Merino & Alpaca tự nhiên.',
+export const metadata: Metadata = {
+  title: 'Tiệm Nhà Zịt | Đồ Len Handmade & Sản Phẩm Đan Móc Cao Cấp',
+  description: 'Khám phá thế giới len đan móc nghệ thuật tại Tiệm Nhà Zịt. Chuyên cung cấp thú bông amigurumi, khăn quàng cổ merino, hoa len và áo cardigan dệt thủ công từ sợi tự nhiên cao cấp.',
+  keywords: ['tiệm nhà zịt', 'tiem nha zit', 'đồ len handmade', 'thú len amigurumi', 'quà tặng len', 'cardigan len merino', 'alpaca', 'đan móc thủ công'],
+  metadataBase: new URL('https://tiemnhazit.vercel.app'),
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'Tiệm Nhà Zịt | Đồ Len Handmade & Sản Phẩm Đan Móc Cao Cấp',
+    description: 'Thế giới len nghệ thuật đan móc thủ công. Thú bông amigurumi, hoa len quà tặng và áo cardigan từ sợi Merino & Alpaca tự nhiên dệt tay cao cấp.',
+    url: 'https://tiemnhazit.vercel.app',
+    siteName: 'Tiệm Nhà Zịt',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 1200,
+        alt: 'Tiệm Nhà Zịt - Đồ Len Handmade & Đan Móc Cao Cấp',
+      },
+    ],
+    locale: 'vi_VN',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Tiệm Nhà Zịt | Đồ Len Handmade & Sản Phẩm Đan Móc Cao Cấp',
+    description: 'Thế giới len đan móc nghệ thuật. Thú bông amigurumi, hoa len quà tặng, cardigan Merino & Alpaca dệt tay cao cấp.',
+    images: ['/og-image.png'],
+  },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
