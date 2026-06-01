@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Product } from '@tiem-nha-zit/shared';
-import { useScrollReveal } from '../../hooks';
+import { useScrollReveal, usePrefetchOnHover } from '../../hooks';
 import styles from '../styles/page.module.scss';
 
 interface CatalogViewProps {
@@ -38,6 +38,7 @@ export default function CatalogView({
 }: CatalogViewProps) {
   const [currentPage, setCurrentPage] = React.useState(1);
   const ITEMS_PER_PAGE = 12;
+  const { prefetchRoute } = usePrefetchOnHover();
 
   React.useEffect(() => {
     setCurrentPage(1);
@@ -158,7 +159,7 @@ export default function CatalogView({
 
         {/* CLEAR FILTERS BUTTON */}
         <button 
-          className="w-full bg-charcoal text-white hover:bg-sage border-none font-sans font-semibold text-xs py-3.5 rounded-xl cursor-pointer flex items-center justify-center gap-2 transition-all duration-300 shadow-[0_4px_12px_rgba(26,28,26,0.08)] hover:shadow-[0_8px_20px_rgba(74,101,79,0.2)] hover:translate-y-[-1px] active:translate-y-0 box-border mt-2"
+          className="w-full bg-charcoal text-white hover:bg-sage border-none font-sans font-semibold text-xs py-3.5 rounded-full cursor-pointer flex items-center justify-center gap-2 transition-all duration-300 shadow-[0_4px_12px_rgba(26,28,26,0.08)] hover:shadow-[0_8px_20px_rgba(74,101,79,0.2)] hover:translate-y-[-1.5px] active:translate-y-0 active:scale-[0.98] box-border mt-2"
           onClick={onClearFilters}
         >
           Xóa Bộ Lọc
@@ -191,6 +192,7 @@ export default function CatalogView({
                     key={prod.id} 
                     className={`${styles.productCard} ${styles.revealOnScroll} reveal-on-scroll ${staggerClass}`} 
                     onClick={() => { setSelectedProduct(prod); setActiveView('detail'); }}
+                    onMouseEnter={() => prefetchRoute(`/product/${prod.id}`)}
                   >
                     <div className={styles.cardImageContainer}>
                       <img 

@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { usePrefetchOnHover } from '../../hooks';
 import styles from '../styles/page.module.scss';
 
 interface AboutViewProps {
@@ -8,6 +9,7 @@ interface AboutViewProps {
 }
 
 export default function AboutView({ setActiveView }: AboutViewProps) {
+  const { prefetchView } = usePrefetchOnHover();
   return (
     <div className={styles.aboutTab}>
       {/* 1. HERO BANNER */}
@@ -166,16 +168,24 @@ export default function AboutView({ setActiveView }: AboutViewProps) {
           </p>
           <div className={styles.ctaActions}>
             <button
-              className={styles.btnCtaPrimary}
+              className={`${styles.btnCtaPrimary} group`}
               onClick={() => setActiveView('catalog')}
+              onMouseEnter={() => prefetchView('catalog')}
             >
-              Khám Phá Cửa Hàng
+              <span>Khám Phá Cửa Hàng</span>
+              <span className={styles.btnIconWrapper}>
+                <span className="material-symbols-outlined">arrow_outward</span>
+              </span>
             </button>
             <button
-              className={styles.btnCtaSecondary}
+              className={`${styles.btnCtaSecondary} group`}
               onClick={() => setActiveView('home')}
+              onMouseEnter={() => prefetchView('home')}
             >
-              Quay Lại Trang Chủ
+              <span>Quay Lại Trang Chủ</span>
+              <span className={styles.btnIconWrapper}>
+                <span className="material-symbols-outlined">arrow_forward</span>
+              </span>
             </button>
           </div>
         </div>

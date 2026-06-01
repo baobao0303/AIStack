@@ -3,6 +3,7 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import { Product } from '@tiem-nha-zit/shared';
+import { usePrefetchOnHover } from '../../hooks';
 import styles from '../styles/page.module.scss';
 
 interface HomeViewProps {
@@ -19,6 +20,7 @@ export default function HomeView({
   handleAddToCartDefault
 }: HomeViewProps) {
   const router = useRouter();
+  const { prefetchView } = usePrefetchOnHover();
   const [currentSlide, setCurrentSlide] = React.useState(0);
 
   const artisanRegions = [
@@ -142,7 +144,7 @@ export default function HomeView({
             <h2 className={styles.animateSlideUp}>
               {currentSlide === 0 && (
                 <>
-                  Sản Phẩm Từ Tâm — <br className="hidden md:inline" />
+                  Sản Phẩm Từ Tâm - <br className="hidden md:inline" />
                   <span className={styles.accentDisplay}>Đan Dệt Yêu Thương</span>
                 </>
               )}

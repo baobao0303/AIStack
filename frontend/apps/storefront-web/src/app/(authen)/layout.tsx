@@ -26,6 +26,13 @@ export default function AuthLayout({
   useScrollReveal(globalStyles.isVisible, [pathname]);
   return (
     <div className="flex flex-col min-h-screen overflow-y-auto overflow-x-hidden bg-white w-full box-border">
+      {/* Preload backdrop visual studio image for instant above-the-fold display */}
+      <link 
+        rel="preload" 
+        href="/auth-studio.jpg" 
+        as="image" 
+        fetchPriority="high"
+      />
       {/* 2. MAIN SPLIT SECTION */}
       <main className="min-h-[calc(100vh-72px)] max-md:min-h-[calc(100vh-64px)] bg-gradient-to-br from-sage-light to-ivory flex items-center justify-center p-10 max-[991px]:px-4 max-[991px]:py-5 box-border relative overflow-hidden">
         {/* Decorative corner glows */}
@@ -50,14 +57,16 @@ export default function AuthLayout({
               </div>
               <h3 className="font-playfair text-[26px] leading-[1.3] font-bold m-0 mb-2.5 [text-shadow:0_2px_4px_rgba(0,0,0,0.15)]">Gói trọn tình yêu thương.</h3>
               <p className="text-xs leading-relaxed text-white/90 italic font-light">
-                — Mỗi sản phẩm thủ công tại Tiệm Nhà Zịt không chỉ là vật dụng, mà còn là một câu chuyện về sự tỉ mỉ và tâm huyết của người nghệ nhân.
+                Mỗi sản phẩm thủ công tại Tiệm Nhà Zịt không chỉ là vật dụng, mà còn là một câu chuyện về sự tỉ mỉ và tâm huyết của người nghệ nhân.
               </p>
             </div>
           </div>
 
-          {/* Right Column: Dynamic Form card wrapper */}
-          <div className={`w-full max-h-full bg-white rounded-2xl p-8 max-sm:p-4 border border-customBorder/15 shadow-[0_20px_50px_rgba(74,101,79,0.06)] overflow-y-auto box-border ${authStyles.authCardContainer}`}>
-            {children}
+          {/* Right Column: Dynamic Form card wrapper with Double-Bezel concentric curves */}
+          <div className="w-full max-h-full bg-sage/5 border border-sage/10 p-2.5 rounded-[32px] shadow-[0_20px_50px_rgba(74,101,79,0.04)] box-border">
+            <div className={`w-full max-h-full bg-white rounded-[22px] p-8 max-sm:p-4 border border-customBorder/10 overflow-y-auto box-border ${authStyles.authCardContainer}`}>
+              {children}
+            </div>
           </div>
         </div>
       </main>

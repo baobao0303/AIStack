@@ -403,11 +403,11 @@ export default function DetailView({
               </div>
             </div>
 
-            {/* Action buttons */}
+            {/* Action buttons with Double-Bezel Nested Kinetics */}
             <div className="flex flex-col gap-3 mt-2">
               <button
                 type="button"
-                className="w-full bg-sage text-white hover:bg-sage/90 py-4 rounded-xl font-sans font-bold text-sm cursor-pointer transition-all duration-300 shadow-[0_4px_12px_rgba(74,101,79,0.15)] hover:shadow-[0_8px_20px_rgba(74,101,79,0.3)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] border-none flex items-center justify-center gap-2.5 box-border"
+                className="w-full bg-sage text-white hover:bg-sage/90 py-2.5 pl-7 pr-2.5 rounded-full font-sans font-bold text-sm cursor-pointer transition-all duration-300 shadow-[0_4px_12px_rgba(74,101,79,0.15)] hover:shadow-[0_8px_20px_rgba(74,101,79,0.3)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] border-none flex items-center justify-between box-border group"
                 onClick={() => {
                   if (selectedType) {
                     const prefix = `Loại: ${selectedType}`;
@@ -422,16 +422,20 @@ export default function DetailView({
                   handleAddToCartCustom(quantity);
                 }}
               >
-                <span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>shopping_bag</span>
-                Xác Nhận & Đặt Đan Ngay
+                <span>Xác Nhận & Đặt Đan Ngay</span>
+                <span className="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-white/25">
+                  <span className="material-symbols-outlined text-[18px] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-white">arrow_outward</span>
+                </span>
               </button>
               <button
                 type="button"
-                className="w-full bg-white border border-customBorder/60 text-charcoal/80 hover:bg-ivory py-4 rounded-xl font-sans font-bold text-sm cursor-pointer transition-all duration-300 shadow-sm hover:border-sage hover:text-sage hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] flex items-center justify-center gap-2.5 box-border"
+                className="w-full bg-white border border-customBorder/60 text-charcoal/80 hover:bg-ivory py-2.5 pl-7 pr-2.5 rounded-full font-sans font-bold text-sm cursor-pointer transition-all duration-300 shadow-sm hover:border-sage hover:text-sage hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] flex items-center justify-between box-border group"
                 onClick={() => alert('Đang kết nối tới Chat Hub SignalR... Hỗ trợ trực tuyến với nghệ nhân đã sẵn sàng.')}
               >
-                <span className="material-symbols-outlined text-[20px]">chat_bubble</span>
-                Tư vấn trực tiếp với nghệ nhân
+                <span>Tư vấn trực tiếp với nghệ nhân</span>
+                <span className="w-8 h-8 rounded-full bg-sage/5 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-sage/10">
+                  <span className="material-symbols-outlined text-[18px] text-sage transition-transform duration-300 group-hover:translate-x-0.5">arrow_forward</span>
+                </span>
               </button>
             </div>
 
@@ -589,7 +593,7 @@ export default function DetailView({
 
             <button 
               type="submit" 
-              className="bg-charcoal text-white font-sans font-semibold text-xs py-3.5 px-8 rounded-xl cursor-pointer transition-all duration-300 hover:bg-sage border-none shadow-[0_4px_12px_rgba(26,28,26,0.08)] hover:shadow-[0_8px_20px_rgba(74,101,79,0.2)] hover:translate-y-[-1px] active:translate-y-0 align-self-start mt-2"
+              className="bg-charcoal text-white font-sans font-semibold text-xs py-3.5 px-8 rounded-full cursor-pointer transition-all duration-300 hover:bg-sage border-none shadow-[0_4px_12px_rgba(26,28,26,0.08)] hover:shadow-[0_8px_20px_rgba(74,101,79,0.2)] hover:translate-y-[-1.5px] active:translate-y-0 active:scale-[0.98] align-self-start mt-2"
             >
               Gửi Nhận Xét
             </button>

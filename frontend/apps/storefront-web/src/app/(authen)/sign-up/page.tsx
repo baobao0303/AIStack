@@ -72,7 +72,7 @@ export default function SignUpPage() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
-                  className="peer w-full bg-ivory border border-customBorder/50 py-3.5 pl-12 pr-4 rounded-lg font-sans text-sm text-charcoal outline-none transition-all duration-300 focus:bg-white focus:border-sage focus:ring-4 focus:ring-sage/10 box-border"
+                  className="peer w-full bg-ivory border border-customBorder/50 py-3.5 pl-12 pr-4 rounded-xl font-sans text-sm text-charcoal outline-none transition-all duration-300 focus:bg-white focus:border-sage focus:ring-4 focus:ring-sage/10 box-border"
                 />
               </div>
             </div>
@@ -89,7 +89,7 @@ export default function SignUpPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="peer w-full bg-ivory border border-customBorder/50 py-3.5 pl-12 pr-4 rounded-lg font-sans text-sm text-charcoal outline-none transition-all duration-300 focus:bg-white focus:border-sage focus:ring-4 focus:ring-sage/10 box-border"
+                  className="peer w-full bg-ivory border border-customBorder/50 py-3.5 pl-12 pr-4 rounded-xl font-sans text-sm text-charcoal outline-none transition-all duration-300 focus:bg-white focus:border-sage focus:ring-4 focus:ring-sage/10 box-border"
                 />
               </div>
             </div>
@@ -107,7 +107,7 @@ export default function SignUpPage() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
-                    className="peer w-full bg-ivory border border-customBorder/50 py-3.5 pl-12 pr-12 rounded-lg font-sans text-sm text-charcoal outline-none transition-all duration-300 focus:bg-white focus:border-sage focus:ring-4 focus:ring-sage/10 box-border"
+                    className="peer w-full bg-ivory border border-customBorder/50 py-3.5 pl-12 pr-12 rounded-xl font-sans text-sm text-charcoal outline-none transition-all duration-300 focus:bg-white focus:border-sage focus:ring-4 focus:ring-sage/10 box-border"
                   />
                   <button
                     type="button"
@@ -131,7 +131,7 @@ export default function SignUpPage() {
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     required
-                    className="peer w-full bg-ivory border border-customBorder/50 py-3.5 pl-12 pr-12 rounded-lg font-sans text-sm text-charcoal outline-none transition-all duration-300 focus:bg-white focus:border-sage focus:ring-4 focus:ring-sage/10 box-border"
+                    className="peer w-full bg-ivory border border-customBorder/50 py-3.5 pl-12 pr-12 rounded-xl font-sans text-sm text-charcoal outline-none transition-all duration-300 focus:bg-white focus:border-sage focus:ring-4 focus:ring-sage/10 box-border"
                   />
                   <button
                     type="button"
@@ -149,7 +149,7 @@ export default function SignUpPage() {
           </div>
 
           {/* AGREEMENT CHECKBOX & REGISTER SUBMIT */}
-          <div className={`${authStyles.authAnimateField4} flex flex-col gap-4 mt-4`}>
+          <div className={`${authStyles.authAnimateField4} flex flex-col gap-4 mt-4 w-full`}>
             <div className="flex justify-between items-center text-xs mt-1">
               <label className="flex items-center gap-2 cursor-pointer select-none font-medium text-charcoal/65">
                 <input
@@ -167,15 +167,17 @@ export default function SignUpPage() {
 
             <button 
               type="submit" 
-              className="w-full bg-sage text-white border-none font-sans font-semibold text-sm py-4 rounded-lg cursor-pointer flex items-center justify-center gap-2 transition-all duration-300 shadow-[0_4px_12px_rgba(74,101,79,0.1)] hover:bg-sage-dark hover:shadow-[0_8px_20px_rgba(74,101,79,0.2)] hover:translate-y-[-1px] active:translate-y-0 disabled:opacity-70 disabled:cursor-not-allowed mt-2 group"
+              className="w-full bg-sage text-white border-none font-sans font-semibold text-sm py-2 pl-7 pr-2.5 rounded-full cursor-pointer flex items-center justify-between gap-2 transition-all duration-300 shadow-[0_4px_12px_rgba(74,101,79,0.1)] hover:bg-sage-dark hover:shadow-[0_8px_20px_rgba(74,101,79,0.2)] hover:translate-y-[-1px] active:translate-y-0 active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed mt-2 group"
               disabled={isLoading}
             >
               {isLoading ? (
-                <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin mx-auto"></div>
               ) : (
                 <>
                   <span>Đăng ký ngay</span>
-                  <span className="material-symbols-outlined text-[18px] transition-transform duration-300 group-hover:translate-x-1">arrow_right_alt</span>
+                  <span className="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-white/25">
+                    <span className="material-symbols-outlined text-[18px] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-white">arrow_outward</span>
+                  </span>
                 </>
               )}
             </button>

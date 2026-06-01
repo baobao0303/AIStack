@@ -5399,19 +5399,51 @@ $color-border: #c2c8c0; // Outline variant
         background-color: $color-gold;
         color: $color-white;
         border: none;
-        padding: 14px 32px;
+        padding: 10px 10px 10px 28px;
         font-family: var(--font-be-vietnam-pro), sans-serif;
         font-size: 14px;
         font-weight: 700;
         border-radius: 99px;
         cursor: pointer;
-        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 16px;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         box-shadow: 0 4px 14px rgba($color-gold, 0.3);
+
+        .btnIconWrapper {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          background-color: rgba($color-white, 0.2);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+          span {
+            font-size: 18px;
+            color: $color-white;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          }
+        }
 
         &:hover {
           background-color: #d2b780;
           transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba($color-gold, 0.45);
+          box-shadow: 0 8px 24px rgba($color-gold, 0.45);
+
+          .btnIconWrapper {
+            background-color: rgba($color-white, 0.35);
+
+            span {
+              transform: translate(2px, -2px);
+            }
+          }
+        }
+
+        &:active {
+          transform: translateY(0) scale(0.98);
         }
       }
 
@@ -5419,18 +5451,50 @@ $color-border: #c2c8c0; // Outline variant
         background-color: transparent;
         color: $color-white;
         border: 1.5px solid rgba($color-white, 0.6);
-        padding: 14px 32px;
+        padding: 10px 10px 10px 28px;
         font-family: var(--font-be-vietnam-pro), sans-serif;
         font-size: 14px;
         font-weight: 700;
         border-radius: 99px;
         cursor: pointer;
-        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 16px;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+        .btnIconWrapper {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          background-color: rgba($color-white, 0.1);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+          span {
+            font-size: 18px;
+            color: $color-white;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          }
+        }
 
         &:hover {
           background-color: rgba($color-white, 0.1);
           border-color: $color-white;
           transform: translateY(-2px);
+
+          .btnIconWrapper {
+            background-color: rgba($color-white, 0.2);
+
+            span {
+              transform: translateX(3px);
+            }
+          }
+        }
+
+        &:active {
+          transform: translateY(0) scale(0.98);
         }
       }
     }

@@ -6,6 +6,7 @@ export * from './lib/hooks/useInfiniteScroll';
 export * from './lib/hooks/useClickOutside';
 export * from './lib/hooks/useScrollReveal';
 export * from './lib/hooks/useViewNavigation';
+export * from './lib/hooks/usePrefetchOnHover';
 
 // Auth & Permission Hooks
 export * from './lib/auth/useAuth';

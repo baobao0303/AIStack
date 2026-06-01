@@ -120,12 +120,27 @@ export default function CatalogRoute() {
 
   return (
     <StorefrontShell activeView="catalog">
-      {/* Preload first catalog product image for instant above-the-fold display */}
+      {/* Preload top 4 catalog product images for instant above-the-fold grid loading */}
       <link 
         rel="preload" 
         href={PRODUCTS[0].imageUrl} 
         as="image" 
         fetchPriority="high" 
+      />
+      <link 
+        rel="preload" 
+        href={PRODUCTS[1].imageUrl} 
+        as="image" 
+      />
+      <link 
+        rel="preload" 
+        href={PRODUCTS[2].imageUrl} 
+        as="image" 
+      />
+      <link 
+        rel="preload" 
+        href={PRODUCTS[3].imageUrl} 
+        as="image" 
       />
       <CatalogView
         searchQuery={searchQuery}
