@@ -52,6 +52,7 @@ export default function DetailView({
     }
   }, [selectedProduct]);
   const setSelectedProduct = useAppStore((state) => state.setSelectedProduct);
+  const setIsSupportChatOpen = useAppStore((state) => state.setIsSupportChatOpen);
   const [quantity, setQuantity] = useState(1);
   const [isFavorite, setIsFavorite] = useState(false);
   const [reviews, setReviews] = useState([
@@ -430,7 +431,7 @@ export default function DetailView({
               <button
                 type="button"
                 className="w-full bg-white border border-customBorder/60 text-charcoal/80 hover:bg-ivory py-2.5 pl-7 pr-2.5 rounded-full font-sans font-bold text-sm cursor-pointer transition-all duration-300 shadow-sm hover:border-sage hover:text-sage hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] flex items-center justify-between box-border group"
-                onClick={() => alert('Đang kết nối tới Chat Hub SignalR... Hỗ trợ trực tuyến với nghệ nhân đã sẵn sàng.')}
+                onClick={() => setIsSupportChatOpen(true)}
               >
                 <span>Tư vấn trực tiếp với nghệ nhân</span>
                 <span className="w-8 h-8 rounded-full bg-sage/5 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-sage/10">

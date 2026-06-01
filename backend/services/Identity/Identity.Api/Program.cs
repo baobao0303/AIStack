@@ -84,6 +84,9 @@ builder.Services.AddSwaggerGen(options =>
 
 var app = builder.Build();
 
+// Database Auto-Migration & Seeding on Startup
+await Identity.Infrastructure.Persistence.DbInitializer.SeedAsync(app.Services);
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -91,7 +94,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+if (!app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
 
 app.UseMiddleware<Identity.Api.Middlewares.LoginRateLimitingMiddleware>();
 

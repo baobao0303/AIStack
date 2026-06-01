@@ -11,6 +11,7 @@ const createId = (prefix: string): string =>
 export interface AppStoreState {
   // Navigation & Drawer
   isCartOpen: boolean;
+  isSupportChatOpen: boolean;
 
   // Catalog filtering states
   searchQuery: string;
@@ -50,6 +51,7 @@ export interface AppStoreState {
 export interface AppStoreActions {
   // General UI setter
   setIsCartOpen: (open: boolean) => void;
+  setIsSupportChatOpen: (open: boolean) => void;
 
   // Catalog Actions
   setSearchQuery: (query: string) => void;
@@ -86,6 +88,7 @@ export type AppStore = AppStoreState & AppStoreActions;
 export const useAppStore = create<AppStore>((set, get) => ({
   // --- INITIAL STATES ---
   isCartOpen: false,
+  isSupportChatOpen: false,
 
   searchQuery: '',
   selectedWoolTypes: [],
@@ -141,6 +144,7 @@ export const useAppStore = create<AppStore>((set, get) => ({
   // --- ACTIONS ---
 
   setIsCartOpen: (open) => set({ isCartOpen: open }),
+  setIsSupportChatOpen: (open) => set({ isSupportChatOpen: open }),
 
   setSearchQuery: (query) => set({ searchQuery: query }),
 

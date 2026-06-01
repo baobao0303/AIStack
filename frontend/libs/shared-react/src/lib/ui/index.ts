@@ -9,3 +9,4 @@ export { default as CheckoutView } from './views/CheckoutView';
 export { default as DetailView } from './views/DetailView';
 export { default as TrackingView } from './views/TrackingView';
 export { default as LoginView } from './views/LoginView';
+export { default as SupportChat } from './widgets/SupportChat';

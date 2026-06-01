@@ -49,6 +49,18 @@ import { AuthService } from '../services/auth.service';
               <span>Đánh giá</span>
             </a>
           </li>
+          <li class="crm-nav-item" routerLinkActive="active">
+            <a routerLink="/chats">
+              <span class="material-symbols-outlined">forum</span>
+              <span>Live Chat</span>
+            </a>
+          </li>
+          <li class="crm-nav-item" routerLinkActive="active">
+            <a routerLink="/shifts">
+              <span class="material-symbols-outlined">calendar_month</span>
+              <span>Ca trực / HR</span>
+            </a>
+          </li>
         </nav>
 
         <!-- User profile panel -->
@@ -130,6 +142,8 @@ export class LayoutComponent {
     if (url.includes('/categories')) return 'Quản lý Danh mục';
     if (url.includes('/inventory')) return 'Quản lý Tồn kho';
     if (url.includes('/reviews')) return 'Kiểm duyệt Đánh giá';
+    if (url.includes('/chats')) return 'Hội thoại Trực tuyến';
+    if (url.includes('/shifts')) return 'Quản lý Ca Trực & HR';
     return 'Cổng quản trị CRM';
   }
 

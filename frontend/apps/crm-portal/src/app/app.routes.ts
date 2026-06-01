@@ -36,6 +36,14 @@ export const appRoutes: Route[] = [
       {
         path: 'reviews',
         loadComponent: () => import('./features/reviews/reviews.component').then(c => c.ReviewsComponent)
+      },
+      {
+        path: 'chats',
+        loadComponent: () => import('./features/chats/chats.component').then(c => c.ChatsComponent)
+      },
+      {
+        path: 'shifts',
+        loadComponent: () => import('./features/shifts/shifts.component').then(c => c.ShiftsComponent)
       }
     ]
   },

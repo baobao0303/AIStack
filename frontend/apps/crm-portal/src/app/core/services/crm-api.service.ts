@@ -309,6 +309,108 @@ export class CrmApiService {
     return of(list);
   }
 
+  // --- HR Employees & Shifts Endpoints ---
+  private mockEmployees: any[] = [
+    { id: 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', firstName: 'John', lastName: 'Doe', email: 'john.doe@test.com', department: 'Support', activeChatStatus: 'Online' },
+    { id: 'bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb', firstName: 'Sally', lastName: 'Smith', email: 'sally.smith@test.com', department: 'Support Manager', activeChatStatus: 'Online' },
+    { id: 'cccccccc-cccc-cccc-cccc-cccccccccccc', firstName: 'Bob', lastName: 'Miller', email: 'bob.miller@test.com', department: 'Support', activeChatStatus: 'Offline' }
+  ];
+
+  private mockShifts: any[] = [
+    {
+      id: 'shift-101',
+      employeeId: 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa',
+      employeeName: 'John Doe',
+      shiftStart: new Date(Date.now() - 4 * 60 * 60 * 1000).toISOString(),
+      shiftEnd: new Date(Date.now() + 8 * 60 * 60 * 1000).toISOString(),
+      notes: 'Ca trực hỗ trợ buổi sáng & chiều đồ len handmade'
+    },
+    {
+      id: 'shift-102',
+      employeeId: 'bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb',
+      employeeName: 'Sally Smith',
+      shiftStart: new Date(Date.now() - 4 * 60 * 60 * 1000).toISOString(),
+      shiftEnd: new Date(Date.now() + 8 * 60 * 60 * 1000).toISOString(),
+      notes: 'Ca trực quản lý hỗ trợ & giám sát SignalR'
+    }
+  ];
+
+  getEmployees(status?: string): Observable<any[]> {
+    const url = status ? `/api/employees?status=${status}` : `/api/employees`;
+    return this.http.get<any[]>(url).pipe(
+      catchError(() => {
+        console.warn('[CRM API] Using resilient mock employees state');
+        let filtered = [...this.mockEmployees];
+        if (status) {
+          filtered = filtered.filter(e => e.activeChatStatus === status);
+        }
+        return of(filtered);
+      })
+    );
+  }
+
+  updateEmployee(id: string, employee: any): Observable<any> {
+    return this.http.put(`/api/employees/${id}`, employee).pipe(
+      catchError(() => {
+        console.warn('[CRM API] Mocking employee status update');
+        const idx = this.mockEmployees.findIndex(e => e.id === id);
+        if (idx !== -1) {
+          this.mockEmployees[idx] = { ...this.mockEmployees[idx], ...employee };
+          return of(this.mockEmployees[idx]);
+        }
+        return throwError(() => new Error('Employee not found'));
+      })
+    );
+  }
+
+  getShifts(): Observable<any[]> {
+    return this.http.get<any[]>(`/api/shifts`).pipe(
+      map(shifts => {
+        // Enforce employee display names inside output list mapping
+        return shifts.map(s => {
+          const emp = this.mockEmployees.find(e => e.id === s.employeeId);
+          return {
+            ...s,
+            employeeName: emp ? `${emp.firstName} ${emp.lastName}` : 'Nghệ nhân hỗ trợ'
+          };
+        });
+      }),
+      catchError(() => {
+        console.warn('[CRM API] Using resilient mock shifts state');
+        return of(this.mockShifts);
+      })
+    );
+  }
+
+  createShift(shift: any): Observable<any> {
+    return this.http.post<any>(`/api/shifts`, shift).pipe(
+      catchError(() => {
+        console.warn('[CRM API] Mocking shift creation');
+        const emp = this.mockEmployees.find(e => e.id === shift.employeeId);
+        const newShift = {
+          id: 'shift-' + Math.random().toString(36).substr(2, 9),
+          ...shift,
+          employeeName: emp ? `${emp.firstName} ${emp.lastName}` : 'Nghệ nhân hỗ trợ'
+        };
+        this.mockShifts.push(newShift);
+        return of(newShift);
+      })
+    );
+  }
+
+  deleteShift(id: string): Observable<any> {
+    return this.http.delete(`/api/shifts/${id}`).pipe(
+      catchError(() => {
+        console.warn('[CRM API] Mocking shift deletion');
+        const idx = this.mockShifts.findIndex(s => s.id === id);
+        if (idx !== -1) {
+          this.mockShifts.splice(idx, 1);
+        }
+        return of({ success: true });
+      })
+    );
+  }
+
   // --- Media upload ---
   uploadImage(file: File): Observable<any> {
     const formData = new FormData();

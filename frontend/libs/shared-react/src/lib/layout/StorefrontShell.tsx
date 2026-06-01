@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useShallow } from 'zustand/react/shallow';
-import { ShaderBackground, Navbar, Footer, CartFloatingModal } from '../ui';
+import { ShaderBackground, Navbar, Footer, CartFloatingModal, SupportChat } from '../ui';
 import { useAppStore } from '../store/app.store';
 import { ViewType } from '@tiem-nha-zit/shared';
 import { useScrollReveal, useClickOutside } from '../hooks';
@@ -123,6 +123,9 @@ export default function StorefrontShell({ children, activeView }: StorefrontShel
 
       {/* FOOTER */}
       <Footer setActiveView={handleActiveViewChange} />
+
+      {/* SUPPORT CHAT DRAWER */}
+      <SupportChat />
     </div>
   );
 }

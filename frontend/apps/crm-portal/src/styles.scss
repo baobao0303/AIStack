@@ -609,22 +609,43 @@ a {
   }
 }
 
+@keyframes kenBurns {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+
 .crm-auth-visual-side {
   flex: 1;
-  background-image: linear-gradient(rgba(51, 77, 56, 0.88), rgba(74, 101, 79, 0.95)), url('/auth-studio.jpg');
-  background-size: cover;
-  background-position: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 80px;
   color: #ffffff;
+  position: relative;
+  overflow: hidden;
   
   @media (max-width: 992px) {
     display: none; // Hide visually intensive panel on small mobile devices to respect visual density
   }
 
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(rgba(51, 77, 56, 0.82), rgba(74, 101, 79, 0.95)), url('/auth-studio.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    animation: kenBurns 40s ease-in-out infinite;
+  }
+
   .auth-brand-serif {
+    position: relative;
+    z-index: 2;
     font-family: 'Playfair Display', Georgia, serif;
     font-size: 52px;
     font-weight: 700;
@@ -635,6 +656,8 @@ a {
   }
   
   .auth-brand-desc {
+    position: relative;
+    z-index: 2;
     font-size: 16px;
     line-height: 1.7;
     max-width: 50ch;
@@ -662,7 +685,7 @@ a {
   max-width: 440px;
   background: rgba(74, 101, 79, 0.04);
   border: 1px solid rgba(74, 101, 79, 0.08);
-  border-radius: 32px; // concentric outer
+  border-radius: 40px; // concentric outer lock: Radius_inner (24px) + Padding (16px) = 40px
   padding: 16px; // outer padding
   box-shadow: 0 8px 30px rgba(74, 69, 62, 0.02);
   animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -670,7 +693,7 @@ a {
 
 .crm-auth-card {
   background: var(--bg-surface);
-  border-radius: 24px; // Radius_inner = Radius_outer - Padding (32px - 16px + 8px delta = 24px lock)
+  border-radius: 24px; // Concentric Radius lock math: Radius_outer (40px) - Padding (16px) = 24px
   padding: 32px 28px;
   box-shadow: var(--shadow-medium);
   border: 1px solid var(--bg-surface-container);
@@ -685,11 +708,13 @@ a {
       color: var(--color-primary);
       margin-bottom: 8px;
       letter-spacing: -0.5px;
+      text-wrap: balance;
     }
     
     .auth-subtitle {
       font-size: 13px;
       color: var(--color-text-muted);
+      text-wrap: balance;
     }
   }
 }
@@ -697,6 +722,7 @@ a {
 // Concentric input groups
 .crm-auth-input-group {
   margin-bottom: 20px;
+  transition: var(--transition-smooth);
   
   .input-label {
     display: flex;
@@ -706,10 +732,12 @@ a {
     font-weight: 600;
     color: var(--color-text-muted);
     margin-bottom: 8px;
+    transition: var(--transition-smooth);
     
     .material-symbols-outlined {
       font-size: 16px;
       color: var(--color-text-light);
+      transition: var(--transition-smooth);
     }
   }
   
@@ -735,12 +763,24 @@ a {
       color: var(--color-text-light);
     }
   }
+
+  // Active micro-kinetics elevation when focused
+  &:focus-within {
+    .input-label {
+      color: var(--color-primary);
+      transform: translateY(-1px);
+      
+      .material-symbols-outlined {
+        color: var(--color-primary);
+      }
+    }
+  }
 }
 
 // Nested button CTA and kinetics
 .btn-auth-submit {
   width: 100%;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: space-between;
   padding: 8px 8px 8px 24px;
@@ -751,7 +791,7 @@ a {
   font-weight: 600;
   font-size: 15px;
   cursor: pointer;
-  transition: var(--transition-smooth);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, box-shadow 0.25s ease;
   margin-top: 28px;
   
   .btn-icon-bubble {
@@ -767,7 +807,7 @@ a {
     .material-symbols-outlined {
       font-size: 18px;
       color: #ffffff;
-      transition: var(--transition-smooth);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
   }
   
@@ -779,15 +819,16 @@ a {
       background-color: rgba(255, 255, 255, 0.25);
       
       .material-symbols-outlined {
-        transform: translateX(3px);
+        transform: translateX(4px);
       }
     }
   }
   
   &:active {
-    transform: scale(0.98); // Kinetic compress
+    transform: scale(0.97); // Haptic spring compression
   }
 }
+
 
 .auth-error-alert {
   display: flex;

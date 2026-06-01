@@ -3,6 +3,18 @@ using Yarp.ReverseProxy.Model;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add CORS services to allow direct connection from storefront-web (3000) and crm-portal (4200)
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("GatewayCorsPolicy", policy =>
+    {
+        policy.WithOrigins("http://localhost:3000", "http://localhost:4200")
+              .AllowAnyMethod()
+              .AllowAnyHeader()
+              .AllowCredentials();
+    });
+});
+
 // Add Yarp Reverse Proxy services
 builder.Services.AddReverseProxy()
     .LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"));
@@ -11,6 +23,8 @@ var app = builder.Build();
 
 // Configure the HTTP request pipeline
 app.UseRouting();
+
+app.UseCors("GatewayCorsPolicy");
 
 app.MapReverseProxy(proxyPipeline =>
 {
