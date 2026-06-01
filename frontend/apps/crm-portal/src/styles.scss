@@ -168,10 +168,13 @@ a {
     transition: var(--transition-smooth);
     font-size: 14px;
     
-    i, svg {
-      font-size: 18px;
-      width: 20px;
+    i, svg, .material-symbols-outlined {
+      font-size: 20px;
+      width: 24px;
       text-align: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
     
     &:hover {
@@ -197,14 +200,15 @@ a {
   .avatar {
     width: 40px;
     height: 40px;
-    border-radius: var(--radius-full);
-    background-color: var(--color-secondary);
+    border-radius: var(--radius-md); // Concentric squircle curves matching BMad design taste
+    background-color: var(--color-primary-light);
     color: var(--color-primary);
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
     font-size: 16px;
+    border: 1px solid var(--color-border);
   }
   
   .user-info {
