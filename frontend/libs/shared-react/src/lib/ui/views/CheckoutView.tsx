@@ -125,6 +125,7 @@ export default function CheckoutView({
                 required
                 value={shippingForm.name}
                 onChange={(e) => setShippingForm({ ...shippingForm, name: e.target.value })}
+                className="!rounded-xl"
               />
             </div>
 
@@ -136,6 +137,7 @@ export default function CheckoutView({
                 required
                 value={shippingForm.email}
                 onChange={(e) => setShippingForm({ ...shippingForm, email: e.target.value })}
+                className="!rounded-xl"
               />
             </div>
 
@@ -147,6 +149,7 @@ export default function CheckoutView({
                 required
                 value={shippingForm.address}
                 onChange={(e) => setShippingForm({ ...shippingForm, address: e.target.value })}
+                className="!rounded-xl"
               />
             </div>
 
@@ -155,6 +158,7 @@ export default function CheckoutView({
               <select 
                 value={shippingForm.city}
                 onChange={(e) => setShippingForm({ ...shippingForm, city: e.target.value })}
+                className="!rounded-xl"
               >
                 <option>Hà Nội</option>
                 <option>TP. Hồ Chí Minh</option>
@@ -164,7 +168,7 @@ export default function CheckoutView({
             </div>
 
             {/* High-Fidelity Stripe Credit Card Input Mock */}
-            <div className={styles.stripeCardBox}>
+            <div className={`${styles.stripeCardBox} !rounded-2xl`}>
               <div className={styles.stripeHeader}>
                 <span>Thông tin thẻ tín dụng</span>
                 <span>Stripe secure</span>
@@ -176,6 +180,7 @@ export default function CheckoutView({
                   required
                   value={stripeCard.number}
                   onChange={(e) => setStripeCard({ ...stripeCard, number: e.target.value })}
+                  className="!rounded-xl"
                 />
               </div>
               <div className={styles.stripeInputCol2}>
@@ -185,6 +190,7 @@ export default function CheckoutView({
                   required
                   value={stripeCard.expiry}
                   onChange={(e) => setStripeCard({ ...stripeCard, expiry: e.target.value })}
+                  className="!rounded-xl"
                 />
                 <input 
                   type="text" 
@@ -192,16 +198,26 @@ export default function CheckoutView({
                   required
                   value={stripeCard.cvc}
                   onChange={(e) => setStripeCard({ ...stripeCard, cvc: e.target.value })}
+                  className="!rounded-xl"
                 />
               </div>
             </div>
 
             <button 
               type="submit" 
-              className={styles.btnCheckoutSubmit}
+              className={`${styles.btnCheckoutSubmit} group flex items-center justify-between !py-2.5 !pl-7 !pr-2.5 rounded-full w-full`}
               disabled={cart.length === 0 || checkoutLoading}
             >
-              {checkoutLoading ? 'Đang xử lý giao dịch qua Stripe...' : `Thanh toán ${cartTotal.toLocaleString('vi-VN')}đ`}
+              {checkoutLoading ? (
+                <span className="mx-auto">Đang xử lý giao dịch qua Stripe...</span>
+              ) : (
+                <>
+                  <span>Thanh toán {cartTotal.toLocaleString('vi-VN')}đ</span>
+                  <span className="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-white/25">
+                    <span className="material-symbols-outlined text-[18px] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-white">arrow_outward</span>
+                  </span>
+                </>
+              )}
             </button>
           </form>
         </div>

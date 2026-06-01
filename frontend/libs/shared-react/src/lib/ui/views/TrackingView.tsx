@@ -105,8 +105,11 @@ export default function TrackingView({
         ) : (
           <div className={`${styles.emptyCart} py-[60px]`}>
             <p>Lịch sử đơn hàng trống. Hãy đặt đan sản phẩm đầu tiên của bạn!</p>
-            <button className={`${styles.btnCheckout} mt-4 max-w-[240px] mx-auto block`} onClick={() => setActiveView('catalog')}>
-              Đến Cửa Hàng
+            <button className={`${styles.btnCheckout} group flex items-center justify-between !py-2.5 !pl-7 !pr-2.5 rounded-full mt-4 max-w-[240px] mx-auto w-full`} onClick={() => setActiveView('catalog')}>
+              <span>Đến Cửa Hàng</span>
+              <span className="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-white/25">
+                <span className="material-symbols-outlined text-[18px] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-white">arrow_outward</span>
+              </span>
             </button>
           </div>
         )}
