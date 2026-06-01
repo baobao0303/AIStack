@@ -73,6 +73,8 @@ The system is designed with highly isolated microservice boundaries, separate da
 | **Real-time Engine** | ASP.NET Core SignalR | Fully scaled out with a Redis backplane for high-availability WebSocket communication |
 | **Asynchronous Bus** | RabbitMQ Topics | Pub/Sub messaging to process integration events (e.g. `ChargeSucceededEvent`) |
 | **AI Integration** | Gemini 1.5 Flash HTTP API | Contextual generative AI suggestions and analysis with local offline fallbacks |
+| **Frontend Core** | Nx Monorepo (Next.js 15 + Angular 20) | public-facing Next.js 15 storefront & Angular 20 CRM customer chat portal |
+| **Design System** | Taste Design Guide (TFW) | Concentric squircle curves (`rounded-[32px]`), Double-Bezel cards, & kinetic hover buttons |
 | **Development** | Docker Compose, Tilt | Fully containerized orchestration and live hot-reloading |
 | **Operating Framework** | Harness SQLite CLI | SQLite-backed framework for managing development progress and matrix proofs |
 
@@ -90,6 +92,13 @@ The system is designed with highly isolated microservice boundaries, separate da
 │       ├── ECommerce/        # ECommerce.sln - products catalog, shopping carts, Stripe checkouts
 │       ├── Chat/             # Chat.sln - SignalR chatrooms, HR Shifts, Gemini AI analytics
 │       └── Notification/     # Notification.sln - RabbitMQ worker daemon & MailKit SMTP
+├── frontend/                 # Nx monorepo for all client apps
+│   ├── apps/
+│   │   ├── storefront-web    # Next.js 15 (SSR) - public-facing e-commerce storefront app
+│   │   └── crm-portal        # Angular 20 - customer support & live chat management app
+│   └── libs/
+│       ├── shared-react      # Shared views, hooks (prefetchOnHover), and custom scss tokens
+│       └── shared            # Unified types and storefront schemas
 ├── docs/                     # Product specs, stories, and ADR (Architectural Decision Records)
 ├── infra/                    # Deployment configurations (docker-compose, Kubernetes templates)
 ├── rules/                    # Authoritative Harness rules & operational guidelines
@@ -129,6 +138,7 @@ To ensure the microservices mesh runs flawlessly in local environments where ext
 
 ### Prerequisites
 * **.NET 6 SDK** (or higher)
+* **Node.js 20+ & npm 10+** (for frontend monorepo)
 * **Docker & Docker Compose**
 * **Tilt** (Optional, recommended for live hot-reload development)
 
@@ -153,13 +163,35 @@ Build and run the entire ecosystem isolated in containers:
 docker-compose up --build
 ```
 
+### Option C: Run the Frontend Apps Natively
+First, navigate to the `frontend` folder and install dependencies:
+```bash
+cd frontend
+npm install
+```
+
+Start the web applications:
+* **Next.js Storefront Web**: `npx nx serve storefront-web` (Served on http://localhost:3000)
+* **Angular CRM Portal**: `npx nx serve crm-portal` (Served on http://localhost:4200)
+
 ---
 
 ## 🧪 Testing & Verification Matrix
 
 The suite includes extensive unit, integration, and endpoint tests.
 
-### Important: MSBuild File Lock Compilation
+### 💻 Frontend Monorepo Verification
+Ensure there are zero TypeScript/compilation/bundler errors in the storefront or CRM workspace:
+```bash
+# Compile individual apps
+npx nx build storefront-web
+npx nx build crm-portal
+
+# Run automated tests
+npx nx test storefront-web
+```
+
+### ☕ .NET Microservices Testing
 Since Tilt holds locks on active assemblies during hot-reload, always compile the test suites strictly without attempting to copy or overwrite locked binaries:
 
 **Compile the test assemblies exclusively:**
