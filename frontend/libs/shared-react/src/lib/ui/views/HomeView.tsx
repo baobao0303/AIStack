@@ -78,13 +78,9 @@ export default function HomeView({
 
   const slides = [
     {
+      id: 0,
       image: "/bouquet_18_flowers.png",
-      title: (
-        <>
-          Sản Phẩm Từ Tâm — <br className="hidden md:inline" />
-          <span className={styles.accentDisplay}>Đan Dệt Yêu Thương</span>
-        </>
-      ),
+      titleText: "Sản Phẩm Từ Tâm - Đan Dệt Yêu Thương",
       description: "Khám phá bộ sưu tập len Merino cao cấp, được đan tay tỉ mỉ bởi những nghệ nhân tại Tiệm Nhà Zịt.",
       actionType: "catalog",
       primaryText: "Khám Phá Cửa Hàng",
@@ -92,13 +88,9 @@ export default function HomeView({
       secondaryAction: "detail"
     },
     {
+      id: 1,
       image: "/vietnam_strap.png",
-      title: (
-        <>
-          Nghệ Thuật <br className="hidden md:inline" />
-          <span className={styles.accentDisplay}>Đan Tay</span> Truyền Thống
-        </>
-      ),
+      titleText: "Nghệ Thuật Đan Tay Truyền Thống",
       description: "Mỗi sản phẩm đều mang một câu chuyện riêng, được dệt nên từ tình yêu và sự tỉ mỉ qua từng mũi kim đan.",
       actionType: "catalog",
       primaryText: "Xem Bộ Sưu Tập",
@@ -106,13 +98,9 @@ export default function HomeView({
       secondaryAction: "story"
     },
     {
+      id: 2,
       image: "/mini_plush_keychain.png",
-      title: (
-        <>
-          Thiết Kế Độc Bản <br className="hidden md:inline" />
-          <span className={styles.accentDisplay}>Cho Riêng Bạn</span>
-        </>
-      ),
+      titleText: "Thiết Kế Độc Bản Cho Riêng Bạn",
       description: "Tùy chọn kích thước, màu sắc và kiểu dáng theo sở thích cá nhân. Chúng tôi đan dệt theo đúng số đo cơ thể của bạn.",
       actionType: "detail",
       primaryText: "Tự Thiết Kế Ngay",
@@ -139,7 +127,7 @@ export default function HomeView({
               className={`${styles.slideBgItem} ${currentSlide === idx ? styles.activeSlide : ''}`}
             >
               <img
-                alt={slide.title}
+                alt={slide.titleText}
                 className={styles.heroImg}
                 src={slide.image}
               />
@@ -151,7 +139,26 @@ export default function HomeView({
         <div className={styles.containerMax}>
           {/* Keyed element forces React to re-trigger slideUp entrance micro-animations on index swap */}
           <div className={styles.heroText} key={currentSlide}>
-            <h2 className={styles.animateSlideUp}>{slides[currentSlide].title}</h2>
+            <h2 className={styles.animateSlideUp}>
+              {currentSlide === 0 && (
+                <>
+                  Sản Phẩm Từ Tâm — <br className="hidden md:inline" />
+                  <span className={styles.accentDisplay}>Đan Dệt Yêu Thương</span>
+                </>
+              )}
+              {currentSlide === 1 && (
+                <>
+                  Nghệ Thuật <br className="hidden md:inline" />
+                  <span className={styles.accentDisplay}>Đan Tay</span> Truyền Thống
+                </>
+              )}
+              {currentSlide === 2 && (
+                <>
+                  Thiết Kế Độc Bản <br className="hidden md:inline" />
+                  <span className={styles.accentDisplay}>Cho Riêng Bạn</span>
+                </>
+              )}
+            </h2>
             <p className={`${styles.animateSlideUp} ${styles.staggerDelay1}`}>{slides[currentSlide].description}</p>
             <div className={`${styles.heroActions} ${styles.animateSlideUp} ${styles.staggerDelay2}`}>
               <button
