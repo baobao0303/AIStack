@@ -1,10 +1,16 @@
 import { Route } from '@angular/router';
 import { LayoutComponent } from './core/layout/layout.component';
+import { authGuard } from './core/guards/auth.guard';
 
 export const appRoutes: Route[] = [
   {
+    path: 'sign-in',
+    loadComponent: () => import('./features/sign-in/sign-in.component').then(c => c.SignInComponent)
+  },
+  {
     path: '',
     component: LayoutComponent,
+    canActivate: [authGuard],
     children: [
       {
         path: '',
