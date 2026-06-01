@@ -3,6 +3,19 @@
 # - NODE_ENV == 'production': Runs containerized inside Docker Compose.
 # - Other (default): Runs natively on the host machine for ultra-fast local feedback loops.
 
+# Load environment variables from .env dynamically
+local_env = {}
+try:
+    env_content = read_file('.env')
+    for line in env_content.split('\n'):
+        line = line.strip()
+        if line and not line.startswith('#'):
+            parts = line.split('=', 1)
+            if len(parts) == 2:
+                local_env[parts[0].strip()] = parts[1].strip()
+except:
+    pass
+
 node_env = os.environ.get('NODE_ENV', 'development')
 
 if node_env == 'production':
@@ -54,7 +67,8 @@ else:
         'identity-service',
         cmd='dotnet build backend/services/Identity/Identity.sln',
         serve_cmd='dotnet run --project backend/services/Identity/Identity.Api/Identity.Api.csproj --no-build',
-        deps=['backend/services/Identity']
+        deps=['backend/services/Identity'],
+        env=local_env
     )
     
     # 2. ECommerce Api Service (Catalog & Stripe checkout)
@@ -62,7 +76,8 @@ else:
         'ecommerce-service',
         cmd='dotnet build backend/services/ECommerce/ECommerce.sln',
         serve_cmd='dotnet run --project backend/services/ECommerce/ECommerce.Api/ECommerce.Api.csproj --no-build',
-        deps=['backend/services/ECommerce']
+        deps=['backend/services/ECommerce'],
+        env=local_env
     )
     
     # 3. API Gateway Service (Yarp reverse proxy)
@@ -70,7 +85,8 @@ else:
         'api-gateway',
         cmd='dotnet build backend/api-gateway/api-gateway.csproj',
         serve_cmd='dotnet run --project backend/api-gateway/api-gateway.csproj --no-build',
-        deps=['backend/api-gateway']
+        deps=['backend/api-gateway'],
+        env=local_env
     )
     
     # 4. Notification Service (.NET background mail worker)
@@ -78,7 +94,8 @@ else:
         'notification-service',
         cmd='dotnet build backend/services/Notification/Notification.sln',
         serve_cmd='dotnet run --project backend/services/Notification/Notification.Service/Notification.Service.csproj --no-build',
-        deps=['backend/services/Notification']
+        deps=['backend/services/Notification'],
+        env=local_env
     )
     
     # 5. CRM Chat Service (SignalR WebSockets Hub API)
@@ -86,5 +103,6 @@ else:
         'crmchat-service',
         cmd='dotnet build backend/services/Chat/Chat.sln',
         serve_cmd='dotnet run --project backend/services/Chat/Chat.Api/Chat.Api.csproj --no-build',
-        deps=['backend/services/Chat']
+        deps=['backend/services/Chat'],
+        env=local_env
     )

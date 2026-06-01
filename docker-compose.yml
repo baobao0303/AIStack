@@ -29,7 +29,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80;https://+:443
-      - ConnectionStrings__DefaultConnection=Host=db.xhnvtfltmwveaxzetbyy.supabase.co;Port=5432;Database=postgres;Username=postgres;Password=NJ0SjRCTtCZ7CJP4;SSL Mode=Require;Trust Server Certificate=true;
+      - ConnectionStrings__DefaultConnection=${ConnectionStrings__DefaultConnection}
       - ConnectionStrings__RedisConnection=redis:6379
       - MessageBus__Host=rabbitmq
     ports:
@@ -50,7 +50,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80;https://+:443
-      - ConnectionStrings__ECommerceConnection=Host=db.xhnvtfltmwveaxzetbyy.supabase.co;Port=5432;Database=postgres;Username=postgres;Password=NJ0SjRCTtCZ7CJP4;SSL Mode=Require;Trust Server Certificate=true;
+      - ConnectionStrings__ECommerceConnection=${ConnectionStrings__ECommerceConnection}
       - MessageBus__Host=rabbitmq
     ports:
       - "5169:80"
@@ -88,7 +88,7 @@ services:
       dockerfile: ./backend/services/Chat/Dockerfile
     restart: always
     environment:
-      - ConnectionStrings__DefaultConnection=Host=db.xhnvtfltmwveaxzetbyy.supabase.co;Port=5432;Database=postgres;Username=postgres;Password=NJ0SjRCTtCZ7CJP4;SSL Mode=Require;Trust Server Certificate=true;
+      - ConnectionStrings__DefaultConnection=${ConnectionStrings__DefaultConnection}
       - ConnectionStrings__RedisConnection=redis:6379
       - MessageBus__Host=rabbitmq
     ports:
@@ -107,7 +107,7 @@ services:
       dockerfile: ./backend/services/Notification/Dockerfile
     restart: always
     environment:
-      - ConnectionStrings__DefaultConnection=Host=db.xhnvtfltmwveaxzetbyy.supabase.co;Port=5432;Database=postgres;Username=postgres;Password=NJ0SjRCTtCZ7CJP4;SSL Mode=Require;Trust Server Certificate=true;
+      - ConnectionStrings__DefaultConnection=${ConnectionStrings__DefaultConnection}
       - MessageBus__Host=rabbitmq
       - Smtp__Host=smtp.gmail.com
       - Smtp__Port=587

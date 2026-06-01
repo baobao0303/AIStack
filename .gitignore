@@ -31,3 +31,6 @@ out/
 # Angular / Nx cache and workspace data
 .angular/
 .nx/
+
+# Scratch and temp files
+scratch/
