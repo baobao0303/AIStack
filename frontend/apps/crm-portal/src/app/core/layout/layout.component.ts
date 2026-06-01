@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CrmApiService } from '../services/crm-api.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-layout',
@@ -51,12 +52,22 @@ import { CrmApiService } from '../services/crm-api.service';
         </nav>
 
         <!-- User profile panel -->
-        <div class="crm-user-panel">
-          <div class="avatar">A</div>
-          <div class="user-info">
-            <span class="name">Admin Zịt</span>
-            <span class="role">Super Admin</span>
+        <div class="crm-user-panel" style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="display: flex; align-items: center; gap: 12px; width: 100%;">
+            <div class="avatar">A</div>
+            <div class="user-info" style="flex: 1;">
+              <span class="name">Admin Zịt</span>
+              <span class="role">Super Admin</span>
+            </div>
           </div>
+          <button 
+            (click)="onLogout()" 
+            class="btn btn-secondary btn-sm" 
+            style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; border-radius: var(--radius-md); padding: 8px; border: 1px solid var(--color-border); cursor: pointer;"
+          >
+            <span class="material-symbols-outlined" style="font-size: 16px;">logout</span>
+            <span>Đăng xuất</span>
+          </button>
         </div>
       </aside>
 
@@ -102,7 +113,15 @@ export class LayoutComponent {
   searchQuery = '';
   suggestions: string[] = [];
 
-  constructor(private router: Router, private apiService: CrmApiService) {}
+  constructor(
+    private router: Router, 
+    private apiService: CrmApiService,
+    private authService: AuthService
+  ) {}
+
+  onLogout() {
+    this.authService.logout();
+  }
 
   getPageTitle(): string {
     const url = this.router.url;
