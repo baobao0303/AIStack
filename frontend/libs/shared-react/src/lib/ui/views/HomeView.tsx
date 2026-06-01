@@ -79,7 +79,12 @@ export default function HomeView({
   const slides = [
     {
       image: "/bouquet_18_flowers.png",
-      title: "Sản Phẩm Từ Tâm - Đan Dệt Yêu Thương",
+      title: (
+        <>
+          Sản Phẩm Từ Tâm — <br className="hidden md:inline" />
+          <span className={styles.accentDisplay}>Đan Dệt Yêu Thương</span>
+        </>
+      ),
       description: "Khám phá bộ sưu tập len Merino cao cấp, được đan tay tỉ mỉ bởi những nghệ nhân tại Tiệm Nhà Zịt.",
       actionType: "catalog",
       primaryText: "Khám Phá Cửa Hàng",
@@ -88,7 +93,12 @@ export default function HomeView({
     },
     {
       image: "/vietnam_strap.png",
-      title: "Nghệ Thuật Đan Tay Truyền Thống",
+      title: (
+        <>
+          Nghệ Thuật <br className="hidden md:inline" />
+          <span className={styles.accentDisplay}>Đan Tay</span> Truyền Thống
+        </>
+      ),
       description: "Mỗi sản phẩm đều mang một câu chuyện riêng, được dệt nên từ tình yêu và sự tỉ mỉ qua từng mũi kim đan.",
       actionType: "catalog",
       primaryText: "Xem Bộ Sưu Tập",
@@ -97,7 +107,12 @@ export default function HomeView({
     },
     {
       image: "/mini_plush_keychain.png",
-      title: "Thiết Kế Độc Bản Cho Riêng Bạn",
+      title: (
+        <>
+          Thiết Kế Độc Bản <br className="hidden md:inline" />
+          <span className={styles.accentDisplay}>Cho Riêng Bạn</span>
+        </>
+      ),
       description: "Tùy chọn kích thước, màu sắc và kiểu dáng theo sở thích cá nhân. Chúng tôi đan dệt theo đúng số đo cơ thể của bạn.",
       actionType: "detail",
       primaryText: "Tự Thiết Kế Ngay",
@@ -534,7 +549,6 @@ export default function HomeView({
       <section className={`${styles.bestSellersSection} ${styles.revealOnScroll} reveal-on-scroll`}>
         <div className={styles.containerMax}>
           <div className={styles.bestSellersHeader}>
-            <span className={styles.bestSellersTagline}>Bộ Sưu Tập Đặc Biệt</span>
             <h2>Sản Phẩm Nổi Bật</h2>
             <p className={styles.bestSellersSub}>Các tác phẩm len cao cấp được đan tay tỉ mỉ bởi nghệ nhân Tiệm Nhà Zịt</p>
             <div className={styles.headerSeparator}>
@@ -560,11 +574,15 @@ export default function HomeView({
                       alt={prod.name}
                       className={styles.cardImageReal}
                     />
-                    <span className={styles.cardTag}>{prod.category}</span>
                   </div>
                   <div className={styles.cardInfo}>
+                    <div className={styles.cardChips}>
+                      <span className={`${styles.cardChip} ${prod.woolType.toLowerCase().includes('merino') ? styles.chipSage : styles.chipLavender}`}>
+                        {prod.woolType}
+                      </span>
+                      <span className={styles.cardCategoryChip}>{prod.category}</span>
+                    </div>
                     <h3>{prod.name}</h3>
-                    <p className={styles.cardMaterial}>{prod.woolType}</p>
                     {/* Product Description snippet */}
                     <p className="text-[11px] leading-relaxed text-charcoal/50 mt-2 mb-3.5 line-clamp-2 h-[34px] font-sans box-border select-none">
                       {prod.description}
@@ -602,7 +620,6 @@ export default function HomeView({
       <section className={`${styles.valuesSection} ${styles.revealOnScroll} reveal-on-scroll`}>
         <div className={styles.containerMax}>
           <div className={styles.brandValuesTitle}>
-            <span className={styles.valuesTagline}>Tiêu Chuẩn Xanh</span>
             <h2>Giá Trị Thủ Công</h2>
             <div className={styles.titleSeparator}>
               <div className={styles.line}></div>
@@ -647,13 +664,16 @@ export default function HomeView({
             <div className={styles.newsletterIconBox}>
               <span className="material-symbols-outlined">mail_outline</span>
             </div>
-            <span className={styles.newsletterTagline}>Bản Tin Độc Quyền</span>
             <h2>Tham Gia Cùng Chúng Tôi</h2>
             <p>Đăng ký nhận thông báo sớm nhất về các bộ sưu tập giới hạn và bí quyết bảo quản đồ len đan tay từ các nghệ nhân bậc thầy.</p>
             <form className={styles.newsletterForm} onSubmit={(e) => { e.preventDefault(); alert('Cảm ơn bạn đã đăng ký!'); }}>
               <input type="email" placeholder="Email của bạn..." required />
               <button type="submit" className={styles.btnNewsletterSubmit}>Đăng Ký Ngay</button>
             </form>
+            <div className={styles.newsletterPrivacy}>
+              <span className="material-symbols-outlined">shield</span>
+              <span>Chúng tôi bảo mật email của bạn và cam kết không gửi thư rác.</span>
+            </div>
           </div>
         </div>
       </section>

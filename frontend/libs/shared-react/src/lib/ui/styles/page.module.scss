@@ -10,6 +10,57 @@ $color-white: #FFFFFF;
 $color-lavender: #faf9f6;
 $color-border: #c2c8c0; // Outline variant
 
+// Lookbook Typography & Accent Display Styles
+.accentDisplay {
+  font-family: var(--font-playfair-display), serif;
+  font-style: italic;
+  font-weight: 800;
+  color: $color-sage;
+}
+
+// Premium Artisanal Tag Chips
+.cardChips {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  align-items: center;
+}
+
+.cardChip {
+  font-family: var(--font-be-vietnam-pro), sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.chipSage {
+  background-color: rgba($color-sage, 0.08);
+  color: $color-sage;
+  border: 1px solid rgba($color-sage, 0.18);
+}
+
+.chipLavender {
+  background-color: rgba(#8daa91, 0.1);
+  color: #4a654f;
+  border: 1px solid rgba(#8daa91, 0.25);
+}
+
+.cardCategoryChip {
+  font-family: var(--font-be-vietnam-pro), sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background-color: rgba($color-charcoal, 0.04);
+  color: rgba($color-charcoal, 0.6);
+  border: 1px solid rgba($color-charcoal, 0.08);
+}
+
 // Global Layout Structures
 .storefrontLayout {
   position: relative;
@@ -340,7 +391,7 @@ $color-border: #c2c8c0; // Outline variant
   text-transform: uppercase;
   letter-spacing: 0.08em;
   padding: 14px 36px;
-  border-radius: 99px;
+  border-radius: 12px;
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -514,7 +565,7 @@ $color-border: #c2c8c0; // Outline variant
   font-weight: 600;
   font-size: 14px;
   padding: 14px 28px;
-  border-radius: 99px;
+  border-radius: 12px;
   cursor: pointer;
   box-shadow: 0 4px 15px rgba($color-sage, 0.2);
   transition: all 0.3s ease;
@@ -532,7 +583,7 @@ $color-border: #c2c8c0; // Outline variant
   font-weight: 600;
   font-size: 14px;
   padding: 14px 28px;
-  border-radius: 99px;
+  border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
 
@@ -791,10 +842,10 @@ $color-border: #c2c8c0; // Outline variant
 
 .productCard {
   background-color: $color-white;
-  border: 1.5px solid rgba($color-beige, 0.15);
+  border: 1px solid rgba($color-sage, 0.12);
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 12px 32px rgba($color-charcoal, 0.025);
+  box-shadow: 0 16px 40px rgba($color-sage, 0.06), 0 4px 16px rgba($color-charcoal, 0.02);
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
@@ -884,7 +935,7 @@ $color-border: #c2c8c0; // Outline variant
   .cardCartButton {
     width: 44px;
     height: 44px;
-    border-radius: 50%;
+    border-radius: 12px;
     border: 1.5px solid rgba($color-sage, 0.25);
     background: transparent;
     color: $color-sage;
@@ -2543,7 +2594,7 @@ $color-border: #c2c8c0; // Outline variant
   text-transform: uppercase;
   letter-spacing: 0.08em;
   padding: 14px 32px;
-  border-radius: 99px;
+  border-radius: 12px;
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -2764,6 +2815,21 @@ $color-border: #c2c8c0; // Outline variant
     line-height: 1.7;
     z-index: 2;
   }
+
+  .newsletterPrivacy {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11.5px;
+    color: rgba($color-white, 0.65);
+    margin-top: 8px;
+    z-index: 2;
+
+    span {
+      font-size: 14px;
+      color: $color-gold;
+    }
+  }
 }
 
 .newsletterIconBox {
@@ -2817,7 +2883,7 @@ $color-border: #c2c8c0; // Outline variant
     background-color: rgba($color-white, 0.06);
     border: 1.5px solid rgba($color-white, 0.25);
     padding: 15px 24px;
-    border-radius: 99px;
+    border-radius: 12px;
     font-family: var(--font-be-vietnam-pro), sans-serif;
     font-size: 13.5px;
     outline: none;
@@ -2846,7 +2912,7 @@ $color-border: #c2c8c0; // Outline variant
     text-transform: uppercase;
     letter-spacing: 0.05em;
     padding: 15px 36px;
-    border-radius: 99px;
+    border-radius: 12px;
     cursor: pointer;
     box-shadow: 0 6px 20px rgba($color-gold, 0.2);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
