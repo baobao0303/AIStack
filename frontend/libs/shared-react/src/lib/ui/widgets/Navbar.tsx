@@ -142,11 +142,11 @@ export default function Navbar({
             />
 
             {isSearchOpen && (
-              <div className="absolute top-[calc(100%+12px)] right-0 w-[520px] max-w-[calc(100vw-32px)] box-border bg-white rounded-2xl shadow-[0_10px_40px_rgba(26,28,26,0.08)] border border-customBorder/80 p-5 z-[1000] font-sans">
-                <div className="mb-3.5 text-[13px] font-semibold text-sage tracking-wide">
+              <div className={styles.searchPromoPopup}>
+                <div className={styles.searchPromoHeader}>
                   🎁 Ưu đãi đan móc đặc biệt hôm nay
                 </div>
-                <div className="grid grid-cols-2 gap-3">
+                <div className={styles.searchPromoGrid}>
                   {woolPromotions.map((promo, idx) => (
                     <div
                       key={idx}
@@ -156,19 +156,19 @@ export default function Navbar({
                         setActiveView('catalog');
                         setIsSearchOpen(false);
                       }}
-                      className="flex gap-3 items-center p-3 rounded-xl bg-ivory border border-customBorder/30 cursor-pointer transition-all duration-200 hover:bg-sage/5 hover:border-sage hover:-translate-y-0.5"
+                      className={styles.searchPromoCard}
                     >
-                      <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center text-xl border border-customBorder/50 shrink-0">
+                      <div className={styles.searchPromoIconWrap}>
                         {promo.icon}
                       </div>
-                      <div className="flex flex-col min-w-0">
-                        <span className="text-[9px] text-gold font-bold uppercase tracking-wider">
+                      <div className={styles.searchPromoInfo}>
+                        <span className={styles.searchPromoTag}>
                           {promo.tag}
                         </span>
-                        <h4 className="mt-0.5 text-[11px] font-semibold text-charcoal truncate">
+                        <h4 className={styles.searchPromoTitle}>
                           {promo.title}
                         </h4>
-                        <p className="mt-px text-[9px] text-charcoal/60 truncate">
+                        <p className={styles.searchPromoDesc}>
                           {promo.desc}
                         </p>
                       </div>
