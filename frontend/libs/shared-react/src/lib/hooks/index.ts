@@ -6,3 +6,5 @@ export * from './useClickOutside';
 export * from './useScrollReveal';
 export * from './useViewNavigation';
 export * from './usePrefetchOnHover';
+export * from './useResponsiveColumns';
+

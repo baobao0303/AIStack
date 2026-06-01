@@ -3,7 +3,7 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import { Product } from '@tiem-nha-zit/shared';
-import { usePrefetchOnHover } from '../../hooks';
+import { usePrefetchOnHover, useResponsiveColumns } from '../../hooks';
 import styles from '../styles/page.module.scss';
 
 interface HomeViewProps {
@@ -21,6 +21,7 @@ export default function HomeView({
 }: HomeViewProps) {
   const router = useRouter();
   const { prefetchView } = usePrefetchOnHover();
+  const columns = useResponsiveColumns();
   const [currentSlide, setCurrentSlide] = React.useState(0);
 
   const artisanRegions = [
@@ -573,8 +574,8 @@ export default function HomeView({
             </div>
           </div>
 
-          <div className={styles.productsGrid}>
-            {PRODUCTS.slice(0, 3).map((prod, index) => {
+          <div className={styles.productsGrid} style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}>
+            {PRODUCTS.slice(0, columns).map((prod, index) => {
               const staggerClass = index === 0 ? styles.staggerDelay1 : index === 1 ? styles.staggerDelay2 : index === 2 ? styles.staggerDelay3 : '';
               return (
                 <div

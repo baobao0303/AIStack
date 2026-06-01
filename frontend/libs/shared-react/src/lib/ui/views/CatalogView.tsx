@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Product } from '@tiem-nha-zit/shared';
-import { useScrollReveal, usePrefetchOnHover } from '../../hooks';
+import { useScrollReveal, usePrefetchOnHover, useResponsiveColumns } from '../../hooks';
 import styles from '../styles/page.module.scss';
 
 interface CatalogViewProps {
@@ -37,6 +37,7 @@ export default function CatalogView({
   onClearFilters
 }: CatalogViewProps) {
   const [currentPage, setCurrentPage] = React.useState(1);
+  const columns = useResponsiveColumns();
   const ITEMS_PER_PAGE = 12;
   const { prefetchRoute } = usePrefetchOnHover();
 
@@ -184,7 +185,7 @@ export default function CatalogView({
           </div>
         ) : (
           <div className="flex flex-col gap-8 w-full">
-            <div className={styles.productsCatalogGrid}>
+            <div className={styles.productsCatalogGrid} style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}>
               {paginatedProducts.map((prod, index) => {
                 const staggerClass = index % 3 === 0 ? styles.staggerDelay1 : index % 3 === 1 ? styles.staggerDelay2 : styles.staggerDelay3;
                 return (
