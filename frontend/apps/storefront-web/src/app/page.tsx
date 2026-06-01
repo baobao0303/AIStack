@@ -12,6 +12,17 @@ export default function StorefrontIndex() {
 
   return (
     <StorefrontShell activeView="home">
+      {/* Preload second and third hero slider images for instant smooth transitions */}
+      <link 
+        rel="preload" 
+        href="/vietnam_strap.png" 
+        as="image" 
+      />
+      <link 
+        rel="preload" 
+        href="/mini_plush_keychain.png" 
+        as="image" 
+      />
       <HomeView
         setActiveView={navigate}
         setSelectedProduct={setSelectedProduct}

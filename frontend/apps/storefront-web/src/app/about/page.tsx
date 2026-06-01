@@ -8,12 +8,22 @@ export default function AboutRoute() {
 
   return (
     <StorefrontShell activeView="about">
-      {/* Preload the cinematic hero image for instant above-the-fold display */}
+      {/* Preload the cinematic hero and artisan cooperative images for instant loading */}
       <link 
         rel="preload" 
         href="/merino_scarf.png" 
         as="image" 
         fetchPriority="high" 
+      />
+      <link 
+        rel="preload" 
+        href="/vietnam_strap.png" 
+        as="image" 
+      />
+      <link 
+        rel="preload" 
+        href="/vietnam_flower_strap.png" 
+        as="image" 
       />
       <AboutView setActiveView={navigate} />
     </StorefrontShell>
